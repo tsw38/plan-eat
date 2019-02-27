@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
+import * as AppStyles from '../../styles/common/App';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <AppStyles.App className="App">
         <header className="App-header">
           <StyledP>
             Edit <code>src/App.js</code> and save to reload.
@@ -19,7 +20,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
-      </div>
+      </AppStyles.App>
     );
   }
 }
