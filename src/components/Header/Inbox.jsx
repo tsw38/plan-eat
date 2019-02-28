@@ -6,13 +6,9 @@ import CarbonSVG from '../../common/CarbonSVG/CarbonSVG';
 
 class Inbox extends React.Component {
   render() {
-    console.warn(process.env);
     return (
       <StyledInbox>
-        <CarbonSVG
-          type="carbon"
-          className="add-glyph"
-        />
+        <img src="/images/add.svg"></img>
       </StyledInbox>
     );
   }

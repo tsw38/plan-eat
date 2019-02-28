@@ -14,7 +14,7 @@ class CarbonSVG extends React.Component {
 
     return (
 		<ReactSVG
-			src={`icons/${className}.svg`}
+			src={`/images/${className}.svg`}
 			evalScripts="always"
 			fallback={() => <span>Error!</span>}
 			loading={() => <span>Loading</span>}
