@@ -1,0 +1,22 @@
+import {rgb} from 'polished';
+
+export const tickleMePink = rgb(253,121,168);
+export const cerise 	  = rgb(232,67,147);
+export const melrose 	  = rgb(162,155,254);
+export const royalBlue 	  = rgb(108,92,231);
+export const salmon 	  = rgb(255,118,117);
+export const velencia 	  = rgb(214,48,49);
+export const malibu 	  = rgb(116,185,255);
+export const azureRadiance= rgb(9,132,227);
+export const roseBud 	  = rgb(250,177,160);
+export const terracotta   = rgb(225,112,85);
+export const spray 		  = rgb(129,236,236);
+export const robinsEggBlue= rgb(0,206,201);
+export const visVis		  = rgb(255,234,167);
+export const goldenRod 	  = rgb(253,203,110);
+export const turquoiseBlue= rgb(85,239,196);
+export const persianGreen = rgb(0,184,148);
+export const geyser 	  = rgb(223,230,233);
+export const submarine 	  = rgb(178, 190, 195);
+export const nevada 	  = rgb(99,110,114);
+export const outerSpace   = rgb(45,52,54);
