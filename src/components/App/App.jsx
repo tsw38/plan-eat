@@ -6,6 +6,7 @@ import MealPrep from '../../views/MealPrep/MealPrep';
 import Recipes from '../../views/Recipes/Recipes';
 import Recipe from '../../views/Recipe/Recipe';
 import ShoppingCart from '../../views/ShoppingCart/ShoppingCart';
+import Inbox from '../../views/Inbox/Inbox';
 
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
@@ -30,6 +31,7 @@ class App extends React.Component {
               <Recipes path="/recipes"/>
               <Recipe path="/recipes/:recipe"/>
               <ShoppingCart path="/cart"/>
+              <Inbox path="/inbox" />
             </Page>
           </AppStyles.StyledRouter>
         </AppStyles.App>

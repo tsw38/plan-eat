@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import {geyser, outerSpace} from './colors';
 
-import {fontSize, spacingxs} from './sizing';
+import {fontSize, spacingsm} from './sizing';
 
 export const Reset = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -84,6 +84,6 @@ export const Fonts = createGlobalStyle`
     color: ${outerSpace};
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: ${spacingxs};
+    margin-bottom: ${spacingsm};
   }
 `;

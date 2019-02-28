@@ -3,12 +3,13 @@ import {elevate} from '../mixins/index';
 
 import {spacing2xs, spacingxs, spacingmd, layoutmd, layoutxs} from '../sizing';
 
-import {white, geyser, nevada, azureRadiance, malibu} from '../colors';
+import {white, nevada, azureRadiance, malibu} from '../colors';
 
+import {border} from '../variables';
 
 export const Sidebar = styled.aside`
     grid-area: sidebar;
-    border-right:1px solid ${geyser};
+    border-right:${border};
     padding-top: ${layoutmd};
     background-color: ${white};
     width: 100%;
@@ -19,7 +20,7 @@ export const LinkWrapper = styled.ul`
     padding-left: ${layoutxs};
     padding-top: ${layoutxs};
     &:first-of-type {
-        border-top: 1px solid ${geyser};
+        border-top: ${border};
     }
 `;
 

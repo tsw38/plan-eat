@@ -1,13 +1,18 @@
 import React from "react";
 
-import * as HeaderStyles from "../../styles/components/Header";
+import Search from './Search';
+import Inbox from './Inbox';
+import Profile from './Profile';
 
+import {Header as StyledHeader} from "../../styles/components/Header/Header";
 class Header extends React.Component {
   render() {
     return (
-      <HeaderStyles.Header>
-
-      </HeaderStyles.Header>
+      <StyledHeader>
+        <Search />
+        <Inbox />
+        <Profile />
+      </StyledHeader>
     );
   }
 }
