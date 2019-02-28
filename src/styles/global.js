@@ -1,4 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+
+import {geyser} from './colors';
+
 import * as variables from './variables';
 
 export const Reset = createGlobalStyle`
@@ -36,6 +39,7 @@ export const Reset = createGlobalStyle`
   body {
   	line-height: 1;
     overflow: hidden;
+    background-color: ${geyser};
   }
 
   ol, ul {

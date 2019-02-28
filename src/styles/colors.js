@@ -16,6 +16,7 @@ export const visVis		  = rgb(255,234,167);
 export const goldenRod 	  = rgb(253,203,110);
 export const turquoiseBlue= rgb(85,239,196);
 export const persianGreen = rgb(0,184,148);
+export const white 		  = rgb(255,255,255);
 export const geyser 	  = rgb(223,230,233);
 export const submarine 	  = rgb(178, 190, 195);
 export const nevada 	  = rgb(99,110,114);
