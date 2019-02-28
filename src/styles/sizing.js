@@ -1,3 +1,5 @@
+export const fontSize = '16px'; //1rem
+
 export const spacing3xs = '0.125rem'; // 2px
 export const spacing2xs = '0.25rem';  // 4px
 export const spacingxs  = '0.5rem';   // 8px

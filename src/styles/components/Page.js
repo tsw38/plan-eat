@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
+import {layoutxs} from '../sizing';
+
 export const Page = styled.div`
-	background-color: purple;
-	overflow-y: auto;
+	height: calc(100vh - 3rem);
+	overflow-y: scroll;
+	padding: ${layoutxs};
 `;

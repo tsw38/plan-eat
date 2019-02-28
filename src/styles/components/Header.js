@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import {elevate} from '../mixins/index';
 import {white, geyser} from '../colors';
 
-import {layoutmd} from '../spacing';
+import {layoutmd} from '../sizing';
 
 export const Header = styled.header`
 	grid-area: header;
@@ -10,4 +11,5 @@ export const Header = styled.header`
     height: 100%;
     max-height: ${layoutmd};
     width: 100vw;
+    ${elevate('Raised')}
 `;

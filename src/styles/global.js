@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 import {geyser, outerSpace} from './colors';
 
-import * as variables from './variables';
+import {fontSize, spacingxs} from './sizing';
 
 export const Reset = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -73,7 +73,7 @@ export const Fonts = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Domine:400,700|Roboto:300,400,700');
   ${'' /* font-family: 'Roboto', sans-serif; font-family: 'Domine', serif; */}
   html {
-    font-size: ${variables.fontSize};
+    font-size: ${fontSize};
   }
 
   body {
@@ -84,5 +84,6 @@ export const Fonts = createGlobalStyle`
     color: ${outerSpace};
     font-weight: 700;
     text-transform: uppercase;
+    margin-bottom: ${spacingxs};
   }
 `;
