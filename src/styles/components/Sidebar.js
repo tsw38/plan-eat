@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import {elevate} from '../mixins/index';
 
-import {spacingmd, layoutmd} from '../spacing';
+import {spacing2xs, spacingmd, layoutmd, layout2xs} from '../spacing';
 
-import {white, geyser, nevada, outerSpace} from '../colors';
+import {white, geyser, nevada, azureRadiance, malibu} from '../colors';
 
 
 export const Sidebar = styled.aside`
@@ -16,6 +16,8 @@ export const Sidebar = styled.aside`
 `;
 
 export const LinkWrapper = styled.ul`
+    padding-left: ${layout2xs};
+    padding-top: ${layoutmd};
     &:first-of-type {
         border-top: 1px solid ${geyser};
     }
@@ -26,10 +28,20 @@ export const StyledLink = styled.li`
         cursor:pointer;
         display: block;
         padding: ${spacingmd};
-        color: ${outerSpace};
+        color: ${nevada};
+        text-decoration: none;
 
         &:hover {
-            color: ${nevada}
+            color: ${azureRadiance}
+        }
+
+        &--active {
+            color: ${azureRadiance};
+            border-right: ${spacing2xs} solid ${azureRadiance};
+
+            &:hover {
+                color: ${malibu};
+            }
         }
     }
 `;

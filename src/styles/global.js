@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import {geyser} from './colors';
+import {geyser, outerSpace} from './colors';
 
 import * as variables from './variables';
 
@@ -28,6 +28,8 @@ export const Reset = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   /* HTML5 display-role reset for older browsers */
@@ -76,5 +78,11 @@ export const Fonts = createGlobalStyle`
 
   body {
     font-family: 'Roboto', sans-serif;
+  }
+
+  h2 {
+    color: ${outerSpace};
+    font-weight: 700;
+    text-transform: uppercase;
   }
 `;

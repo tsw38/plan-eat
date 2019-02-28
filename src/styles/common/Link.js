@@ -7,8 +7,6 @@ import {azureRadiance, malibu} from '../colors';
 
 export const Link = styled(ReachLink)`
 	font-size: 0.875rem;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	font-weight: 600;
 	text-decoration: underline;
 	color: ${azureRadiance};

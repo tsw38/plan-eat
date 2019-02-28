@@ -14,11 +14,19 @@ class CustomLink extends React.Component {
 
     return (
 		<LinkStyles.Link
-			className={classNames(
-				'Link',
-				className
-			)}
-			to={to}>
+			target={isExternal ? '_blank' : '_self'}
+			to={to}
+			getProps={({ isCurrent }) => {
+				// the object returned here is passed to the
+				// anchor element's props
+				return {
+					className: classNames(
+						'Link',
+						className,
+						{'Link--active': isCurrent},
+					)
+				}
+			}}>
 			{children}
 		</LinkStyles.Link>
     );
