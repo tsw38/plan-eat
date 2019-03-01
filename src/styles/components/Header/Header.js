@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import {elevate} from '../../mixins/index';
-import {white, geyser} from '../../colors';
+import {white, azureRadiance, malibu} from '../../colors';
 
-import {layoutmd} from '../../sizing';
+import {layoutmd, spacingsm} from 'styles/sizing';
 
-import {border} from '../../variables';
+import {border} from 'styles/variables';
+
+import {geyser,	submarine,	nevada,	outerSpace} from 'styles/colors';
 
 export const Header = styled.header`
     border-bottom: ${border};
@@ -17,8 +19,29 @@ export const Header = styled.header`
     grid-template-areas: 'search inbox profile';
     grid-template-columns: 1fr ${layoutmd} ${layoutmd};
     ${elevate('Raised')}
+
+    .Link--active svg {
+        fill: ${azureRadiance};
+
+        &:hover {
+            fill: ${malibu};
+        }
+    }
 `;
 
 export const HeaderBox = styled.div`
     border-left: ${border};
+
+    a {
+        display: block;
+    }
+
+    .Icon {
+		fill: ${geyser};
+		padding: ${spacingsm};
+
+        &:hover {
+            fill: ${submarine};
+        }
+	}
 `;

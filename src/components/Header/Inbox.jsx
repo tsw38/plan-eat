@@ -1,14 +1,20 @@
 import React from "react";
 
-import {Inbox as StyledInbox} from "../../styles/components/Header/Inbox";
+import {Inbox as StyledInbox} from "styles/components/Header/Inbox";
 
-import CarbonSVG from '../../common/CarbonSVG/CarbonSVG';
+import Icon from 'common/Icon/Icon';
+import Link from 'common/Link/Link';
 
 class Inbox extends React.Component {
   render() {
     return (
       <StyledInbox>
-        <img src="/images/add.svg"></img>
+        <Link
+          to={'/inbox'}>
+            <Icon
+              name="mail-empty"
+            />
+        </Link>
       </StyledInbox>
     );
   }

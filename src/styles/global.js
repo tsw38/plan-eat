@@ -28,6 +28,10 @@ export const Reset = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    line-height: 1;
+    outline:none;
+    outline-color: none;
+    outline-style: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -36,6 +40,12 @@ export const Reset = createGlobalStyle`
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
   	display: block;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   body {
@@ -85,5 +95,12 @@ export const Fonts = createGlobalStyle`
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: ${spacingsm};
+  }
+`;
+
+export const SVG = createGlobalStyle`
+  svg {
+    height: 100%;
+    width: 100%;
   }
 `;

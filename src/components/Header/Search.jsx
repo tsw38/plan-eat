@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Search as StyledSearch} from "../../styles/components/Header/Search";
+import {Search as StyledSearch} from "styles/components/Header/Search";
 
 class Search extends React.Component {
   render() {

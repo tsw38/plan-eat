@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Router } from "@reach/router";
 
-import {layoutmd, layout3xl} from '../sizing';
+import {layoutmd, layout3xl} from 'styles/sizing';
 
 export const App = styled.div`
     display: grid;

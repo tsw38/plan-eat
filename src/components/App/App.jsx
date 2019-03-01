@@ -1,19 +1,19 @@
 import React from "react";
 
-import Page from '../Page/Page';
-import Overview from '../../views/Overview/Overview';
-import MealPrep from '../../views/MealPrep/MealPrep';
-import Recipes from '../../views/Recipes/Recipes';
-import Recipe from '../../views/Recipe/Recipe';
-import ShoppingCart from '../../views/ShoppingCart/ShoppingCart';
-import Inbox from '../../views/Inbox/Inbox';
+import Page from 'components/Page/Page';
+import Header from "components/Header/Header";
+import Sidebar from "components/Sidebar/Sidebar";
 
-import Header from "../Header/Header";
-import Sidebar from "../Sidebar/Sidebar";
+import Inbox from 'views/Inbox/Inbox';
+import Recipe from 'views/Recipe/Recipe';
+import NotFound from 'views/404/404.jsx';
+import Recipes from 'views/Recipes/Recipes';
+import Overview from 'views/Overview/Overview';
+import MealPrep from 'views/MealPrep/MealPrep';
+import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
-import * as GlobalStyles from '../../styles/global';
-
-import * as AppStyles from "../../styles/components/App";
+import * as GlobalStyles from 'styles/global';
+import * as AppStyles from "styles/components/App";
 
 class App extends React.Component {
   render() {
@@ -21,6 +21,7 @@ class App extends React.Component {
       <React.Fragment>
         <GlobalStyles.Reset />
         <GlobalStyles.Fonts />
+        <GlobalStyles.SVG />
         <AppStyles.App className="App">
           <Header />
           <Sidebar />
@@ -32,6 +33,7 @@ class App extends React.Component {
               <Recipe path="/recipes/:recipe"/>
               <ShoppingCart path="/cart"/>
               <Inbox path="/inbox" />
+              <NotFound default />
             </Page>
           </AppStyles.StyledRouter>
         </AppStyles.App>

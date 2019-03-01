@@ -1,7 +1,8 @@
 import React from "react";
-import Link from "../../common/Link/Link";
 
-import {Sidebar as StyledSidebar, LinkWrapper, StyledLink} from "../../styles/components/Sidebar";
+import Link from "common/Link/Link";
+
+import {Sidebar as StyledSidebar, LinkWrapper, StyledLink} from "styles/components/Sidebar";
 
 class Sidebar extends React.Component {
   render() {

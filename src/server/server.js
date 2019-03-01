@@ -7,15 +7,12 @@ import morgan from 'morgan';
 import chalk from 'chalk';
 import dotenv from 'dotenv';
 import compression from 'compression';
-import favicon from 'serve-favicon';
 
 import createHtml from 'utils/createHtml';
 
 dotenv.config();
 
 var app = express();
-
-console.warn(path.join(process.env.PWD, 'icons'));
 
 app
 	.use(bodyParser.json())
@@ -31,9 +28,9 @@ app
 		res.header('Access-Control-Allow-Headers', 'Content-Type');
 		next();
 	})
-	// .use(favicon(path.join('','imgs/favicon.ico')))
+	.use('*/favicon', express.static(path.join(process.env.PWD, 'favicon')))
 	.use('*/css', express.static(`./dist/${process.env.VERSION_NUMBER}/client`))
-	.use('*/images', express.static(path.join(process.env.PWD, 'images')))
+	.use('*/icons', express.static(path.join(process.env.PWD, 'icons')))
 	.use('*/js', express.static(`./dist/${process.env.VERSION_NUMBER}/client`))
 	.use(createHtml);
 
