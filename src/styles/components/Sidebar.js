@@ -1,16 +1,19 @@
 import styled from 'styled-components';
-import {elevate} from '../mixins/index';
+import {elevate} from 'styles/mixins/index';
 
-import {spacing2xs, spacingxs, spacingmd, layoutmd, layoutxs} from '../sizing';
+import {spacing2xs, spacingxs, spacingmd, spacinglg, layoutxs} from 'styles/sizing';
 
-import {white, nevada, azureRadiance, malibu} from '../colors';
+import {white, nevada, azureRadiance, malibu} from 'styles/colors';
 
-import {border} from '../variables';
+import {border} from 'styles/variables';
+
+import Link from 'common/Link/Link';
+
+
 
 export const Sidebar = styled.aside`
     grid-area: sidebar;
     border-right:${border};
-    padding-top: ${layoutmd};
     background-color: ${white};
     width: 100%;
     ${elevate('Raised')}
@@ -22,6 +25,16 @@ export const LinkWrapper = styled.ul`
     &:first-of-type {
         border-top: ${border};
     }
+`;
+
+export const SiteName = styled(Link)`
+    font-size: ${spacinglg};
+    font-family: 'Domine';
+    font-weight: 700;
+    display: block;
+    line-height: 3rem;
+    width: 100%;
+    text-align: center;
 `;
 
 export const StyledLink = styled.li`

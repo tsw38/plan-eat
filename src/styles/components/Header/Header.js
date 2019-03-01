@@ -6,7 +6,7 @@ import {layoutmd, spacingsm} from 'styles/sizing';
 
 import {border} from 'styles/variables';
 
-import {geyser,	submarine,	nevada,	outerSpace} from 'styles/colors';
+import {geyser,	submarine} from 'styles/colors';
 
 export const Header = styled.header`
     border-bottom: ${border};

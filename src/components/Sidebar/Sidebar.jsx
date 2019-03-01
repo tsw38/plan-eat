@@ -2,12 +2,14 @@ import React from "react";
 
 import Link from "common/Link/Link";
 
-import {Sidebar as StyledSidebar, LinkWrapper, StyledLink} from "styles/components/Sidebar";
+import {Sidebar as StyledSidebar, LinkWrapper, StyledLink, SiteName} from "styles/components/Sidebar";
 
 class Sidebar extends React.Component {
   render() {
     return (
       <StyledSidebar>
+        <SiteName to="/">Plan.Eat</SiteName>
+
         <LinkWrapper>
           <h2 className="Sidebar--header">Dashboard</h2>
           <StyledLink>
