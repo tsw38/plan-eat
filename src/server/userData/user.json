@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "5c792725110b0edc4cbd432e",
+    "index": 0,
+    "guid": "a53071d6-d647-45a9-a7cd-959b63d24d2b",
+    "isActive": true,
+    "balance": "$1,869.86",
+    "picture": "http://placehold.it/32x32",
+    "age": 20,
+    "eyeColor": "green",
+    "name": "Tyson Woodward",
+    "gender": "male",
+    "company": "KEEG",
+    "email": "tysonwoodward@keeg.com",
+    "phone": "+1 (924) 488-2706",
+    "address": "392 Commerce Street, Condon, Maryland, 6431",
+    "about": "Laborum cillum ex id amet qui aute mollit cillum sunt commodo proident. Consectetur consectetur voluptate aliquip ipsum ad aute voluptate nostrud eiusmod consectetur anim. Commodo quis laborum labore consequat quis nisi mollit labore duis anim elit do irure adipisicing. Cupidatat et minim ad enim nostrud ut nostrud id commodo irure et deserunt. Nisi officia labore deserunt qui quis elit id cupidatat et.\r\n",
+    "registered": "2014-03-03T05:48:25 +06:00",
+    "latitude": -79.021282,
+    "longitude": -33.167063,
+    "tags": [
+      "voluptate",
+      "Lorem",
+      "deserunt",
+      "ex",
+      "nostrud",
+      "velit",
+      "nulla"
+    ],
+    "friends": [
+      {
+        "id": 0,
+        "name": "Mona Williamson"
+      },
+      {
+        "id": 1,
+        "name": "Esmeralda Thornton"
+      },
+      {
+        "id": 2,
+        "name": "Garza Boyd"
+      }
+    ],
+    "greeting": "Hello, Tyson Woodward! You have 3 unread messages.",
+    "favoriteFruit": "banana"
+  }
+]

@@ -34,7 +34,7 @@ app
 	.use('*/js', express.static(`./dist/${process.env.VERSION_NUMBER}/client`))
 	.use(createHtml);
 
-app.listen(process.env.HTTP_PORT, '0.0.0.0', () => {
+app.listen(80, '0.0.0.0', () => {
 	console.log(chalk.magenta(`VERSION NUMBER: ${process.env.VERSION_NUMBER}`))
 	console.log(chalk.green(`live on ${process.env.HTTP_PORT} | PID:${process.pid}`));
 });

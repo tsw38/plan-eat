@@ -1,4 +1,5 @@
 import React from "react";
+import  {Helmet} from "react-helmet";
 
 import Page from 'components/Page/Page';
 import Header from "components/Header/Header";
@@ -23,6 +24,22 @@ class App extends React.Component {
         <GlobalStyles.Fonts />
         <GlobalStyles.SVG />
         <AppStyles.App className="App">
+          <Helmet
+            htmlAttributes={{lang:"en"}}
+            titleTemplate="Plan-Eat | %s"
+            defaultTitle="Plan-Eat"
+            titleAttributes={{itemprop: "name", lang: "en"}}
+            link={[
+              {rel:"canonical", href: `https://plan-eat.kitchen/`}
+            ]}
+            meta={[
+              {name: "description", content: ""},
+              {name: "keywords", content: ""},
+              {property: "og:site_name", content: ''},
+              {property: "og:type", content: 'website'},
+              {property: "og:url", content: 'https://plan-eat.kitchen'},
+              {name: "viewport", content: "width=device-width, initial-scale=1,minimum-scale=1"}
+            ]} />
           <Header />
           <Sidebar />
           <AppStyles.StyledRouter>
