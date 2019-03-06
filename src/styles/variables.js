@@ -1,6 +1,6 @@
-import {geyser} from './colors';
+import {ballerina} from './colors';
 
-export const border = `1px solid ${geyser}`;
+export const border = `1px solid ${ballerina}`;
 
 export const fontLight  = '300';
 export const fontNormal = '400';

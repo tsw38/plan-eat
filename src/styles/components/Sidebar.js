@@ -3,7 +3,7 @@ import {elevate} from 'styles/mixins/index';
 
 import {spacing2xs, spacingxs, spacingmd, spacinglg, layoutxs} from 'styles/sizing';
 
-import {white, nevada, azureRadiance, malibu} from 'styles/colors';
+import {white, fuelTown, blueFrance, joustBlue} from 'styles/colors';
 
 import {border} from 'styles/variables';
 
@@ -49,19 +49,19 @@ export const StyledLink = styled.li`
         cursor:pointer;
         display: block;
         padding: ${spacingxs} ${spacingmd};
-        color: ${nevada};
+        color: ${fuelTown};
         text-decoration: none;
 
         &:hover {
-            color: ${azureRadiance}
+            color: ${blueFrance}
         }
 
         &--active {
-            color: ${azureRadiance};
-            border-right: ${spacing2xs} solid ${azureRadiance};
+            color: ${blueFrance};
+            border-right: ${spacing2xs} solid ${blueFrance};
 
             &:hover {
-                color: ${malibu};
+                color: ${joustBlue};
             }
         }
     }

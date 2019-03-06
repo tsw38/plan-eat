@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import {azureRadiance, malibu, nevada, outerSpace} from '../colors';
+import {blueFrance, joustBlue, fuelTown, imperialPrimer} from '../colors';
 
 import {transition} from '../mixins/index';
 
@@ -15,18 +15,18 @@ export default createGlobalStyle`
     .Link {
         font-weight: 600;
         text-decoration: underline;
-        color: ${azureRadiance};
+        color: ${blueFrance};
         ${transition()}
 
         &:hover {
-            color: ${malibu};
+            color: ${joustBlue};
         }
 
         &--Secondary {
-            color: ${outerSpace};
+            color: ${imperialPrimer};
 
             &:hover {
-                color: ${nevada};
+                color: ${fuelTown};
             }
         }
 

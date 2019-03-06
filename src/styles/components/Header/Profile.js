@@ -12,7 +12,7 @@ import {
     layoutmd,
     layout6xl
 } from 'styles/sizing';
-import { outerSpace, submarine, white } from '../../colors';
+import { imperialPrimer, stormPetrel, white } from '../../colors';
 
 
 export const Profile = styled(HeaderBox)`
@@ -31,6 +31,7 @@ export const AccountDropDown = styled.div`
 
     background-color: white;
     ${transition('Panel', 'ease-in')}
+    ${elevate('StickyNav')}
 
     ${Profile}:hover &, &:hover {
         max-height:500px;
@@ -70,7 +71,7 @@ export const AccountDropDown = styled.div`
             text-align: left;
 
             &:hover {
-                background-color: ${submarine};
+                background-color: ${stormPetrel};
 
                 svg {
                     fill: ${white};
@@ -102,7 +103,7 @@ export const Image = styled.div`
     max-height: ${layoutmd};
     overflow: hidden;
 
-    background-color: ${outerSpace};
+    background-color: ${imperialPrimer};
 
     border-radius: 50%;
     margin-right: ${spacingxs};

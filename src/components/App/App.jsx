@@ -11,6 +11,7 @@ import NotFound from 'views/404/404.jsx';
 import Recipes from 'views/Recipes/Recipes';
 import Overview from 'views/Overview/Overview';
 import MealPrep from 'views/MealPrep/MealPrep';
+import StyleGuide from 'views/StyleGuide/StyleGuide';
 import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
 import LinkStyles from 'styles/common/Link';
@@ -54,6 +55,7 @@ class App extends React.Component {
               <Recipe path="/recipes/:recipe"/>
               <ShoppingCart path="/cart"/>
               <Inbox path="/inbox" />
+              <StyleGuide path="/style-guide" />
               <NotFound default />
             </Page>
           </AppStyles.StyledRouter>

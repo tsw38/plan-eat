@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import {geyser, outerSpace} from './colors';
+import {ballerina, imperialPrimer} from './colors';
 
 import {
     fontSize,
@@ -56,7 +56,7 @@ export const Reset = createGlobalStyle`
   body {
   	line-height: 1;
     overflow: hidden;
-    background-color: ${geyser};
+    background-color: ${ballerina};
   }
 
   ol, ul {
@@ -97,7 +97,7 @@ export const Fonts = createGlobalStyle`
 
     body {
         font-family: 'Roboto', sans-serif;
-        color: ${outerSpace};
+        color: ${imperialPrimer};
         font-size: ${spacingmd};
     }
 

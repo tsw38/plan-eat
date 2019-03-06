@@ -1,20 +1,23 @@
 
-import { createGlobalStyle } from 'styled-components';
-import {transition} from '../mixins/index';
-import {darken} from 'polished';
+import styled, { createGlobalStyle } from 'styled-components';
+import {transition, colorButtons} from '../mixins/index';
+import {darken, lighten} from 'polished';
 
 import {
-    azureRadiance,
-    malibu,
-    nevada,
+    blueFrance,
     white,
-    outerSpace,
-    velencia
+    imperialPrimer,
+    amour,
+    stormPetrel
 } from 'styles/colors';
 
-import { spacingsm, spacing2xl, spacingmd } from 'styles/sizing';
+import { spacing3xs, spacingsm, spacing2xs, spacingmd, spacingxs, spacinglg } from 'styles/sizing';
 
 import { fontBold } from 'styles/variables';
+
+export const StyledButton = styled.button`
+
+`;
 
 export default createGlobalStyle`
     .Button {
@@ -26,13 +29,14 @@ export default createGlobalStyle`
         flex-shrink: 0;
         font-size: ${spacingsm};
         font-weight: ${fontBold};
-        height: ${spacing2xl};
-        padding: 0 ${spacingmd};
+        padding: ${spacingxs} ${spacingmd};
         border-radius: 0;
         text-align: center;
         text-decoration: none;
         white-space: nowrap;
         line-height: ${spacingmd};
+        border-width: ${spacing3xs};
+        border-style: solid;
         ${transition()}
 
 
@@ -40,77 +44,109 @@ export default createGlobalStyle`
             position: relative;
         }
 
-        &--Primary {
-            color: ${white};
-            background-color: ${azureRadiance};
-            border: 2px solid ${azureRadiance};
-
-            &:hover {
-                background-color: ${darken(0.1, azureRadiance)};
-                border-color: ${darken(0.1, azureRadiance)};
-            }
-
-            &--Small {}
-            &--Disabled {}
+        &--Small {
+            padding: ${spacing2xs} ${spacingxs};
         }
 
-        &--Primary--Danger {
-            color: ${white};
-            background-color: ${velencia};
-            border: 2px solid ${velencia};
+        &--Disabled {
+            pointer-events: none;
+            user-select: none;
+            cursor: not-allowed;
 
-            &:hover {
-                background-color: ${darken(0.1, velencia)};
-                border-color: ${darken(0.1, velencia)};
+            &.Button--Primary {
+                ${colorButtons(lighten(0.20, blueFrance))}
             }
 
-            &--Small {}
+            &.Button--Secondary {
+                ${colorButtons(lighten(0.20, blueFrance), true)}
+            }
+
+            &.Button--Tertiary {
+                ${colorButtons(stormPetrel, true)}
+
+                &--Full {
+                    ${colorButtons(stormPetrel)}
+                }
+            }
+            &.Button--Primary--Danger {
+                ${colorButtons(lighten(0.20, amour))}
+            }
+
+            &.Button--Secondary--Danger {
+                ${colorButtons(lighten(0.20, amour), true)}
+            }
+        }
+
+        &--Primary {
+            ${colorButtons(blueFrance)};
+            .Icon { fill: ${blueFrance}; }
+
+            &:hover {
+                ${colorButtons(darken(0.20, blueFrance))}
+            }
         }
 
         &--Secondary {
-            color: ${azureRadiance};
-            background-color: transparent;
-            border: 2px solid ${azureRadiance};
+            ${colorButtons(blueFrance, true)};
+            .Icon { fill: ${blueFrance}; }
 
             &:hover {
-                background-color: ${azureRadiance};
-                color: ${white};
+                ${colorButtons(blueFrance)}
             }
-
-            &--Small {}
-            &--Disabled {}
-        }
-
-        &--Secondary--Danger {
-            color: ${velencia};
-            background-color: transparent;
-            border: 2px solid ${velencia};
-
-            &:hover {
-                background-color: ${velencia};
-                color: ${white};
-            }
-
-            &--Small {}
         }
 
         &--Tertiary {
-            color: ${outerSpace};
-            background-color: transparent;
-            border: 2px solid ${outerSpace};
+            ${colorButtons(imperialPrimer, true)}
+            .Icon { fill: ${imperialPrimer}; }
 
             &:hover {
-                background-color: ${outerSpace};
-                color: ${white};
+                ${colorButtons(imperialPrimer)}
             }
 
-            &--Small {}
-            &--Disabled {}
+            &--Full {
+                ${colorButtons(imperialPrimer)}
+
+                &:hover {
+                    ${colorButtons(imperialPrimer, true)}
+                }
+            }
+
+            .Button--Disabled & {}
+        }
+
+        &--Primary--Danger {
+            ${colorButtons(amour)}
+            .Icon { fill: ${amour}; }
+
+            &:hover {
+                ${colorButtons(darken(0.2, amour, true))}
+            }
+        }
+
+
+        &--Secondary--Danger {
+            ${colorButtons(amour, true)}
+            .Icon { fill: ${amour}; }
+
+            &:hover {
+                ${colorButtons(amour)}
+            }
         }
 
         &--Ghost {
-            &--Small {}
-            &--Disabled {}
+            .Button--Disabled & {}
+        }
+
+        &.Tag {
+            padding: 0 0 0 ${spacingmd};
+
+            svg {
+                height: ${spacinglg};
+                width: ${spacinglg};
+                padding: ${spacing2xs};
+                background-color: white;
+                margin-left: ${spacingxs};
+            }
         }
     }
 `;

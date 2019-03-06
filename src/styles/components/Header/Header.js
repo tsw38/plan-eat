@@ -1,12 +1,9 @@
 import styled from 'styled-components';
-import {elevate} from '../../mixins/index';
-import {white, azureRadiance, malibu} from '../../colors';
 
+import {elevate} from 'styles/mixins/index';
+import {white, blueFrance, joustBlue, ballerina,	stormPetrel} from 'styles/colors';
 import {layoutmd, spacingsm} from 'styles/sizing';
-
 import {border} from 'styles/variables';
-
-import {geyser,	submarine} from 'styles/colors';
 
 export const Header = styled.header`
     border-bottom: ${border};
@@ -21,10 +18,10 @@ export const Header = styled.header`
     ${elevate('Raised')}
 
     .Link--active svg {
-        fill: ${azureRadiance};
+        fill: ${blueFrance};
 
         &:hover {
-            fill: ${malibu};
+            fill: ${joustBlue};
         }
     }
 `;
@@ -37,11 +34,11 @@ export const HeaderBox = styled.div`
     }
 
     .Icon {
-		fill: ${geyser};
+		fill: ${ballerina};
 		padding: ${spacingsm};
 
         &:hover {
-            fill: ${submarine};
+            fill: ${stormPetrel};
         }
 	}
 `;
