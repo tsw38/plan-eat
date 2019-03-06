@@ -2,6 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import Button from "common/Button/Button";
+import Row from 'common/Row/Row';
 
 import * as colors from 'styles/colors';
 import {Section} from 'styles/components/section';
@@ -45,168 +46,206 @@ class StyleGuide extends React.Component {
 
                 <Section>
                     <h1>Buttons</h1>
-                    <Button className="Button--Primary">
-                        .Button--Primary
-                    </Button>
 
-                    <Button className="Button--Disabled Button--Primary">
-                        .Button--Disabled.Button--Primary
-                    </Button>
+                    <Row>
+                        <h2>Primary</h2>
+                        <Button className="Button--Primary">
+                            .Button--Primary
+                        </Button>
+                        <Button className="Button--Disabled Button--Primary">
+                            .Button--Disabled.Button--Primary
+                        </Button>
+                    </Row>
 
-                    <Button className="Button--Secondary">
-                        .Button--Secondary
-                    </Button>
+                    <Row>
+                        <h2>Secondary</h2>
 
-                    <Button className="Button--Disabled Button--Secondary">
-                        .Button--Disabled.Button--Secondary
-                    </Button>
+                        <Button className="Button--Secondary">
+                            .Button--Secondary
+                        </Button>
 
-                    <Button className="Button--Tertiary--Full">
-                        .Button--Tertiary--Full
-                    </Button>
+                        <Button className="Button--Disabled Button--Secondary">
+                            .Button--Disabled.Button--Secondary
+                        </Button>
+                    </Row>
 
-                    <Button className="Button--Tertiary">
-                        .Button--Tertiary
-                    </Button>
+                    <Row>
+                        <h2>Tertiary</h2>
+                        <Button className="Button--Tertiary--Full">
+                            .Button--Tertiary--Full
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Tertiary--Full">
-                        .Button--Disabled.Button--Tertiary--Full
-                    </Button>
+                        <Button className="Button--Tertiary">
+                            .Button--Tertiary
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Tertiary">
-                        .Button--Disabled.Button--Tertiary--Full
-                    </Button>
+                        <Button className="Button--Disabled Button--Tertiary--Full">
+                            .Button--Disabled.Button--Tertiary--Full
+                        </Button>
 
-                    <Button className="Button--Primary--Danger">
-                        .Button--Primary--Danger
-                    </Button>
+                        <Button className="Button--Disabled Button--Tertiary">
+                            .Button--Disabled.Button--Tertiary--Full
+                        </Button>
+                    </Row>
 
-                    <Button className="Button--Secondary--Danger">
-                        .Button--Secondary--Danger
-                    </Button>
+                    <Row>
+                        <h2>Danger</h2>
 
-                    <Button className="Button--Disabled Button--Primary--Danger">
-                        .Button--Disabled.Button--Primary--Danger
-                    </Button>
+                        <Button className="Button--Primary--Danger">
+                            .Button--Primary--Danger
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Secondary--Danger">
-                        .Button--Disabled.Button--Secondary--Danger
-                    </Button>
+                        <Button className="Button--Secondary--Danger">
+                            .Button--Secondary--Danger
+                        </Button>
+
+                        <Button className="Button--Disabled Button--Primary--Danger">
+                            .Button--Disabled.Button--Primary--Danger
+                        </Button>
+
+                        <Button className="Button--Disabled Button--Secondary--Danger">
+                            .Button--Disabled.Button--Secondary--Danger
+                        </Button>
+                    </Row>
+
+
+
                 </Section>
 
                 <Section>
                     <h1>Small Buttons</h1>
-                    <Button className="Button--Primary Button--Small">
-                        .Button--Primary.Button--Small
-                    </Button>
 
-                    <Button className="Button--Disabled Button--Primary Button--Small">
-                        .Button--Disabled.Button--Primary.Button--Small
-                    </Button>
+                    <Row>
+                        <h2>Primary</h2>
 
-                    <Button className="Button--Secondary Button--Small">
-                        .Button--Secondary.Button--Small
-                    </Button>
+                        <Button className="Button--Primary Button--Small">
+                            .Button--Primary.Button--Small
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Secondary Button--Small">
-                        .Button--Disabled.Button--Secondary.Button--Small
-                    </Button>
+                        <Button className="Button--Disabled Button--Primary Button--Small">
+                            .Button--Disabled.Button--Primary.Button--Small
+                        </Button>
+                    </Row>
+                    <Row>
+                        <h2>Secondary</h2>
+                        <Button className="Button--Secondary Button--Small">
+                            .Button--Secondary.Button--Small
+                        </Button>
 
-                    <Button className="Button--Tertiary--Full Button--Small">
-                        .Button--Tertiary--Full.Button--Small
-                    </Button>
+                        <Button className="Button--Disabled Button--Secondary Button--Small">
+                            .Button--Disabled.Button--Secondary.Button--Small
+                        </Button>
+                    </Row>
+                    <Row>
+                        <h2>Teritary</h2>
 
-                    <Button className="Button--Tertiary Button--Small">
-                        .Button--Tertiary.Button--Small
-                    </Button>
+                        <Button className="Button--Tertiary--Full Button--Small">
+                            .Button--Tertiary--Full.Button--Small
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Tertiary--Full Button--Small">
-                        .Button--Disabled.Button--Tertiary--Full.Button--Small
-                    </Button>
+                        <Button className="Button--Tertiary Button--Small">
+                            .Button--Tertiary.Button--Small
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Tertiary Button--Small">
-                        .Button--Disabled.Button--Tertiary--Full.Button--Small
-                    </Button>
+                        <Button className="Button--Disabled Button--Tertiary--Full Button--Small">
+                            .Button--Disabled.Button--Tertiary--Full.Button--Small
+                        </Button>
 
-                    <Button className="Button--Primary--Danger Button--Small">
-                        .Button--Primary--Danger.Button--Small
-                    </Button>
+                        <Button className="Button--Disabled Button--Tertiary Button--Small">
+                            .Button--Disabled.Button--Tertiary--Full.Button--Small
+                        </Button>
+                    </Row>
+                    <Row>
+                        <h2>Danger</h2>
 
-                    <Button className="Button--Secondary--Danger Button--Small">
-                        .Button--Secondary--Danger.Button--Small
-                    </Button>
+                        <Button className="Button--Primary--Danger Button--Small">
+                            .Button--Primary--Danger.Button--Small
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Primary--Danger Button--Small">
-                        .Button--Disabled.Button--Primary--Danger.Button--Small
-                    </Button>
+                        <Button className="Button--Secondary--Danger Button--Small">
+                            .Button--Secondary--Danger.Button--Small
+                        </Button>
 
-                    <Button className="Button--Disabled Button--Secondary--Danger Button--Small">
-                        .Button--Disabled.Button--Secondary--Danger.Button--Small
-                    </Button>
+                        <Button className="Button--Disabled Button--Primary--Danger Button--Small">
+                            .Button--Disabled.Button--Primary--Danger.Button--Small
+                        </Button>
+
+                        <Button className="Button--Disabled Button--Secondary--Danger Button--Small">
+                            .Button--Disabled.Button--Secondary--Danger.Button--Small
+                        </Button>
+                    </Row>
                 </Section>
 
                 <Section>
                     <h1>Tags</h1>
-                    <Button className="Button--Primary Button--Small Tag">
-                        .Button--Primary.Button--Small.Tag
-                    </Button>
+                    <Row>
+                        <h2>Full Color</h2>
 
-                    <Button className="Button--Tertiary--Full Button--Small Tag">
-                        .Button--Tertiary--Full.Button--Small.Tag
-                    </Button>
+                        <Button className="Button--Primary Button--Small Tag">
+                            .Button--Primary.Button--Small.Tag
+                        </Button>
 
-                    <Button className="Button--Primary--Danger Button--Small Tag">
-                        .Button--Primary--Danger.Button--Small.Tag
-                    </Button>
+                        <Button className="Button--Tertiary--Full Button--Small Tag">
+                            .Button--Tertiary--Full.Button--Small.Tag
+                        </Button>
 
-                    <Button className="Button--Small Tag Tag--Caution">
-                        .Button--Small.Tag.Tag--Caution
-                    </Button>
+                        <Button className="Button--Primary--Danger Button--Small Tag">
+                            .Button--Primary--Danger.Button--Small.Tag
+                        </Button>
 
-                    <Button className="Button--Small Tag Tag--Hazard">
-                        .Button--Small.Tag.Tag--Hazard
-                    </Button>
+                        <Button className="Button--Small Tag Tag--Caution">
+                            .Button--Small.Tag.Tag--Caution
+                        </Button>
 
-                    <Button className="Button--Small Tag Tag--Favorite">
-                        .Button--Small.Tag.Tag--Favorite
-                    </Button>
+                        <Button className="Button--Small Tag Tag--Hazard">
+                            .Button--Small.Tag.Tag--Hazard
+                        </Button>
 
-                    <Button className="Button--Small Tag Tag--Royal">
-                        .Button--Small.Tag.Tag--Royal
-                    </Button>
+                        <Button className="Button--Small Tag Tag--Favorite">
+                            .Button--Small.Tag.Tag--Favorite
+                        </Button>
 
-                    <Button className="Button--Small Tag Tag--Go">
-                        .Button--Small.Tag.Tag--Go
-                    </Button>
+                        <Button className="Button--Small Tag Tag--Royal">
+                            .Button--Small.Tag.Tag--Royal
+                        </Button>
 
-                    <Button className="Button--Secondary Button--Small Tag">
-                        .Button--Secondary.Button--Small.Tag
-                    </Button>
+                        <Button className="Button--Small Tag Tag--Go">
+                            .Button--Small.Tag.Tag--Go
+                        </Button>
+                    </Row>
 
-                    <Button className="Button--Tertiary Button--Small Tag">
-                        .Button--Tertiary.Button--Small.Tag
-                    </Button>
+                    <Row>
+                        <h2>Inverted</h2>
+                        <Button className="Button--Secondary Button--Small Tag">
+                            .Button--Secondary.Button--Small.Tag
+                        </Button>
+
+                        <Button className="Button--Tertiary Button--Small Tag">
+                            .Button--Tertiary.Button--Small.Tag
+                        </Button>
+
+                        <Button className="Button--Secondary--Danger Button--Small Tag">
+                            .Button--Secondary--Danger.Button--Small.Tag
+                        </Button>
+
+                        <Button className="Button--Small Tag Tag--Hazard--Inverted">
+                            .Button--Small.Tag.Tag--Hazard--Inverted
+                        </Button>
+
+                        <Button className="Button--Small Tag Tag--Favorite--Inverted">
+                            .Button--Small.Tag.Tag--Favorite--Inverted
+                        </Button>
+
+                        <Button className="Button--Small Tag Tag--Royal--Inverted">
+                            .Button--Small.Tag.Tag--Royal--Inverted
+                        </Button>
+
+                        <Button className="Button--Small Tag Tag--Go--Inverted">
+                            .Button--Small.Tag.Tag--Go--Inverted
+                        </Button>
+                    </Row>
 
 
-                    <Button className="Button--Small Tag Tag--Caution--Inverted">
-                        .Button--Small.Tag.Tag--Caution--Inverted
-                    </Button>
-
-                    <Button className="Button--Small Tag Tag--Hazard--Inverted">
-                        .Button--Small.Tag.Tag--Hazard--Inverted
-                    </Button>
-
-                    <Button className="Button--Small Tag Tag--Favorite--Inverted">
-                        .Button--Small.Tag.Tag--Favorite--Inverted
-                    </Button>
-
-                    <Button className="Button--Small Tag Tag--Royal--Inverted">
-                        .Button--Small.Tag.Tag--Royal--Inverted
-                    </Button>
-
-                    <Button className="Button--Small Tag Tag--Go--Inverted">
-                        .Button--Small.Tag.Tag--Go--Inverted
-                    </Button>
                 </Section>
             </div>
         );

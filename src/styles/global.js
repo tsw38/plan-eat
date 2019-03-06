@@ -83,9 +83,13 @@ export const Reset = createGlobalStyle`
   	border-spacing: 0;
   }
 
-  .row {
-      display:block;
-  }
+    .row {
+        display:block;
+
+        > * {
+            margin: ${spacingsm};
+        }
+    }
 `;
 
 export const Fonts = createGlobalStyle`

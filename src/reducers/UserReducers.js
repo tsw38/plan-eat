@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 
-const user = (state = {}, action) => {
+const account = (state = {}, action) => {
     switch (action.type) {
         default:
             return state
@@ -8,5 +8,5 @@ const user = (state = {}, action) => {
 }
 
 export default combineReducers({
-    user
+    account
 });

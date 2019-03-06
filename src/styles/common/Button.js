@@ -30,7 +30,7 @@ export default createGlobalStyle`
         font-size: ${spacingsm};
         font-weight: ${fontBold};
         padding: ${spacingxs} ${spacingmd};
-        border-radius: 0;
+        border-radius: ${spacing3xs};
         text-align: center;
         text-decoration: none;
         white-space: nowrap;
@@ -135,6 +135,12 @@ export default createGlobalStyle`
         &.Tag {
             padding: 0 0 0 ${spacingmd};
 
+            &:hover {
+                svg path {
+                    transform: rotate(45deg);
+                }
+            }
+
             &--Caution {
                 ${colorButtons(casandora)}
                 color: ${imperialPrimer};
@@ -214,6 +220,12 @@ export default createGlobalStyle`
                 padding: ${spacing2xs};
                 background-color: white;
                 margin-left: ${spacingmd};
+
+                path {
+                    transform-origin: 50%;
+                    transform: rotate(0deg);
+                    transition: inherit;
+                }
             }
         }
     }

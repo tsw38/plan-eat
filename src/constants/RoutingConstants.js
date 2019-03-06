@@ -1,0 +1,5 @@
+export default [
+    'PENDING_LOCATION_CHANGE',
+    'PREVENT_LOCATION_CHANGE',
+    'LOCATION_CHANGE'
+];

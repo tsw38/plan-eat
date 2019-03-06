@@ -1,20 +1,41 @@
 import React from "react";
 import {Helmet} from 'react-helmet';
 import {Location} from '@reach/router';
+import {connect} from 'react-redux';
+
 import {pathToPageTitle} from 'utils/url';
 
 import * as PageStyles from "styles/components/Page";
 
-export default ({page, children}) => {
+
+
+const PageComponent = ({page, onLocationChange, children}) => {
 	return (
 		<PageStyles.Page className={page}>
 			<Location>
-				{({location}) =>
-					<Helmet title={pathToPageTitle(location.pathname || '')} />
-				}
+                {({location}) => {
+                    return (
+                        <Helmet title={pathToPageTitle(location.pathname || '')} />
+                    )
+                }}
 			</Location>
 
 			{children}
 		</PageStyles.Page>
 	)
 }
+
+
+
+const mapStateToProps = (state, ownProps) => {
+    // console.warn('maping state to prop', state)
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = {
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageComponent);
