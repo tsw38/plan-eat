@@ -10,14 +10,20 @@ class Button extends React.Component {
             children,
             handleClick,
             iconName,
-            className
+            className,
+            colorName,
+            inverted
         } = this.props;
 
         return (
             <StyledButton
+                colorName={colorName}
+                inverted={inverted}
                 onClick={handleClick}
                 className={classNames(
                     {'Button': !(/header/gi).test(className)},
+                    {[`Button--${colorName}`]: !!colorName},
+                    {[`Button--${colorName}${inverted ? '--Inverted' : ''}`]: !!colorName && !!inverted},
                     className
                 )}>
 				{children}

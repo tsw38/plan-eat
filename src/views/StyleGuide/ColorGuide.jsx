@@ -1,28 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
 
-import {ColorGuide} from 'views/StyleGuide/ColorGuide';
-
-import TagsGuide from 'views/StyleGuide/ButtonsGuide/Tags';
-import ButtonsGuide from 'views/StyleGuide/ButtonsGuide/Buttons';
-import SmallButtonsGuide from 'views/StyleGuide/ButtonsGuide/Small';
-
 import * as colors from 'styles/colors';
-
+import {Section} from 'styles/components/section';
 import {border} from 'styles/variables';
-
-class StyleGuide extends React.Component {
-    render() {
-        return (
-            <div className="StyleGuide">
-                <ColorGuide/>
-                <ButtonsGuide />
-                <SmallButtonsGuide />
-                <TagsGuide/>
-            </div>
-        );
-    }
-}
 
 const ColorWrapper = styled.div`
     min-height:100px;
@@ -51,4 +32,23 @@ const ColorWrapper = styled.div`
 `;
 
 
-export default StyleGuide;
+
+export const ColorGuide = () => {
+	return (
+		<Section>
+			<h1>Colors</h1>
+			<div style={{
+				display: 'grid',
+				gridTemplateColumns: 'repeat(4, minmax(100px, calc(100%/4)))',
+				gridGap: '1rem'
+			}}>
+				{Object.keys(colors).map((colorName, index) => {
+					return (
+						<ColorWrapper key={index} color={colorName}>{colorName}</ColorWrapper>
+					)
+				})}
+			</div>
+		</Section>
+	);
+}
+

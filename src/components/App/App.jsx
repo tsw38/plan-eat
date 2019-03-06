@@ -33,7 +33,7 @@ class App extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        console.warn(prevProps);
+        // console.warn(prevProps);
     }
 
     handleLocationChange = (location) => {

@@ -11,12 +11,22 @@ import {
     stormPetrel, fuelTown, imperialPrimer
 } from 'styles/colors';
 
+import * as colors from 'styles/colors';
+
 import { spacing3xs, spacingsm, spacing2xs, spacingmd, spacingxs, spacinglg } from 'styles/sizing';
 
 import { fontBold } from 'styles/variables';
 
 export const StyledButton = styled.button`
+    &.Button {
+        &--${({colorName, inverted}) => inverted ? `${colorName}--Inverted` : colorName}{
+            ${({colorName, inverted}) => colorButtons(colors[colorName], inverted)}
 
+            :hover {
+                ${({colorName, inverted}) => colorButtons(colors[colorName], !inverted)}
+            }
+        }
+    }
 `;
 
 export default createGlobalStyle`
@@ -135,12 +145,6 @@ export default createGlobalStyle`
         &.Tag {
             padding: 0 0 0 ${spacingmd};
 
-            &:hover {
-                svg path {
-                    transform: rotate(45deg);
-                }
-            }
-
             &--Caution {
                 ${colorButtons(casandora)}
                 color: ${imperialPrimer};
@@ -160,8 +164,9 @@ export default createGlobalStyle`
 
             &--Hazard--Inverted {
                 ${colorButtons(dragonSkin, true)}
+
                 &:hover {
-                    ${colorButtons(darken(0.2, dragonSkin), true)}
+                    ${colorButtons(dragonSkin)}
                 }
             }
 
@@ -177,7 +182,7 @@ export default createGlobalStyle`
                 ${colorButtons(lotusPink, true)}
 
                 &:hover {
-                    ${colorButtons(darken(0.2, lotusPink), true)}
+                    ${colorButtons(lotusPink)}
                 }
             }
 
@@ -193,7 +198,7 @@ export default createGlobalStyle`
                 ${colorButtons(nasaPurple, true)}
 
                 &:hover {
-                    ${colorButtons(lighten(0.2, nasaPurple), true)}
+                    ${colorButtons(nasaPurple)}
                 }
             }
 
@@ -209,7 +214,7 @@ export default createGlobalStyle`
                 ${colorButtons(mountainMeadow, true)}
 
                 &:hover {
-                    ${colorButtons(darken(0.2, mountainMeadow), true)}
+                    ${colorButtons(mountainMeadow)}
                 }
             }
 

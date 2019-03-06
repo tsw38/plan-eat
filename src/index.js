@@ -16,7 +16,7 @@ ReactDOM.render(
 );
 
 ClientStore.subscribe(() => {
-    console.warn('what is happening', ClientStore.getState())
+    // console.warn('what is happening', ClientStore.getState())
 })
 
 ClientStore.dispatch((dispatch) => {
