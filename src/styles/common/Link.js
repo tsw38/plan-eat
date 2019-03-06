@@ -18,15 +18,17 @@ export default createGlobalStyle`
         color: ${blueFrance};
         ${transition()}
 
+
         &:hover {
             color: ${joustBlue};
+            text-decoration: underline;
         }
 
         &--Secondary {
             color: ${imperialPrimer};
 
             &:hover {
-                color: ${fuelTown};
+                color: ${joustBlue};
             }
         }
 

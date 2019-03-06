@@ -12,7 +12,7 @@ import {
     layoutmd,
     layout6xl
 } from 'styles/sizing';
-import { imperialPrimer, stormPetrel, white } from '../../colors';
+import { imperialPrimer, stormPetrel, white, joustBlue } from '../../colors';
 
 
 export const Profile = styled(HeaderBox)`
@@ -51,6 +51,7 @@ export const AccountDropDown = styled.div`
 
             figure {
                 display: flex;
+                margin: 0;
             }
         }
 
@@ -69,9 +70,10 @@ export const AccountDropDown = styled.div`
             align-items: center;
             max-height: ${layoutmd};
             text-align: left;
+            ${transition()}
 
             &:hover {
-                background-color: ${stormPetrel};
+                background-color: ${joustBlue};
 
                 svg {
                     fill: ${white};
@@ -86,10 +88,12 @@ export const AccountDropDown = styled.div`
                 padding: 0 ${spacingsm} 0 ${spacingxs};
                 height: ${spacingmd};
                 width: auto;
+                margin: 0;
                 ${transition()}
             }
 
             .Link {
+                margin:0;
                 margin-top: -${spacing2xs};
                 ${transition()}
             }
@@ -98,7 +102,7 @@ export const AccountDropDown = styled.div`
 `;
 
 export const Image = styled.div`
-    width: inherit;
+    width: ${layoutmd};
     max-width: ${layoutmd};
     max-height: ${layoutmd};
     overflow: hidden;

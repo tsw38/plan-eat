@@ -72,7 +72,7 @@ class App extends React.Component {
                     <Sidebar />
                     <Location>
                         {(props) => {
-                            this.handleLocationChange(props.location);
+                            // this.handleLocationChange(props.location);
 
                             return (
                                 <AppStyles.StyledRouter location={props.location}>
