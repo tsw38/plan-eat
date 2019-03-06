@@ -4,11 +4,11 @@ import {transition, colorButtons} from '../mixins/index';
 import {darken, lighten} from 'polished';
 
 import {
-    blueFrance,
-    white,
-    imperialPrimer,
-    amour,
-    stormPetrel
+    jigglypuff, lotusPink, casandora, dragonSkin,
+    pastelRed, amour, megaMan, cyanite, carribean,
+    mountainMeadow, jadeDust, aquaVelvet, joustBlue,
+    blueFrance, nasaPurple, bluebell, white, ballerina,
+    stormPetrel, fuelTown, imperialPrimer
 } from 'styles/colors';
 
 import { spacing3xs, spacingsm, spacing2xs, spacingmd, spacingxs, spacinglg } from 'styles/sizing';
@@ -79,7 +79,6 @@ export default createGlobalStyle`
 
         &--Primary {
             ${colorButtons(blueFrance)};
-            .Icon { fill: ${blueFrance}; }
 
             &:hover {
                 ${colorButtons(darken(0.20, blueFrance))}
@@ -88,7 +87,6 @@ export default createGlobalStyle`
 
         &--Secondary {
             ${colorButtons(blueFrance, true)};
-            .Icon { fill: ${blueFrance}; }
 
             &:hover {
                 ${colorButtons(blueFrance)}
@@ -97,7 +95,6 @@ export default createGlobalStyle`
 
         &--Tertiary {
             ${colorButtons(imperialPrimer, true)}
-            .Icon { fill: ${imperialPrimer}; }
 
             &:hover {
                 ${colorButtons(imperialPrimer)}
@@ -116,7 +113,6 @@ export default createGlobalStyle`
 
         &--Primary--Danger {
             ${colorButtons(amour)}
-            .Icon { fill: ${amour}; }
 
             &:hover {
                 ${colorButtons(darken(0.2, amour, true))}
@@ -126,7 +122,6 @@ export default createGlobalStyle`
 
         &--Secondary--Danger {
             ${colorButtons(amour, true)}
-            .Icon { fill: ${amour}; }
 
             &:hover {
                 ${colorButtons(amour)}
@@ -140,12 +135,85 @@ export default createGlobalStyle`
         &.Tag {
             padding: 0 0 0 ${spacingmd};
 
+            &--Caution {
+                ${colorButtons(casandora)}
+                color: ${imperialPrimer};
+                fill: ${imperialPrimer};
+
+                &:hover {
+                    ${colorButtons(darken(0.2, casandora))}
+                }
+            }
+
+            &--Hazard {
+                ${colorButtons(dragonSkin)}
+                &:hover {
+                    ${colorButtons(darken(0.2, dragonSkin))}
+                }
+            }
+
+            &--Hazard--Inverted {
+                ${colorButtons(dragonSkin, true)}
+                &:hover {
+                    ${colorButtons(darken(0.2, dragonSkin), true)}
+                }
+            }
+
+            &--Favorite {
+                ${colorButtons(lotusPink)}
+
+                &:hover {
+                    ${colorButtons(darken(0.2, lotusPink))}
+                }
+            }
+
+            &--Favorite--Inverted {
+                ${colorButtons(lotusPink, true)}
+
+                &:hover {
+                    ${colorButtons(darken(0.2, lotusPink), true)}
+                }
+            }
+
+            &--Royal {
+                ${colorButtons(nasaPurple)}
+
+                &:hover {
+                    ${colorButtons(lighten(0.2, nasaPurple))}
+                }
+            }
+
+            &--Royal--Inverted {
+                ${colorButtons(nasaPurple, true)}
+
+                &:hover {
+                    ${colorButtons(lighten(0.2, nasaPurple), true)}
+                }
+            }
+
+            &--Go {
+                ${colorButtons(mountainMeadow)}
+
+                &:hover {
+                    ${colorButtons(darken(0.2, mountainMeadow))}
+                }
+            }
+
+            &--Go--Inverted {
+                ${colorButtons(mountainMeadow, true)}
+
+                &:hover {
+                    ${colorButtons(darken(0.2, mountainMeadow), true)}
+                }
+            }
+
+
             svg {
                 height: ${spacinglg};
                 width: ${spacinglg};
                 padding: ${spacing2xs};
                 background-color: white;
-                margin-left: ${spacingxs};
+                margin-left: ${spacingmd};
             }
         }
     }

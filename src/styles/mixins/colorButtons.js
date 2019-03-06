@@ -3,6 +3,7 @@ import {white} from 'styles/colors';
 export default (color, isInverted = false) => {
     return {
         borderColor: color,
+        fill: color,
         ...(isInverted ? {
             color,
             backgroundColor: white
