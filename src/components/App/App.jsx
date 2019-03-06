@@ -13,9 +13,10 @@ import Overview from 'views/Overview/Overview';
 import MealPrep from 'views/MealPrep/MealPrep';
 import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
-import * as GlobalStyles from 'styles/global';
-import * as AppStyles from "styles/components/App";
 import LinkStyles from 'styles/common/Link';
+import * as GlobalStyles from 'styles/global';
+import ButtonStyles from 'styles/common/Button';
+import * as AppStyles from "styles/components/App";
 
 class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class App extends React.Component {
         <GlobalStyles.Fonts />
         <GlobalStyles.SVG />
         <LinkStyles />
+        <ButtonStyles />
         <AppStyles.App className="App">
           <Helmet
             htmlAttributes={{lang:"en"}}

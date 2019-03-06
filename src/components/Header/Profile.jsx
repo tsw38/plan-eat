@@ -18,7 +18,7 @@ class Profile extends React.Component {
     return (
         <StyledProfile>
             <Button
-                modifiers={["Header"]}
+                className="Button--Header"
                 onClick={() => {}}>
                 <Link
                     to="/account">
