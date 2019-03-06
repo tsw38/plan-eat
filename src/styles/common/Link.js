@@ -1,19 +1,37 @@
-import styled from 'styled-components';
-import { Link as ReachLink } from "@reach/router";
+import { createGlobalStyle } from 'styled-components';
+
+import {azureRadiance, malibu, nevada, outerSpace} from '../colors';
 
 import {transition} from '../mixins/index';
 
-import {azureRadiance, malibu} from '../colors';
+import {
+    fontSize,
+    spacingsm,
+    spacingmd,
+    spacing2xs
+} from 'styles/sizing';
 
-export const Link = styled(ReachLink)`
-	font-size: 0.875rem;
-	font-weight: 600;
-	text-decoration: underline;
-	color: ${azureRadiance};
-	${transition()}
+export default createGlobalStyle`
+    .Link {
+        font-weight: 600;
+        text-decoration: underline;
+        color: ${azureRadiance};
+        ${transition()}
 
-	&:hover {
-		color: ${malibu};
-	}
+        &:hover {
+            color: ${malibu};
+        }
+
+        &--Secondary {
+            color: ${outerSpace};
+
+            &:hover {
+                color: ${nevada};
+            }
+        }
+
+        &--Ghost {
+            text-decoration: none;
+        }
+    }
 `;
-

@@ -17,24 +17,29 @@ export const Sidebar = styled.aside`
     background-color: ${white};
     width: 100%;
     ${elevate('Raised')}
+
+    .Link--Sitename {
+        font-size: ${spacinglg};
+        font-family: 'Domine';
+        font-weight: 700;
+        display: block;
+        line-height: 3rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .Link {
+        font-weight: normal;
+    }
 `;
 
 export const LinkWrapper = styled.ul`
     padding-left: ${layoutxs};
     padding-top: ${layoutxs};
+
     &:first-of-type {
         border-top: ${border};
     }
-`;
-
-export const SiteName = styled(Link)`
-    font-size: ${spacinglg};
-    font-family: 'Domine';
-    font-weight: 700;
-    display: block;
-    line-height: 3rem;
-    width: 100%;
-    text-align: center;
 `;
 
 export const StyledLink = styled.li`

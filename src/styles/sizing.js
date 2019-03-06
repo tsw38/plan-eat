@@ -18,3 +18,6 @@ export const layoutlg  ='4rem';	 // 64px
 export const layoutxl  ='6rem';	 // 96px
 export const layout2xl ='10rem'; // 160px
 export const layout3xl ='12rem'; // 192px
+export const layout4xl ='13rem'; // 208px
+export const layout5xl ='14rem'; // 224px
+export const layout6xl ='15rem'; // 240px

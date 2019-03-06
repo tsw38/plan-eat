@@ -2,7 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 import {geyser, outerSpace} from './colors';
 
-import {fontSize, spacingsm} from './sizing';
+import {
+    fontSize,
+    spacingsm,
+    spacingmd,
+    spacing2xs
+} from './sizing';
 
 export const Reset = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -77,6 +82,10 @@ export const Reset = createGlobalStyle`
   	border-collapse: collapse;
   	border-spacing: 0;
   }
+
+  .row {
+      display:block;
+  }
 `;
 
 export const Fonts = createGlobalStyle`
@@ -86,16 +95,23 @@ export const Fonts = createGlobalStyle`
     font-size: ${fontSize};
   }
 
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: ${outerSpace};
+        font-size: ${spacingmd};
+    }
 
-  h2 {
-    color: ${outerSpace};
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: ${spacingsm};
-  }
+    h2 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: ${spacingsm};
+    }
+
+    h6 {
+        font-weight: 700;
+        font-size: ${spacingmd};
+        margin-bottom: ${spacing2xs};
+    }
 `;
 
 export const SVG = createGlobalStyle`

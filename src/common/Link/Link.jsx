@@ -1,36 +1,50 @@
 import React from "react";
 import classNames from 'classnames';
-
-import * as LinkStyles from "../../styles/common/Link";
+import { Link } from "@reach/router";
+import PropTypes from 'prop-types';
 
 class CustomLink extends React.Component {
-  render() {
-	  const {
-		  to,
-		  children,
-		  className,
-		  isExternal
-	  } = this.props;
+    render() {
+        const {
+            to,
+            children,
+            universal,
+            className,
+            isExternal
+        } = this.props;
 
-    return (
-		<LinkStyles.Link
-			target={isExternal ? '_blank' : '_self'}
-			to={to}
-			getProps={({ isCurrent }) => {
-				// the object returned here is passed to the
-				// anchor element's props
-				return {
-					className: classNames(
-						'Link',
-						className,
-						{'Link--active': isCurrent},
-					)
-				}
-			}}>
-			{children}
-		</LinkStyles.Link>
-    );
-  }
+        return (
+            <Link
+                target={isExternal ? '_blank' : '_self'}
+                to={to}
+                getProps={({ isCurrent }) => {
+                    return {
+                        className: classNames(
+                            {'Link': universal},
+                            {'Link--active': isCurrent},
+                            className
+                        )
+                    }
+                }}>
+                {children}
+            </Link>
+        );
+    }
+}
+
+CustomLink.defaultProps = {
+    universal: true
+}
+
+CustomLink.propTypes = {
+    to: PropTypes.string,
+    universal: PropTypes.bool,
+    isExternal: PropTypes.bool,
+    className: PropTypes.string,
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element
+    ]),
 }
 
 export default CustomLink;

@@ -15,6 +15,7 @@ import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
 import * as GlobalStyles from 'styles/global';
 import * as AppStyles from "styles/components/App";
+import LinkStyles from 'styles/common/Link';
 
 class App extends React.Component {
   render() {
@@ -23,6 +24,7 @@ class App extends React.Component {
         <GlobalStyles.Reset />
         <GlobalStyles.Fonts />
         <GlobalStyles.SVG />
+        <LinkStyles />
         <AppStyles.App className="App">
           <Helmet
             htmlAttributes={{lang:"en"}}
