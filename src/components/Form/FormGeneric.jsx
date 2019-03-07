@@ -8,16 +8,21 @@ import {FormWrapper} from 'styles/components/Form/Form';
 
 export default class FormGeneric extends React.Component {
 
-    handleSubmit = () => {
+    handleSubmit = (formValues, formActions) => {
         const {
             beforeSubmit,
             onSubmit
         } = this.props;
 
         if (beforeSubmit) {
-            return Promise.resolve(beforeSubmit).then(onSubmit)
+            return new Promise((resolve,reject) => {
+                resolve(beforeSubmit());
+            }).then(() => onSubmit(formValues));
         }
-        return Promise.resolve(onSubmit);
+
+        return new Promise((resolve, reject) => {
+            resolve(onSubmit(formValues));
+        });
     }
 
     render() {

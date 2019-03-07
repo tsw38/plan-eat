@@ -1,20 +1,22 @@
 import React from 'react';
-
-import Input from 'common/FormFields/Input';
-
+import {connect} from 'react-redux';
 import {Field, ErrorMessage } from 'formik';
 import classNames from 'classnames';
-
-import Button from "common/Button/Button";
-
-import FormGeneric from 'components/Form/FormGeneric';
 
 import {SigninValidator} from 'utils/validators';
 
 import { Signin } from 'actions/AccountActions';
 
-export default class SigninForm extends React.Component {
+import Button from 'common/Button/Button';
+import Input from 'common/FormFields/Input';
+import FormGeneric from 'components/Form/FormGeneric';
+
+class SigninForm extends React.Component {
     render() {
+        const {
+            Signin
+        } = this.props;
+
         return (
             <FormGeneric
                 title='Signin'
@@ -22,7 +24,6 @@ export default class SigninForm extends React.Component {
                 onError={() => {console.warn('on error')}}
                 onSubmit={Signin}
                 onComplete={() => {console.warn('on complete')}}
-                beforeSubmit={() => {console.warn('before submit')}}
                 initialValues={{
                     email: "",
                     password: ""
@@ -45,3 +46,17 @@ export default class SigninForm extends React.Component {
         )
     }
 };
+
+
+const mapStateToProps = (state, ownProps) => {
+    // console.warn('maping state to prop', state)
+    return {
+        user: state.user
+    }
+}
+
+const mapDispatchToProps = {
+    Signin
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SigninForm);
