@@ -4,11 +4,7 @@ import {transition, colorButtons} from '../mixins/index';
 import {darken, lighten} from 'polished';
 
 import {
-    jigglypuff, lotusPink, casandora, dragonSkin,
-    pastelRed, amour, megaMan, cyanite, carribean,
-    mountainMeadow, jadeDust, aquaVelvet, joustBlue,
-    blueFrance, nasaPurple, bluebell, white, ballerina,
-    stormPetrel, fuelTown, imperialPrimer
+    lotusPink, casandora, amour, carribean, blueFrance, nasaPurple, stormPetrel, imperialPrimer
 } from 'styles/colors';
 
 import * as colors from 'styles/colors';
@@ -156,17 +152,17 @@ export default createGlobalStyle`
             }
 
             &--Hazard {
-                ${colorButtons(dragonSkin)}
+                ${colorButtons(casandora)}
                 &:hover {
-                    ${colorButtons(darken(0.2, dragonSkin))}
+                    ${colorButtons(darken(0.2, casandora))}
                 }
             }
 
             &--Hazard--Inverted {
-                ${colorButtons(dragonSkin, true)}
+                ${colorButtons(casandora, true)}
 
                 &:hover {
-                    ${colorButtons(dragonSkin)}
+                    ${colorButtons(casandora)}
                 }
             }
 
@@ -203,18 +199,18 @@ export default createGlobalStyle`
             }
 
             &--Go {
-                ${colorButtons(mountainMeadow)}
+                ${colorButtons(carribean)}
 
                 &:hover {
-                    ${colorButtons(darken(0.2, mountainMeadow))}
+                    ${colorButtons(darken(0.2, carribean))}
                 }
             }
 
             &--Go--Inverted {
-                ${colorButtons(mountainMeadow, true)}
+                ${colorButtons(carribean, true)}
 
                 &:hover {
-                    ${colorButtons(mountainMeadow)}
+                    ${colorButtons(carribean)}
                 }
             }
 

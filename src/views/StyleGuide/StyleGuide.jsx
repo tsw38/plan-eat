@@ -25,7 +25,7 @@ class StyleGuide extends React.Component {
 }
 
 const ColorWrapper = styled.div`
-    min-height:100px;
+    min-height:00px;
     display: flex;
     flex-direction: row;
     border: ${border};

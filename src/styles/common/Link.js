@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import {blueFrance, joustBlue, fuelTown, imperialPrimer} from '../colors';
+import {blueFrance, fuelTown, imperialPrimer} from '../colors';
 
 import {transition} from '../mixins/index';
 
@@ -20,7 +20,7 @@ export default createGlobalStyle`
 
 
         &:hover {
-            color: ${joustBlue};
+            color: ${blueFrance};
             text-decoration: underline;
         }
 
@@ -28,7 +28,7 @@ export default createGlobalStyle`
             color: ${imperialPrimer};
 
             &:hover {
-                color: ${joustBlue};
+                color: ${blueFrance};
             }
         }
 

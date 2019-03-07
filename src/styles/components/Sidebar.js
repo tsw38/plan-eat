@@ -3,18 +3,16 @@ import {elevate} from 'styles/mixins/index';
 
 import {spacing2xs, spacingxs, spacingmd, spacinglg, layoutxs} from 'styles/sizing';
 
-import {white, fuelTown, blueFrance, joustBlue} from 'styles/colors';
+import {fuelTown, blueFrance} from 'styles/colors';
 
 import {border} from 'styles/variables';
 
-import Link from 'common/Link/Link';
-
-
+import {lighten} from 'polished';
 
 export const Sidebar = styled.aside`
     grid-area: sidebar;
     border-right:${border};
-    background-color: ${white};
+    background-color: white;
     width: 100%;
     ${elevate('Raised')}
 
@@ -61,7 +59,7 @@ export const StyledLink = styled.li`
             border-right: ${spacing2xs} solid ${blueFrance};
 
             &:hover {
-                color: ${joustBlue};
+                color: ${lighten(0.2, blueFrance)};
             }
         }
     }

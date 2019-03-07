@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {border} from 'styles/variables';
-import {elevate, transition} from '../../mixins/index';
+import {elevate, transition} from 'styles/mixins/index';
+
+import {lighten} from 'polished';
 
 import {HeaderBox} from 'styles/components/Header/Header';
 import {
@@ -12,7 +14,7 @@ import {
     layoutmd,
     layout6xl
 } from 'styles/sizing';
-import { imperialPrimer, stormPetrel, white, joustBlue } from '../../colors';
+import { imperialPrimer, blueFrance } from 'styles/colors';
 
 
 export const Profile = styled(HeaderBox)`
@@ -73,14 +75,14 @@ export const AccountDropDown = styled.div`
             ${transition()}
 
             &:hover {
-                background-color: ${joustBlue};
+                background-color: ${lighten(0.2, blueFrance)};
 
                 svg {
-                    fill: ${white};
+                    fill: white;
                 }
 
                 .Link {
-                    color: ${white};
+                    color: white;
                 }
             }
 

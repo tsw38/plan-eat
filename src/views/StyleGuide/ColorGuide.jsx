@@ -4,12 +4,13 @@ import styled from 'styled-components';
 import * as colors from 'styles/colors';
 import {Section} from 'styles/components/section';
 import {border} from 'styles/variables';
+import { layout2xl } from 'styles/sizing';
 
 const ColorWrapper = styled.div`
-    min-height:100px;
+    min-height:${layout2xl};
     display: flex;
     flex-direction: row;
-    border: ${border};
+    border: none;
     word-wrap: break-word;
     flex: 1;
     justify-content: center;
@@ -40,7 +41,7 @@ export const ColorGuide = () => {
 			<div style={{
 				display: 'grid',
 				gridTemplateColumns: 'repeat(4, minmax(100px, calc(100%/4)))',
-				gridGap: '1rem'
+				gridGap: '0.25rem'
 			}}>
 				{Object.keys(colors).map((colorName, index) => {
 					return (

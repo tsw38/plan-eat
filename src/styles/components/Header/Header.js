@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 import {elevate} from 'styles/mixins/index';
-import {white, blueFrance, joustBlue, ballerina,	stormPetrel} from 'styles/colors';
+import {blueFrance, ballerina, stormPetrel} from 'styles/colors';
 import {layoutmd, spacingsm} from 'styles/sizing';
 import {border} from 'styles/variables';
+import {lighten} from 'polished';
 
 export const Header = styled.header`
     border-bottom: ${border};
-    background-color: ${white};
+    background-color: white;
     max-height: ${layoutmd};
 	grid-area: header;
     height: 100%;
@@ -21,7 +22,7 @@ export const Header = styled.header`
         fill: ${blueFrance};
 
         &:hover {
-            fill: ${joustBlue};
+            fill: ${lighten(0.2, blueFrance)};
         }
     }
 `;
