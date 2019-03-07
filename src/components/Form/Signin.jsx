@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Field, ErrorMessage } from 'formik';
-import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import {SigninValidator} from 'utils/validators';
 
@@ -14,16 +13,19 @@ import FormGeneric from 'components/Form/FormGeneric';
 class SigninForm extends React.Component {
     render() {
         const {
+            render,
             Signin
         } = this.props;
 
         return (
             <FormGeneric
-                title='Signin'
+                id={'signin'}
+                title={render.title && 'Sign In'}
                 validators={SigninValidator}
                 onError={() => {console.warn('on error')}}
                 onSubmit={Signin}
                 onComplete={() => {console.warn('on complete')}}
+                render={render}
                 initialValues={{
                     email: "",
                     password: ""
@@ -46,6 +48,17 @@ class SigninForm extends React.Component {
         )
     }
 };
+
+SigninForm.defaultProps = {
+    render: {
+        title: true
+    }
+}
+
+SigninForm.propTypes = {
+    render: PropTypes.object,
+    Signin: PropTypes.func
+}
 
 
 const mapStateToProps = (state, ownProps) => {

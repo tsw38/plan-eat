@@ -22,13 +22,15 @@ class Signin extends React.Component {
     render() {
         return (
             <StyledSignin>
-                <SigninForm />
                 <Modal
                     modalId={1}
                     type="Primary"
-                    label="Optional Label"
-                    heading="Modal Heading">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum.</p>
+                    heading="Sign In">
+                    <SigninForm
+                        render={{
+                            title: false,
+                            inModal: true
+                        }}/>
                 </Modal>
             </StyledSignin>
         );

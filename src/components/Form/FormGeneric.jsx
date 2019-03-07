@@ -1,12 +1,13 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import {toTitleCase} from 'utils/string';
 
 import {FormWrapper} from 'styles/components/Form/Form';
 
-export default class FormGeneric extends React.Component {
+class FormGeneric extends React.Component {
 
     handleSubmit = (formValues, formActions) => {
         const {
@@ -27,6 +28,7 @@ export default class FormGeneric extends React.Component {
 
     render() {
         const {
+            id,
             title,
             render,
             onError,
@@ -41,17 +43,19 @@ export default class FormGeneric extends React.Component {
         return (
             <FormWrapper className={classNames(
                 'Form',
-                `Form--${toTitleCase(title)}`)}>
-                <h1 className="Form--Title">{title}</h1>
+                `Form--${toTitleCase(id)}`,
+                {[`Form--Modal`]: render.inModal}
+            )}>
+                {title &&
+                    <h1 className="Form--Title">{title}</h1>
+                }
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validators}
                     onSubmit={this.handleSubmit}>
                     {({dirty, errors, handleBlur, handleChange, handleReset, handleSubmit, isSubmitting, isValid, isValidating, values}) => {
                         return (
-                            <Form>
-                                {children}
-                            </Form>
+                            <Form>{children}</Form>
                         )
                     }}
                 </Formik>
@@ -59,3 +63,19 @@ export default class FormGeneric extends React.Component {
         )
     }
 };
+
+FormGeneric.defaultProps = {
+    render: {
+
+    }
+}
+
+FormGeneric.propTypes = {
+    id: PropTypes.string,
+    title: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.bool
+    ])
+}
+
+export default FormGeneric;

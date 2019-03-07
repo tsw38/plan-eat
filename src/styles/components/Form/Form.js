@@ -21,7 +21,18 @@ import { fontBold, fontLight } from 'styles/variables';
 
 export const FormWrapper = styled.div`
     &.Form {
+        form {
+            border: 1px solid ${stormPetrel};
+        }
 
+        &--Modal {
+            width: 30vw;
+
+            form {
+                border:none;
+                padding: 0;
+            }
+        }
     }
 
     .Form--Title {
@@ -32,7 +43,7 @@ export const FormWrapper = styled.div`
 
     form {
         background-color: white;
-        border: 1px solid ${stormPetrel};
+
         padding: ${spacinglg};
         ${elevate('Raised')}
 

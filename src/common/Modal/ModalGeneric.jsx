@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Modal from 'react-modal';
+import objectPath from 'object-path';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
@@ -19,34 +19,21 @@ class ModalGeneric extends React.Component {
 	componentDidMount() {
 		const {
 			modalId,
-			initialize
+			initialize,
+			toggleModal
 		} = this.props;
 
 		initialize(modalId);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		// const open = getStateInfo(this.props, nextProps, 'modal.open');
-
-		// if (open.changed && nextProps.modal.open && nextProps.dialog) {
-		// 	setScroll(0, 0);
-		// }
+		console.warn(nextProps);
 	}
 
-	componentDidUpdate(prevProps) {
-		// const {
-		// 	modal,
-		// 	dialog
-		// } = this.props;
-		// const open = getStateInfo(prevProps, this.props, 'modal.open');
-
-		// if (open.changed && !modal.open && !dialog) {
-		// 	setScroll(0, prevProps.scrollTop);
-		// }
-	}
+	componentDidUpdate(prevProps) {}
 
 	componentWillUnmount() {
-		// this.handleClose();
+		this.handleClose();
 	}
 
 	handleClose = (e) => {
@@ -67,39 +54,9 @@ class ModalGeneric extends React.Component {
 			type,
 			label,
 			heading,
-			children
-			// aria,
-			// site,
-			// size,
-			// menu,
-			// modal,
-			// dialog,
-			// drawer,
-			// styles,
-			// heading,
-			// modalId,
-			// isMobile,
-			// className,
-			// closeable,
-			// handleReturn,
-			// contentLabel,
-			// closeAriaLabel,
-			// returnFocusAfterClose
+			children,
+			modalIsOpen
 		} = this.props;
-
-		// if (canUseDom() && modal.open && (dialog || drawer || menu)) {
-		// 	// const element = document.querySelector(dialog || menu ? '.c-header' : '.c-header__main');
-		// 	// const elementHeight = element.offsetHeight + element.offsetTop;
-		// 	// const config = menu ? MODAL_STYLES_MENU : dialog ? MODAL_STYLES_DIALOG : MODAL_STYLES_DRAWER;
-
-		// 	// // under the selected element
-		// 	// config.overlay.top = elementHeight;
-
-		// 	// if (isMobile && dialog) {
-		// 	// 	// so mobile can scroll to the bottom of the dialog
-		// 	// 	MODAL_STYLES_DIALOG.overlay.maxHeight = 'calc(100% - ' + elementHeight.toString() + 'px)';
-		// 	// }
-        // }
 
 		return (
 			<StyledModal
@@ -108,9 +65,9 @@ class ModalGeneric extends React.Component {
                     `Modal--${type}`
 				)}
 				overlayClassName="Modal--Overlay"
-                isOpen={true}
+                isOpen={modalIsOpen}
                 onAfterOpen={this.afterOpenModal}
-                onRequestClose={this.closeModal}
+                onRequestClose={this.handleClose}
 				ariaHideApp={false}>
 				<div className="Modal--Header">
 					{label &&
@@ -136,7 +93,7 @@ class ModalGeneric extends React.Component {
 
 const mapStateToProps = ({modals}, props) => {
 	return {
-		modalIsOpen: modals.modal[props.modalId]
+		modalIsOpen: !!objectPath.get(modals.modals, props.modalId)
 	};
 };
 
