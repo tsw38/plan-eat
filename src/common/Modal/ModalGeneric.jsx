@@ -6,14 +6,9 @@ import classNames from 'classnames';
 
 import Icon from "common/Icon/Icon";
 
-// import {MODAL_STYLES, MODAL_STYLES_DIALOG, MODAL_STYLES_DRAWER, MODAL_STYLES_MENU} from 'config/ModalConfig';
 import {StyledModal} from 'styles/common/Modal';
 
 import {initialize, toggleModal} from 'actions/ModalActions';
-
-// import canUseDom from 'utils/canUseDom';
-// import {setScroll} from 'utils/scrolling';
-// import {getStateInfo} from 'utils/StateInfo';
 
 class ModalGeneric extends React.Component {
 	componentDidMount() {

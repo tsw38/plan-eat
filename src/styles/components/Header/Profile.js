@@ -29,7 +29,6 @@ export const AccountDropDown = styled.div`
     pointer-events: none;
 
     max-height:0;
-    max-width: ${layout6xl};
 
     background-color: white;
     ${transition('Panel', 'ease-in')}
@@ -108,7 +107,7 @@ export const Image = styled.div`
     max-width: ${layoutmd};
     max-height: ${layoutmd};
     overflow: hidden;
-
+    flex-shrink: 0;
     background-color: ${imperialPrimer};
 
     border-radius: 50%;
