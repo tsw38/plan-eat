@@ -44,7 +44,7 @@ class FormGeneric extends React.Component {
             <FormWrapper className={classNames(
                 'Form',
                 `Form--${toTitleCase(id)}`,
-                {[`Form--Modal`]: render.inModal}
+                {[`Form--Modal`]: render.modal}
             )}>
                 {title &&
                     <h1 className="Form--Title">{title}</h1>
@@ -55,7 +55,12 @@ class FormGeneric extends React.Component {
                     onSubmit={this.handleSubmit}>
                     {({dirty, errors, handleBlur, handleChange, handleReset, handleSubmit, isSubmitting, isValid, isValidating, values}) => {
                         return (
-                            <Form>{children}</Form>
+                            <Form>
+                                {children}
+                                <div className="Form--Footer">
+                                    {render.buttons}
+                                </div>
+                            </Form>
                         )
                     }}
                 </Formik>

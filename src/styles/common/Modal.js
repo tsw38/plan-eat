@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-
+import {transparentize} from 'polished';
 import Modal from 'react-modal';
 
 import {elevate} from 'styles/mixins/index';
@@ -16,7 +16,7 @@ export const StyledModal = styled(Modal)`
 		margin-right: -50%;
 		transform: translate(-50%, -50%);
 		background-color: white;
-		padding: 2.5rem 3rem 0;
+		padding: ${spacing.spacing2xl} ${spacing.spacing3xl} 0;
 		max-width: 50%;
 		max-height: 80%;
 		${elevate('Modal')}
@@ -26,11 +26,35 @@ export const StyledModal = styled(Modal)`
 		}
 
 		&--Danger {
-
+			border-top: ${spacing.spacing2xs} solid ${colors.amour};
 		}
 
 		&--Passive {
 
+		}
+
+		&--Form {
+			form {
+				box-shadow: none;
+			}
+
+			.Form--Footer {
+				display: grid;
+				grid-template-columns: auto auto;
+				grid-gap: 1rem;
+				justify-content: flex-end;
+				position: absolute;
+				margin-left: -3rem;
+				margin-right: -3rem;
+				padding: 1.5rem 3rem;
+				background-color: ${colors.blackSqueeze};
+				width:100%;
+				${elevate('Modal')}
+			}
+
+			.Modal--Content {
+				/* margin-bottom: 0; */
+			}
 		}
 	}
 
@@ -100,7 +124,7 @@ export const GlobalModal = createGlobalStyle`
         left: 0px;
         right: 0px;
         bottom: 0px;
-        background-color: rgba(223,227,230,.5);
+        background-color: ${transparentize(0.40, colors.stormPetrel)};
         ${elevate('Overlay')}
     }
 `;

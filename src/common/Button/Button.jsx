@@ -8,7 +8,7 @@ class Button extends React.Component {
 	render() {
 		const {
             children,
-            handleClick,
+            onClick,
             iconName,
             className,
             colorName,
@@ -20,7 +20,7 @@ class Button extends React.Component {
             <StyledButton
                 colorName={colorName}
                 inverted={inverted}
-                onClick={handleClick}
+                onClick={onClick}
                 type={type}
                 className={classNames(
                     {'Button': !(/header/gi).test(className)},
@@ -44,7 +44,7 @@ Button.propTypes = {
     type: PropTypes.string,
     iconName: PropTypes.string,
     className: PropTypes.string,
-    handleClick: PropTypes.func,
+    onClick: PropTypes.func,
     children: PropTypes.any
 }
 

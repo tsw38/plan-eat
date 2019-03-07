@@ -19,15 +19,14 @@ class ModalGeneric extends React.Component {
 	componentDidMount() {
 		const {
 			modalId,
-			initialize,
-			toggleModal
+			initialize
 		} = this.props;
 
 		initialize(modalId);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.warn(nextProps);
+		// console.warn(nextProps);
 	}
 
 	componentDidUpdate(prevProps) {}
@@ -53,6 +52,7 @@ class ModalGeneric extends React.Component {
 		const {
 			type,
 			label,
+			render,
 			heading,
 			children,
 			modalIsOpen
@@ -62,7 +62,8 @@ class ModalGeneric extends React.Component {
 			<StyledModal
 				className={classNames(
                     'Modal',
-                    `Modal--${type}`
+					`Modal--${type}`,
+					{[`Modal--Form`]: render.form}
 				)}
 				overlayClassName="Modal--Overlay"
                 isOpen={modalIsOpen}
@@ -103,6 +104,7 @@ const mapDispatchToProps = {
 };
 
 ModalGeneric.defaultProps = {
+	render: {},
 	type: 'Primary',
 	modalIsOpen: false
 };
@@ -110,6 +112,7 @@ ModalGeneric.defaultProps = {
 ModalGeneric.propTypes = {
 	type: PropTypes.string,
 	label: PropTypes.string,
+	render: PropTypes.object,
 	heading: PropTypes.string,
 	children: PropTypes.element,
 	modalIsOpen: PropTypes.bool

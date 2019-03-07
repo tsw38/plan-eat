@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {SigninValidator} from 'utils/validators';
 
 import { Signin } from 'actions/AccountActions';
+import { toggleModal } from 'actions/ModalActions';
 
 import Button from 'common/Button/Button';
 import Input from 'common/FormFields/Input';
@@ -14,7 +15,8 @@ class SigninForm extends React.Component {
     render() {
         const {
             render,
-            Signin
+            Signin,
+            toggleModal
         } = this.props;
 
         return (
@@ -25,7 +27,24 @@ class SigninForm extends React.Component {
                 onError={() => {console.warn('on error')}}
                 onSubmit={Signin}
                 onComplete={() => {console.warn('on complete')}}
-                render={render}
+                render={{
+                    ...render,
+                    buttons: (
+                        <React.Fragment>
+                            <Button
+                                type="button"
+                                onClick={() => toggleModal(render.modal)}
+                                className="Button--Secondary">
+                                Cancel
+                            </Button>
+                            <Button
+                                type="submit"
+                                className="Button--Primary">
+                                Sign In
+                            </Button>
+                        </React.Fragment>
+                    )
+                }}
                 initialValues={{
                     email: "",
                     password: ""
@@ -41,8 +60,6 @@ class SigninForm extends React.Component {
                         name="password"
                         label="Password"
                     />
-
-                    <Button type="submit" className="Button--Primary">Sign In</Button>
                 </React.Fragment>
             </FormGeneric>
         )
@@ -56,8 +73,9 @@ SigninForm.defaultProps = {
 }
 
 SigninForm.propTypes = {
+    Signin: PropTypes.func,
     render: PropTypes.object,
-    Signin: PropTypes.func
+    toggleModal: PropTypes.func
 }
 
 
@@ -69,7 +87,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    Signin
+    Signin,
+    toggleModal
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninForm);

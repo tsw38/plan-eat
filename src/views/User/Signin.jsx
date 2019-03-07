@@ -3,33 +3,25 @@ import SigninForm from 'components/Form/Signin';
 
 import { StyledSignin } from 'styles/views/Signin';
 
-
 import Modal from 'common/Modal/ModalGeneric';
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
-
+import Config from 'config/ModalsConfig';
 
 class Signin extends React.Component {
     render() {
         return (
             <StyledSignin>
                 <Modal
-                    modalId={1}
-                    type="Primary"
-                    heading="Sign In">
+                    modalId={Config.SIGN_IN_MODAL.id}
+                    render={{
+                        form: true
+                    }}
+                    type={Config.SIGN_IN_MODAL.type}
+                    heading={Config.SIGN_IN_MODAL.heading}>
                     <SigninForm
                         render={{
                             title: false,
-                            inModal: true
+                            modal: Config.SIGN_IN_MODAL.id
                         }}/>
                 </Modal>
             </StyledSignin>
