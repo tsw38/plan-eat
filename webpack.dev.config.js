@@ -12,7 +12,8 @@ const package = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.js
 const aliases = {
 	icons: path.resolve(__dirname, 'src/icons'),
 	utils: path.resolve(__dirname, 'src/utils'),
-    views: path.resolve(__dirname, 'src/views'),
+	views: path.resolve(__dirname, 'src/views'),
+	config: path.resolve(__dirname, 'src/config'),
     errors: path.resolve(__dirname, 'src/errors'),
     common: path.resolve(__dirname, 'src/common'),
     images: path.resolve(__dirname, 'src/images'),

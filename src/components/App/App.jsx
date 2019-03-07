@@ -19,8 +19,10 @@ import MealPrep from 'views/MealPrep/MealPrep';
 import StyleGuide from 'views/StyleGuide/StyleGuide';
 import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
+import {ResetStyles, FontStyles, SVGStyles} from 'styles/global';
+
 import LinkStyles from 'styles/common/Link';
-import * as GlobalStyles from 'styles/global';
+import {GlobalModal} from 'styles/common/Modal';
 import ButtonStyles from 'styles/common/Button';
 import * as AppStyles from "styles/components/App";
 
@@ -50,11 +52,12 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <GlobalStyles.Reset />
-                <GlobalStyles.Fonts />
-                <GlobalStyles.SVG />
+                <ResetStyles />
+                <FontStyles />
+                <SVGStyles />
                 <LinkStyles />
                 <ButtonStyles />
+                <GlobalModal />
                 <AppStyles.App className="App">
                     <Helmet
                         htmlAttributes={{lang:"en"}}

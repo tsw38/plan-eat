@@ -32,6 +32,7 @@
     "react-dev-utils": "^7.0.3",
     "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
+    "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",
     "react-svg": "^7.2.7",
     "react-svg-injector": "^2.0.2",

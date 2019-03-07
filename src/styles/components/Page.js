@@ -11,7 +11,6 @@ export const Page = styled.div`
 
         &--Signin {
             justify-content: center;
-            align-items: center;
         }
     }
 `;

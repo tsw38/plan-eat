@@ -26,6 +26,7 @@ export default (layerName) => {
 				zIndex: 16,
 				boxShadow: '0 8px 16px 0 rgba(0,0,0,0.10)'
 			}
+		case 'Modal':
 		case 'PopOut':
 			return {
 				zIndex: 24,

@@ -34,6 +34,7 @@ export const FormWrapper = styled.div`
         background-color: white;
         border: 1px solid ${stormPetrel};
         padding: ${spacinglg};
+        ${elevate('Raised')}
 
         label {
             > span {
