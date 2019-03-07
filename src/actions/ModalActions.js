@@ -8,7 +8,7 @@ export function initialize(modalId) {
 }
 
 export const toggleModal = (modalId) => (dispatch, getState, api) => {
-	const thisModal = getState().modals[modalId];
+	const thisModal = getState().modals.modals[modalId];
 
     dispatch({
         type: thisModal ? MC.MODAL_CLOSE : MC.MODAL_OPEN,

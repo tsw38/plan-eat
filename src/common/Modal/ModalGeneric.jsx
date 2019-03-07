@@ -50,16 +50,16 @@ class ModalGeneric extends React.Component {
 	}
 
 	handleClose = (e) => {
-		// const {
-		// 	modalId,
-		// 	destroyModal
-		// } = this.props;
+		const {
+			modalId,
+			toggleModal
+		} = this.props;
 
-		// if (e) {
-		// 	e.preventDefault();
-		// }
+		if (e) {
+			e.preventDefault();
+		}
 
-		// destroyModal(modalId);
+		toggleModal(modalId);
 	}
 
 	render() {
@@ -119,7 +119,7 @@ class ModalGeneric extends React.Component {
 					{heading &&
 						<p className="Modal--Header-Heading">{heading}</p>
 					}
-					<button className="Modal--Header-Close">
+					<button className="Modal--Header-Close" onClick={this.handleClose}>
 						<Icon
 							name={'times'}
 						/>
@@ -134,12 +134,9 @@ class ModalGeneric extends React.Component {
 	}
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = ({modals}, props) => {
 	return {
-		// site: state.config.site,
-		// modal: getModal(state, props),
-		// isMobile: state.app.isMobile,
-		// scrollTop: state.modal.scrollTop
+		modalIsOpen: modals.modal[props.modalId]
 	};
 };
 
@@ -149,14 +146,16 @@ const mapDispatchToProps = {
 };
 
 ModalGeneric.defaultProps = {
-	type: 'Primary'
+	type: 'Primary',
+	modalIsOpen: false
 };
 
 ModalGeneric.propTypes = {
 	type: PropTypes.string,
 	label: PropTypes.string,
 	heading: PropTypes.string,
-	children: PropTypes.element
+	children: PropTypes.element,
+	modalIsOpen: PropTypes.bool
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalGeneric);
