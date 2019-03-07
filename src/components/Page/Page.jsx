@@ -2,6 +2,7 @@ import React from "react";
 import {Helmet} from 'react-helmet';
 import {Location} from '@reach/router';
 import {connect} from 'react-redux';
+import classNames from 'classnames';
 
 import {pathToPageTitle} from 'utils/url';
 
@@ -11,7 +12,10 @@ import * as PageStyles from "styles/components/Page";
 
 const PageComponent = ({page, onLocationChange, children}) => {
 	return (
-		<PageStyles.Page className={page}>
+		<PageStyles.Page className={classNames(
+            'Page',
+            `Page--${page}`
+        )}>
 			<Location>
                 {({location}) => {
                     return (

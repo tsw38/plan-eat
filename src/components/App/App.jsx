@@ -3,15 +3,17 @@ import {Helmet} from "react-helmet";
 import {Location} from "@reach/router";
 import {connect} from 'react-redux';
 
+import {pathToPageTitle} from 'utils/url';
+
 import Page from 'components/Page/Page';
 import Header from "components/Header/Header";
 import Sidebar from "components/Sidebar/Sidebar";
 
 import Inbox from 'views/Inbox/Inbox';
+import Signin from 'views/User/Signin';
 import Recipe from 'views/Recipe/Recipe';
 import NotFound from 'views/404/404.jsx';
 import Recipes from 'views/Recipes/Recipes';
-import Signin from 'components/Form/Signin';
 import Overview from 'views/Overview/Overview';
 import MealPrep from 'views/MealPrep/MealPrep';
 import StyleGuide from 'views/StyleGuide/StyleGuide';
@@ -23,6 +25,8 @@ import ButtonStyles from 'styles/common/Button';
 import * as AppStyles from "styles/components/App";
 
 import {onLocationChange} from 'actions/AppActions';
+
+
 
 class App extends React.Component {
     state = {
@@ -77,7 +81,7 @@ class App extends React.Component {
 
                             return (
                                 <AppStyles.StyledRouter location={props.location}>
-                                    <Page path="/">
+                                    <Page path="/" page={pathToPageTitle(props.location.pathname)}>
                                         <Overview path="/" />
                                         <MealPrep path="/meal-prep"/>
                                         <Recipes path="/recipes"/>
