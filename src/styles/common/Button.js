@@ -1,11 +1,7 @@
 
 import styled, { createGlobalStyle } from 'styled-components';
 import {transition, colorButtons} from '../mixins/index';
-import {darken, lighten} from 'polished';
-
-import {
-    lotusPink, casandora, amour, carribean, blueFrance, nasaPurple, stormPetrel, imperialPrimer
-} from 'styles/colors';
+import {darken, lighten, parseToHsl, rgbToColorString} from 'polished';
 
 import * as colors from 'styles/colors';
 
@@ -17,7 +13,6 @@ export const StyledButton = styled.button`
     &.Button {
         &--${({colorName, inverted}) => inverted ? `${colorName}--Inverted` : colorName}{
             ${({colorName, inverted}) => colorButtons(colors[colorName], inverted)}
-
             :hover {
                 ${({colorName, inverted}) => colorButtons(colors[colorName], !inverted)}
             }
@@ -60,57 +55,57 @@ export default createGlobalStyle`
             cursor: not-allowed;
 
             &.Button--Primary {
-                ${colorButtons(lighten(0.20, blueFrance))}
+                ${colorButtons(lighten(0.20, colors.blueFrance))}
             }
 
             &.Button--Secondary {
-                ${colorButtons(lighten(0.20, blueFrance), true)}
+                ${colorButtons(lighten(0.20, colors.blueFrance), true)}
             }
 
             &.Button--Tertiary {
-                ${colorButtons(stormPetrel, true)}
+                ${colorButtons(colors.stormPetrel, true)}
 
                 &--Full {
-                    ${colorButtons(stormPetrel)}
+                    ${colorButtons(colors.stormPetrel)}
                 }
             }
             &.Button--Primary--Danger {
-                ${colorButtons(lighten(0.20, amour))}
+                ${colorButtons(lighten(0.20, colors.amour))}
             }
 
             &.Button--Secondary--Danger {
-                ${colorButtons(lighten(0.20, amour), true)}
+                ${colorButtons(lighten(0.20, colors.amour), true)}
             }
         }
 
         &--Primary {
-            ${colorButtons(blueFrance)};
+            ${colorButtons(colors.blueFrance)};
 
             &:hover {
-                ${colorButtons(darken(0.20, blueFrance))}
+                ${colorButtons(darken(0.20, colors.blueFrance))}
             }
         }
 
         &--Secondary {
-            ${colorButtons(blueFrance, true)};
+            ${colorButtons(colors.blueFrance, true)};
 
             &:hover {
-                ${colorButtons(blueFrance)}
+                ${colorButtons(colors.blueFrance)}
             }
         }
 
         &--Tertiary {
-            ${colorButtons(imperialPrimer, true)}
+            ${colorButtons(colors.imperialPrimer, true)}
 
             &:hover {
-                ${colorButtons(imperialPrimer)}
+                ${colorButtons(colors.imperialPrimer)}
             }
 
             &--Full {
-                ${colorButtons(imperialPrimer)}
+                ${colorButtons(colors.imperialPrimer)}
 
                 &:hover {
-                    ${colorButtons(imperialPrimer, true)}
+                    ${colorButtons(colors.imperialPrimer, true)}
                 }
             }
 
@@ -118,19 +113,19 @@ export default createGlobalStyle`
         }
 
         &--Primary--Danger {
-            ${colorButtons(amour)}
+            ${colorButtons(colors.amour)}
 
             &:hover {
-                ${colorButtons(darken(0.2, amour, true))}
+                ${colorButtons(darken(0.2, colors.amour, true))}
             }
         }
 
 
         &--Secondary--Danger {
-            ${colorButtons(amour, true)}
+            ${colorButtons(colors.amour, true)}
 
             &:hover {
-                ${colorButtons(amour)}
+                ${colorButtons(colors.amour)}
             }
         }
 
@@ -142,75 +137,75 @@ export default createGlobalStyle`
             padding: 0 0 0 ${spacingmd};
 
             &--Caution {
-                ${colorButtons(casandora)}
-                color: ${imperialPrimer};
-                fill: ${imperialPrimer};
+                ${colorButtons(colors.casandora)}
+                color: ${colors.imperialPrimer};
+                fill: ${colors.imperialPrimer};
 
                 &:hover {
-                    ${colorButtons(darken(0.2, casandora))}
+                    ${colorButtons(darken(0.2, colors.casandora))}
                 }
             }
 
             &--Hazard {
-                ${colorButtons(casandora)}
+                ${colorButtons(colors.casandora)}
                 &:hover {
-                    ${colorButtons(darken(0.2, casandora))}
+                    ${colorButtons(darken(0.2, colors.casandora))}
                 }
             }
 
             &--Hazard--Inverted {
-                ${colorButtons(casandora, true)}
+                ${colorButtons(colors.casandora, true)}
 
                 &:hover {
-                    ${colorButtons(casandora)}
+                    ${colorButtons(colors.casandora)}
                 }
             }
 
             &--Favorite {
-                ${colorButtons(lotusPink)}
+                ${colorButtons(colors.lotusPink)}
 
                 &:hover {
-                    ${colorButtons(darken(0.2, lotusPink))}
+                    ${colorButtons(darken(0.2, colors.lotusPink))}
                 }
             }
 
             &--Favorite--Inverted {
-                ${colorButtons(lotusPink, true)}
+                ${colorButtons(colors.lotusPink, true)}
 
                 &:hover {
-                    ${colorButtons(lotusPink)}
+                    ${colorButtons(colors.lotusPink)}
                 }
             }
 
             &--Royal {
-                ${colorButtons(nasaPurple)}
+                ${colorButtons(colors.nasaPurple)}
 
                 &:hover {
-                    ${colorButtons(lighten(0.2, nasaPurple))}
+                    ${colorButtons(lighten(0.2, colors.nasaPurple))}
                 }
             }
 
             &--Royal--Inverted {
-                ${colorButtons(nasaPurple, true)}
+                ${colorButtons(colors.nasaPurple, true)}
 
                 &:hover {
-                    ${colorButtons(nasaPurple)}
+                    ${colorButtons(colors.nasaPurple)}
                 }
             }
 
             &--Go {
-                ${colorButtons(carribean)}
+                ${colorButtons(colors.carribean)}
 
                 &:hover {
-                    ${colorButtons(darken(0.2, carribean))}
+                    ${colorButtons(darken(0.2, colors.carribean))}
                 }
             }
 
             &--Go--Inverted {
-                ${colorButtons(carribean, true)}
+                ${colorButtons(colors.carribean, true)}
 
                 &:hover {
-                    ${colorButtons(carribean)}
+                    ${colorButtons(colors.carribean)}
                 }
             }
 

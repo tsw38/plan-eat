@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 import * as colors from 'styles/colors';
 import {Section} from 'styles/components/section';
-import {border} from 'styles/variables';
-import { layout2xl } from 'styles/sizing';
+import { layout2xl, spacing3xs} from 'styles/sizing';
+
+import {fontLight} from 'styles/variables';
 
 const ColorWrapper = styled.div`
     min-height:${layout2xl};
@@ -16,7 +17,7 @@ const ColorWrapper = styled.div`
     justify-content: center;
     align-content: center;
     align-items: center;
-    font-weight: 300;
+    font-weight: ${fontLight};
     /* margin: 0.5rem; */
     padding: 0.5rem;
     flex:0;
@@ -40,8 +41,8 @@ export const ColorGuide = () => {
 			<h1>Colors</h1>
 			<div style={{
 				display: 'grid',
-				gridTemplateColumns: 'repeat(4, minmax(100px, calc(100%/4)))',
-				gridGap: '0.25rem'
+				gridTemplateColumns: 'repeat(5, minmax(100px, calc(100%/5)))',
+				gridGap: spacing3xs
 			}}>
 				{Object.keys(colors).map((colorName, index) => {
 					return (

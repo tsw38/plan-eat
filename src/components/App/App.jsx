@@ -11,6 +11,7 @@ import Inbox from 'views/Inbox/Inbox';
 import Recipe from 'views/Recipe/Recipe';
 import NotFound from 'views/404/404.jsx';
 import Recipes from 'views/Recipes/Recipes';
+import Signin from 'components/Form/Signin';
 import Overview from 'views/Overview/Overview';
 import MealPrep from 'views/MealPrep/MealPrep';
 import StyleGuide from 'views/StyleGuide/StyleGuide';
@@ -84,6 +85,7 @@ class App extends React.Component {
                                         <ShoppingCart path="/cart"/>
                                         <Inbox path="/inbox" />
                                         <StyleGuide path="/style-guide" />
+                                        <Signin path="/signin" />
                                         <NotFound default />
                                     </Page>
                                 </AppStyles.StyledRouter>

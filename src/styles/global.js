@@ -9,6 +9,8 @@ import {
     spacing2xs
 } from './sizing';
 
+import {fontBold} from 'styles/variables';
+
 export const Reset = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -109,14 +111,16 @@ export const Fonts = createGlobalStyle`
         font-size: ${spacingmd};
     }
 
+    h1,h2,h3,h4,h5,h6 {
+        font-weight: ${fontBold};
+    }
+
     h2 {
-        font-weight: 700;
         text-transform: uppercase;
         margin-bottom: ${spacingsm};
     }
 
     h6 {
-        font-weight: 700;
         font-size: ${spacingmd};
         margin-bottom: ${spacing2xs};
     }

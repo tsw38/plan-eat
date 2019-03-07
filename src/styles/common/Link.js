@@ -11,9 +11,11 @@ import {
     spacing2xs
 } from 'styles/sizing';
 
+import { fontBold } from 'styles/variables';
+
 export default createGlobalStyle`
     .Link {
-        font-weight: 600;
+        font-weight: ${fontBold};
         text-decoration: underline;
         color: ${blueFrance};
         ${transition()}

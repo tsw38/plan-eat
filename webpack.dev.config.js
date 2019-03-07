@@ -13,6 +13,7 @@ const aliases = {
 	icons: path.resolve(__dirname, 'src/icons'),
 	utils: path.resolve(__dirname, 'src/utils'),
     views: path.resolve(__dirname, 'src/views'),
+    errors: path.resolve(__dirname, 'src/errors'),
     common: path.resolve(__dirname, 'src/common'),
     images: path.resolve(__dirname, 'src/images'),
 	styles: path.resolve(__dirname, 'src/styles'),

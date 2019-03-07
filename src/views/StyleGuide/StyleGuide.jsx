@@ -24,31 +24,5 @@ class StyleGuide extends React.Component {
     }
 }
 
-const ColorWrapper = styled.div`
-    min-height:00px;
-    display: flex;
-    flex-direction: row;
-    border: ${border};
-    word-wrap: break-word;
-    flex: 1;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    font-weight: 300;
-    /* margin: 0.5rem; */
-    padding: 0.5rem;
-    flex:0;
-    color: transparent;
-
-    &:hover {
-        color: white;
-        text-shadow: 1px 1px 1px ${colors.fuelTown};
-    }
-
-    ${({color}) => ({
-        backgroundColor: colors[color]
-    })}
-`;
-
 
 export default StyleGuide;

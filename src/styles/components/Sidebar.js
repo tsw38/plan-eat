@@ -5,9 +5,10 @@ import {spacing2xs, spacingxs, spacingmd, spacinglg, layoutxs} from 'styles/sizi
 
 import {fuelTown, blueFrance} from 'styles/colors';
 
-import {border} from 'styles/variables';
+import {border, fontBold} from 'styles/variables';
 
 import {lighten} from 'polished';
+
 
 export const Sidebar = styled.aside`
     grid-area: sidebar;
@@ -19,7 +20,7 @@ export const Sidebar = styled.aside`
     .Link--Sitename {
         font-size: ${spacinglg};
         font-family: 'Domine';
-        font-weight: 700;
+        font-weight: ${fontBold};
         display: block;
         line-height: 3rem;
         width: 100%;
