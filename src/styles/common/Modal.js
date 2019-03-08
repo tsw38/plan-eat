@@ -55,6 +55,9 @@ export const StyledModal = styled(Modal)`
 				${elevate('Modal')}
 
                 .ButtonWrapper {
+                    display: flex;
+                    align-items: center;
+
                     > :first-child {
                         margin-right: ${spacing.spacingmd};
                     }

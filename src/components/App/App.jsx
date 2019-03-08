@@ -35,9 +35,9 @@ class App extends React.Component {
         location: ''
     }
 
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        // this.props.onLocationChange(prevProps, this.props);
-    }
+    // getSnapshotBeforeUpdate(prevProps, prevState) {
+    //     // this.props.onLocationChange(prevProps, this.props);
+    // }
 
     componentDidUpdate(prevProps) {
         // console.warn(prevProps);

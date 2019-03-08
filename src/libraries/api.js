@@ -1,14 +1,16 @@
 import axios from 'axios';
 import chalk from 'chalk';
-
+import cookie from 'js-cookie';
+window.tyler = cookie;
 export const api = (dispatch) => ({query, mutationName, variables}) => {
-    return axios({
-        url: process.env.API_URL,
+
+    return axios(process.env.API_URL, {
         method: 'post',
         data: {
             query,
             variables
-        }
+        },
+        withCredentials: true
     });
     // }).then(resp => {
         // console.log(chalk.green('this is the options'), resp);
