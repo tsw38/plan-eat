@@ -6,6 +6,8 @@ import {elevate} from 'styles/mixins/index';
 import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';
 
+import {fontBold, fontLight, fontNormal} from 'styles/variables';
+
 export const StyledModal = styled(Modal)`
 	&.Modal {
 		position: absolute;
@@ -17,7 +19,9 @@ export const StyledModal = styled(Modal)`
 		transform: translate(-50%, -50%);
 		background-color: white;
 		padding: ${spacing.spacing2xl} ${spacing.spacing3xl} 0;
-		max-width: 50%;
+		max-width: 70%;
+        min-width: 400px;
+        width:100%;
 		max-height: 80%;
 		${elevate('Modal')}
 
@@ -39,16 +43,15 @@ export const StyledModal = styled(Modal)`
 			}
 
 			.Form--Footer {
+				width:100%;
+				position: absolute;
+                margin: 0 -${spacing.spacing3xl};
+				padding: ${spacing.spacinglg} ${spacing.spacing3xl};
 				display: grid;
 				grid-template-columns: auto auto;
-				grid-gap: 1rem;
+				grid-gap: ${spacing.spacingmd};
 				justify-content: flex-end;
-				position: absolute;
-				margin-left: -3rem;
-				margin-right: -3rem;
-				padding: 1.5rem 3rem;
 				background-color: ${colors.blackSqueeze};
-				width:100%;
 				${elevate('Modal')}
 			}
 
@@ -59,57 +62,62 @@ export const StyledModal = styled(Modal)`
 	}
 
 	.Modal--Header {
-		margin-bottom: 1.5rem;
+		margin-bottom: ${spacing.spacinglg};
 
 		&-Label {
-			max-width: 38rem;
-			font-size: .75rem;
+			max-width: ${spacing.layoutSoBig};
+			font-size: ${spacing.spacingsm};
 			letter-spacing: 0;
-			color: #152935;
-			font-weight: 600;
+			color: ${colors.imperialPrimer};
+			font-weight: ${fontBold};
 			text-transform: uppercase;
-			margin-bottom: .5rem;
+			margin-bottom: ${spacing.spacingxs};
 		}
 
 		&-Heading {
-			font-size: 1.75rem;
-			font-weight: 300;
-			color: #5a6872;
-			max-width: 38rem;
+			font-size: ${spacing.spacing2lg};
+			font-weight: ${fontLight};
+			color: ${colors.stormPetrel};
+			max-width: ${spacing.layoutSoBig};
 			line-height: 1.5;
 		}
 
 		&-Close {
 			position: absolute;
-			top: 1rem;
-			right: 1rem;
+			top: ${spacing.spacingmd};
+			right: ${spacing.spacingmd};
 			overflow: hidden;
 			cursor: pointer;
 			background-color: transparent;
 			border: none;
-			padding: .25rem .25rem .125rem;
+			padding: ${spacing.spacing2xs};
 
 			:focus {
-				outline: 1px solid #3d70b2;
+				outline: 1px solid ${colors.blueFrance};
 			}
 
+            :hover {
+                background-color: ${colors.blueFrance};
+                fill: white;
+            }
+
 			svg {
-				height: 15px;
-				width: 15px;
+				height: ${spacing.spacingmd};
+				width: ${spacing.spacingmd};
 			}
 		}
 	}
 
 	.Modal--Content {
 		overflow-y: auto;
-		margin-bottom: 3rem;
-		color: #152935;
-		font-weight: 400;
+		margin-bottom: ${spacing.spacing3xl};
+		color: ${colors.blueFrance};
+		font-weight: ${fontNormal};
 
 		p {
-			max-width: 38rem;
+			max-width: ${spacing.layoutSoBig};
 			line-height: 1.5;
-			padding: 0 0 1rem;
+			padding: 0 0 ${spacing.spacingmd};
 		}
 	}
 `;

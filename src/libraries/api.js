@@ -1,10 +1,11 @@
 import { jsonToGraphQLQuery } from 'json-to-graphql-query';
 import axios from 'axios';
-console.log('this is the process', process.env.API_URL);
+
 // all the graphql api stuff will go here
 
-export const api = (dispatch, getState, options) => {
-    console.warn(dispatch, getState, options);
+export const api = (dispatch) => ({query, mutation, body}) => {
+    console.warn({dispatch})
+    console.warn({values})
 
     // return axios({
     //     method: 'post',

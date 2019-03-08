@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {elevate} from 'styles/mixins/index';
-import {stormPetrel, amour, blueFrance, blackSqueeze} from 'styles/colors';
+import {stormPetrel, fuelTown, blueFrance, blackSqueeze} from 'styles/colors';
 import {
     layoutxs,
     layoutsm,
@@ -26,11 +26,14 @@ export const FormWrapper = styled.div`
         }
 
         &--Modal {
-            width: 30vw;
 
             form {
                 border:none;
                 padding: 0;
+
+                label > span {
+                    color: ${fuelTown}
+                }
             }
         }
     }

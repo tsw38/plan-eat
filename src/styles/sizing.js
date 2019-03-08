@@ -23,4 +23,6 @@ export const layout4xl ='13rem'; // 208px
 export const layout5xl ='14rem'; // 224px
 export const layout6xl ='15rem'; // 240px
 
+export const layoutSoBig = '38rem'; // 608px
+
 export const _14px = '0.875rem';
