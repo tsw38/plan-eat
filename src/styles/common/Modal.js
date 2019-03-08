@@ -50,9 +50,15 @@ export const StyledModal = styled(Modal)`
 				display: grid;
 				grid-template-columns: auto auto;
 				grid-gap: ${spacing.spacingmd};
-				justify-content: flex-end;
+				justify-content: space-between;
 				background-color: ${colors.blackSqueeze};
 				${elevate('Modal')}
+
+                .ButtonWrapper {
+                    > :first-child {
+                        margin-right: ${spacing.spacingmd};
+                    }
+                }
 			}
 
 			.Modal--Content {

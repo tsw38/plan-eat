@@ -14,6 +14,7 @@ import FormGeneric from 'components/Form/FormGeneric';
 class SigninForm extends React.Component {
     render() {
         const {
+            user,
             render,
             Signin,
             toggleModal
@@ -29,8 +30,9 @@ class SigninForm extends React.Component {
                 onComplete={() => {console.warn('on complete')}}
                 render={{
                     ...render,
+                    error: user.error,
                     buttons: (
-                        <React.Fragment>
+                        <div className="ButtonWrapper">
                             <Button
                                 type="button"
                                 onClick={() => toggleModal(render.modal)}
@@ -42,7 +44,7 @@ class SigninForm extends React.Component {
                                 className="Button--Primary">
                                 Sign In
                             </Button>
-                        </React.Fragment>
+                        </div>
                     )
                 }}
                 initialValues={{
@@ -73,6 +75,7 @@ SigninForm.defaultProps = {
 }
 
 SigninForm.propTypes = {
+    user: PropTypes.object,
     Signin: PropTypes.func,
     render: PropTypes.object,
     toggleModal: PropTypes.func
@@ -80,9 +83,8 @@ SigninForm.propTypes = {
 
 
 const mapStateToProps = (state, ownProps) => {
-    // console.warn('maping state to prop', state)
     return {
-        user: state.user
+        user: state.user.account
     }
 }
 

@@ -3,8 +3,11 @@ import { Formik, Form } from 'formik';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+import {AlertConstants as AC} from 'constants';
+
 import {toTitleCase} from 'utils/string';
 
+import Alert from 'common/Alert/Alert';
 import {FormWrapper} from 'styles/components/Form/Form';
 
 class FormGeneric extends React.Component {
@@ -58,6 +61,11 @@ class FormGeneric extends React.Component {
                             <Form>
                                 {children}
                                 <div className="Form--Footer">
+                                    <Alert
+                                        type={AC.ERROR}
+                                        message={render.error}
+                                    />
+
                                     {render.buttons}
                                 </div>
                             </Form>
