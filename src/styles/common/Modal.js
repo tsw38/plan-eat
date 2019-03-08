@@ -19,9 +19,9 @@ export const StyledModal = styled(Modal)`
 		transform: translate(-50%, -50%);
 		background-color: white;
 		padding: ${spacing.spacing2xl} ${spacing.spacing3xl} 0;
-		max-width: 70%;
+		max-width: 700px;
+        width: 70vw;
         min-width: 400px;
-        width:100%;
 		max-height: 80%;
 		${elevate('Modal')}
 

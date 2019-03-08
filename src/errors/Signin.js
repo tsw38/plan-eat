@@ -1,4 +1,4 @@
-export default {
+ export default {
     email: {
         invalid: "Invalid Email Address"
     },

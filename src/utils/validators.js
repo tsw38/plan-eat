@@ -8,7 +8,7 @@ export const SigninValidator = Yup.object().shape({
         .email(SigninErrors.email.invalid)
         .required(GlobalErrors.required),
     password: Yup.string()
-        .min(8, SigninErrors.password.min)
-        .max(24, SigninErrors.password.max)
-        .required(GlobalErrors.required)
+        // .min(8, SigninErrors.password.min)
+        // .max(24, SigninErrors.password.max)
+        // .required(GlobalErrors.required)
 });

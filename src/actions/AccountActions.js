@@ -1,16 +1,40 @@
 import {AccountConstants as AC} from 'constants/index';
 
-export const Signin = (values) => (dispatch, getState, api) => {
+export const Signin = (variables) => (dispatch, getState, api) => {
     dispatch({
-        type: AC.SIGN_IN_PENDING,
-        payload: values
+        type: AC.SIGN_IN_PENDING
     })
 
     return api({
-        query: 'signIn',
-        body: values
-    }).then((resp) => {
-        console.warn('api response is', resp);
-        return resp;
+        query: `
+            query SignInUser ($email: String!, $password: String!) {
+                signIn (email: $email, password: $password) {
+                    uid,
+                    emailVerified,
+                    refreshToken,
+                    permissions,
+                    error
+                }
+            }
+        `,
+        variables
+    }).then(({data}) => {
+        const {
+            signIn
+        } = data.data;
+
+        if(signIn.error.length) {
+            dispatch({
+                type: AC.SIGN_IN_ERROR,
+                payload: signIn.error
+            })
+        } else {
+            dispatch({
+                type: AC.SIGN_IN_FETCHED,
+                payload: signIn
+            })
+        }
+
+        return signIn;
     })
 }
