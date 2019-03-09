@@ -14,7 +14,7 @@ const totalEatenCalories = 1800;
 
 const dataPie = [
     {value: totalEatenCalories, stroke: colors.ballerina, strokeWidth: 2},
-    {value: totalCalories-totalEatenCalories, stroke: colors.fuelTown, strokeWidth: 4},
+    {value: totalCalories-totalEatenCalories, stroke: colors.fuelTown, strokeWidth: 3.5},
   ]
 
 class NutritionDonutChart extends React.Component {
