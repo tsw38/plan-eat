@@ -38,8 +38,6 @@ export const StyledRecipe = styled.div`
 
             &:first-of-type {
                 max-width: ${sizing.layoutSoBig};
-                /* background-color: ${colors.blueFrance}; */
-                /* padding-right: ${sizing.spacingxs}; */
             }
 
             &:last-of-type {
@@ -55,6 +53,14 @@ export const StyledRecipe = styled.div`
                 }
             }
         }
+
+        .Recipe--Section--Title {
+        font-weight: ${variables.fontLight};
+        font-size: ${sizing.spacingmdl};
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom:1.5rem;
+    }
     }
 
     .Recipe {
@@ -146,14 +152,6 @@ export const StyledRecipe = styled.div`
             }
         }
 
-        &--SectionTitle {
-            font-weight: ${variables.fontLight};
-            font-size: ${sizing.spacingmdl};
-            margin-left: 0;
-            margin-right: 0;
-            margin-bottom:1.5rem;
-        }
-
         &--Image {
             width: 100%;
             padding-top:100%;
@@ -163,11 +161,84 @@ export const StyledRecipe = styled.div`
             background-repeat: no-repeat;
             background-color: ${colors.stormPetrel};
         }
+
+        &--Time {
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-items: center;
+            border-bottom: 1px solid ${colors.ballerina};
+            padding: 0.5rem 0;
+
+            h6 {
+                color: ${colors.stormPetrel};
+                font-weight: ${variables.fontLight};
+                font-size: ${sizing.spacingsml};
+                text-align: center;
+            }
+
+            > * {
+                text-align: center;
+                width: 100%;
+
+                :first-child {
+                    border-right: 1px solid ${colors.ballerina};
+                }
+
+                :last-child {
+                    border-left: 1px solid ${colors.ballerina};
+                }
+            }
+        }
+
+        &--Nutrition {
+            padding: 2rem 0 0;
+
+            .Recipe--Section--Title {
+                margin-bottom: 1rem;
+            }
+
+            &--Table {
+                display: grid;
+                grid-template-areas:
+                    'Calories Sugar'
+                    'Protein Fiber'
+                    'Fats Carbs'
+                ;
+                grid-template-columns: 50% 50%;
+
+                p {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0.5rem 0;
+
+                    &.Calories,
+                    &.Protein,
+                    &.Fat {
+                        border-right: 1px solid ${colors.ballerina};
+                        padding-right: 0.5rem;
+                    }
+                    &.Sugar,
+                    &.Fiber,
+                    &.Carbs {
+                        border-left: 1px solid ${colors.ballerina};
+                        padding-left: 0.5rem;
+                    }
+
+                    &.Protein,
+                    &.Fiber {
+                        border-top: 2px solid ${colors.ballerina};
+                        border-bottom: 2px solid ${colors.ballerina};
+                    }
+                }
+            }
+        }
     }
 `;
 
 export const RecipeHeader = styled.div``;
-export const RecipeSection = styled.div`
-    margin-bottom: 1rem;
 
+export const RecipeSection = styled.div`
+    &.Recipe--Section {
+        margin-bottom: 0.75rem;
+    }
 `;

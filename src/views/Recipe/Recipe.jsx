@@ -40,7 +40,7 @@ class Recipe extends React.Component {
                     <RecipeSection
                         className="Recipe--Section">
                         <Row>
-                            <h3 className="Recipe--SectionTitle">Ingredients</h3>
+                            <h3 className="Recipe--Section--Title">Ingredients</h3>
                             <div className="Recipe--Serving-Toggle">
                                 <Button iconName={'minus'} />
                                 <Button iconName={'plus'} />
@@ -61,7 +61,7 @@ class Recipe extends React.Component {
                     <RecipeSection
                         className="Recipe--Section">
                         <Row>
-                            <h3 className="Recipe--SectionTitle">Directions</h3>
+                            <h3 className="Recipe--Section--Title">Directions</h3>
                         </Row>
                         <ol className="Recipe--Ingredient-List">
                             <li>
@@ -79,7 +79,7 @@ class Recipe extends React.Component {
                     <RecipeSection
                         className="Recipe--Section">
                         <Row>
-                            <h3 className="Recipe--SectionTitle">Chef's Notes</h3>
+                            <h3 className="Recipe--Section--Title">Chef's Notes</h3>
                         </Row>
                         <ul className="Recipe--Ingredient-List">
                             <li>
@@ -93,8 +93,45 @@ class Recipe extends React.Component {
                         className="Recipe--Image"
                         style={{backgroundImage: 'url(https://images.unsplash.com/photo-1529268127899-36bf4524c254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)'}}
                     />
-                    <div className="Recipe--Time"></div>
-                    <div className="Recipe--Nutrition"></div>
+                    <div className="Recipe--Time">
+                        <div className="Recipe--Time--Prep">
+                            <h6>Prep Time</h6>
+                            <h5>15 minutes</h5>
+                        </div>
+                        <div className="Recipe--Time--Cook">
+                            <h6>Cook Time</h6>
+                            <h5>35 minutes</h5>
+                        </div>
+                    </div>
+                    <div className="Recipe--Nutrition">
+                        <h3 className="Recipe--Section--Title">Nutrition Facts</h3>
+                        <div className="Recipe--Nutrition--Table">
+                            <p className="Calories">
+                                <span className="category">Calories</span>
+                                <span className="value">450</span>
+                            </p>
+                            <p className="Sugar">
+                                <span className="category">Sugar</span>
+                                <span className="value">20g</span>
+                            </p>
+                            <p className="Protein">
+                                <span className="category">Protein</span>
+                                <span className="value">30g</span>
+                            </p>
+                            <p className="Fiber">
+                                <span className="category">Fiber</span>
+                                <span className="value">55g</span>
+                            </p>
+                            <p className="Fat">
+                                <span className="category">Fat</span>
+                                <span className="value">30g</span>
+                            </p>
+                            <p className="Carbs">
+                                <span className="category">Carbs</span>
+                                <span className="value">10g</span>
+                            </p>
+                        </div>
+                    </div>
                 </Column>
             </StyledRecipe>
         );
