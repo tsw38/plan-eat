@@ -6,6 +6,8 @@ import Link from "common/Link/Link";
 import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
 
+import * as colors from 'styles/colors';
+
 class Recipe extends React.Component {
     render() {
         return (
@@ -131,6 +133,28 @@ class Recipe extends React.Component {
                                 <span className="value">10g</span>
                             </p>
                         </div>
+                    </div>
+
+                    <div className="Recipe--Tags">
+                        <h3 className="Recipe--Section--Title">Tags</h3>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'blueFrance'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Tag2
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            Tag 3
+                        </Button>
                     </div>
                 </Column>
             </StyledRecipe>

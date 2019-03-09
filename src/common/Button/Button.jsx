@@ -10,6 +10,7 @@ class Button extends React.Component {
             children,
             onClick,
             iconName,
+            editable,
             className,
             colorName,
             inverted,
@@ -28,12 +29,13 @@ class Button extends React.Component {
                     {'Button': !(/header/gi).test(className)},
                     {[`Button--${colorName}`]: !!colorName},
                     {[`Button--${colorName}${inverted ? '--Inverted' : ''}`]: !!colorName && !!inverted},
+                    {editable},
                     className
                 )}>
 
 				{children}
 
-                {(iconName || (/Tag/).test(className)) &&
+                {(iconName || (/Tag/).test(className)) && editable &&
                     <Icon
                         name={iconName || 'times'}
                     />
@@ -41,6 +43,10 @@ class Button extends React.Component {
 			</StyledButton>
         );
 	}
+}
+
+Button.defaultProps = {
+    editable: true
 }
 
 Button.propTypes = {

@@ -232,6 +232,15 @@ export const StyledRecipe = styled.div`
                 }
             }
         }
+
+        &--Tags {
+            padding: 2rem 0 0;
+
+            .Button {
+                user-select: none;
+                margin-right: 1rem;
+            }
+        }
     }
 `;
 
