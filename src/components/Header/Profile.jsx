@@ -38,6 +38,7 @@ class Profile extends React.Component {
             <StyledProfile>
                 <Button
                     className="Button--Header"
+                    style={{backgroundImage: user.photoURL}}
                     onClick={() => {}}>
                     <Link
                         to="/account">
@@ -46,12 +47,6 @@ class Profile extends React.Component {
                                 {'hidden': user.uid}
                             )}
                             name="user-circle">
-                            {user.uid && (
-                                <img
-                                    src={user.photoURL}
-                                    alt="user image"
-                                />
-                            )}
                         </Icon>
                     </Link>
 

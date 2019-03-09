@@ -21,6 +21,23 @@ export const StyledButton = styled.button`
         .Icon--Wrapper {
             height: ${spacinglg};
         }
+
+
+        &--Header {
+            border-radius: 50%;
+            height: ${spacinglg};
+            width: ${spacinglg};
+            background-image: url(${({style}) => style && style.backgroundImage});
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+
+            .Icon--Wrapper {
+                .Icon {
+                    padding: 0;
+                }
+            }
+        }
     }
 `;
 
@@ -43,11 +60,6 @@ export default createGlobalStyle`
         border-width: ${spacing3xs};
         border-style: solid;
         ${transition()}
-
-
-        &--Header {
-            position: relative;
-        }
 
         &--Small {
             padding: ${spacing2xs} ${spacingxs};

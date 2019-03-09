@@ -13,6 +13,7 @@ class Button extends React.Component {
             className,
             colorName,
             inverted,
+            style,
             type
         } = this.props;
 
@@ -22,6 +23,7 @@ class Button extends React.Component {
                 inverted={inverted}
                 onClick={onClick}
                 type={type}
+                style={style}
                 className={classNames(
                     {'Button': !(/header/gi).test(className)},
                     {[`Button--${colorName}`]: !!colorName},

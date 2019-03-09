@@ -19,6 +19,9 @@ import { imperialPrimer, blueFrance } from 'styles/colors';
 
 export const Profile = styled(HeaderBox)`
     grid-area: profile;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 `;
 
 export const AccountDropDown = styled.div`
@@ -90,12 +93,15 @@ export const AccountDropDown = styled.div`
                 margin: 0;
             }
 
-            svg {
+            .Icon--Wrapper {
                 padding: 0 ${spacingxs} 0 ${spacingxs};
-                height: ${spacingmd};
-                width: auto;
-                margin: 0;
-                ${transition()}
+                svg {
+
+                    height: ${spacingmd};
+                    width: auto;
+                    margin: 0;
+                    ${transition()}
+                }
             }
 
             .Link {
