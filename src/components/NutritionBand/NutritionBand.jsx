@@ -14,15 +14,31 @@ class NutritionBand extends React.Component {
             <StyledNutritionBand className="NutritionBand">
                 <DonutChart
                     name="Calories"
+                    data={{
+                        totalCalories: 2000,
+                        totalEaten: 500
+                    }}
                 />
                 <DonutChart
                     name="Protein"
+                    data={{
+                        totalCalories: 900,
+                        totalEaten: 200
+                    }}
                 />
                 <DonutChart
                     name="Carbs"
+                    data={{
+                        totalCalories: 100,
+                        totalEaten: 10
+                    }}
                 />
                 <DonutChart
                     name="Fat"
+                    data={{
+                        totalCalories: 200,
+                        totalEaten: 150
+                    }}
                 />
             </StyledNutritionBand>
         )

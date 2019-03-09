@@ -9,23 +9,19 @@ import { StyledDonutChart } from 'styles/components/NutritionBand/DonutChart';
 
 import * as colors from 'styles/colors';
 
-const totalCalories = 2000;
-const totalEatenCalories = 1800;
-
-const dataPie = [
-    {value: totalEatenCalories, stroke: colors.ballerina, strokeWidth: 2},
-    {value: totalCalories-totalEatenCalories, stroke: colors.fuelTown, strokeWidth: 3.5},
-  ]
-
 class NutritionDonutChart extends React.Component {
     render() {
         const {
-            name
+            name,
+            data
         } = this.props;
 
         return (
             <StyledDonutChart className="DonutChart">
-                <DonutChart data={dataPie} />
+                <DonutChart data={[
+                    { value: data.totalCalories - data.totalEaten, stroke: colors.ballerina, strokeWidth: 2 },
+                    { value: data.totalEaten, stroke: colors.stormPetrel, strokeWidth: 3.5 },
+                ]} />
                 <h2 className="DonutChart--Name">{name}</h2>
             </StyledDonutChart>
         )
