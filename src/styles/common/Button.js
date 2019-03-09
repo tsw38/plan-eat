@@ -1,6 +1,6 @@
 
 import styled, { createGlobalStyle } from 'styled-components';
-import {transition, colorButtons} from '../mixins/index';
+import {transition, colorButtons} from 'styles/mixins/index';
 import {darken, lighten, parseToHsl, rgbToColorString} from 'polished';
 
 import * as colors from 'styles/colors';

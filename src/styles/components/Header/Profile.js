@@ -86,8 +86,12 @@ export const AccountDropDown = styled.div`
                 }
             }
 
+            > div {
+                margin: 0;
+            }
+
             svg {
-                padding: 0 ${spacingsm} 0 ${spacingxs};
+                padding: 0 ${spacingxs} 0 ${spacingxs};
                 height: ${spacingmd};
                 width: auto;
                 margin: 0;
