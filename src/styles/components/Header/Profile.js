@@ -12,7 +12,7 @@ import {
     spacing2xs,
     spacing3xl,
     layoutmd,
-    layout6xl
+    layout7_5xl
 } from 'styles/sizing';
 import { imperialPrimer, blueFrance } from 'styles/colors';
 
@@ -29,6 +29,7 @@ export const AccountDropDown = styled.div`
     pointer-events: none;
 
     max-height:0;
+    min-width: ${layout7_5xl};
 
     background-color: white;
     ${transition('Panel', 'ease-in')}
@@ -104,6 +105,7 @@ export const AccountDropDown = styled.div`
 
 export const Image = styled.div`
     width: ${layoutmd};
+    height: ${layoutmd};
     max-width: ${layoutmd};
     max-height: ${layoutmd};
     overflow: hidden;
@@ -111,7 +113,7 @@ export const Image = styled.div`
     background-color: ${imperialPrimer};
 
     border-radius: 50%;
-    margin-right: ${spacingxs};
+    margin-right: ${spacingmd};
 
     &:hover {
         img {

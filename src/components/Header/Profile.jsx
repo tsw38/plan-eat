@@ -22,10 +22,9 @@ class Profile extends React.Component {
     handleOnClick = () => {
         const {
             user,
-            signIn,
             signOut
         } = this.props;
-        console.warn('hello world');
+
         return user.uid ? signOut() : navigate('/signin');
     }
 
@@ -42,7 +41,18 @@ class Profile extends React.Component {
                     onClick={() => {}}>
                     <Link
                         to="/account">
-                        <Icon name="user-circle" />
+                        <Icon
+                            className={classNames(
+                                {'hidden': user.uid}
+                            )}
+                            name="user-circle">
+                            {user.uid && (
+                                <img
+                                    src={user.photoURL}
+                                    alt="user image"
+                                />
+                            )}
+                        </Icon>
                     </Link>
 
                     <AccountDropDown>
@@ -52,13 +62,16 @@ class Profile extends React.Component {
                                     <Image>
                                         <Link
                                             to="/account">
-                                            <img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/32640616_10211979593140875_184923463356514304_o.jpg?_nc_cat=101&_nc_ht=scontent-sjc3-1.xx&oh=03d565d57634a01db0d91feb2cc4740b&oe=5D17FFC1" alt="user image" />
+                                            <img
+                                                src={user.photoURL}
+                                                alt="user image"
+                                            />
                                         </Link>
                                     </Image>
 
                                     <Info>
-                                        <h6>Tyler Williams</h6>
-                                        <p className="email">tyler.scott.14@gmail.com</p>
+                                        <h6>{user.displayName}</h6>
+                                        <p className="email">{user.email}</p>
                                     </Info>
                                 </figure>
                             </Row>

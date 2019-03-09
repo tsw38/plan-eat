@@ -11,6 +11,9 @@ export const signIn = (variables) => (dispatch, getState, api) => {
             query SignInUser ($email: String!, $password: String!) {
                 signIn (email: $email, password: $password) {
                     uid,
+                    email,
+                    photoURL,
+                    displayName,
                     emailVerified,
                     permissions,
                     error
@@ -50,6 +53,9 @@ export const getSession = () => (dispatch, getState, api) => {
             query SignInUser {
                 signIn {
                     uid,
+                    email,
+                    displayName,
+                    photoURL,
                     emailVerified,
                     permissions,
                     error

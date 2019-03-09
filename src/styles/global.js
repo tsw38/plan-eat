@@ -96,6 +96,10 @@ export const ResetStyles = createGlobalStyle`
             margin: 0;
         }
     }
+
+    .hidden {
+        display: none;
+    }
 `;
 
 export const FontStyles = createGlobalStyle`
