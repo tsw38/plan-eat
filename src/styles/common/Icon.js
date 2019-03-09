@@ -12,8 +12,8 @@ export const IconChildrenStyles = styled.div`
     overflow: hidden;
     border-radius: 50%;
     max-height: ${sizing.layoutsm};
-    max-width: ${sizing.layoutmd};
-    margin: ${sizing.spacingxs};
+    max-width: ${sizing.layoutsm};
+    margin: ${sizing.iconMargin};
 
     img {
         height: 100%;

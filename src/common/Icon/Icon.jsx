@@ -2,6 +2,7 @@ import React from "react";
 import classNames from 'classnames';
 import { ReactSvgInjector, Mutate } from "react-svg-injector";
 import PropTypes from 'prop-types';
+import {amour} from 'styles/colors';
 
 import {IconChildrenStyles} from 'styles/common/Icon';
 
@@ -13,8 +14,6 @@ class Icon extends React.Component {
             children
         } = this.props;
 
-        console.warn('these are the classes', className);
-
 		return (
             <React.Fragment>
                 <div className={className}>
@@ -25,7 +24,7 @@ class Icon extends React.Component {
                         `Icon--${name}`,
                         className
                     )}>
-                        <Mutate selector="g" fill="#BADA55" />
+                        <Mutate selector="g" fill={amour} />
                     </ReactSvgInjector>
                 </div>
                 {(/hidden/).test(className) &&

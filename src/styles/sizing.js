@@ -3,6 +3,7 @@ export const fontSize = '16px'; //1rem
 export const spacing3xs = '0.125rem'; // 2px
 export const spacing2xs = '0.25rem';  // 4px
 export const spacingxs  = '0.5rem';   // 8px
+export const iconMargin = '0.65rem';  // 10ishpx
 export const spacingsm  = '0.75rem';  // 12px
 export const spacingmd  = '1rem'; 	  // 16px
 export const spacinglg  = '1.5rem';   // 24px
