@@ -2,6 +2,9 @@ import React from "react";
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import { navigate } from "@reach/router";
+
+import { signOut } from 'actions/AccountActions';
 
 import Row from 'common/Row/Row';
 import Icon from "common/Icon/Icon";
@@ -16,9 +19,20 @@ import {
 } from "styles/components/Header/Profile";
 
 class Profile extends React.Component {
+    handleOnClick = () => {
+        const {
+            user,
+            signIn,
+            signOut
+        } = this.props;
+        console.warn('hello world');
+        return user.uid ? signOut() : navigate('/signin');
+    }
+
     render() {
         const {
-            user
+            user,
+            signOut
         } = this.props;
 
         return (
@@ -32,7 +46,7 @@ class Profile extends React.Component {
                     </Link>
 
                     <AccountDropDown>
-                        {user.authenticated &&
+                        {user.uid &&
                             <Row className="Menu Menu--User">
                                 <figure>
                                     <Image>
@@ -74,11 +88,11 @@ class Profile extends React.Component {
                         <Row
                             className={classNames(
                                 'Menu',
-                                {'Menu--Settings': !user.authenticated},
-                                {'Menu--Signout': user.authenticated}
+                                {'Menu--Settings': !user.uid},
+                                {'Menu--Signout': user.uid}
                             )}
-                            onClick={() => {}}>
-                            {user.authenticated ? (
+                            handleClick={this.handleOnClick}>
+                            {user.uid ? (
                                 <React.Fragment>
                                     <Icon name="power-off" />
                                     <span className="Link Link--Secondary Link--Ghost">Sign Off</span>
@@ -105,10 +119,11 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = ({user}, props) => ({
-    user
+    user: user.account
 });
 
 const mapDispatchToProps = {
+    signOut
 };
 
 Profile.defaultProps = {

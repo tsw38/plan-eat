@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import {SigninValidator} from 'utils/validators';
 
-import { Signin } from 'actions/AccountActions';
+import { signIn } from 'actions/AccountActions';
 import { toggleModal } from 'actions/ModalActions';
 
 import Button from 'common/Button/Button';
@@ -16,7 +16,7 @@ class SigninForm extends React.Component {
         const {
             user,
             render,
-            Signin,
+            signIn,
             toggleModal
         } = this.props;
 
@@ -26,7 +26,7 @@ class SigninForm extends React.Component {
                 title={render.title && 'Sign In'}
                 validators={SigninValidator}
                 onError={() => {console.warn('on error')}}
-                onSubmit={Signin}
+                onSubmit={signIn}
                 onComplete={() => {console.warn('on complete')}}
                 render={{
                     ...render,
@@ -76,7 +76,7 @@ SigninForm.defaultProps = {
 
 SigninForm.propTypes = {
     user: PropTypes.object,
-    Signin: PropTypes.func,
+    signIn: PropTypes.func,
     render: PropTypes.object,
     toggleModal: PropTypes.func
 }
@@ -89,7 +89,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    Signin,
+    signIn,
     toggleModal
 }
 

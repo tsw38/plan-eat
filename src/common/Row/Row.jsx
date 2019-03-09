@@ -5,14 +5,16 @@ class Row extends React.Component {
     render() {
         const {
             children,
-            className
+            className,
+            handleClick
         } = this.props;
 
         return (
             <div className={classNames(
                 className,
                 'row'
-            )}>
+            )}
+                onClick={handleClick}>
                 {children}
             </div>
         );

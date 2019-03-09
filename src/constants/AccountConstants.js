@@ -1,5 +1,11 @@
 export default [
     'SIGN_IN_PENDING',
     'SIGN_IN_FETCHED',
-    'SIGN_IN_ERROR'
+    'SIGN_IN_ERROR',
+    'SESSION_PENDING',
+    'SESSION_FETCHED',
+    'SESSION_ERROR',
+    'SIGN_OUT_PENDING',
+    'SIGN_OUT_FETCHED',
+    'SIGN_OUT_ERROR'
 ];

@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 
 import {pathToPageTitle} from 'utils/url';
 
+import Session from "common/Session/Session";
+
 import Page from 'components/Page/Page';
 import Header from "components/Header/Header";
 import Sidebar from "components/Sidebar/Sidebar";
@@ -58,6 +60,7 @@ class App extends React.Component {
                 <LinkStyles />
                 <ButtonStyles />
                 <GlobalModal />
+                <Session />
                 <AppStyles.App className="App">
                     <Helmet
                         htmlAttributes={{lang:"en"}}
