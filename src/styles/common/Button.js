@@ -17,6 +17,10 @@ export const StyledButton = styled.button`
                 ${({colorName, inverted}) => colorButtons(colors[colorName], !inverted)}
             }
         }
+
+        .Icon--Wrapper {
+            height: ${spacinglg};
+        }
     }
 `;
 

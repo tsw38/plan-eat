@@ -28,6 +28,7 @@ class Button extends React.Component {
                     {[`Button--${colorName}${inverted ? '--Inverted' : ''}`]: !!colorName && !!inverted},
                     className
                 )}>
+
 				{children}
 
                 {iconName || ((/Tag/).test(className)) &&

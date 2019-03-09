@@ -2,7 +2,7 @@ import React from "react";
 import styled from 'styled-components';
 
 import * as colors from 'styles/colors';
-import {Section} from 'styles/components/section';
+import {Section} from 'styles/components/Section';
 import { layout2xl, spacing3xs} from 'styles/sizing';
 
 import {fontLight} from 'styles/variables';

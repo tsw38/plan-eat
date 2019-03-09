@@ -2,7 +2,7 @@ import React from "react";
 
 import Row from 'common/Row/Row';
 import Button from "common/Button/Button";
-import {Section} from 'styles/components/section';
+import {Section} from 'styles/components/Section';
 
 const Buttons = () => {
 	return (
