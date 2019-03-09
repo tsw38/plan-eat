@@ -41,6 +41,7 @@
     "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",
     "react-svg": "^7.2.7",
+    "react-svg-donut-chart": "^1.1.0",
     "react-svg-injector": "^2.0.2",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",

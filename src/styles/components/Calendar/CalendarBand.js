@@ -11,7 +11,7 @@ import { fontBold, fontLight } from 'styles/variables';
 export const CalendarBand = styled.div`
     height:  ${space.spacingxl};
     width: 100%;
-    background-color: ${colors.stormPetrel};
+    background-color: ${colors.ballerina};
     display: grid;
     grid-template-columns: ${space.spacingxl} auto ${space.spacingxl};
     ${elevate('Raised')}
