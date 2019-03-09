@@ -92,7 +92,7 @@ class App extends React.Component {
                                         <Overview path="/" />
                                         <MealPrep path="/meal-prep"/>
                                         <Recipes path="/recipes"/>
-                                        <Recipe path="/recipes/:recipe"/>
+                                        <Recipe path="/recipe/:recipe"/>
                                         <ShoppingCart path="/cart"/>
                                         <Inbox path="/inbox" />
                                         <StyleGuide path="/style-guide" />

@@ -20,7 +20,7 @@ class NutritionDonutChart extends React.Component {
             <StyledDonutChart className="DonutChart">
                 <DonutChart data={[
                     { value: data.totalCalories - data.totalEaten, stroke: colors.ballerina, strokeWidth: 2 },
-                    { value: data.totalEaten, stroke: colors.stormPetrel, strokeWidth: 3.5 },
+                    { value: data.totalEaten, stroke: colors.stormPetrel, strokeWidth: 3 },
                 ]} />
                 <h2 className="DonutChart--Name">{name}</h2>
             </StyledDonutChart>

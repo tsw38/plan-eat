@@ -33,7 +33,7 @@ class Button extends React.Component {
 
 				{children}
 
-                {iconName || ((/Tag/).test(className)) &&
+                {(iconName || (/Tag/).test(className)) &&
                     <Icon
                         name={iconName || 'times'}
                     />

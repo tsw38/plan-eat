@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-import {layoutxs} from '../sizing';
+import * as sizing from 'styles/sizing';
+import * as colors from 'styles/colors';
 
 export const Page = styled.div`
     &.Page {
-        height: calc(100vh - 3rem);
+        height: calc(100vh - ${sizing.layoutmd});
         overflow-y: scroll;
         display: flex;
 
@@ -15,6 +16,11 @@ export const Page = styled.div`
 
         &--Signin {
             justify-content: center;
+        }
+
+        &--Recipe {
+            background-color: ${colors.blackSqueeze};
+            padding: ${sizing.layout2xs};
         }
     }
 `;

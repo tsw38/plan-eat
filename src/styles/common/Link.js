@@ -16,7 +16,7 @@ import { fontBold } from 'styles/variables';
 export default createGlobalStyle`
     .Link {
         font-weight: ${fontBold};
-        text-decoration: underline;
+        text-decoration: none;
         color: ${blueFrance};
         ${transition()}
 

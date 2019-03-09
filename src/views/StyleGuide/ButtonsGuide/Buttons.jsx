@@ -1,6 +1,6 @@
 import React from "react";
 
-import Row from 'common/Row/Row';
+import Row from 'common/Layout/Row';
 import Button from "common/Button/Button";
 import {Section} from 'styles/components/Section';
 

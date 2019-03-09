@@ -6,7 +6,7 @@ import { navigate } from "@reach/router";
 
 import { signOut } from 'actions/AccountActions';
 
-import Row from 'common/Row/Row';
+import Row from 'common/Layout/Row';
 import Icon from "common/Icon/Icon";
 import Link from "common/Link/Link";
 import Button from "common/Button/Button";

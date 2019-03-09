@@ -14,7 +14,7 @@ const PageComponent = ({page, onLocationChange, children}) => {
 	return (
 		<PageStyles.Page className={classNames(
             'Page',
-            `Page--${page}`
+            `Page--${page.split(/\s/)[0]}`
         )}>
 			<Location>
                 {({location}) => {

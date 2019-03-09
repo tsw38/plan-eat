@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
-import {ballerina, imperialPrimer} from './colors';
+import {
+    ballerina,
+    imperialPrimer
+} from './colors';
 
 import {
 fontSize,
@@ -97,6 +100,12 @@ export const ResetStyles = createGlobalStyle`
         }
     }
 
+    .column {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+    }
+
     .hidden {
         display: none;
     }
@@ -131,6 +140,10 @@ export const FontStyles = createGlobalStyle`
     h6 {
         font-size: ${spacingmd};
         margin-bottom: ${spacing2xs};
+    }
+
+    .subtle {
+        color: ${ballerina};
     }
 `;
 
