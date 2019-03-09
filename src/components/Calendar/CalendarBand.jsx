@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Icon from "common/Icon/Icon";
-import { CalendarBand, DatesWrapper } from 'styles/components/Calendar/CalendarBand';
+import { CalendarBand as StyledCalendarBand, DatesWrapper } from 'styles/components/Calendar/CalendarBand';
 
-class CalendarBanner extends React.Component {
+class CalendarBand extends React.Component {
     render() {
         return (
-            <CalendarBand>
+            <StyledCalendarBand>
                 <Icon
                     name="chevron-left"
                 />
@@ -22,7 +22,7 @@ class CalendarBanner extends React.Component {
                 <Icon
                     name="chevron-right"
                 />
-            </CalendarBand>
+            </StyledCalendarBand>
         )
     }
 }
@@ -35,10 +35,10 @@ const mapDispatchToProps = {
     // signOut
 };
 
-CalendarBanner.defaultProps = {
+CalendarBand.defaultProps = {
 };
 
-CalendarBanner.propTypes = {
+CalendarBand.propTypes = {
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CalendarBanner);
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarBand);
