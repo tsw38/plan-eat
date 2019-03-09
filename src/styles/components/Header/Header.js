@@ -11,6 +11,7 @@ export const Header = styled.header`
     background-color: white;
     max-height: ${layoutmd};
 	grid-area: header;
+    /* overflow:hidden; */
     height: 100%;
     width: 100%;
     display: grid;

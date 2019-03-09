@@ -15,6 +15,7 @@ import Inbox from 'views/Inbox/Inbox';
 import Signin from 'views/User/Signin';
 import Recipe from 'views/Recipe/Recipe';
 import NotFound from 'views/404/404.jsx';
+import Account from 'views/User/Settings';
 import Recipes from 'views/Recipes/Recipes';
 import Overview from 'views/Overview/Overview';
 import MealPrep from 'views/MealPrep/MealPrep';
@@ -96,6 +97,7 @@ class App extends React.Component {
                                         <Inbox path="/inbox" />
                                         <StyleGuide path="/style-guide" />
                                         <Signin path="/signin" />
+                                        <Account path="/account" />
                                         <NotFound default />
                                     </Page>
                                 </AppStyles.StyledRouter>

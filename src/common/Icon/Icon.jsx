@@ -16,7 +16,10 @@ class Icon extends React.Component {
 
 		return (
             <React.Fragment>
-                <div className={className}>
+                <div className={classNames(
+                    'Icon--Wrapper',
+                    className
+                )}>
                     <ReactSvgInjector
                         src={`/icons/${name}.svg`}
                         className={classNames(
