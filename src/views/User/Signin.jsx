@@ -26,7 +26,7 @@ class Signin extends React.Component {
         if (this.props.user.uid) {
             navigate('/');
         }
-        console.warn(this.props.user.uid === null);
+        // console.warn(this.props.user.uid === null);
         if (this.props.user.uid === null) {
             this.setState({
                 render: true
@@ -40,7 +40,7 @@ class Signin extends React.Component {
 
         const userState = stateChange(oldUser, thisUser);
 
-        console.warn(oldUser.uid, thisUser.uid, userState);
+        // console.warn(oldUser.uid, thisUser.uid, userState);
 
         if (userState.defined) {
             if (

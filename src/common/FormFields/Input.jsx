@@ -11,10 +11,19 @@ import {AlertConstants as AC} from 'constants';
 export default class Input extends React.Component {
     render() {
         const {
+            id,
+            name,
             type,
+            value,
             label,
-            name
+            onBlur,
+            checked,
+            onChange,
+            className,
+            placeholder,
         } = this.props;
+
+        const isRadioButton = (/radio/).test(type);
 
         return (
             <div className={classNames(
@@ -23,7 +32,23 @@ export default class Input extends React.Component {
             )}>
                 <label>
                     <span className={'Input--Label'}>{label}</span>
-                    <Field name={name} type={type} placeholder={label} />
+                    <Field
+                        {...this.props}
+                        id={id}
+                        value={id} // could be something else for output?
+                        name={name}
+                        type={type}
+                        placeholder={placeholder || label}
+                        {...(!!onBlur && { onBlur })}
+                        {...(!!onChange && { onChange })}
+                        {...(isRadioButton && {
+                            checked: id === value
+                        })}
+                        className={classNames(
+                            "RadioButton",
+                            className
+                        )}
+                    />
                 </label>
                 <Alert
                     type={AC.ERROR}

@@ -8,15 +8,28 @@ import * as spacing from 'styles/sizing';
 
 import {fontBold, fontLight, fontNormal} from 'styles/variables';
 
+
+
+export const GlobalModal = createGlobalStyle`
+    .ReactModalPortal {
+    }
+
+    .Modal--Overlay {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: ${transparentize(0.40, colors.stormPetrel)};
+        ${elevate('Overlay')}
+    }
+`;
+
 export const StyledModal = styled(Modal)`
 	&.Modal {
-		/* position: absolute;
-		top: 50%;
-		left: 50%;
-		bottom: auto;
-		right: auto;
-		margin-right: -50%;
-		transform: translate(-50%, -50%); */
         position: relative;
 		background-color: white;
 		padding: ${spacing.spacing3xl};
@@ -144,22 +157,4 @@ export const StyledModal = styled(Modal)`
 			padding: 0 0 ${spacing.spacingmd};
 		}
 	}
-`;
-
-export const GlobalModal = createGlobalStyle`
-    .ReactModalPortal {
-    }
-
-    .Modal--Overlay {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: ${transparentize(0.40, colors.stormPetrel)};
-        ${elevate('Overlay')}
-    }
 `;

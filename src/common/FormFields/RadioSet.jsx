@@ -24,7 +24,6 @@ const RadioButtonGroup = ({
             <fieldset>
                 <legend>{label}</legend>
                 {children}
-                {touched && <InputFeedback error={error} />}
             </fieldset>
         </div>
     );

@@ -9,6 +9,8 @@ import { toggleModal } from 'actions/ModalActions';
 
 import Button from 'common/Button/Button';
 import Input from 'common/FormFields/Input';
+import {Field} from 'formik';
+import RadioButton from 'common/FormFields/Radio';
 import RadioSet from 'common/FormFields/RadioSet';
 import FormGeneric from 'components/Form/FormGeneric';
 
@@ -46,14 +48,34 @@ class AddIngredientForm extends React.Component {
                             </Button>
                         </div>
                     ),
-                    form: () => {
+                    form: ({values, errors, touched}) => {
                         return (
                             <React.Fragment>
                                 <Input
                                     type="text"
                                     name="title"
                                     label="Ingredient Name"
+                                    placeholder="Ingredient"
                                 />
+                                <RadioSet
+                                    id="radioGroup"
+                                    label="One of these please"
+                                    value={values.radioGroup}
+                                    error={errors.radioGroup}
+                                    touched={touched.radioGroup}>
+                                    <Field
+                                        component={RadioButton}
+                                        name="radioGroup"
+                                        id="radioOption1"
+                                        label="Choose this option"
+                                    />
+                                    <Field
+                                        component={RadioButton}
+                                        name="radioGroup"
+                                        id="radioOption2"
+                                        label="Or choose this one"
+                                    />
+                                </RadioSet>
                                 <Input
                                     type="number"
                                     name="calories"
