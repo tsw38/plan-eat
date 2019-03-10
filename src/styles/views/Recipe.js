@@ -56,12 +56,12 @@ export const StyledRecipe = styled.div`
         }
 
         .Recipe--Section--Title {
-        font-weight: ${variables.fontLight};
-        font-size: ${sizing.spacingmdl};
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom:1.5rem;
-    }
+            font-weight: ${variables.fontLight};
+            font-size: ${sizing.spacingmdl};
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom:1.5rem;
+        }
     }
 
     .Recipe {
@@ -113,7 +113,7 @@ export const StyledRecipe = styled.div`
                 align-items: center;
             }
 
-            .Recipe--Ingredient-List {
+            .Recipe--Section-List {
                 color: ${colors.stormPetrel};
             }
         }
