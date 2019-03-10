@@ -27,7 +27,7 @@ class AddIngredientForm extends React.Component {
                 id={'addIngredient'}
                 title={render.title && 'Add Ingredient'}
                 onError={() => {console.warn('on error')}}
-                onSubmit={signIn}
+                onSubmit={(values) => {console.warn(values)}}
                 onComplete={() => {console.warn('on complete')}}
                 initialValues={{}}
                 render={{
@@ -58,22 +58,44 @@ class AddIngredientForm extends React.Component {
                                     placeholder="Ingredient"
                                 />
                                 <RadioSet
-                                    id="radioGroup"
-                                    label="One of these please"
-                                    value={values.radioGroup}
-                                    error={errors.radioGroup}
-                                    touched={touched.radioGroup}>
+                                    id="scaleType"
+                                    label="Volume or Mass (in grams)"
+                                    value={values.scaleType}
+                                    error={errors.scaleType}
+                                    touched={touched.scaleType}>
                                     <Field
                                         component={RadioButton}
-                                        name="radioGroup"
-                                        id="radioOption1"
-                                        label="Choose this option"
+                                        name="scaleType"
+                                        id={"scaleType-true"}
+                                        label="Mass"
+                                        type="radio"
+                                        checked={true}
                                     />
                                     <Field
                                         component={RadioButton}
-                                        name="radioGroup"
-                                        id="radioOption2"
-                                        label="Or choose this one"
+                                        name="scaleType"
+                                        id={"scaleType-false"}
+                                        label={"Volume"}
+                                    />
+                                </RadioSet>
+                                <RadioSet
+                                    id="systemType"
+                                    label="Metric or Imperial"
+                                    value={values.systemType}
+                                    error={errors.systemType}
+                                    touched={touched.systemType}>
+                                    <Field
+                                        component={RadioButton}
+                                        name="systemType"
+                                        id={"systemType-true"}
+                                        label="Metric"
+                                        checked={true}
+                                    />
+                                    <Field
+                                        component={RadioButton}
+                                        name="systemType"
+                                        id={"systemType-false"}
+                                        label={"Imperial"}
                                     />
                                 </RadioSet>
                                 <Input

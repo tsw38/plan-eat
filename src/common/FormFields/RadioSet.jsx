@@ -11,18 +11,18 @@ const RadioButtonGroup = ({
     children
 }) => {
     const classes = classNames(
-        "input-field",
+        "Input",
         {
             "is-success": value || (!error && touched), // handle prefilled or user-filled
             "is-error": !!error && touched
         },
-        className
+        `Input--Radio`
     );
 
     return (
         <div className={classes}>
             <fieldset>
-                <legend>{label}</legend>
+                <legend className="Input--Label">{label}</legend>
                 {children}
             </fieldset>
         </div>

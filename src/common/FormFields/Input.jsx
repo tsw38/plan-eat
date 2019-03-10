@@ -44,10 +44,6 @@ export default class Input extends React.Component {
                         {...(isRadioButton && {
                             checked: id === value
                         })}
-                        className={classNames(
-                            "RadioButton",
-                            className
-                        )}
                     />
                 </label>
                 <Alert

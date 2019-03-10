@@ -9,7 +9,7 @@ const RadioButton = ({
     ...props
 }) => {
     return (
-        <div>
+        <div className="Radio--Wrapper">
             <input
                 name={name}
                 id={id}
