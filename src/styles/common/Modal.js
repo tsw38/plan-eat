@@ -10,19 +10,22 @@ import {fontBold, fontLight, fontNormal} from 'styles/variables';
 
 export const StyledModal = styled(Modal)`
 	&.Modal {
-		position: absolute;
+		/* position: absolute;
 		top: 50%;
 		left: 50%;
 		bottom: auto;
 		right: auto;
 		margin-right: -50%;
-		transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%); */
+        position: relative;
 		background-color: white;
-		padding: ${spacing.spacing2xl} ${spacing.spacing3xl} 0;
+		padding: ${spacing.spacing3xl};
 		max-width: 700px;
         width: 70vw;
         min-width: 400px;
-		max-height: 80%;
+		max-height: 90vh;
+        overflow-y: auto;
+
 		${elevate('Modal')}
 
 		&--Primary {
@@ -38,15 +41,19 @@ export const StyledModal = styled(Modal)`
 		}
 
 		&--Form {
+            padding: 0;
+
 			form {
 				box-shadow: none;
 			}
 
 			.Form--Footer {
+				/* position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0; */
 				width:100%;
-				position: absolute;
-                margin: 0 -${spacing.spacing3xl};
-				padding: ${spacing.spacinglg} ${spacing.spacing3xl};
+                margin: 0;
 				display: grid;
 				grid-template-columns: auto auto;
 				grid-gap: ${spacing.spacingmd};
@@ -64,15 +71,23 @@ export const StyledModal = styled(Modal)`
                 }
 			}
 
+            .Modal--Header {
+                padding: ${spacing.spacinglg} ${spacing.spacing3xl};
+            }
+
 			.Modal--Content {
-				/* margin-bottom: 0; */
+                .Form--Footer, .Form--FieldsWrapper {
+                    padding: ${spacing.spacinglg} ${spacing.spacing3xl};
+                }
+
+                .Form--FieldsWrapper {
+                    padding-top: 0;
+                }
 			}
 		}
 	}
 
 	.Modal--Header {
-		margin-bottom: ${spacing.spacinglg};
-
 		&-Label {
 			max-width: ${spacing.layoutSoBig};
 			font-size: ${spacing.spacingsm};
@@ -119,7 +134,7 @@ export const StyledModal = styled(Modal)`
 
 	.Modal--Content {
 		overflow-y: auto;
-		margin-bottom: ${spacing.spacing3xl};
+		/* margin-bottom: ${spacing.spacing3xl}; */
 		color: ${colors.blueFrance};
 		font-weight: ${fontNormal};
 
@@ -141,6 +156,9 @@ export const GlobalModal = createGlobalStyle`
         left: 0px;
         right: 0px;
         bottom: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: ${transparentize(0.40, colors.stormPetrel)};
         ${elevate('Overlay')}
     }

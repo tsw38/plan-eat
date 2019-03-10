@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field } from 'formik';
+import {Field} from 'formik';
 import classNames from 'classnames';
 
 import {toTitleCase} from 'utils/string';

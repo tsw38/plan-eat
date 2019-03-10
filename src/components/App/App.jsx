@@ -20,6 +20,7 @@ import Recipes from 'views/Recipes/Recipes';
 import Overview from 'views/Overview/Overview';
 import MealPrep from 'views/MealPrep/MealPrep';
 import StyleGuide from 'views/StyleGuide/StyleGuide';
+import AddIngredient from 'views/Temporary/AddIngredient';
 import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
 import {ResetStyles, FontStyles, SVGStyles} from 'styles/global';
@@ -97,6 +98,7 @@ class App extends React.Component {
                                         <Inbox path="/inbox" />
                                         <StyleGuide path="/style-guide" />
                                         <Signin path="/signin" />
+                                        <AddIngredient path="/add-ingredient" />
                                         <Account path="/account" />
                                         <NotFound default />
                                     </Page>

@@ -28,6 +28,10 @@ class SigninForm extends React.Component {
                 onError={() => {console.warn('on error')}}
                 onSubmit={signIn}
                 onComplete={() => {console.warn('on complete')}}
+                initialValues={{
+                    email: "",
+                    password: ""
+                }}
                 render={{
                     ...render,
                     error: user.error,
@@ -45,25 +49,25 @@ class SigninForm extends React.Component {
                                 Sign In
                             </Button>
                         </div>
-                    )
-                }}
-                initialValues={{
-                    email: "",
-                    password: ""
-                }}>
-                <React.Fragment>
-                    <Input
-                        type="email"
-                        name="email"
-                        label="Email Address"
-                    />
-                    <Input
-                        type="password"
-                        name="password"
-                        label="Password"
-                    />
-                </React.Fragment>
-            </FormGeneric>
+                    ),
+                    form: () => {
+                        return (
+                            <React.Fragment>
+                                <Input
+                                    type="email"
+                                    name="email"
+                                    label="Email Address"
+                                />
+                                <Input
+                                    type="password"
+                                    name="password"
+                                    label="Password"
+                                />
+                            </React.Fragment>
+                        )
+                    }}
+                }
+            />
         )
     }
 };

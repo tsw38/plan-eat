@@ -56,10 +56,12 @@ class FormGeneric extends React.Component {
                     initialValues={initialValues}
                     validationSchema={validators}
                     onSubmit={this.handleSubmit}>
-                    {({dirty, errors, handleBlur, handleChange, handleReset, handleSubmit, isSubmitting, isValid, isValidating, values}) => {
+                    {(formManager) => {
                         return (
                             <Form>
-                                {children}
+                                <div className="Form--FieldsWrapper">
+                                    {render.form(formManager)}
+                                </div>
                                 <div className="Form--Footer">
                                     <Alert
                                         type={AC.ERROR}
