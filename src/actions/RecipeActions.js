@@ -59,3 +59,60 @@ export const getRecipe = (slug) => (dispatch, getState, api) => {
         return recipe;
     })
 }
+
+export const getIngredients = (idArr) => (dispatch, getState, api) => {
+    dispatch({
+        type: RC.INGREDIENTS_PENDING
+    })
+
+    return Promise.all(idArr.map((({id}) =>
+        api({
+            query: `
+                query getIngredient($id: ID!) {
+                    ingredient(id: $id) {
+                        name,
+                        unit,
+                        id,
+                        nutrition {
+                            calories,
+                            protein,
+                            fat,
+                            carbs {
+                                absolute,
+                                dietaryFiber,
+                                sugar
+                            }
+                            sodium
+                            cholesterol
+                            allergies
+                        }
+                        category {
+                            name,
+                            id
+                        }
+                    }
+                }
+            `,
+            variables: {id}
+        })
+    ))).then((data) => {
+        const ingredients = data && data.reduce((temp, {data}) => ({
+            ...temp,
+            [data.data.ingredient.id]: data.data.ingredient
+        }), {});
+
+        if(!ingredients) {
+            dispatch({
+                type: RC.INGREDIENTS_ERROR,
+                payload: 'no ingredients?'
+            })
+        } else {
+            dispatch({
+                type: RC.INGREDIENTS_FETCHED,
+                payload: ingredients
+            })
+        }
+
+        return ingredients;
+    })
+}

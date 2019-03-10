@@ -1,10 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import objectPath from 'object-path';
+
+import {convertUnit} from 'utils/convert';
+
 import { StyledRecipe, RecipeHeader, RecipeSection } from 'styles/views/Recipe';
 
-import { getRecipe } from 'actions/RecipeActions';
 import { getUserById } from 'actions/AccountActions';
+import { getRecipe, getIngredients } from 'actions/RecipeActions';
 
 import Row from 'common/Layout/Row';
 import Link from "common/Link/Link";
@@ -12,22 +16,29 @@ import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
 
 import * as colors from 'styles/colors';
-import { userInfo } from "os";
+// import { userInfo } from "os";
 
 class Recipe extends React.Component {
     componentDidMount() {
         const {
-            recipe,
+            network,
+            recipes,
             getRecipe,
             getUserById,
-            network
+            getIngredients,
+            recipe: recipeSlug
         } = this.props;
 
-        getRecipe(recipe).then(({uploadedBy}) => {
-            if (!network[uploadedBy]) {
-                getUserById(uploadedBy);
-            }
-        })
+        if(!recipes.recipe[recipeSlug]) {
+            getRecipe(recipeSlug).then(({uploadedBy, ingredients}) => {
+                if (!network[uploadedBy]) {
+                    getUserById(uploadedBy);
+                }
+
+                const pendingIngredients = ingredients.filter(ingredient => !this.props.ingredients[ingredient.id])
+                getIngredients(pendingIngredients);
+            })
+        }
     }
 
     componentDidUpdate(prevProps) {
@@ -37,7 +48,8 @@ class Recipe extends React.Component {
     render() {
         const {
             thisRecipe,
-            network
+            network,
+            ingredients: storedIngredients
         } = this.props;
 
         if (!thisRecipe) {
@@ -45,6 +57,28 @@ class Recipe extends React.Component {
         }
 
         const uploadedBy = network[thisRecipe.uploadedBy] || '';
+
+        const ingredients = storedIngredients && thisRecipe.ingredients.reduce((temp, ingredient) => {
+            const mergedIngredient = {
+                ...ingredient,
+                ...storedIngredients[ingredient.id]
+            };
+
+            if (mergedIngredient.name) {
+                const converted = convertUnit(mergedIngredient.quantity, mergedIngredient.unit, true);
+                // console.warn(converted);
+
+                return [
+                    ...temp,
+                    {
+                        ...mergedIngredient,
+                        ...converted
+                    }
+                ]
+            }
+            return temp;
+        }, []);
+
 
         return (
             <StyledRecipe className="Recipe">
@@ -75,70 +109,64 @@ class Recipe extends React.Component {
                         </Row>
                     </RecipeHeader>
 
-                    <RecipeSection
-                        className="Recipe--Section">
-                        <Row>
-                            <h3 className="Recipe--Section--Title">Ingredients</h3>
-                            <div className="Recipe--Serving-Toggle">
-                                <Button iconName={'minus'} />
-                                <Button iconName={'plus'} />
-                            </div>
-                        </Row>
-                        <ul className="Recipe--Ingredient-List">
-                            <li>4 avocados, halved and pitted</li>
-                            <li>2 cooked chicken breasts, shredded</li>
-                            <li>4 ounces cream cheese, softened</li>
-                            <li>1/4 cup chopped tomatoes</li>
-                            <li>1/4 teaspoon salt</li>
-                            <li>1/4 teaspoon ground black pepper</li>
-                            <li>1 pinch cayenne pepper</li>
-                            <li>1/2 cup shredded Parmesan cheese, or more to taste</li>
-                            <li>Add additional Ingredients</li>
-                        </ul>
-                    </RecipeSection>
+                    {ingredients &&
+                        <RecipeSection
+                            className="Recipe--Section">
+                            <Row>
+                                <h3 className="Recipe--Section--Title">Ingredients</h3>
+                                <div className="Recipe--Serving-Toggle">
+                                    <Button iconName={'minus'} />
+                                    <Button iconName={'plus'} />
+                                </div>
+                            </Row>
+                            <ul className="Recipe--Ingredient-List">
+                                {ingredients.map((ingredient, index) =>
+                                    <li key={`Ingredient-${index}`}>
+                                        {ingredient.quantity}{ingredient.unit} {ingredient.name}
+                                    </li>
+                                )}
+                            </ul>
+                        </RecipeSection>
+                    }
+
                     <RecipeSection
                         className="Recipe--Section">
                         <Row>
                             <h3 className="Recipe--Section--Title">Directions</h3>
                         </Row>
                         <ol className="Recipe--Ingredient-List">
-                            <li>
-                                Preheat oven to 400 degrees F (200 degrees C).
-                            </li>
-                            <li>
-                                Scoop out some of the flesh in the center of each avocado; place into  mixing bowl. Add chicken, cream cheese, tomatoes, salt, pepper, and  cayenne pepper; mix well to combine. Scoop spoonfuls of chicken  mixture into the wells of each avocado; top each with generous amount  of Parmesan cheese. Place avocado halves, face-up, in muffin cups to  stabilize.
-                            </li>
-                            <li>
-                                Bake avocados in preheated oven until cheese is melted, 8 to 10 minutes.
-                            </li>
+                            {thisRecipe.directions.map((step, i) =>
+                                <li key={`Step-${i}`}>{step}</li>
+                            )}
                         </ol>
                     </RecipeSection>
 
-                    <RecipeSection
-                        className="Recipe--Section">
-                        <Row>
-                            <h3 className="Recipe--Section--Title">Chef's Notes</h3>
-                        </Row>
-                        <ul className="Recipe--Ingredient-List">
-                            <li>
-                                Bacon ipsum dolor amet pork belly bacon short ribs, ham turkey frankfurter beef drumstick short loin picanha ham hock fatback. Ham hock kielbasa tail, shoulder flank picanha tri-tip beef prosciutto doner kevin. Filet mignon leberkas fatback kielbasa turkey. Drumstick andouille frankfurter brisket cupim spare ribs pastrami kielbasa buffalo ground round.
-                            </li>
-                        </ul>
-                    </RecipeSection>
+                    {thisRecipe.notes &&
+                        <RecipeSection
+                            className="Recipe--Section">
+                            <Row>
+                                <h3 className="Recipe--Section--Title">Chef's Notes</h3>
+                            </Row>
+                            <ul className="Recipe--Ingredient-List">
+                                <li>{thisRecipe.notes}</li>
+                            </ul>
+                        </RecipeSection>
+                    }
+
                 </Column>
                 <Column>
                     <div
                         className="Recipe--Image"
-                        style={{backgroundImage: 'url(https://images.unsplash.com/photo-1529268127899-36bf4524c254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80)'}}
+                        style={{backgroundImage: `url(${thisRecipe.images.full})`}}
                     />
                     <div className="Recipe--Time">
                         <div className="Recipe--Time--Prep">
                             <h6>Prep Time</h6>
-                            <h5>15 minutes</h5>
+                            <h5>{thisRecipe.prepTime} minutes</h5>
                         </div>
                         <div className="Recipe--Time--Cook">
                             <h6>Cook Time</h6>
-                            <h5>35 minutes</h5>
+                            <h5>{thisRecipe.cookTime} minutes</h5>
                         </div>
                     </div>
                     <div className="Recipe--Nutrition">
@@ -330,15 +358,17 @@ class Recipe extends React.Component {
     }
 }
 
-const mapStateToProps = ({recipes, user}, props) => ({
+const mapStateToProps = ({recipes, user, ingredients}, props) => ({
     recipes,
     network: user.network,
-    thisRecipe: recipes.recipe[props.recipe]
+    thisRecipe: recipes.recipe[props.recipe],
+    ingredients
 });
 
 const mapDispatchToProps = {
     getRecipe,
-    getUserById
+    getUserById,
+    getIngredients
 };
 
 Recipe.defaultProps = {
