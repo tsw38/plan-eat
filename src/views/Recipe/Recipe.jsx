@@ -1,18 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import StarRatings from 'react-star-ratings';
-import objectPath from 'object-path';
 
 import {convertUnit} from 'utils/convert';
 
 import { StyledRecipe, RecipeSection } from 'styles/views/Recipe';
 
-import { getUserById } from 'actions/AccountActions';
 import { getRecipe, getIngredients } from 'actions/RecipeActions';
 
 import Row from 'common/Layout/Row';
-import Link from "common/Link/Link";
 import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
 import RecipeHeader from 'components/Recipe/Header';
@@ -22,31 +18,27 @@ import * as spacing from 'styles/sizing';
 
 class Recipe extends React.Component {
     state = {
-        servingSize: 0
+        servingSize: 0,
+        recipeFound: undefined
     }
 
     componentDidMount() {
         const {
-            network,
             recipes,
             getRecipe,
-            getUserById,
             getIngredients,
             recipe: recipeSlug
         } = this.props;
 
         if(!recipes.recipe[recipeSlug]) {
-            getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize}) => {
+            getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize, slug}) => {
                 this.setState({
-                    servingSize
+                    servingSize,
+                    recipeFound: !!slug
                 });
 
-                // if (!network[uploadedBy]) {
-                //     getUserById(uploadedBy);
-                // }
-
-                const pendingIngredients = ingredients.filter(ingredient => !this.props.ingredients[ingredient.id])
-                getIngredients(pendingIngredients);
+                const pendingIngredients = !!ingredients && ingredients.filter(ingredient => !this.props.ingredients[ingredient.id])
+                // getIngredients(pendingIngredients);
             })
         }
     }
@@ -56,6 +48,13 @@ class Recipe extends React.Component {
     }
 
     render() {
+        if (!this.props.thisRecipe && this.state.recipeFound === undefined) {
+            return null;
+        }
+        if (this.state.recipeFound === false) {
+            return (<div>RECIPE NOT FOUND</div>)
+        }
+
         const {
             thisRecipe,
             network,
@@ -63,12 +62,6 @@ class Recipe extends React.Component {
         } = this.props;
 
         const {servingSize} = this.state;
-
-        if (!thisRecipe) {
-            return null;
-        }
-
-        const uploadedBy = network[thisRecipe.uploadedBy] || '';
 
         const ingredients = !!Object.keys(storedIngredients).length && thisRecipe.ingredients.reduce((temp, ingredient) => {
             const mergedIngredient = {
@@ -245,7 +238,6 @@ const mapStateToProps = ({recipes, user, ingredients}, props) => ({
 
 const mapDispatchToProps = {
     getRecipe,
-    getUserById,
     getIngredients
 };
 
