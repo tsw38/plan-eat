@@ -13,6 +13,7 @@ import { getRecipe, getIngredients } from 'actions/RecipeActions';
 import Row from 'common/Layout/Row';
 import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
+import Timing from 'components/Recipe/Timing';
 import RecipeHeader from 'components/Recipe/Header';
 import RecipeSection from 'components/Recipe/Section';
 
@@ -88,37 +89,39 @@ class Recipe extends React.Component {
             return (<div>RECIPE NOT FOUND</div>)
         }
 
-        const { thisRecipe }= this.props;
-        const {servingSize} = this.state;
-        const ingredients   = this.convertIngredients();
-        const nutrition     = {};
+        const { thisRecipe,ingredients } = this.props;
+        const {servingSize}              = this.state;
+        const scaledIngredients          = this.convertIngredients();
 
-        // const nutrition = !!Object.keys(storedIngredients).length && !!thisRecipe.ingredients && thisRecipe.ingredients.map(ingred => {
-        //     const quantity = ingred.quantity/100;
+        const nutrition =
+            !!Object.keys(scaledIngredients).length &&
+            !!thisRecipe.ingredients &&
+            thisRecipe.ingredients.map(ingred => {
+                const quantity = ingred.quantity/100;
 
-        //     const {calories, protein, fat, carbs} = storedIngredients[ingred.id].nutrition;
+                const {calories, protein, fat, carbs} = ingredients[ingred.id].nutrition;
 
-        //     return {
-        //         calories: Math.ceil(calories*quantity),
-        //         protein:  Math.ceil(protein*quantity),
-        //         fat: 	  Math.ceil(fat*quantity),
-        //         carbs:	  Math.ceil(carbs.absolute*quantity),
-        //         fiber: 	  Math.ceil(carbs.dietaryFiber*quantity),
-        //         sugar: 	  Math.ceil(carbs.sugar*quantity)
-        //     };
-        // }).reduce((finalCalcs, ingredientNuts) => {
-        //     return {
-        //         ...finalCalcs,
-        //         calories:Math.ceil(ingredientNuts.calories/this.state.servingSize + (finalCalcs.calories || 0)),
-        //         protein: Math.ceil(ingredientNuts.protein/this.state.servingSize + (finalCalcs.protein || 0)),
-        //         fat: 	 Math.ceil(ingredientNuts.fat/this.state.servingSize + (finalCalcs.fat || 0)),
-        //         carbs:	 Math.ceil(ingredientNuts.carbs/this.state.servingSize + (finalCalcs.carbs || 0)),
-        //         fiber: 	 Math.ceil(ingredientNuts.fiber/this.state.servingSize + (finalCalcs.fiber || 0)),
-        //         sugar: 	 Math.ceil(ingredientNuts.sugar/this.state.servingSize + (finalCalcs.sugar || 0))
-        //     }
-        // }, {});
+                return {
+                    calories: Math.ceil(calories*quantity),
+                    protein:  Math.ceil(protein*quantity),
+                    fat: 	  Math.ceil(fat*quantity),
+                    carbs:	  Math.ceil(carbs.absolute*quantity),
+                    fiber: 	  Math.ceil(carbs.dietaryFiber*quantity),
+                    sugar: 	  Math.ceil(carbs.sugar*quantity)
+                };
+        }).reduce((finalCalcs, ingredientNuts) => {
+            return {
+                ...finalCalcs,
+                calories:Math.ceil(ingredientNuts.calories/this.state.servingSize + (finalCalcs.calories || 0)),
+                protein: Math.ceil(ingredientNuts.protein/this.state.servingSize + (finalCalcs.protein || 0)),
+                fat: 	 Math.ceil(ingredientNuts.fat/this.state.servingSize + (finalCalcs.fat || 0)),
+                carbs:	 Math.ceil(ingredientNuts.carbs/this.state.servingSize + (finalCalcs.carbs || 0)),
+                fiber: 	 Math.ceil(ingredientNuts.fiber/this.state.servingSize + (finalCalcs.fiber || 0)),
+                sugar: 	 Math.ceil(ingredientNuts.sugar/this.state.servingSize + (finalCalcs.sugar || 0))
+            }
+        }, {});
 
-        // console.warn(nutrition);
+        console.warn(nutrition);
 
         return (
             <StyledRecipe className="Recipe">
@@ -132,7 +135,7 @@ class Recipe extends React.Component {
                         }}
                     />
 
-                    {ingredients &&
+                    {scaledIngredients &&
                         <RecipeSection
                             listType="ul"
                             sectionTitle="Ingredients"
@@ -143,9 +146,9 @@ class Recipe extends React.Component {
                                 </div>
                             )}>
                             <React.Fragment>
-                                {ingredients.map((ingredient, index) =>
+                                {scaledIngredients.map((ingredient, index) =>
                                     <li key={`Ingredient-${index}`}>
-                                        {ingredient.quantity}{ingredient.unit} {ingredient.name}
+                                        {ingredient.quantity}{ingredient.unit}{'  '}{ingredient.name}
                                     </li>
                                 )}
                             </React.Fragment>
@@ -174,16 +177,11 @@ class Recipe extends React.Component {
                         className="Recipe--Image"
                         style={{backgroundImage: `url(${thisRecipe.images.full})`}}
                     />
-                    <div className="Recipe--Time">
-                        <div className="Recipe--Time--Prep">
-                            <h6>Prep Time</h6>
-                            <h5>{thisRecipe.prepTime} minutes</h5>
-                        </div>
-                        <div className="Recipe--Time--Cook">
-                            <h6>Cook Time</h6>
-                            <h5>{thisRecipe.cookTime} minutes</h5>
-                        </div>
-                    </div>
+                    <Timing
+                        prepTime={thisRecipe.prepTime}
+                        cookTime={thisRecipe.cookTime}
+                    />
+
                     <div className="Recipe--Nutrition">
                         <h3 className="Recipe--Section--Title">Nutrition Facts (per serving)</h3>
                         <div className="Recipe--Nutrition--Table">
@@ -193,23 +191,23 @@ class Recipe extends React.Component {
                             </p>
                             <p className="Sugar">
                                 <span className="category">Sugar</span>
-                                <span className="value">{nutrition.sugar}</span>
+                                <span className="value">{nutrition.sugar}g</span>
                             </p>
                             <p className="Protein">
                                 <span className="category">Protein</span>
-                                <span className="value">{nutrition.protein}</span>
+                                <span className="value">{nutrition.protein}g</span>
                             </p>
                             <p className="Fiber">
                                 <span className="category">Fiber</span>
-                                <span className="value">{nutrition.fiber}</span>
+                                <span className="value">{nutrition.fiber}g</span>
                             </p>
                             <p className="Fat">
                                 <span className="category">Fat</span>
-                                <span className="value">{nutrition.fat}</span>
+                                <span className="value">{nutrition.fat}g</span>
                             </p>
                             <p className="Carbs">
                                 <span className="category">Carbs</span>
-                                <span className="value">{nutrition.carbs}</span>
+                                <span className="value">{nutrition.carbs}g</span>
                             </p>
                         </div>
                     </div>
