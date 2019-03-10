@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import StarRatings from 'react-star-ratings';
 import objectPath from 'object-path';
 
 import {convertUnit} from 'utils/convert';
@@ -16,7 +17,7 @@ import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
 
 import * as colors from 'styles/colors';
-// import { userInfo } from "os";
+import * as spacing from 'styles/sizing';
 
 class Recipe extends React.Component {
     state = {
@@ -131,11 +132,17 @@ class Recipe extends React.Component {
                                 </Link>
                             </p>
                             <div className="Recipe--Rating">
-                                <Button iconName={'star-o'} />
-                                <Button iconName={'star-o'} />
-                                <Button iconName={'star-o'} />
-                                <Button iconName={'star-o'} />
-                                <Button iconName={'star-o'} />
+                                <StarRatings
+                                    rating={3.4}
+                                    starRatedColor={colors.imperialPrimer}
+                                    starEmptyColor={colors.ballerina}
+                                    starHoverColor={colors.imperialPrimer}
+                                    starDimension={spacing.spacing2lg}
+                                    starSpacing={spacing.spacing2xs}
+                                    changeRating={() => {}}
+                                    numberOfStars={5}
+                                    name='rating'
+                                />
                             </div>
                         </Row>
                     </RecipeHeader>
@@ -237,150 +244,6 @@ class Recipe extends React.Component {
                             editable={false}
                             colorName={'nasaPurple'}>
                             Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Some Really long tag name
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            Chicken
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'megaMan'}>
-                            Meal Prep
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'amour'}>
-                            SuperDuper
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'nasaPurple'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Some Really long tag name
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            Chicken
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'megaMan'}>
-                            Meal Prep
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'amour'}>
-                            SuperDuper
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'nasaPurple'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Some Really long tag name
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            Chicken
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'megaMan'}>
-                            Meal Prep
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'amour'}>
-                            SuperDuper
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'nasaPurple'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Some Really long tag name
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            Chicken
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'megaMan'}>
-                            Meal Prep
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'amour'}>
-                            SuperDuper
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'nasaPurple'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Some Really long tag name
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            Chicken
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'megaMan'}>
-                            Meal Prep
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'amour'}>
-                            SuperDuper
                         </Button>
                     </div>
                 </Column>
