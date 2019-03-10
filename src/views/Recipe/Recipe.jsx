@@ -6,7 +6,7 @@ import objectPath from 'object-path';
 
 import {convertUnit} from 'utils/convert';
 
-import { StyledRecipe, RecipeHeader, RecipeSection } from 'styles/views/Recipe';
+import { StyledRecipe, RecipeSection } from 'styles/views/Recipe';
 
 import { getUserById } from 'actions/AccountActions';
 import { getRecipe, getIngredients } from 'actions/RecipeActions';
@@ -15,13 +15,14 @@ import Row from 'common/Layout/Row';
 import Link from "common/Link/Link";
 import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
+import RecipeHeader from 'components/Recipe/Header';
 
 import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';
 
 class Recipe extends React.Component {
     state = {
-        servingSize: 4
+        servingSize: 0
     }
 
     componentDidMount() {
@@ -35,10 +36,14 @@ class Recipe extends React.Component {
         } = this.props;
 
         if(!recipes.recipe[recipeSlug]) {
-            getRecipe(recipeSlug).then(({uploadedBy, ingredients}) => {
-                if (!network[uploadedBy]) {
-                    getUserById(uploadedBy);
-                }
+            getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize}) => {
+                this.setState({
+                    servingSize
+                });
+
+                // if (!network[uploadedBy]) {
+                //     getUserById(uploadedBy);
+                // }
 
                 const pendingIngredients = ingredients.filter(ingredient => !this.props.ingredients[ingredient.id])
                 getIngredients(pendingIngredients);
@@ -116,36 +121,15 @@ class Recipe extends React.Component {
             <StyledRecipe className="Recipe">
                 <Column>
                     <RecipeHeader
-                        className="Recipe--Header">
-                        <Row>
-                            <h1 className="Recipe--Title">
-                                {thisRecipe.name}
-                            </h1>
-                        </Row>
-                        <Row>
-                            <p className="Recipe--Author">
-                                <span className="subtle">Uploaded By:</span>
-                                {' '}
-                                <Link
-                                    to="#thiswillbesomethinglater">
-                                    {uploadedBy}
-                                </Link>
-                            </p>
-                            <div className="Recipe--Rating">
-                                <StarRatings
-                                    rating={3.4}
-                                    starRatedColor={colors.imperialPrimer}
-                                    starEmptyColor={colors.ballerina}
-                                    starHoverColor={colors.imperialPrimer}
-                                    starDimension={spacing.spacing2lg}
-                                    starSpacing={spacing.spacing2xs}
-                                    changeRating={() => {}}
-                                    numberOfStars={5}
-                                    name='rating'
-                                />
-                            </div>
-                        </Row>
-                    </RecipeHeader>
+                        name={thisRecipe.name}
+                        ratings={thisRecipe.ratings}
+                        uploader={{
+                            tag: thisRecipe.uploadedBy,
+                            url: "it-dont-matter"
+                        }}
+                    />
+
+
 
                     {ingredients &&
                         <RecipeSection
