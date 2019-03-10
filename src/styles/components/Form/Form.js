@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {elevate} from 'styles/mixins/index';
+import {elevate, transition} from 'styles/mixins/index';
 import {stormPetrel, fuelTown, blueFrance, blackSqueeze} from 'styles/colors';
 import {
     layoutxs,
@@ -56,6 +56,7 @@ export const FormWrapper = styled.div`
     .Input--Number {
         box-shadow: 0 1px 0 0 ${stormPetrel};
         border-bottom: 1px solid transparent;
+        ${transition()}
 
         input {
             display: block;
