@@ -1,5 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import { StyledRecipe, RecipeHeader, RecipeSection } from 'styles/views/Recipe';
+
+import { getRecipe } from 'actions/RecipeActions';
+import { getUserById } from 'actions/AccountActions';
 
 import Row from 'common/Layout/Row';
 import Link from "common/Link/Link";
@@ -7,9 +12,40 @@ import Column from 'common/Layout/Column';
 import Button from "common/Button/Button";
 
 import * as colors from 'styles/colors';
+import { userInfo } from "os";
 
 class Recipe extends React.Component {
+    componentDidMount() {
+        const {
+            recipe,
+            getRecipe,
+            getUserById,
+            network
+        } = this.props;
+
+        getRecipe(recipe).then(({uploadedBy}) => {
+            if (!network[uploadedBy]) {
+                getUserById(uploadedBy);
+            }
+        })
+    }
+
+    componentDidUpdate(prevProps) {
+        //if thisRecipe is changed, you need to get all new unrequested info (source, uploadedBy, tags, ingredients)
+    }
+
     render() {
+        const {
+            thisRecipe,
+            network
+        } = this.props;
+
+        if (!thisRecipe) {
+            return null;
+        }
+
+        const uploadedBy = network[thisRecipe.uploadedBy] || '';
+
         return (
             <StyledRecipe className="Recipe">
                 <Column>
@@ -17,7 +53,7 @@ class Recipe extends React.Component {
                         className="Recipe--Header">
                         <Row>
                             <h1 className="Recipe--Title">
-                                Chicken Stuffed Baked Avocados
+                                {thisRecipe.name}
                             </h1>
                         </Row>
                         <Row>
@@ -25,8 +61,8 @@ class Recipe extends React.Component {
                                 <span className="subtle">Uploaded By:</span>
                                 {' '}
                                 <Link
-                                    to="#destiny0172">
-                                    Destiny0172
+                                    to="#thiswillbesomethinglater">
+                                    {uploadedBy}
                                 </Link>
                             </p>
                             <div className="Recipe--Rating">
@@ -140,26 +176,175 @@ class Recipe extends React.Component {
                         <Button
                             className="Button--Primary Button--Small Tag"
                             editable={false}
-                            colorName={'blueFrance'}>
+                            colorName={'nasaPurple'}>
                             Tag1
                         </Button>
                         <Button
                             className="Button--Primary Button--Small Tag"
                             editable={false}
                             colorName={'casandora'}>
-                            Tag2
+                            Some Really long tag name
                         </Button>
                         <Button
                             className="Button--Primary Button--Small Tag"
                             editable={false}
                             colorName={'carribean'}>
-                            Tag 3
+                            Chicken
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'megaMan'}>
+                            Meal Prep
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'amour'}>
+                            SuperDuper
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'nasaPurple'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Some Really long tag name
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            Chicken
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'megaMan'}>
+                            Meal Prep
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'amour'}>
+                            SuperDuper
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'nasaPurple'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Some Really long tag name
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            Chicken
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'megaMan'}>
+                            Meal Prep
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'amour'}>
+                            SuperDuper
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'nasaPurple'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Some Really long tag name
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            Chicken
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'megaMan'}>
+                            Meal Prep
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'amour'}>
+                            SuperDuper
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'nasaPurple'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Some Really long tag name
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            Chicken
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'megaMan'}>
+                            Meal Prep
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'amour'}>
+                            SuperDuper
                         </Button>
                     </div>
                 </Column>
             </StyledRecipe>
         );
-  }
+    }
 }
 
-export default Recipe;
+const mapStateToProps = ({recipes, user}, props) => ({
+    recipes,
+    network: user.network,
+    thisRecipe: recipes.recipe[props.recipe]
+});
+
+const mapDispatchToProps = {
+    getRecipe,
+    getUserById
+};
+
+Recipe.defaultProps = {
+};
+
+Recipe.propTypes = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);

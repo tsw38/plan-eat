@@ -43,6 +43,43 @@ export const signIn = (variables) => (dispatch, getState, api) => {
     })
 }
 
+export const getUserById = (id) => (dispatch, getState, api) => {
+    dispatch({
+        type: AC.GET_USER_PENDING
+    })
+
+    return api({
+        query: `
+            query GetUserById ($id: String!) {
+                userDisplayName (id: $id) {
+                    displayName
+                }
+            }
+        `,
+        variables: {id}
+    }).then(({data}) => {
+        const {
+            userDisplayName
+        } = data.data;
+
+        if(!!userDisplayName.error) {
+            dispatch({
+                type: AC.GET_USER_ERROR,
+                payload: userDisplayName.error
+            })
+        } else {
+            dispatch({
+                type: AC.GET_USER_FETCHED,
+                payload: {
+                    id,
+                    displayName: userDisplayName.displayName
+                }
+            })
+        }
+        return data;
+    })
+}
+
 export const getSession = () => (dispatch, getState, api) => {
     dispatch({
         type: AC.SESSION_PENDING

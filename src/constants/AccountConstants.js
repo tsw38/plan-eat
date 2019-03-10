@@ -7,5 +7,8 @@ export default [
     'SESSION_ERROR',
     'SIGN_OUT_PENDING',
     'SIGN_OUT_FETCHED',
-    'SIGN_OUT_ERROR'
+    'SIGN_OUT_ERROR',
+    'GET_USER_PENDING',
+    'GET_USER_FETCHED',
+    'GET_USER_ERROR'
 ];

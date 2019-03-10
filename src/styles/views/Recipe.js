@@ -238,7 +238,8 @@ export const StyledRecipe = styled.div`
 
             .Button {
                 user-select: none;
-                margin-right: 1rem;
+                margin-right: 0.5rem;
+                margin-bottom: 0.5rem;
             }
         }
     }

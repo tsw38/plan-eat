@@ -20,6 +20,20 @@ const account = (state = {}, action) => {
     }
 }
 
+const network = (state = {}, action) => {
+
+    switch (action.type) {
+        case AC.GET_USER_FETCHED:
+            return {
+                ...state,
+                [action.payload.id]: action.payload.displayName
+            }
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
-    account
+    account,
+    network
 });
