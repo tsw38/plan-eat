@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import {createClientStore} from 'utils/createStore';
 import {onLocationChange} from 'actions/AppActions';
 
-import App from 'components/App/App';
+import App from 'components/containers/App/App';
 
 const ClientStore = createClientStore();
 window.planEat = ClientStore;

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { navigate } from "@reach/router";
 
-import RecipeCarousel from 'components/Recipe/Carousel';
-import CalendarBand from 'components/Calendar/CalendarBand';
-import NutritionBand from 'components/NutritionBand/NutritionBand';
-import CalendarDayBand from 'components/Calendar/CalendarDayBand';
+import RecipeCarousel from 'components/containers/Recipe/Carousel';
+import CalendarBand from 'components/containers/Calendar/CalendarBand';
+import NutritionBand from 'components/containers/NutritionBand/NutritionBand';
+import CalendarDayBand from 'components/containers/Calendar/CalendarDayBand';
 
 import { StyledOverview } from 'styles/views/Overview';
 

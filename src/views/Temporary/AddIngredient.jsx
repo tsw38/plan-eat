@@ -5,11 +5,11 @@ import { navigate } from "@reach/router"
 
 import {stateChange} from 'utils/object';
 
-import AddIngredientForm from 'components/Form/AddIngredient';
+import AddIngredientForm from 'components/common/Form/AddIngredient';
 
 import { StyledSignin } from 'styles/views/Signin';
 
-import Modal from 'common/Modal/ModalGeneric';
+import Modal from 'components/common/Modal/ModalGeneric';
 
 import Config from 'config/ModalsConfig';
 

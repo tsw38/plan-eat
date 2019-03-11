@@ -1,7 +1,8 @@
 import React from "react";
 
-import Row from 'common/Layout/Row';
-import Button from "common/Button/Button";
+import Row from 'components/common/Layout/Row';
+import Button from 'components/common/Button/Button';
+
 import {Section} from 'styles/components/Section';
 
 import * as colors from 'styles/colors';

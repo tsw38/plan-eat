@@ -4,21 +4,17 @@ import {connect} from 'react-redux';
 
 import {convertUnit} from 'utils/convert';
 
-import { StyledRecipe,
-    // RecipeSection
-} from 'styles/views/Recipe';
-
 import { getRecipe, getIngredients } from 'actions/RecipeActions';
 
-import Row from 'common/Layout/Row';
-import Column from 'common/Layout/Column';
-import Button from "common/Button/Button";
-import Timing from 'components/Recipe/Timing';
-import RecipeHeader from 'components/Recipe/Header';
-import RecipeSection from 'components/Recipe/Section';
+import Column from 'components/common/Layout/Column';
+import Button from "components/common/Button/Button";
+import Timing from 'components/containers/Recipe/Timing';
+import RecipeHeader from 'components/containers/Recipe/Header';
+import RecipeSection from 'components/containers/Recipe/Section';
 
 import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';
+import { StyledRecipe} from 'styles/views/Recipe';
 
 class Recipe extends React.Component {
     state = {

@@ -5,13 +5,13 @@ import { navigate } from "@reach/router"
 
 import {stateChange} from 'utils/object';
 
-import SigninForm from 'components/Form/Signin';
+import Config from 'config/ModalsConfig';
+
+import SigninForm from 'components/common/Form/Signin';
+import Modal from 'components/common/Modal/ModalGeneric';
+
 
 import { StyledSignin } from 'styles/views/Signin';
-
-import Modal from 'common/Modal/ModalGeneric';
-
-import Config from 'config/ModalsConfig';
 
 class Signin extends React.Component {
     state = {
