@@ -1,20 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
+import { ballerina } from 'styles/colors';
 
-import {
-    ballerina,
-    imperialPrimer
-} from './colors';
-
-import {
-fontSize,
-spacingsm,
-spacingmd,
-spacing2xs
-} from './sizing';
-
-import {fontBold} from 'styles/variables';
-
-export const ResetStyles = createGlobalStyle`
+export default createGlobalStyle`
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,
@@ -86,70 +73,5 @@ export const ResetStyles = createGlobalStyle`
     table {
         border-collapse: collapse;
         border-spacing: 0;
-    }
-
-    .row {
-        display:block;
-
-        > * {
-            margin: ${spacingsm};
-        }
-
-        .row, .row > * {
-            margin: 0;
-        }
-    }
-
-    .column {
-        display: flex;
-        height: 100%;
-        flex-direction: column;
-    }
-
-    .hidden {
-        display: none;
-    }
-`;
-
-export const FontStyles = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Domine:400,700|Roboto:300,400,700');
-    ${'' /* font-family: 'Roboto', sans-serif; font-family: 'Domine', serif; */}
-    html {
-        font-size: ${fontSize};
-    }
-
-    body {
-        font-family: 'Roboto', sans-serif;
-        color: ${imperialPrimer};
-        font-size: ${spacingmd};
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    h1,h2,h3,h4,h5,h6 {
-        font-weight: ${fontBold};
-    }
-
-    h2 {
-        text-transform: uppercase;
-        margin-bottom: ${spacingsm};
-    }
-
-    h6 {
-        font-size: ${spacingmd};
-        margin-bottom: ${spacing2xs};
-    }
-
-    .subtle {
-        color: ${ballerina};
-    }
-`;
-
-export const SVGStyles = createGlobalStyle`
-    svg {
-        height: 100%;
-        width: 100%;
     }
 `;

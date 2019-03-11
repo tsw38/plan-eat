@@ -25,22 +25,15 @@ import AddIngredient from 'views/Temporary/AddIngredient';
 import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
 //Global Styling
-import {ResetStyles, FontStyles, SVGStyles} from 'styles/global';
-import LinkStyles from 'styles/common/Link';
-import {GlobalModal} from 'styles/common/Modal';
-import ButtonStyles from 'styles/common/Button';
+import GlobalStyles from 'components/common/GlobalStyles/GlobalStyles';
 import {App as StyledApp, StyledRouter} from "styles/components/App";
 
 class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <ResetStyles />
-                <FontStyles />
-                <SVGStyles />
-                <LinkStyles />
-                <ButtonStyles />
-                <GlobalModal />
+                <GlobalStyles />
+
                 <Session />
                 <StyledApp className="App">
                     <Helmet

@@ -35,7 +35,7 @@ const ColorWrapper = styled.div`
 
 
 
-export const ColorGuide = () => {
+export default () => {
 	return (
 		<Section>
 			<h1>Colors</h1>

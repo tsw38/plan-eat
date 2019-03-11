@@ -1,5 +1,4 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import {transparentize} from 'polished';
 import Modal from 'react-modal';
 
 import {elevate} from 'styles/mixins/index';
@@ -8,25 +7,6 @@ import * as spacing from 'styles/sizing';
 
 import {fontBold, fontLight, fontNormal} from 'styles/variables';
 
-
-
-export const GlobalModal = createGlobalStyle`
-    .ReactModalPortal {
-    }
-
-    .Modal--Overlay {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        right: 0px;
-        bottom: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: ${transparentize(0.40, colors.stormPetrel)};
-        ${elevate('Overlay')}
-    }
-`;
 
 export const StyledModal = styled(Modal)`
 	&.Modal {
