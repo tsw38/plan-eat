@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const RadioButtonGroup = ({
+const FieldSet = ({
     value,
     error,
     touched,
@@ -29,4 +29,4 @@ const RadioButtonGroup = ({
     );
 };
 
-export default RadioButtonGroup;
+export default FieldSet;

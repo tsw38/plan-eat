@@ -9,42 +9,66 @@ import Alert from 'common/Alert/Alert';
 import {AlertConstants as AC} from 'constants';
 
 export default class Input extends React.Component {
+    inputType = () => this.props.type || 'text';
+
+    isRadioButton = () => (/radio/).test(this.inputType());
+
+    renderInput = () => {
+
+        const {
+            field: { name, onChange, onBlur },
+            id,
+            type,
+            label,
+            className,
+            form,
+            ...props
+        } = this.props;
+        return (
+            <React.Fragment>
+                <input
+                    id={id}
+                    value={id} // could be something else for output?
+                    name={name}
+                    onBlur={onBlur}
+                    type={this.inputType()}
+                    onChange={onChange}
+                    className={className}
+                    {...props}
+                    placeholder={props.placeholder || label}
+                />
+                {this.isRadioButton() &&
+                    <span className="Radio--Button"></span>
+                }
+            </React.Fragment>
+
+        )
+    }
     render() {
         const {
-            id,
-            name,
+            field: { name },
             type,
-            value,
-            label,
-            onBlur,
-            checked,
-            onChange,
-            className,
-            placeholder,
+            label
         } = this.props;
 
-        const isRadioButton = (/radio/).test(type);
 
         return (
             <div className={classNames(
                 'Input',
-                `Input--${toTitleCase(type)}`
+                `Input--${toTitleCase(this.inputType())}`
             )}>
                 <label>
-                    <span className={'Input--Label'}>{label}</span>
-                    <Field
-                        {...this.props}
-                        id={id}
-                        value={id} // could be something else for output?
-                        name={name}
-                        type={type}
-                        placeholder={placeholder || label}
-                        {...(!!onBlur && { onBlur })}
-                        {...(!!onChange && { onChange })}
-                        {...(isRadioButton && {
-                            checked: id === value
-                        })}
-                    />
+                    {this.isRadioButton() ? (
+                        <React.Fragment>
+                            {this.renderInput()}
+                            <span className={'Input--Label'}>{label}</span>
+                        </React.Fragment>
+                    ): (
+                        <React.Fragment>
+                            <span className={'Input--Label'}>{label}</span>
+                            {this.renderInput()}
+                        </React.Fragment>
+                    )}
                 </label>
                 <Alert
                     type={AC.ERROR}

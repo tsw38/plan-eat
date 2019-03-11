@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import {elevate, transition} from 'styles/mixins/index';
-import {stormPetrel, fuelTown, blueFrance, blackSqueeze} from 'styles/colors';
+import * as colors from 'styles/colors';
 import {
     layoutxs,
     layoutsm,
@@ -17,12 +17,12 @@ import {
 import {border} from 'styles/variables';
 import {lighten} from 'polished';
 
-import { fontBold, fontLight } from 'styles/variables';
+import { fontBold, fontLight, fontNormal } from 'styles/variables';
 
 export const FormWrapper = styled.div`
     &.Form {
         form {
-            border: 1px solid ${stormPetrel};
+            border: 1px solid ${colors.stormPetrel};
         }
 
         &--Modal {
@@ -49,12 +49,12 @@ export const FormWrapper = styled.div`
         font-weight:${fontBold};
         display: block;
         margin-bottom: ${spacingxs};
-        color: ${fuelTown}
+        color: ${colors.fuelTown}
     }
 
     .Input--Text,
     .Input--Number {
-        box-shadow: 0 1px 0 0 ${stormPetrel};
+        box-shadow: 0 1px 0 0 ${colors.stormPetrel};
         border-bottom: 1px solid transparent;
         ${transition()}
 
@@ -63,13 +63,79 @@ export const FormWrapper = styled.div`
             width: 100%;
             height: ${spacing2xl};
             padding: 0 ${spacingmd};
-            background-color: ${blackSqueeze};
+            background-color: ${colors.blackSqueeze};
 
             :focus {
                 outline: none;
-                box-shadow: 0 ${spacing3xs} 0 0 ${blueFrance};
+                box-shadow: 0 ${spacing3xs} 0 0 ${colors.blueFrance};
             }
         }
+    }
+
+    .Input--Radio {
+        fieldset .Input--Label {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            position: relative;
+            padding-left: 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            user-select: none;
+        }
+
+        label > .Input--Label {
+            font-weight: ${fontNormal};
+        }
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .Radio--Button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            height: 1rem;
+            width: 1rem;
+            margin-right: 0.5rem;
+            background-color: ${colors.blackSqueeze};
+            border: 2px solid ${colors.stormPetrel};
+        }
+
+        label:hover input ~ .Radio--Button {
+
+        }
+
+        label input:checked ~ .Radio--Button {
+            background-color: ${colors.blackSqueeze};
+        }
+
+        label input:checked ~ .Radio--Button:after {
+            display: block;
+            background-color: ${colors.blueFrance};
+        }
+
+        .Radio--Button:after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 0.125rem;
+            left: 0.125rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: white;
+        }
+
+
     }
 
     .Radio--Wrapper {
@@ -89,7 +155,7 @@ export const FormWrapper = styled.div`
 
         input {
             font-size: ${_14px};
-            color: ${blueFrance};
+            color: ${colors.blueFrance};
             border: none;
         }
 
@@ -107,7 +173,8 @@ export const FormWrapper = styled.div`
         }
 
         .Input {
-            :first-of-type {
+            :nth-of-type(1),
+            :nth-of-type(2) {
                 grid-column-start: row1;
                 grid-column-end: row1;
                 width: 100%;

@@ -11,7 +11,7 @@ import Button from 'common/Button/Button';
 import Input from 'common/FormFields/Input';
 import {Field} from 'formik';
 import RadioButton from 'common/FormFields/Radio';
-import RadioSet from 'common/FormFields/RadioSet';
+import FieldSet from 'common/FormFields/FieldSet';
 import FormGeneric from 'components/Form/FormGeneric';
 
 class AddIngredientForm extends React.Component {
@@ -51,94 +51,120 @@ class AddIngredientForm extends React.Component {
                     form: ({values, errors, touched}) => {
                         return (
                             <React.Fragment>
-                                <Input
+                                <Field
                                     type="text"
                                     name="title"
+                                    component={Input}
                                     label="Ingredient Name"
                                     placeholder="Ingredient"
                                 />
-                                <RadioSet
-                                    id="scaleType"
-                                    label="Volume or Mass (in grams)"
-                                    value={values.scaleType}
-                                    error={errors.scaleType}
-                                    touched={touched.scaleType}>
-                                    <Field
-                                        component={RadioButton}
-                                        name="scaleType"
-                                        id={"scaleType-true"}
-                                        label="Mass"
-                                        type="radio"
-                                        checked={true}
-                                    />
-                                    <Field
-                                        component={RadioButton}
-                                        name="scaleType"
-                                        id={"scaleType-false"}
-                                        label={"Volume"}
-                                    />
-                                </RadioSet>
-                                <RadioSet
+
+                                <Field
+                                    type="number"
+                                    name="servingSize"
+                                    component={Input}
+                                    label="Serving Size"
+                                />
+
+                                <FieldSet
                                     id="systemType"
                                     label="Metric or Imperial"
                                     value={values.systemType}
                                     error={errors.systemType}
                                     touched={touched.systemType}>
                                     <Field
-                                        component={RadioButton}
+                                        type="radio"
                                         name="systemType"
-                                        id={"systemType-true"}
+                                        component={Input}
                                         label="Metric"
-                                        checked={true}
+                                        id="systemType-true"
                                     />
                                     <Field
-                                        component={RadioButton}
+                                        type="radio"
                                         name="systemType"
-                                        id={"systemType-false"}
-                                        label={"Imperial"}
+                                        component={Input}
+                                        label="Imperial"
+                                        id="systemType-false"
                                     />
-                                </RadioSet>
-                                <Input
+                                </FieldSet>
+
+                                <FieldSet
+                                    id="scaleType"
+                                    label="Volume (in ml) or Mass (in grams)"
+                                    value={values.scaleType}
+                                    error={errors.scaleType}
+                                    touched={touched.scaleType}>
+                                    <Field
+                                        type="radio"
+                                        name="scaleType"
+                                        component={Input}
+                                        label="Mass"
+                                        id="scaleType-true"
+                                    />
+                                    <Field
+                                        type="radio"
+                                        name="scaleType"
+                                        component={Input}
+                                        label="Volume"
+                                        id="scaleType-false"
+                                    />
+                                </FieldSet>
+
+                                <Field
                                     type="number"
                                     name="calories"
+                                    component={Input}
                                     label="Calories"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
                                     name="fat"
+                                    component={Input}
                                     label="Fat"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
                                     name="cholesterol"
+                                    component={Input}
                                     label="Cholesterol"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
                                     name="sodium"
+                                    component={Input}
                                     label="Sodium"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
-                                    name="totalCarbs"
+                                    name="carbs"
+                                    component={Input}
                                     label="Carbs"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
                                     name="dietaryFiber"
+                                    component={Input}
                                     label="Dietary Fiber"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
                                     name="sugar"
+                                    component={Input}
                                     label="Sugar"
                                 />
-                                <Input
+
+                                <Field
                                     type="number"
                                     name="protein"
+                                    component={Input}
                                     label="Protein"
                                 />
-                                {/* <RadioSet /> */}
                             </React.Fragment>
                         )
                     }
