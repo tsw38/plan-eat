@@ -12,21 +12,23 @@ import {FormWrapper} from 'styles/components/Form/Form';
 
 class FormGeneric extends React.Component {
 
-    handleSubmit = (formValues, formActions) => {
+    handleSubmit = (formValues, {resetForm}) => {
         const {
             beforeSubmit,
             onSubmit
         } = this.props;
 
         if (beforeSubmit) {
-            return new Promise((resolve,reject) => {
-                resolve(beforeSubmit());
-            }).then(() => onSubmit(formValues));
+            beforeSubmit().then(resp => {
+                onSubmit(formValues).then(resp2 => {
+                    resetForm({})
+                })
+            })
+        } else {
+            onSubmit(formValues).then((resp) => resetForm({}));
         }
 
-        return new Promise((resolve, reject) => {
-            resolve(onSubmit(formValues));
-        });
+        return;
     }
 
     render() {

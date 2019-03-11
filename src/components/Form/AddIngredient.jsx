@@ -18,6 +18,8 @@ import FormGeneric from 'components/Form/FormGeneric';
 class AddIngredientForm extends React.Component {
     state = {
         measurement: 'mass',
+        mass: convert().list('mass'),
+        volume: convert().list('volume')
     }
 
     componentDidMount() {
@@ -28,6 +30,18 @@ class AddIngredientForm extends React.Component {
         this.setState({
             measurement: e.target.value
         })
+    }
+
+    handleSubmit = (values) => {
+        return this.props.addIngredient(values).then(({id}) => {
+            if (!!id) {
+                window.alert('TODO: Proper Success Modal');
+            } else {
+                window.alert('TODO: Proper Error Modal');
+            }
+
+            return id;
+        });
     }
 
     render() {
@@ -42,10 +56,22 @@ class AddIngredientForm extends React.Component {
                 id={'addIngredient'}
                 title={render.title && 'Add Ingredient'}
                 onError={() => {console.warn('on error')}}
-                onSubmit={addIngredient}
+                onSubmit={(values) => this.handleSubmit(values)}
                 validators={AddIngredientsValidator}
                 onComplete={() => {console.warn('on complete')}}
-                initialValues={{}}
+                initialValues={{
+                    name: '',
+                    servingSize: '',
+                    scaleType: '',
+                    calories: '',
+                    fat: '',
+                    cholesterol: '',
+                    sodium: '',
+                    carbs: '',
+                    dietaryFiber: '',
+                    sugar: '',
+                    protein: ''
+                }}
                 render={{
                     ...render,
                     // error: user.error,
@@ -70,6 +96,7 @@ class AddIngredientForm extends React.Component {
                                 <Field
                                     type="text"
                                     name="name"
+                                    value={values.name || ''}
                                     component={Input}
                                     label="Ingredient Name"
                                     placeholder="Ingredient"
@@ -78,6 +105,7 @@ class AddIngredientForm extends React.Component {
                                 <Field
                                     type="text"
                                     name="servingSize"
+                                    value={values.servingSize || ''}
                                     component={Input}
                                     label="Serving Size"
                                 />
@@ -131,9 +159,10 @@ class AddIngredientForm extends React.Component {
                                     component={Input}
                                     type="select"
                                     label="Measurement"
+                                    value={values.measurement || ''}
                                     name="measurement">
                                     <React.Fragment>
-                                        {convert().list(this.state.measurement).map((scale, i) => {
+                                        {this.state[this.state.measurement].map((scale, i) => {
                                             return (
                                                 <option
                                                     value={scale.abbr}
@@ -149,6 +178,7 @@ class AddIngredientForm extends React.Component {
                                     name="calories"
                                     component={Input}
                                     label="Calories"
+                                    value={values.calories || ''}
                                 />
 
                                 <Field
@@ -156,6 +186,7 @@ class AddIngredientForm extends React.Component {
                                     name="fat"
                                     component={Input}
                                     label="Fat"
+                                    value={values.fat || ''}
                                 />
 
                                 <Field
@@ -163,6 +194,7 @@ class AddIngredientForm extends React.Component {
                                     name="cholesterol"
                                     component={Input}
                                     label="Cholesterol"
+                                    value={values.cholesterol || ''}
                                 />
 
                                 <Field
@@ -170,6 +202,7 @@ class AddIngredientForm extends React.Component {
                                     name="sodium"
                                     component={Input}
                                     label="Sodium"
+                                    value={values.sodium || ''}
                                 />
 
                                 <Field
@@ -177,6 +210,7 @@ class AddIngredientForm extends React.Component {
                                     name="carbs"
                                     component={Input}
                                     label="Carbs"
+                                    value={values.carbs || ''}
                                 />
 
                                 <Field
@@ -184,6 +218,7 @@ class AddIngredientForm extends React.Component {
                                     name="dietaryFiber"
                                     component={Input}
                                     label="Dietary Fiber"
+                                    value={values.dietaryFiber || ''}
                                 />
 
                                 <Field
@@ -191,6 +226,7 @@ class AddIngredientForm extends React.Component {
                                     name="sugar"
                                     component={Input}
                                     label="Sugar"
+                                    value={values.sugar || ''}
                                 />
 
                                 <Field
@@ -198,6 +234,7 @@ class AddIngredientForm extends React.Component {
                                     name="protein"
                                     component={Input}
                                     label="Protein"
+                                    value={values.protein || ''}
                                 />
                             </React.Fragment>
                         )

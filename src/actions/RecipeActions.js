@@ -131,9 +131,9 @@ export const addIngredient = ({name, scaleType, measurement, servingSize, ...mac
             .from(measurement)
             .to(isMass ? 'g' : 'ml'));
 
-        if (macros['calories']*scale === 0 || isNaN(scale)) {
-            throw new Error('Too Low Go Higher');
-        }
+        // if (macros['calories']*scale === 0 || isNaN(scale)) {
+        //     throw new Error('Too Low Go Higher');
+        // }
 
         finalCalculations = Object.keys(macros).reduce((calculation, macro) => {
             const scaled = macros[macro]*scale || 0;
@@ -171,47 +171,41 @@ export const addIngredient = ({name, scaleType, measurement, servingSize, ...mac
         }
     }
 
-    console.warn(recalculated);
-
-    if(!!recalculated.nutrition.calories) {
-        return api({
-            query: `
-                mutation addIngredient(
-                    $name: String!,
-                    $unit: Boolean!,
-                    $nutrition: InputExpandedNutrition!
-                ) {
-                addIngredient(
-                    nutrition: $nutrition,
-                    name: $name,
-                    unit: $unit
-                ) {
-                    id
-                }
-            }`,
-            variables: recalculated
-        }).then(({data}) => {
-            const {
-                addIngredient
-            } = data.data;
-
-            if(!!addIngredient.error) {
-                // dispatch({
-                //     type: RC.RECIPE_ERROR,
-                //     payload: recipe.error
-                // })
-            } else {
-                dispatch({
-                    type: RC.ADDING_INGREDIENT_FETCHED,
-                    payload: {
-                        [addIngredient.id]: recalculated
-                    }
-                })
+    return api({
+        query: `
+            mutation addIngredient(
+                $name: String!,
+                $unit: Boolean!,
+                $nutrition: InputExpandedNutrition!
+            ) {
+            addIngredient(
+                nutrition: $nutrition,
+                name: $name,
+                unit: $unit
+            ) {
+                id
             }
+        }`,
+        variables: recalculated
+    }).then(({data}) => {
+        const {
+            addIngredient
+        } = data.data;
 
-            return addIngredient;
-        })
-    }
-    console.warn('there was no calories for this ingredient, try something else, maybe a larger unit of measurement');
-    return;
+        if(!!addIngredient.error) {
+            // dispatch({
+            //     type: RC.RECIPE_ERROR,
+            //     payload: recipe.error
+            // })
+        } else {
+            dispatch({
+                type: RC.ADDING_INGREDIENT_FETCHED,
+                payload: {
+                    [addIngredient.id]: recalculated
+                }
+            })
+        }
+
+        return addIngredient;
+    })
 }
