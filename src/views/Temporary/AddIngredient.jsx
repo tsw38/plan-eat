@@ -23,7 +23,6 @@ class Signin extends React.Component {
     }
 
     componentDidMount() {
-        console.warn(Config);
         this.setState({
             render: true
         })

@@ -42,7 +42,7 @@ class Recipe extends React.Component {
                     recipeFound: !!slug
                 });
 
-                const pendingIngredients = !!ingredients && ingredients.filter(ingredient => !ingredientsReducer[ingredient.id])
+                const pendingIngredients = !!ingredients && ingredients.filter(({id}) => !ingredientsReducer[id])
                 getIngredients(pendingIngredients);
             })
         }

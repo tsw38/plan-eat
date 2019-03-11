@@ -9,6 +9,7 @@ import { toggleModal } from 'actions/ModalActions';
 
 import Button from 'common/Button/Button';
 import Input from 'common/FormFields/Input';
+import {Field} from 'formik';
 import FormGeneric from 'components/Form/FormGeneric';
 
 class SigninForm extends React.Component {
@@ -53,14 +54,16 @@ class SigninForm extends React.Component {
                     form: () => {
                         return (
                             <React.Fragment>
-                                <Input
+                                <Field
                                     type="email"
                                     name="email"
+                                    component={Input}
                                     label="Email Address"
                                 />
-                                <Input
+                                <Field
                                     type="password"
                                     name="password"
+                                    component={Input}
                                     label="Password"
                                 />
                             </React.Fragment>

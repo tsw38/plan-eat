@@ -1,5 +1,4 @@
 import React from 'react';
-import {Field} from 'formik';
 import classNames from 'classnames';
 
 import {toTitleCase} from 'utils/string';
@@ -21,22 +20,38 @@ export default class Input extends React.Component {
             type,
             label,
             className,
+            children,
             form,
             ...props
         } = this.props;
+
         return (
             <React.Fragment>
-                <input
-                    id={id}
-                    value={id} // could be something else for output?
-                    name={name}
-                    onBlur={onBlur}
-                    type={this.inputType()}
-                    onChange={onChange}
-                    className={className}
-                    {...props}
-                    placeholder={props.placeholder || label}
-                />
+                {(/select/i).test(this.inputType()) ? (
+                    <select
+                        id={id}
+                        value={id} // could be something else for output?
+                        name={name}
+                        onBlur={onBlur}
+                        type={this.inputType()}
+                        onChange={onChange}
+                        className={className}
+                        {...props}>
+                        {children}
+                    </select>
+                ) : (
+                    <input
+                        id={id}
+                        value={id} // could be something else for output?
+                        name={name}
+                        onBlur={onBlur}
+                        type={this.inputType()}
+                        onChange={onChange}
+                        className={className}
+                        {...props}
+                        placeholder={props.placeholder || label}
+                    />
+                )}
                 {this.isRadioButton() &&
                     <span className="Radio--Button"></span>
                 }
@@ -48,7 +63,8 @@ export default class Input extends React.Component {
         const {
             field: { name },
             type,
-            label
+            label,
+            children
         } = this.props;
 
 

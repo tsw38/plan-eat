@@ -13,7 +13,6 @@ import {FormWrapper} from 'styles/components/Form/Form';
 class FormGeneric extends React.Component {
 
     handleSubmit = (formValues, formActions) => {
-        console.warn('these are the form values');
         const {
             beforeSubmit,
             onSubmit

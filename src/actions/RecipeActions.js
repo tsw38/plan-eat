@@ -1,3 +1,4 @@
+import convert from 'convert-units';
 import {RecipeConstants as RC} from 'constants/index';
 
 export const getRecipe = (slug) => (dispatch, getState, api) => {
@@ -115,4 +116,102 @@ export const getIngredients = (idArr) => (dispatch, getState, api) => {
 
         return ingredients;
     })
+}
+
+export const addIngredient = ({name, scaleType, measurement, servingSize, ...macros}) => (dispatch, getState, api) => {
+    const isMass = (/mass/i).test(scaleType);
+    //take the measurement and convert it to metric vol or mass
+    // take that number and 100/that number to get the scale amount
+    // go through all of the remaining keys and scale them
+    // send to api
+
+    let scale, finalCalculations;
+    try {
+        scale = measurement && servingSize && (100/convert(Number(servingSize))
+            .from(measurement)
+            .to(isMass ? 'g' : 'ml'));
+
+        if (macros['calories']*scale === 0 || isNaN(scale)) {
+            throw new Error('Too Low Go Higher');
+        }
+
+        finalCalculations = Object.keys(macros).reduce((calculation, macro) => {
+            const scaled = macros[macro]*scale || 0;
+
+            calculation[macro] = scaled;
+
+            return calculation;
+        }, {})
+
+        finalCalculations.unit = isMass;
+    } catch ({message}) {
+        dispatch({
+            type: RC.ADDING_INGREDIENT_ERROR,
+            payload: message
+        })
+    }
+
+
+    const recalculated = finalCalculations && {
+        name,
+        unit: isMass,
+        nutrition: {
+            calories: finalCalculations.calories,
+            fat: finalCalculations.fat,
+            cholesterol: finalCalculations.cholesterol,
+            sodium: finalCalculations.sodium,
+            carbs: {
+                absolute: finalCalculations.carbs,
+                dietaryFiber: finalCalculations.dietaryFiber,
+                sugar: finalCalculations.sugar
+            },
+            protein: finalCalculations.protein,
+            // allergies: [], //TODO:
+            // category: null //TODO:
+        }
+    }
+
+    console.warn(recalculated);
+
+    if(!!recalculated.nutrition.calories) {
+        return api({
+            query: `
+                mutation addIngredient(
+                    $name: String!,
+                    $unit: Boolean!,
+                    $nutrition: InputExpandedNutrition!
+                ) {
+                addIngredient(
+                    nutrition: $nutrition,
+                    name: $name,
+                    unit: $unit
+                ) {
+                    id
+                }
+            }`,
+            variables: recalculated
+        }).then(({data}) => {
+            const {
+                addIngredient
+            } = data.data;
+
+            if(!!addIngredient.error) {
+                // dispatch({
+                //     type: RC.RECIPE_ERROR,
+                //     payload: recipe.error
+                // })
+            } else {
+                dispatch({
+                    type: RC.ADDING_INGREDIENT_FETCHED,
+                    payload: {
+                        [addIngredient.id]: recalculated
+                    }
+                })
+            }
+
+            return addIngredient;
+        })
+    }
+    console.warn('there was no calories for this ingredient, try something else, maybe a larger unit of measurement');
+    return;
 }

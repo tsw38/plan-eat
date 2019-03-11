@@ -8,6 +8,7 @@ const FieldSet = ({
     id,
     label,
     className,
+    handleOnChange,
     children
 }) => {
     const classes = classNames(
@@ -21,7 +22,9 @@ const FieldSet = ({
 
     return (
         <div className={classes}>
-            <fieldset>
+            <fieldset
+                onChange={handleOnChange || null}
+            >
                 <legend className="Input--Label">{label}</legend>
                 {children}
             </fieldset>

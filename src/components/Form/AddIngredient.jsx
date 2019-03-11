@@ -1,24 +1,39 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import convert from 'convert-units';
 
-import {SigninValidator} from 'utils/validators';
-
-import { signIn } from 'actions/AccountActions';
 import { toggleModal } from 'actions/ModalActions';
+import { addIngredient } from 'actions/RecipeActions';
+
+import {AddIngredientsValidator} from 'utils/validators';
+
 
 import Button from 'common/Button/Button';
 import Input from 'common/FormFields/Input';
 import {Field} from 'formik';
-import RadioButton from 'common/FormFields/Radio';
 import FieldSet from 'common/FormFields/FieldSet';
 import FormGeneric from 'components/Form/FormGeneric';
 
 class AddIngredientForm extends React.Component {
+    state = {
+        measurement: 'mass',
+    }
+
+    componentDidMount() {
+
+    }
+
+    handleMeasurementChange = (e) => {
+        this.setState({
+            measurement: e.target.value
+        })
+    }
+
     render() {
         const {
             render,
-            signIn,
+            addIngredient,
             toggleModal
         } = this.props;
 
@@ -27,7 +42,8 @@ class AddIngredientForm extends React.Component {
                 id={'addIngredient'}
                 title={render.title && 'Add Ingredient'}
                 onError={() => {console.warn('on error')}}
-                onSubmit={(values) => {console.warn(values)}}
+                onSubmit={addIngredient}
+                validators={AddIngredientsValidator}
                 onComplete={() => {console.warn('on complete')}}
                 initialValues={{}}
                 render={{
@@ -48,25 +64,25 @@ class AddIngredientForm extends React.Component {
                             </Button>
                         </div>
                     ),
-                    form: ({values, errors, touched}) => {
+                    form: ({values, errors, touched, ...rest}) => {
                         return (
                             <React.Fragment>
                                 <Field
                                     type="text"
-                                    name="title"
+                                    name="name"
                                     component={Input}
                                     label="Ingredient Name"
                                     placeholder="Ingredient"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="servingSize"
                                     component={Input}
                                     label="Serving Size"
                                 />
 
-                                <FieldSet
+                                {/* <FieldSet
                                     id="systemType"
                                     label="Metric or Imperial"
                                     value={values.systemType}
@@ -86,81 +102,99 @@ class AddIngredientForm extends React.Component {
                                         label="Imperial"
                                         id="systemType-false"
                                     />
-                                </FieldSet>
+                                </FieldSet> */}
 
                                 <FieldSet
                                     id="scaleType"
-                                    label="Volume (in ml) or Mass (in grams)"
+                                    label="Measurement Type"
                                     value={values.scaleType}
                                     error={errors.scaleType}
+                                    handleOnChange={this.handleMeasurementChange}
                                     touched={touched.scaleType}>
                                     <Field
                                         type="radio"
                                         name="scaleType"
                                         component={Input}
                                         label="Mass"
-                                        id="scaleType-true"
+                                        id="mass"
                                     />
                                     <Field
                                         type="radio"
                                         name="scaleType"
                                         component={Input}
                                         label="Volume"
-                                        id="scaleType-false"
+                                        id="volume"
                                     />
                                 </FieldSet>
 
                                 <Field
-                                    type="number"
+                                    component={Input}
+                                    type="select"
+                                    label="Measurement"
+                                    name="measurement">
+                                    <React.Fragment>
+                                        {convert().list(this.state.measurement).map((scale, i) => {
+                                            return (
+                                                <option
+                                                    value={scale.abbr}
+                                                    key={`measurement-${i}`}
+                                                >{scale.plural} ({scale.abbr})</option>
+                                            );
+                                        })}
+                                    </React.Fragment>
+                                </Field>
+
+                                <Field
+                                    type="text"
                                     name="calories"
                                     component={Input}
                                     label="Calories"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="fat"
                                     component={Input}
                                     label="Fat"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="cholesterol"
                                     component={Input}
                                     label="Cholesterol"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="sodium"
                                     component={Input}
                                     label="Sodium"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="carbs"
                                     component={Input}
                                     label="Carbs"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="dietaryFiber"
                                     component={Input}
                                     label="Dietary Fiber"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="sugar"
                                     component={Input}
                                     label="Sugar"
                                 />
 
                                 <Field
-                                    type="number"
+                                    type="text"
                                     name="protein"
                                     component={Input}
                                     label="Protein"
@@ -194,7 +228,7 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-    signIn,
+    addIngredient,
     toggleModal
 }
 
