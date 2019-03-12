@@ -56,7 +56,7 @@ class RecipeHeader extends React.Component {
                             </Link>
                         </p>
                     }
-                    {ratings &&
+                    {!!ratings.length &&
                         <div className="Recipe--Rating">
                             <StarRatings
                                 rating={calculation}
@@ -86,6 +86,7 @@ const mapDispatchToProps = {
 };
 
 RecipeHeader.defaultProps = {
+    ratings: []
 };
 
 RecipeHeader.propTypes = {

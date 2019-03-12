@@ -3,8 +3,6 @@ import {Helmet} from "react-helmet";
 import {Location} from "@reach/router";
 import {connect} from 'react-redux';
 
-import {pathToPageTitle} from 'utils/url';
-
 // App Level components
 import Page from 'components/containers/Page/Page';
 import Session from "components/common/Session/Session";
@@ -60,7 +58,8 @@ class App extends React.Component {
                         {(props) => {
                             return (
                                 <StyledRouter location={props.location}>
-                                    <Page path="/" page={pathToPageTitle(props.location.pathname)}>
+                                    {console.warn(props.location)}
+                                    <Page path="/">
                                         <Overview path="/" />
                                         <MealPrep path="/meal-prep"/>
 

@@ -7,4 +7,11 @@ export const pathToPageTitle = (path) => path
 			.map(word => `${word[0].toUpperCase()}${word.substring(1,word.length)}`)
 			.join(' ') :
 		''
-	).join(' - ');
+    ).join(' - ');
+
+export const pathToPageClass = (path) => path
+	.split('/')
+	.slice(1)[0]
+	.split('-')
+    .map(word => `${word[0].toUpperCase()}${word.substring(1,word.length)}`)
+    .join('');

@@ -4,17 +4,18 @@ import {Location} from '@reach/router';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 
-import {pathToPageTitle} from 'utils/url';
+import {pathToPageTitle, pathToPageClass} from 'utils/url';
 
 import * as PageStyles from "styles/components/Page";
 
 
 const PageComponent = ({page, onLocationChange, children}) => {
-    console.warn('this is the page', );
+    const pageClass = pathToPageClass(location.pathname || '');
+
 	return (
 		<PageStyles.Page className={classNames(
             'Page',
-            `Page--${page.replace(/\s/g, '')}`
+            {[`Page--${pageClass}`]: !!pageClass}
         )}>
 			<Location>
                 {({location}) => {
