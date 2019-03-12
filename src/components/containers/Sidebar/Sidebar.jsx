@@ -37,21 +37,6 @@ class Sidebar extends React.Component {
                     <StyledLink>
                         <Link to="/signin">Signin</Link>
                     </StyledLink>
-                </LinkWrapper>
-
-                <LinkWrapper>
-                    <h2 className="Sidebar--header">Extras</h2>
-                    <StyledLink>
-                        <Link to="/recipes">Recipes</Link>
-                    </StyledLink>
-
-                    <StyledLink>
-                        <Link to="/cart">Cart</Link>
-                    </StyledLink>
-
-                    <StyledLink>
-                        <Link to="/signin">Signin</Link>
-                    </StyledLink>
 
                     <StyledLink>
                         <Link to="/add-ingredient">Add Ingredient</Link>

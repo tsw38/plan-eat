@@ -25,16 +25,21 @@ export default createGlobalStyle`
                 templateLiteral += `
                     &--${colorName} {
                         background-color: ${colors[colorName]};
-                        ${'' /* color: ${darken(0.35, colors[colorName])}; */}
-                        color: white;
+                        color: ${lighten(0.45, colors[colorName])};
+                        ${'' /* border: 1px solid ${darken(0.1, colors[colorName])}; */}
                     }
                     &--${colorName}--dark {
                         background-color: ${colors[colorName]};
-                        color: ${darken(0.5, colors[colorName])};
+                        color: ${darken(0.45, colors[colorName])};
+                        ${'' /* border: 1px solid ${darken(0.1, colors[colorName])}; */}
                     }
                 `;
             });
             return templateLiteral;
         }}
+
+        &--blackSqueeze {
+            color: ${darken(0.45, colors.blackSqueeze)};
+        }
     }
 `;

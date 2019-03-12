@@ -8,7 +8,7 @@ import {AlertConstants as AC} from 'constants';
 import {toTitleCase} from 'utils/string';
 
 import Alert from 'components/common/Alert/Alert';
-import {FormWrapper} from 'styles/components/Form/Form';
+import {FormWrapper} from 'styles/components/common/Form/Form';
 
 class FormGeneric extends React.Component {
 

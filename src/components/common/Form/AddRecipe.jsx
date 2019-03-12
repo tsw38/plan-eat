@@ -8,6 +8,12 @@ import { toggleModal } from 'actions/ModalActions';
 import { addIngredient } from 'actions/RecipeActions';
 
 import {AddIngredientsValidator} from 'utils/validators';
+import {SigninValidator} from 'utils/validators';
+
+import Button from 'components/common/Button/Button';
+import Input from 'components/common/Form/Fields/Input';
+
+import AddRecipe from 'styles/components/common/Form/AddRecipe';
 
 class AddRecipeForm extends React.Component {
     state = {
@@ -19,23 +25,15 @@ class AddRecipeForm extends React.Component {
 
     handleSubmit = (values) => {
         console.warn(values);
-        // return this.props.addIngredient(values).then(({id}) => {
-        //     if (!!id) {
-        //         window.alert('TODO: Proper Success Modal');
-        //     } else {
-        //         window.alert('TODO: Proper Error Modal');
-        //     }
-
-        //     return id;
-        // });
     }
 
     render() {
-        // const {
-        // } = this.props;
+        const {
+            render
+        } = this.props;
 
         return (
-            <FormGeneric
+            <AddRecipe
                 id={'addIngredient'}
                 title={render.title && 'Add Recipe'}
                 onError={() => {console.warn('on error')}}
@@ -77,6 +75,17 @@ class AddRecipeForm extends React.Component {
                             <React.Fragment>
                                 <Field
                                     type="text"
+                                    name="recipeName"
+                                    value={values.recipeName || ''}
+                                    component={Input}
+                                    placeholder="Add Recipe"
+                                />
+
+
+
+
+                                <Field
+                                    type="text"
                                     name="name"
                                     value={values.name || ''}
                                     component={Input}
@@ -90,101 +99,6 @@ class AddRecipeForm extends React.Component {
                                     value={values.servingSize || ''}
                                     component={Input}
                                     label="Serving Size"
-                                />
-
-                                {/* <FieldSet
-                                    id="systemType"
-                                    label="Metric or Imperial"
-                                    value={values.systemType}
-                                    error={errors.systemType}
-                                    touched={touched.systemType}>
-                                    <Field
-                                        type="radio"
-                                        name="systemType"
-                                        component={Input}
-                                        label="Metric"
-                                        id="systemType-true"
-                                    />
-                                    <Field
-                                        type="radio"
-                                        name="systemType"
-                                        component={Input}
-                                        label="Imperial"
-                                        id="systemType-false"
-                                    />
-                                </FieldSet> */}
-
-                                <FieldSet
-                                    id="scaleType"
-                                    label="Measurement Type"
-                                    value={values.scaleType}
-                                    error={errors.scaleType}
-                                    handleOnChange={this.handleMeasurementChange}
-                                    touched={touched.scaleType}>
-                                    <Field
-                                        type="radio"
-                                        name="scaleType"
-                                        component={Input}
-                                        label="Mass"
-                                        id="mass"
-                                    />
-                                    <Field
-                                        type="radio"
-                                        name="scaleType"
-                                        component={Input}
-                                        label="Volume"
-                                        id="volume"
-                                    />
-                                </FieldSet>
-
-                                <Field
-                                    component={Input}
-                                    type="select"
-                                    label="Measurement"
-                                    value={values.measurement || ''}
-                                    name="measurement">
-                                    <React.Fragment>
-                                        {this.state[this.state.measurement].map((scale, i) => {
-                                            return (
-                                                <option
-                                                    value={scale.abbr}
-                                                    key={`measurement-${i}`}
-                                                >{scale.plural} ({scale.abbr})</option>
-                                            );
-                                        })}
-                                    </React.Fragment>
-                                </Field>
-
-                                <Field
-                                    type="text"
-                                    name="calories"
-                                    component={Input}
-                                    label="Calories"
-                                    value={values.calories || ''}
-                                />
-
-                                <Field
-                                    type="text"
-                                    name="fat"
-                                    component={Input}
-                                    label="Fat"
-                                    value={values.fat || ''}
-                                />
-
-                                <Field
-                                    type="text"
-                                    name="cholesterol"
-                                    component={Input}
-                                    label="Cholesterol"
-                                    value={values.cholesterol || ''}
-                                />
-
-                                <Field
-                                    type="text"
-                                    name="sodium"
-                                    component={Input}
-                                    label="Sodium"
-                                    value={values.sodium || ''}
                                 />
 
                                 <Field
@@ -228,7 +142,7 @@ class AddRecipeForm extends React.Component {
 
 AddRecipeForm.defaultProps = {
     render: {
-        title: true
+        title: false
     }
 }
 

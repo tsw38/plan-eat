@@ -58,7 +58,6 @@ class App extends React.Component {
                         {(props) => {
                             return (
                                 <StyledRouter location={props.location}>
-                                    {console.warn(props.location)}
                                     <Page path="/">
                                         <Overview path="/" />
                                         <MealPrep path="/meal-prep"/>

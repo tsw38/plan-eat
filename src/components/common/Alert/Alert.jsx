@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import {toTitleCase} from 'utils/string';
 
-import {AlertStyling} from 'styles/common/alert';
+import {AlertStyling} from 'styles/components/common/alert';
 export default class Alert extends React.Component {
     alertWrapper = (message) => {
         const {

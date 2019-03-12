@@ -17,7 +17,7 @@ const TagsGuide = () => {
                         'Tag',
                         `Tag--${color}`
                     )}>
-						Tag Tag-{color}
+						.Tag.Tag--{color}
 					</div>
 				)}
 			</Row>
@@ -29,7 +29,7 @@ const TagsGuide = () => {
                         'Tag',
                         `Tag--${color}--dark`
                     )}>
-                        Tag Tag-{color}--dark
+                        .Tag.Tag--{color}--dark
                     </div>
                 )}
             </Row>

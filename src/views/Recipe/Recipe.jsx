@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-
+import classNames from 'classnames';
 import {convertUnit} from 'utils/convert';
 
 import { getRecipe, getIngredients } from 'actions/RecipeActions';
 
 import Column from 'components/common/Layout/Column';
+import Row from 'components/common/Layout/Column';
 import Button from "components/common/Button/Button";
 import Timing from 'components/containers/Recipe/Timing';
 import RecipeHeader from 'components/containers/Recipe/Header';
@@ -216,6 +217,82 @@ class Recipe extends React.Component {
                             colorName={'nasaPurple'}>
                             Tag1
                         </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'jadeDust'}>
+                            Tag1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'amour'}>
+                            Taaw dawd awd awd g1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Tagawd awd awd awd awd 1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'blueFrance'}>
+                            Tagwd awd awd 1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            Tagawdawdawdawdawdawdawdawd awd awd a1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'casandora'}>
+                            Taawdawdawd1
+                        </Button>
+                        <Button
+                            className="Button--Primary Button--Small Tag"
+                            editable={false}
+                            colorName={'carribean'}>
+                            awdawdawdawdawd
+                        </Button>
+
+                                <br />
+                        <div className={classNames(
+                            'Tag',
+                            `Tag--jadeDust`
+                        )}>
+                            .Tag.Tag--jadeDust
+                        </div>
+
+                        <div className={classNames(
+                            'Tag',
+                            `Tag--casandora`
+                        )}>
+                            .Tag.Tag--casandora
+                        </div>
+                        <div className={classNames(
+                            'Tag',
+                            `Tag--lotusPink`
+                        )}>
+                            .Tag.Tag--lotusPink
+                        </div>
+
+                        <div className={classNames(
+                            'Tag',
+                            `Tag--nasaPurple`
+                        )}>
+                            .Tag.Tag--nasaPurple
+                        </div>
                     </div>
                 </Column>
             </StyledRecipe>
