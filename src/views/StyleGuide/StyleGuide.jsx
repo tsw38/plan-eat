@@ -11,33 +11,31 @@ import {border} from 'styles/variables';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
+import TabsComponent from 'components/common/Tabs/Tabs';
 class StyleGuide extends React.Component {
     render() {
         return (
             <div className="StyleGuide">
-                <Tabs
-                    onSelect={index => console.log(index)}
-                    className="Tab">
-                    <TabList className="Tab--Header">
-                        <Tab><span>Colors</span></Tab>
-                        <Tab><span>Buttons</span></Tab>
-                        <Tab><span>Small Buttons</span></Tab>
-                        <Tab><span>Tags</span></Tab>
-                    </TabList>
-
-                    <TabPanel>
-                        <ColorGuide />
-                    </TabPanel>
-                    <TabPanel>
-                        <ButtonGuide />
-                    </TabPanel>
-                    <TabPanel>
-                        <SmallButtonGuide />
-                    </TabPanel>
-                    <TabPanel>
-                        <TagGuide />
-                    </TabPanel>
-                </Tabs>
+                <TabsComponent
+                    panels={[
+                        {
+                            name: 'Colors',
+                            Component: ColorGuide
+                        },
+                        {
+                            'name': 'Buttons',
+                            Component: ButtonGuide
+                        },
+                        {
+                            name: 'Small Buttons',
+                            Component: SmallButtonGuide
+                        },
+                        {
+                            'name': 'Tags',
+                            Component: TagGuide
+                        }
+                    ]}
+                />
             </div>
         );
     }

@@ -22,5 +22,9 @@ export const Page = styled.div`
             background-color: ${colors.blackSqueeze};
             padding: ${sizing.layout2xs};
         }
+
+        &--Style {
+            padding: ${sizing.layout2xs};
+        }
     }
 `;
