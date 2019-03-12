@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Icon from "components/common/Icon/Icon";
-import { CarouselWrapper } from 'styles/components/Recipe/Carousel';
+import { CarouselWrapper } from 'styles/components/containers/Recipe/Carousel';
 
 class RecipeCarousel extends React.Component {
     render() {

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 import DonutChart from 'components/containers/NutritionBand/DonutChart';
 
-import { NutritionBand as StyledNutritionBand } from 'styles/components/NutritionBand/NutritionBand';
+import { NutritionBand as StyledNutritionBand } from 'styles/components/containers/NutritionBand/NutritionBand';
 
 class NutritionBand extends React.Component {
     render() {

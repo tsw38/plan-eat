@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Inbox as StyledInbox} from "styles/components/Header/Inbox";
+import {Inbox as StyledInbox} from "styles/components/containers/Header/Inbox";
 
 import Icon from 'components/common/Icon/Icon';
 import Link from 'components/common/Link/Link';

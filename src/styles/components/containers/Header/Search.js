@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {HeaderBox} from 'styles/components/Header/Header';
+import {HeaderBox} from 'styles/components/containers/Header/Header';
 
 export const Search = styled(HeaderBox)`
 	border: none;

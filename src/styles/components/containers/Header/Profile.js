@@ -4,7 +4,7 @@ import {elevate, transition} from 'styles/mixins/index';
 
 import {lighten} from 'polished';
 
-import {HeaderBox} from 'styles/components/Header/Header';
+import {HeaderBox} from 'styles/components/containers/Header/Header';
 import {
     spacingxs,
     spacingsm,

@@ -16,7 +16,7 @@ import {
     Image,
     AccountDropDown,
     Profile as StyledProfile
-} from "styles/components/Header/Profile";
+} from "styles/components/containers/Header/Profile";
 
 class Profile extends React.Component {
     handleOnClick = () => {

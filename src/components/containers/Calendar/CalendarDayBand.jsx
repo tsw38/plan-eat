@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import {connect} from 'react-redux';
 
 import Icon from "components/common/Icon/Icon";
-import { CalendarDayBand as StyledCalendarDayBand } from 'styles/components/Calendar/CalendarDayBand';
+import { CalendarDayBand as StyledCalendarDayBand } from 'styles/components/containers/Calendar/CalendarDayBand';
 
 class CalendarDayBand extends React.Component {
     render() {

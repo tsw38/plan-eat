@@ -28,9 +28,9 @@ app
 		res.header('Access-Control-Allow-Headers', 'Content-Type');
 		next();
 	})
-	.use('*/favicon', express.static(path.join(process.env.PWD, 'favicon')))
-	.use('*/css', express.static(`./dist/${process.env.VERSION_NUMBER}/client`))
-	.use('*/icons', express.static(path.join(process.env.PWD, 'icons')))
+	.use('*/favicon', express.static(path.join(process.env.PWD, './src/assets/favicon')))
+    .use('*/icons', express.static(path.join(process.env.PWD, './src/assets/icons')))
+    .use('*/images', express.static(path.join(process.env.PWD, './src/assets/images')))
 	.use('*/js', express.static(`./dist/${process.env.VERSION_NUMBER}/client`))
 	.use(createHtml);
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import {HeaderBox} from 'styles/components/Header/Header';
+import {HeaderBox} from 'styles/components/containers/Header/Header';
 
 import * as styles from 'styles/sizing';
 export const Inbox = styled(HeaderBox)`

@@ -7,7 +7,7 @@ import DonutChart from "react-svg-donut-chart"
 
 import * as colors from 'styles/colors';
 
-import { StyledDonutChart } from 'styles/components/NutritionBand/DonutChart';
+import { StyledDonutChart } from 'styles/components/containers/NutritionBand/DonutChart';
 
 class NutritionDonutChart extends React.Component {
     render() {

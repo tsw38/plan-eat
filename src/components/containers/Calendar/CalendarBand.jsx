@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 
 import Icon from "components/common/Icon/Icon";
 
-import { CalendarBand as StyledCalendarBand, DatesWrapper } from 'styles/components/Calendar/CalendarBand';
+import { CalendarBand as StyledCalendarBand, DatesWrapper } from 'styles/components/containers/Calendar/CalendarBand';
+
 
 class CalendarBand extends React.Component {
     render() {
@@ -14,6 +15,7 @@ class CalendarBand extends React.Component {
             <StyledCalendarBand>
                 <Icon
                     name="chevron-left"
+
                 />
                 <DatesWrapper>
                     <div className="container">
