@@ -6,7 +6,7 @@ import objectPath from 'object-path';
 
 import Icon from "components/common/Icon/Icon";
 
-import {StyledModal} from 'styles/common/Modal';
+import {StyledModal} from 'styles/components/common/Modal';
 
 import {initialize, toggleModal} from 'actions/ModalActions';
 

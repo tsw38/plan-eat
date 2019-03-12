@@ -4,7 +4,7 @@ import { ReactSvgInjector, Mutate } from "react-svg-injector";
 import PropTypes from 'prop-types';
 
 import {amour} from 'styles/colors';
-import {IconChildrenStyles} from 'styles/common/Icon';
+import {IconChildrenStyles} from 'styles/components/common/Icon';
 
 class Icon extends React.Component {
 	render() {
