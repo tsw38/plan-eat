@@ -117,6 +117,8 @@ export default createGlobalStyle`
 
         &.editable.Tag {
             padding: 0 0 0 ${sizing.spacingmd};
+            margin: inherit;
+            height: auto;
         }
 
         &.Tag {

@@ -149,14 +149,10 @@ export default createGlobalStyle`
             .Button--Disabled & {}
         }
 
-        &.editable.Tag {
-            padding: 0 0 0 ${spacingmd};
-        }
-
         &.Tag {
             padding: 0 ${spacingmd};
-
-
+            margin: inherit;
+            height: auto;
 
             &--Caution {
                 ${colorButtons(colors.casandora)}

@@ -1,15 +1,10 @@
 import React from "react";
 
 import ColorGuide from 'views/StyleGuide/ColorGuide';
+import AltTagGuide from 'views/StyleGuide/AltTagGuide';
 import TagGuide from 'views/StyleGuide/ButtonsGuide/Tags';
 import ButtonGuide from 'views/StyleGuide/ButtonsGuide/Buttons';
 import SmallButtonGuide from 'views/StyleGuide/ButtonsGuide/Small';
-
-import * as colors from 'styles/colors';
-
-import {border} from 'styles/variables';
-
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import TabsComponent from 'components/common/Tabs/Tabs';
 class StyleGuide extends React.Component {
@@ -33,6 +28,10 @@ class StyleGuide extends React.Component {
                         {
                             'name': 'Tags',
                             Component: TagGuide
+                        },
+                        {
+                            'name': 'Alt Tags',
+                            Component: AltTagGuide
                         }
                     ]}
                 />

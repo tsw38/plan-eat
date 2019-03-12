@@ -5,6 +5,7 @@ import Reset from 'styles/global/reset';
 import SVG from 'styles/global/svg';
 import Typography from 'styles/global/typography';
 
+import Tag from 'styles/global/Tag';
 import Link from 'styles/global/Link';
 import Tabs from 'styles/global/Tabs';
 import Modal from 'styles/global/Modal';
@@ -21,6 +22,7 @@ export default () => {
 			<Modal />
             <Button />
             <Tabs />
+            <Tag />
 		</React.Fragment>
     )
 }
