@@ -25,16 +25,16 @@ export default createGlobalStyle`
                 templateLiteral += `
                     &--${colorName} {
                         background-color: ${colors[colorName]};
-                        color: ${darken(0.35, colors[colorName])};
+                        ${'' /* color: ${darken(0.35, colors[colorName])}; */}
+                        color: white;
+                    }
+                    &--${colorName}--dark {
+                        background-color: ${colors[colorName]};
+                        color: ${darken(0.5, colors[colorName])};
                     }
                 `;
             });
             return templateLiteral;
         }}
-
-        &--lotusPink { color: ${darken(0.4, colors.lotusPink)}}
-        &--imperialPrimer  { color: ${lighten(0.5, colors.imperialPrimer)}}
-        &--fuelTown { color: ${lighten(0.5, colors.fuelTown)}}
-        &--nasaPurple { color: ${lighten(0.5, colors.nasaPurple)}}
     }
 `;

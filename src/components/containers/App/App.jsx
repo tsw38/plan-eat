@@ -15,6 +15,7 @@ import Sidebar from "components/containers/Sidebar/Sidebar";
 import Inbox from 'views/Inbox/Inbox';
 import Signin from 'views/User/Signin';
 import Recipe from 'views/Recipe/Recipe';
+import AddRecipe from 'views/Recipe/Add';
 import NotFound from 'views/404/404.jsx';
 import Account from 'views/User/Settings';
 import Recipes from 'views/Recipes/Recipes';
@@ -62,8 +63,11 @@ class App extends React.Component {
                                     <Page path="/" page={pathToPageTitle(props.location.pathname)}>
                                         <Overview path="/" />
                                         <MealPrep path="/meal-prep"/>
+
                                         <Recipes path="/recipes"/>
                                         <Recipe path="/recipe/:recipe"/>
+                                        <AddRecipe path="/add-recipe" />
+
                                         <ShoppingCart path="/cart"/>
                                         <Inbox path="/inbox" />
                                         <StyleGuide path="/style-guide" />

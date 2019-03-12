@@ -17,6 +17,8 @@ export const Sidebar = styled.aside`
     border-right:${border};
     background-color: white;
     width: 100%;
+    padding-bottom: 1.5rem;
+    overflow-y: auto;
     ${elevate('Raised')}
 
     .Link--Sitename {

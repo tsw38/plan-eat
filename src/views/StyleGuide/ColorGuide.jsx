@@ -38,7 +38,6 @@ const ColorWrapper = styled.div`
 export default () => {
 	return (
 		<Section>
-			<h1>Colors</h1>
 			<div style={{
 				display: 'grid',
 				gridTemplateColumns: 'repeat(5, minmax(100px, calc(100%/5)))',

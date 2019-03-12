@@ -10,7 +10,6 @@ import * as colors from 'styles/colors';
 const Buttons = () => {
 	return (
 		<Section>
-			<h1>Tags</h1>
 			<Row>
 				<h2>Full Color</h2>
 

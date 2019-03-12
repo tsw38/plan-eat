@@ -21,7 +21,7 @@ class RecipeHeader extends React.Component {
             getUserById,
         } = this.props;
 
-        if (!network[uploader.tag]) {
+        if (network && !!uploader && !network[uploader.tag]) {
             getUserById(uploader.tag);
         }
     }
@@ -38,7 +38,7 @@ class RecipeHeader extends React.Component {
             uploader
         } = this.props;
 
-        let calculation = ratings.length ? ratings.reduce((score, {rating}) => score+=rating, 0)/ratings.length : 1;
+        let calculation = ratings && ratings.length ? ratings.reduce((score, {rating}) => score+=rating, 0)/ratings.length : 1;
         return (
             <Header
                 className="Recipe--Header">
@@ -46,27 +46,31 @@ class RecipeHeader extends React.Component {
                     <h1 className="Recipe--Title">{name}</h1>
                 </Row>
                 <Row>
-                    <p className="Recipe--Author">
-                        <span className="subtle">Uploaded By:</span>
-                        {' '}
-                        <Link
-                            to={`#${uploader.url}`}>
-                            {network[uploader.tag]}
-                        </Link>
-                    </p>
-                    <div className="Recipe--Rating">
-                        <StarRatings
-                            rating={calculation}
-                            starRatedColor={colors.imperialPrimer}
-                            starEmptyColor={colors.ballerina}
-                            starHoverColor={colors.imperialPrimer}
-                            starDimension={spacing.spacing2lg}
-                            starSpacing={spacing.spacing2xs}
-                            changeRating={this.handleChangeRating}
-                            numberOfStars={5}
-                            name='rating'
-                        />
-                    </div>
+                    {!!uploader &&
+                        <p className="Recipe--Author">
+                            <span className="subtle">Uploaded By:</span>
+                            {' '}
+                            <Link
+                                to={`#${uploader.url}`}>
+                                {network[uploader.tag]}
+                            </Link>
+                        </p>
+                    }
+                    {ratings &&
+                        <div className="Recipe--Rating">
+                            <StarRatings
+                                rating={calculation}
+                                starRatedColor={colors.imperialPrimer}
+                                starEmptyColor={colors.ballerina}
+                                starHoverColor={colors.imperialPrimer}
+                                starDimension={spacing.spacing2lg}
+                                starSpacing={spacing.spacing2xs}
+                                changeRating={this.handleChangeRating}
+                                numberOfStars={5}
+                                name='rating'
+                            />
+                        </div>
+                    }
                 </Row>
             </Header>
         );

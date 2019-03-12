@@ -10,10 +10,11 @@ import * as PageStyles from "styles/components/Page";
 
 
 const PageComponent = ({page, onLocationChange, children}) => {
+    console.warn('this is the page', );
 	return (
 		<PageStyles.Page className={classNames(
             'Page',
-            `Page--${page.split(/\s/)[0]}`
+            `Page--${page.replace(/\s/g, '')}`
         )}>
 			<Location>
                 {({location}) => {

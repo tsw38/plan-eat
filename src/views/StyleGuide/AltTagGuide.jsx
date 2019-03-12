@@ -10,11 +10,9 @@ import * as colors from 'styles/colors';
 const TagsGuide = () => {
 	return (
 		<Section>
-			<h1>Alt Tags</h1>
 			<Row>
-				{/* <h2>Full Color</h2> */}
-
-				{Object.keys(colors).map((color, index) =>
+                <h2>Light</h2>
+                {Object.keys(colors).map((color, index) =>
 					<div key={index} className={classNames(
                         'Tag',
                         `Tag--${color}`
@@ -24,15 +22,17 @@ const TagsGuide = () => {
 				)}
 			</Row>
 
-			{/* <Row>
-				<h2>Inverted</h2>
-
-				{Object.keys(colors).map((color, index) =>
-					<Button key={index} className="Button--Primary Button--Small Tag" colorName={color} inverted={true}>
-						.Button--Primary.Button--Small.Tag.{color}--Inverted
-					</Button>
-				)}
-			</Row> */}
+            <Row>
+                <h2>Dark</h2>
+                {Object.keys(colors).map((color, index) =>
+                    <div key={index} className={classNames(
+                        'Tag',
+                        `Tag--${color}--dark`
+                    )}>
+                        Tag Tag-{color}--dark
+                    </div>
+                )}
+            </Row>
 		</Section>
 
 	);

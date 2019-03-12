@@ -18,12 +18,13 @@ export const Page = styled.div`
             justify-content: center;
         }
 
-        &--Recipe {
+        &--Recipe,
+        &--AddRecipe {
             background-color: ${colors.blackSqueeze};
             padding: ${sizing.layout2xs};
         }
 
-        &--Style {
+        &--StyleGuide {
             padding: ${sizing.layout2xs};
         }
     }

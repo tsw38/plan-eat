@@ -7,8 +7,6 @@ import {Section} from 'styles/components/Section';
 const Buttons = () => {
 	return (
 		<Section>
-			<h1>Small Buttons</h1>
-
 			<Row>
 				<h2>Primary</h2>
 
