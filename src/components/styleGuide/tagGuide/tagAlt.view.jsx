@@ -9,32 +9,35 @@ import * as colors from 'styles/colors';
 
 const TagsGuide = () => {
 	return (
-		<Section>
-			<Row>
-                <h2>Light</h2>
-                {Object.keys(colors).map((color, index) =>
-					<div key={index} className={classNames(
-                        'Tag',
-                        `Tag--${color}`
-                    )}>
-						.Tag.Tag--{color}
-					</div>
-				)}
-			</Row>
+        <React.Fragment>
+            <Section>
+                <Row>
+                    <h2>Light</h2>
+                    {Object.keys(colors).map((color, index) =>
+                        <div key={index} className={classNames(
+                            'Tag',
+                            `Tag--${color}`
+                        )}>
+                            .Tag.Tag--{color}
+                        </div>
+                    )}
+                </Row>
+            </Section>
 
-            <Row>
-                <h2>Dark</h2>
-                {Object.keys(colors).map((color, index) =>
-                    <div key={index} className={classNames(
-                        'Tag',
-                        `Tag--${color}--dark`
-                    )}>
-                        .Tag.Tag--{color}--dark
-                    </div>
-                )}
-            </Row>
-		</Section>
-
+            <Section>
+                <Row>
+                    <h2>Dark</h2>
+                    {Object.keys(colors).map((color, index) =>
+                        <div key={index} className={classNames(
+                            'Tag',
+                            `Tag--${color}--dark`
+                        )}>
+                            .Tag.Tag--{color}--dark
+                        </div>
+                    )}
+                </Row>
+            </Section>
+        </React.Fragment>
 	);
 }
 

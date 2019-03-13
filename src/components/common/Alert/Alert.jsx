@@ -4,7 +4,6 @@ import classNames from 'classnames';
 
 import {toTitleCase} from 'utils/string';
 
-import {AlertStyling} from 'styles/components/common/alert';
 export default class Alert extends React.Component {
     alertWrapper = (message) => {
         const {
@@ -12,12 +11,12 @@ export default class Alert extends React.Component {
         } = this.props;
 
         return (
-            <AlertStyling className={classNames(
+            <p className={classNames(
                 'Alert',
                 `Alert--${toTitleCase(type)}`
             )}>
                 {message}
-            </AlertStyling>
+            </p>
         )
     }
 

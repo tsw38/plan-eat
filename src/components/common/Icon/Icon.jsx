@@ -10,8 +10,9 @@ class Icon extends React.Component {
 	render() {
 		const {
             name,
-            className,
-            children
+            handleOnClick,
+            children,
+            className
         } = this.props;
 
 		return (
@@ -19,7 +20,8 @@ class Icon extends React.Component {
                 <div className={classNames(
                     'Icon--Wrapper',
                     className
-                )}>
+                )}
+                onClick={handleOnClick}>
                     <ReactSvgInjector
                         src={`/icons/${name}.svg`}
                         className={classNames(

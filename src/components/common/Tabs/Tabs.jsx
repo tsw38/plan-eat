@@ -29,7 +29,8 @@ class TabComponent extends React.Component {
 
     render() {
         return (
-            <Tabs className="Tabs">
+            <Tabs className="Tabs"
+                defaultIndex={this.props.defaultIndex || 0}>
                 <TabList
                     className="Tabs--Header"
                     style={{

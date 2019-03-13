@@ -5,11 +5,13 @@ import Reset from 'styles/global/reset';
 import SVG from 'styles/global/svg';
 import Typography from 'styles/global/typography';
 
-import Tag from 'styles/global/Tag';
-import Link from 'styles/global/Link';
-import Tabs from 'styles/global/Tabs';
-import Modal from 'styles/global/Modal';
-import Button from 'styles/global/Button';
+import Tag from 'styles/global/tag';
+import Link from 'styles/global/link';
+import Tabs from 'styles/global/tabs';
+import Modal from 'styles/global/modal';
+import Alert from 'styles/global/alert';
+import Button from 'styles/global/button';
+import Notification from 'styles/global/notification';
 
 export default () => {
 	return (
@@ -23,6 +25,8 @@ export default () => {
             <Button />
             <Tabs />
             <Tag />
+            <Alert />
+            <Notification />
 		</React.Fragment>
     )
 }
