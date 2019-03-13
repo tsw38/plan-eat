@@ -17,14 +17,12 @@ class Session extends React.Component {
 Session.defaultProps = {}
 
 Session.propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    getSession: PropTypes.func
 }
 
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-    }
-}
+const mapStateToProps = (state, ownProps) => ({})
 
 const mapDispatchToProps = {
     getSession

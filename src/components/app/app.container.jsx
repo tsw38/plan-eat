@@ -4,9 +4,10 @@ import {Location} from "@reach/router";
 import {connect} from 'react-redux';
 
 // App Level components
-import Page from 'components/containers/Page/Page';
-import Session from "components/common/Session/Session";
-import Header from "components/containers/Header/Header";
+import Page from 'components/page/page.container';
+import Session from "components/session/session.controller";
+
+import Header from "components/header/header.container";
 import Sidebar from "components/containers/Sidebar/Sidebar";
 
 //Views for each route
