@@ -1,8 +1,8 @@
 import * as Yup from "yup";
 import convert from 'convert-units';
 
-import SigninErrors from 'errors/Signin';
-import GlobalErrors from 'errors/Global';
+import GlobalErrors from 'config/errors/global';
+import SigninErrors from 'config/errors/accountSignIn';
 
 export const SigninValidator = Yup.object().shape({
     email: Yup.string()

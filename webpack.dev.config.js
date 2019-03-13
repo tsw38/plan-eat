@@ -10,19 +10,17 @@ dotenv.config();
 const package = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf-8'));
 
 const aliases = {
-	icons: path.resolve(__dirname, 'src/icons'),
-	utils: path.resolve(__dirname, 'src/utils'),
-	views: path.resolve(__dirname, 'src/views'),
+    utils: path.resolve(__dirname, 'src/utils'),
 	config: path.resolve(__dirname, 'src/config'),
-    errors: path.resolve(__dirname, 'src/errors'),
-    common: path.resolve(__dirname, 'src/common'),
-    images: path.resolve(__dirname, 'src/images'),
 	styles: path.resolve(__dirname, 'src/styles'),
     actions: path.resolve(__dirname, 'src/actions'),
+    icons: path.resolve(__dirname, 'src/assets/icons'),
     reducers:  path.resolve(__dirname, 'src/reducers'),
     constants:path.resolve(__dirname, 'src/constants'),
+    images: path.resolve(__dirname, 'src/assets/images'),
     libraries:  path.resolve(__dirname, 'src/libraries'),
-	components: path.resolve(__dirname, 'src/components')
+	components: path.resolve(__dirname, 'src/components'),
+    common: path.resolve(__dirname, 'src/components/common')
 }
 
 module.exports = [{

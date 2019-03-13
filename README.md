@@ -27,6 +27,7 @@ plan-eat
         └── errors
         └── forms
         └── globals
+        └── modals
     └── constants
         └── componentConstants.js
         └── index.js
