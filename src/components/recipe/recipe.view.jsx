@@ -17,7 +17,7 @@ import RecipeSection from 'components/recipe/section/section.container';
 
 import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';
-import { StyledRecipe} from 'styles/views/Recipe';
+import { StyledRecipe } from 'components/recipe/recipe.styles';
 
 class Recipe extends React.Component {
     state = {

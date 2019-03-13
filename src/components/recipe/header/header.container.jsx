@@ -11,7 +11,7 @@ import Link from "components/common/Link/Link";
 import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';
 
-import { RecipeHeader as Header } from 'styles/views/Recipe';
+import { RecipeHeader as Header } from 'components/recipe/recipe.styles';
 
 class RecipeHeader extends React.Component {
     componentWillMount() {

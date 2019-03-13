@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import Row from 'components/common/Layout/Row';
 
-import { RecipeSection } from 'styles/views/Recipe';
+import { RecipeSection } from 'components/recipe/recipe.styles';
 
 const Section = ({
     children,

@@ -9,8 +9,9 @@ import { getRecipe, getIngredients } from 'actions/RecipeActions';
 import Column from 'components/common/Layout/Column';
 import RecipeHeader from 'components/recipe/header/header.container';
 
-import { StyledRecipe } from 'styles/views/Recipe';
-import AddRecipeForm from 'components/common/Form/AddRecipe';
+import AddRecipeForm from 'components/addRecipe/form/form.container';
+
+import { StyledRecipe } from 'components/recipe/recipe.styles';
 
 class AddRecipe extends React.Component {
     state = {
