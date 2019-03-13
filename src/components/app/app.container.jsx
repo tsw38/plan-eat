@@ -26,7 +26,7 @@ import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
 
 //Global Styling
 import GlobalStyles from 'components/common/GlobalStyles/GlobalStyles';
-import {App as StyledApp, StyledRouter} from "styles/components/App";
+import {App as StyledApp, StyledRouter} from "components/app/app.styles";
 
 class App extends React.Component {
     render() {

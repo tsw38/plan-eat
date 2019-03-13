@@ -11,7 +11,7 @@ import {
     Image,
     AccountDropDown,
     Profile as StyledProfile
-} from "styles/components/containers/Header/Profile";
+} from "components/header/profile/profile.styles";
 
 export default ({handleClick, user}) => {
     return !user ? null : (

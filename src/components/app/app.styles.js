@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Router } from "@reach/router";
+import { Router } from '@reach/router';
 
 import {layoutmd, layout3xl} from 'styles/sizing';
 

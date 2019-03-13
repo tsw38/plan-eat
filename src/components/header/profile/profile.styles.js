@@ -1,10 +1,8 @@
 import styled from 'styled-components';
+
 import {border} from 'styles/variables';
-import {elevate, transition} from 'styles/mixins/index';
-
 import {lighten} from 'polished';
-
-import {HeaderBox} from 'styles/components/containers/Header/Header';
+import {elevate, transition} from 'styles/mixins/index';
 import {
     spacingxs,
     spacingsm,
@@ -15,6 +13,9 @@ import {
     layout7_5xl
 } from 'styles/sizing';
 import { imperialPrimer, blueFrance } from 'styles/colors';
+
+
+import {HeaderBox} from 'components/header/header.styles';
 
 
 export const Profile = styled(HeaderBox)`

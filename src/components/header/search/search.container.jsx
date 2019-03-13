@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 import Icon from 'components/common/Icon/Icon';
 
-import {Search as StyledSearch} from "styles/components/containers/Header/Search";
+import {Search as StyledSearch} from 'components/header/search/search.styles';
 
 export default () => {
     return (

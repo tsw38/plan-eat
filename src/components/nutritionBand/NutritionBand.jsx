@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import DonutChart from 'components/containers/NutritionBand/DonutChart';
+import DonutChart from 'components/NutritionBand/DonutChart';
 
 import { NutritionBand as StyledNutritionBand } from 'styles/components/containers/NutritionBand/NutritionBand';
 
