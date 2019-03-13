@@ -1,7 +1,7 @@
 import React from "react";
 
 import Row from 'components/common/Layout/Row';
-import Button from "components/common/Button/Button";
+import Button from 'components/common/button';
 import {Section} from 'styles/components/Section';
 
 const Buttons = () => {

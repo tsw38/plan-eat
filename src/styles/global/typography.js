@@ -35,10 +35,20 @@ export default createGlobalStyle`
         font-weight: ${fontBold};
     }
 
+    h1 {
+
+    }
+
     h2 {
         text-transform: uppercase;
         margin-bottom: ${spacingsm};
     }
+
+    h3{}
+
+    h4{}
+
+    h5{}
 
     h6 {
         font-size: ${spacingmd};

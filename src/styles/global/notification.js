@@ -1,7 +1,7 @@
 
 import { createGlobalStyle } from 'styled-components';
-import {transition, elevate} from 'styles/mixins/index';
-import { darken, lighten } from 'polished';
+import {elevate} from 'styles/mixins/index';
+import { lighten } from 'polished';
 
 import * as colors from 'styles/colors';
 import * as sizing from 'styles/sizing';
@@ -13,7 +13,7 @@ export default createGlobalStyle`
         flex-direction: column;
         font-size: ${sizing.spacingsml};
         justify-content: space-between;
-        background-color: transparent;
+        background-color: white;
         padding: ${sizing.spacingsm} ${sizing.spacingmd};
         min-height: ${sizing.spacing2xl};
         color: ${lighten(0.2, colors.fuelTown)};
@@ -23,15 +23,15 @@ export default createGlobalStyle`
         border-left-width: ${sizing.spacing2xs} !important;
         position: relative;
 
+        ${'' /* type */}
         &--inline {
             border-width: 1px;
         }
-
         &--toast {
-            background-color: white;
             ${elevate('Overlay')}
         }
 
+        ${'' /* scale */}
         &--information {
             border-color: ${colors.blueFrance};
             fill: ${colors.blueFrance};
@@ -48,35 +48,28 @@ export default createGlobalStyle`
             border-color: ${colors.casandora};
             fill: ${colors.casandora};
         }
-
-
-
-        > .Icon--Wrapper {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            height: ${sizing.spacingsml};
-            width: ${sizing.spacingsml};
-            position: absolute;
-            top: ${sizing.spacing2xs};
-            right: ${sizing.spacingxs};
-            fill: ${colors.fuelTown};
-        }
     }
 
     .Notification--Wrapper {
         display: grid;
-        grid-template-areas: 'icon header' 'icon body';
+        grid-template-areas: 'icon header close' 'icon body close';
+    }
+
+    .Notification--Icon {
+        width: ${sizing.spacingsml};
+        grid-area: icon;
+        ${'' /* min-width: ${sizing.spacinglg}; */}
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+        &--Close {
+            grid-area: close;
+            cursor: pointer;
+            fill: ${colors.fuelTown};
+        }
 
         .Icon--Wrapper {
-            width: ${sizing.spacingsml};
-            grid-area: icon;
-            min-width: ${sizing.spacinglg};
-            align-items: center;
-            justify-content: center;
-            display: flex;
-
             svg {
                 height: inherit;
                 width: inherit;
@@ -101,10 +94,11 @@ export default createGlobalStyle`
     .Notification--Body {
         font-size: ${sizing.spacingsml};
         line-height: 1.125;
-        max-width: 38rem;
+        max-width: ${sizing.layoutSoBig};
         line-height: 1.5;
         grid-area: body;
         margin-left: ${sizing.spacingmd};
+        margin-top: ${sizing.spacing2xs};
 
         > * {
             font-size: inherit;

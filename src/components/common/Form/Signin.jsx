@@ -8,7 +8,7 @@ import {SigninValidator} from 'utils/validators';
 import { signIn } from 'actions/AccountActions';
 import { toggleModal } from 'actions/ModalActions';
 
-import Button from 'components/common/Button/Button';
+import Button from 'components/common/button';
 import Input from 'components/common/Form/Fields/Input';
 import FormGeneric from 'components/common/Form/FormGeneric';
 

@@ -6,9 +6,9 @@ import {convertUnit} from 'utils/convert';
 
 import { getRecipe, getIngredients } from 'actions/RecipeActions';
 
+import Button from 'components/common/button';
 import Row from 'components/common/Layout/Row';
 import Column from 'components/common/Layout/Column';
-import Button from "components/common/Button/Button";
 import Timing from 'components/recipe/time/time.container';
 
 

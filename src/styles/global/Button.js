@@ -102,7 +102,6 @@ export default createGlobalStyle`
             }
         }
 
-
         &--Secondary--Danger {
             ${colorButtons(colors.amour, true)}
 
@@ -115,102 +114,124 @@ export default createGlobalStyle`
             .Button--Disabled & {}
         }
 
-        &.editable.Tag {
-            padding: 0 0 0 ${sizing.spacingmd};
-            margin: inherit;
-            height: auto;
+
+
+        .Icon--Wrapper {
+            height: ${sizing.spacinglg};
+
+            .Icon {
+                padding: ${sizing.spacing2xs};
+                width: ${sizing.spacinglg};
+            }
+        }
+    }
+
+    .Button--Header {
+        border-radius: 50%;
+        height: ${sizing.spacinglg};
+        width: ${sizing.spacinglg};
+        background-image: url(${({style}) => style && style.backgroundImage});
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+
+
+    .Button.editable.Tag {
+        padding: 0 0 0 ${sizing.spacingmd};
+        margin: inherit;
+        height: auto;
+    }
+
+    .Button.Tag {
+        padding: 0 ${sizing.spacingmd};
+
+
+
+        &--Caution {
+            ${colorButtons(colors.casandora)}
+            color: ${colors.imperialPrimer};
+            fill: ${colors.imperialPrimer};
+
+            &:hover {
+                ${colorButtons(darken(0.2, colors.casandora))}
+            }
         }
 
-        &.Tag {
-            padding: 0 ${sizing.spacingmd};
+        &--Hazard {
+            ${colorButtons(colors.casandora)}
+            &:hover {
+                ${colorButtons(darken(0.2, colors.casandora))}
+            }
+        }
 
+        &--Hazard--Inverted {
+            ${colorButtons(colors.casandora, true)}
 
-
-            &--Caution {
+            &:hover {
                 ${colorButtons(colors.casandora)}
-                color: ${colors.imperialPrimer};
-                fill: ${colors.imperialPrimer};
-
-                &:hover {
-                    ${colorButtons(darken(0.2, colors.casandora))}
-                }
             }
+        }
 
-            &--Hazard {
-                ${colorButtons(colors.casandora)}
-                &:hover {
-                    ${colorButtons(darken(0.2, colors.casandora))}
-                }
+        &--Favorite {
+            ${colorButtons(colors.lotusPink)}
+
+            &:hover {
+                ${colorButtons(darken(0.2, colors.lotusPink))}
             }
+        }
 
-            &--Hazard--Inverted {
-                ${colorButtons(colors.casandora, true)}
+        &--Favorite--Inverted {
+            ${colorButtons(colors.lotusPink, true)}
 
-                &:hover {
-                    ${colorButtons(colors.casandora)}
-                }
-            }
-
-            &--Favorite {
+            &:hover {
                 ${colorButtons(colors.lotusPink)}
-
-                &:hover {
-                    ${colorButtons(darken(0.2, colors.lotusPink))}
-                }
             }
+        }
 
-            &--Favorite--Inverted {
-                ${colorButtons(colors.lotusPink, true)}
+        &--Royal {
+            ${colorButtons(colors.nasaPurple)}
 
-                &:hover {
-                    ${colorButtons(colors.lotusPink)}
-                }
+            &:hover {
+                ${colorButtons(lighten(0.2, colors.nasaPurple))}
             }
+        }
 
-            &--Royal {
+        &--Royal--Inverted {
+            ${colorButtons(colors.nasaPurple, true)}
+
+            &:hover {
                 ${colorButtons(colors.nasaPurple)}
-
-                &:hover {
-                    ${colorButtons(lighten(0.2, colors.nasaPurple))}
-                }
             }
+        }
 
-            &--Royal--Inverted {
-                ${colorButtons(colors.nasaPurple, true)}
+        &--Go {
+            ${colorButtons(colors.carribean)}
 
-                &:hover {
-                    ${colorButtons(colors.nasaPurple)}
-                }
+            &:hover {
+                ${colorButtons(darken(0.2, colors.carribean))}
             }
+        }
 
-            &--Go {
+        &--Go--Inverted {
+            ${colorButtons(colors.carribean, true)}
+
+            &:hover {
                 ${colorButtons(colors.carribean)}
-
-                &:hover {
-                    ${colorButtons(darken(0.2, colors.carribean))}
-                }
             }
+        }
 
-            &--Go--Inverted {
-                ${colorButtons(colors.carribean, true)}
+        svg {
+            height: ${sizing.spacinglg};
+            width: ${sizing.spacinglg};
+            padding: ${sizing.spacing2xs};
+            background-color: white;
+            margin-left: ${sizing.spacingmd};
 
-                &:hover {
-                    ${colorButtons(colors.carribean)}
-                }
-            }
-
-            svg {
-                height: ${sizing.spacinglg};
-                width: ${sizing.spacinglg};
-                padding: ${sizing.spacing2xs};
-                background-color: white;
-                margin-left: ${sizing.spacingmd};
-
-                path {
-                    transform-origin: 50%;
-                    transform: rotate(0deg);
-                    transition: inherit;
-                }
+            path {
+                transform-origin: 50%;
+                transform: rotate(0deg);
+                transition: inherit;
             }
         }
     }

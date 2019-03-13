@@ -10,7 +10,7 @@ import { addIngredient } from 'actions/RecipeActions';
 import {AddIngredientsValidator} from 'utils/validators';
 import {SigninValidator} from 'utils/validators';
 
-import Button from 'components/common/Button/Button';
+import Button from 'components/common/button';
 import Input from 'components/common/Form/Fields/Input';
 
 import AddRecipe from 'styles/components/common/Form/AddRecipe';

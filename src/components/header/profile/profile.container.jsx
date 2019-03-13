@@ -1,10 +1,10 @@
 import React from "react";
 import classNames from 'classnames';
 
+import Button from 'components/common/button';
 import Row from 'components/common/Layout/Row';
 import Icon from "components/common/Icon/Icon";
 import Link from "components/common/Link/Link";
-import Button from "components/common/Button/Button";
 
 import {
     Info,

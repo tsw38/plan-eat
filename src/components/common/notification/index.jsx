@@ -11,6 +11,16 @@ class Notification extends React.Component {
         render: true
     };
 
+    componentDidMount() {
+        if ((/TOAST/).test(this.props.type) && !this.props.disableTimeout) {
+            setTimeout(() => {
+                this.setState({
+                    render: false
+                })
+            }, 5000);
+        }
+    }
+
     handleOnClick = () => {
         this.setState({
             render: false
@@ -49,6 +59,7 @@ class Notification extends React.Component {
 
                 <div className="Notification--Wrapper">
                     <Icon
+                        className="Notification--Icon"
                         name={this.getIconName()}
                     />
 
@@ -64,10 +75,16 @@ class Notification extends React.Component {
                             {children}
                         </div>
                     }
+
+                    <Icon
+                        className={classNames(
+                            'Notification--Icon',
+                            'Notification--Icon--Close'
+                        )}
+                        name="times"
+                        handleOnClick={() => this.handleOnClick()}/>
                 </div>
-                <Icon
-                    name="times"
-                    handleOnClick={() => this.handleOnClick()}/>
+
             </div>
         );
 	}

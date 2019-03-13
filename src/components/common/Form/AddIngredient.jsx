@@ -9,7 +9,7 @@ import { addIngredient } from 'actions/RecipeActions';
 
 import {AddIngredientsValidator} from 'utils/validators';
 
-import Button from 'components/common/Button/Button';
+import Button from 'components/common/button';
 import Input from 'components/common/Form/Fields/Input';
 import FormGeneric from 'components/common/Form/FormGeneric';
 import FieldSet from 'components/common/Form/Fields/FieldSet';

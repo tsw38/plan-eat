@@ -1,7 +1,7 @@
 import React from "react";
 
+import Button from 'components/common/button';
 import Row from 'components/common/Layout/Row';
-import Button from "components/common/Button/Button";
 
 import {Section} from 'styles/components/Section';
 

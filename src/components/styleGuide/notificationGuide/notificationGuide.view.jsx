@@ -7,7 +7,7 @@ import * as colors from 'styles/colors';
 import Notification from "components/common/notification";
 
 import Row from 'components/common/Layout/Row';
-import {Section} from 'styles/components/Section';
+import Section from 'components/styleGuide/notificationGuide/notificationGuide.styles';
 
 export default () => {
 	return (
@@ -53,7 +53,7 @@ export default () => {
                 </Row>
             </Section>
 
-            <Section style={{backgroundColor: colors.blackSqueeze}}>
+            <Section>
                 <h2>Toast</h2>
                 <p>Toast Notifications automatically disappear after five seconds</p>
 
@@ -63,6 +63,7 @@ export default () => {
                         scale={AC.INFORMATION}
                         title="Notification title"
                         subtitle="Subtitle text"
+                        disableTimeout={true}
                     />
                 </Row>
 
@@ -72,6 +73,7 @@ export default () => {
                         scale={AC.ERROR}
                         title="Notification title"
                         subtitle="Subtitle text"
+                        disableTimeout={true}
                     />
                 </Row>
 
@@ -79,6 +81,7 @@ export default () => {
                     <Notification
                         type={AC.TOAST}
                         scale={AC.SUCCESS}
+                        disableTimeout={true}
                         title="Notification title">
                         <p>
                             Our goal is to become better at our craft and raise our collective knowledge by sharing experiences, best practices, what we have recently learned or what we are working on.
@@ -89,6 +92,7 @@ export default () => {
                     <Notification
                         type={AC.TOAST}
                         scale={AC.WARNING}
+                        disableTimeout={true}
                         title="Notification title"
                         subtitle="Subtitle text"
                     />

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Icon from "components/common/Icon/Icon";
-import {StyledButton} from 'styles/components/common/Button';
+import {StyledButton} from 'components/common/button/button.styles';
 class Button extends React.Component {
 	render() {
 		const {
