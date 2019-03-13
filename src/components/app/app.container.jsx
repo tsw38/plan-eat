@@ -11,18 +11,19 @@ import Header from "components/header/header.container";
 import Sidebar from "components/containers/Sidebar/Sidebar";
 
 //Views for each route
-import Inbox from 'views/Inbox/Inbox';
-import Signin from 'views/User/Signin';
-import Recipe from 'views/Recipe/Recipe';
-import AddRecipe from 'views/Recipe/Add';
-import NotFound from 'views/404/404.jsx';
-import Account from 'views/User/Settings';
-import Recipes from 'views/Recipes/Recipes';
-import Overview from 'views/Overview/Overview';
-import MealPrep from 'views/MealPrep/MealPrep';
-import StyleGuide from 'views/StyleGuide/StyleGuide';
-import AddIngredient from 'views/Temporary/AddIngredient';
-import ShoppingCart from 'views/ShoppingCart/ShoppingCart';
+import Inbox from 'components/inbox/inbox.view';
+import Recipe from 'components/recipe/recipe.view';
+import Recipes from 'components/recipes/recipes.view';
+import NotFound from 'components/notFound/notFound.view';
+import Overview from 'components/overview/overview.view';
+import Signin from 'components/user/signIn/userSignIn.view';
+import Account from 'components/user/settings/userSettings.view';
+
+import MealPrep from 'components/mealPrep/mealPrep.view';
+import AddRecipe from 'components/addRecipe/addRecipe.view';
+import StyleGuide from 'components/styleGuide/styleGuide.view';
+import ShoppingCart from 'components/shoppingCart/shoppingCart.view';
+import AddIngredient from 'components/addIngredient/addIngredient.view';
 
 //Global Styling
 import GlobalStyles from 'components/common/GlobalStyles/GlobalStyles';

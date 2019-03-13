@@ -6,12 +6,14 @@ import {convertUnit} from 'utils/convert';
 
 import { getRecipe, getIngredients } from 'actions/RecipeActions';
 
+import Row from 'components/common/Layout/Row';
 import Column from 'components/common/Layout/Column';
-import Row from 'components/common/Layout/Column';
 import Button from "components/common/Button/Button";
-import Timing from 'components/containers/Recipe/Timing';
-import RecipeHeader from 'components/containers/Recipe/Header';
-import RecipeSection from 'components/containers/Recipe/Section';
+import Timing from 'components/recipe/time/time.container';
+
+
+import RecipeHeader from 'components/recipe/header/header.container';
+import RecipeSection from 'components/recipe/section/section.container';
 
 import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';

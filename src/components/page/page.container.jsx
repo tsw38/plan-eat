@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import {pathToPageTitle, pathToPageClass} from 'utils/url';
 
-import * as PageStyles from "styles/components/Page";
+import * as PageStyles from "components/page/page.styles";
 
 
 const PageComponent = ({page, onLocationChange, children}) => {

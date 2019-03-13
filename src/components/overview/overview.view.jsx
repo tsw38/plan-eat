@@ -6,7 +6,7 @@ import { navigate } from "@reach/router";
 
 import CalendarBand from 'components/calendar/CalendarBand';
 import CalendarDayBand from 'components/calendar/CalendarDayBand';
-import RecipeCarousel from 'components/containers/Recipe/Carousel';
+import RecipeCarousel from 'components/recipe/carousel/carousel.container';
 import NutritionBand from 'components/NutritionBand/NutritionBand';
 
 import { StyledOverview } from 'styles/views/Overview';

@@ -1,10 +1,10 @@
 import React from "react";
 
-import ColorGuide from 'views/StyleGuide/ColorGuide';
-import AltTagGuide from 'views/StyleGuide/AltTagGuide';
-import TagGuide from 'views/StyleGuide/ButtonsGuide/Tags';
-import ButtonGuide from 'views/StyleGuide/ButtonsGuide/Buttons';
-import SmallButtonGuide from 'views/StyleGuide/ButtonsGuide/Small';
+import TagGuide from 'components/styleGuide/tagGuide/tag.view';
+import AltTagGuide from 'components/styleGuide/tagGuide/tagAlt.view';
+import ColorGuide from 'components/styleGuide/colorGuide/colorGuide.view';
+import ButtonGuide from 'components/styleGuide/buttonGuide/buttonsPrimary.view';
+import SmallButtonGuide from 'components/styleGuide/buttonGuide/buttonsSmall.view';
 
 import TabsComponent from 'components/common/Tabs/Tabs';
 class StyleGuide extends React.Component {
