@@ -41,6 +41,26 @@ export default  ({name, render, ...props}) => {
                 render={{
                     ...render,
                     // error: user.error,
+                    form: ({values, errors, touched, ...rest}) => {
+                        return (
+                            <React.Fragment>
+                                <Column>
+                                    <Field
+                                        type="textarea"
+                                        resize="vertical"
+                                        name="name"
+                                        value={values.name || ''}
+                                        component={Input}
+                                        placeholder="Add Recipe"
+                                    />
+                                    <p>name, ingredients, servingSize, direction, notes</p>
+                                </Column>
+                                <Column>
+                                    <p>photo upload, prepTime, CookTime, editable Tags</p>
+                                </Column>
+                            </React.Fragment>
+                        )
+                    },
                     buttons: (
                         <div className="ButtonWrapper">
                             <Button
@@ -55,27 +75,17 @@ export default  ({name, render, ...props}) => {
                                 Submit
                             </Button>
                         </div>
-                    ),
-                    form: ({values, errors, touched, ...rest}) => {
-                        return (
-                            <React.Fragment>
-                                <Column>
-                                    <Field
-                                        type="text"
-                                        name="recipeName"
-                                        value={values.recipeName || ''}
-                                        component={Input}
-                                        placeholder="Add Recipe"
-                                    />
-                                    <p>name, ingredients, servingSize, direction, notes</p>
-                                </Column>
-                                <Column>
-                                    <p>photo upload, prepTime, CookTime, editable Tags</p>
-                                </Column>
-                            </React.Fragment>
-                        )
-                    }
+                    )
                 }} />
         </AddRecipe>
     );
 }
+
+
+//     <Field
+//     type="text"
+//     name="recipeName"
+//     value={values.recipeName || ''}
+//     component={Input}
+//     placeholder="Add Recipe"
+// />

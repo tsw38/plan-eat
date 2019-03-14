@@ -1,21 +1,10 @@
 import styled from 'styled-components';
+import {darken,lighten} from 'polished';
 
 import {elevate, transition} from 'styles/mixins/index';
 import * as colors from 'styles/colors';
-import {
-    layoutxs,
-    layoutsm,
-    spacing2lg,
-    spacingsm,
-    spacinglg,
-    _14px,
-    spacing3xs,
-    spacingmd,
-    spacing2xl,
-    spacingxs
-} from 'styles/sizing';
+import * as sizing from 'styles/sizing';
 import {border} from 'styles/variables';
-import {lighten} from 'polished';
 
 import { fontBold, fontLight, fontNormal } from 'styles/variables';
 
@@ -32,11 +21,12 @@ export const FormWrapper = styled.div`
                 padding: 0;
             }
         }
+
     }
 
     .Form--Title {
-        margin-bottom: ${layoutsm};
-        font-size: ${spacing2lg};
+        margin-bottom: ${sizing.layoutsm};
+        font-size: ${sizing.spacing2lg};
         font-weight: ${fontLight};
     }
 
@@ -45,10 +35,10 @@ export const FormWrapper = styled.div`
     }
 
     .Input--Label {
-        font-size: ${_14px};
+        font-size: ${sizing._14px};
         font-weight:${fontBold};
         display: block;
-        margin-bottom: ${spacingxs};
+        margin-bottom: ${sizing.spacingxs};
         color: ${colors.fuelTown};
 
         :empty {
@@ -60,25 +50,31 @@ export const FormWrapper = styled.div`
     .Input--Number,
     .Input--Email,
     .Input--Password,
-    .Input--Select {
+    .Input--Select,
+    .Input--Textarea {
         ${transition()}
 
-        input, select {
+        input, select, textarea {
             -webkit-appearance: none;
             border-radius: 0;
             display: block;
             width: 100%;
-            height: ${spacing2xl};
-            padding: 0 ${spacingmd};
+            height: ${sizing.spacing2xl};
+            padding: 0 ${sizing.spacingmd};
             background-color: ${colors.blackSqueeze};
-
             box-shadow: 0 1px 0 0 ${colors.stormPetrel};
             border-bottom: 1px solid transparent;
+            ${transition()}
 
             :focus {
                 outline: none;
-                box-shadow: 0 ${spacing3xs} 0 0 ${colors.blueFrance};
+                box-shadow: 0 ${sizing.spacing3xs} 0 0 ${colors.blueFrance};
             }
+        }
+    }
+
+    .Input--Textarea {
+        textarea{
         }
     }
 
@@ -160,18 +156,18 @@ export const FormWrapper = styled.div`
 
     form {
         background-color: white;
-        padding: ${spacinglg};
+        padding: ${sizing.spacinglg};
         ${elevate('Raised')}
 
         input, select {
-            font-size: ${_14px};
+            font-size: ${sizing._14px};
             color: ${colors.blueFrance};
             border: none;
         }
 
         .Alert {
-            margin-top: ${spacingxs};
-            font-size: ${spacingsm};
+            margin-top: ${sizing.spacingxs};
+            font-size: ${sizing.spacingsm};
         }
     }
 
@@ -190,6 +186,20 @@ export const FormWrapper = styled.div`
                 width: 100%;
             }
         }
+    }
+
+    .Form--Helper {
+        display: block;
+        padding: ${sizing.spacingxs};
+        border: 1px solid ${darken(0.1, colors.casandora)};
+        background: ${lighten(0.25, colors.casandora)};
+        position: fixed;
+        bottom: ${sizing.spacingxs};
+        left: ${sizing.spacingxs};
+        z-index: 99999;
+        opacity: 0.90;
+        user-select: none;
+        pointer-events: none;
     }
 `;
 

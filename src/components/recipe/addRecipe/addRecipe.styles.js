@@ -15,6 +15,11 @@ export const AddRecipe = styled(StyledRecipe)`
     }
 
     .Form--addRecipe {
+        .Form--FieldsWrapper {
+            display: grid;
+            grid-gap: ${sizing.spacingmd};
+            grid-template-columns: calc(50% - ${sizing.spacingxs}) auto;
+        }
         form {
             padding: 0;
             border: none;
@@ -22,16 +27,23 @@ export const AddRecipe = styled(StyledRecipe)`
             background-color: initial;
         }
 
-        /* .Input--Text input[name="addRecipe"] {
-            border: none;
+        #name {
+            border: 1px solid transparent;
             box-shadow: none;
             font-size: 2rem;
             margin: 0;
-            padding-bottom: 0.75rem;
+            padding: 0;
+            resize: none;
+            margin-bottom: 0.75rem;
             font-size: 2.5rem;
             font-style: italic;
             font-weight: 700;
             color: black;
-        } */
+
+            :hover {
+                /* border: 1px solid ${colors.stormPetrel}; */
+                background-color: ${lighten(0.05, colors.blackSqueeze)};
+            }
+        }
     }
 `;

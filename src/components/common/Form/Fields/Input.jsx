@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import TextareaAutosize from 'react-autosize-textarea'
 
 import {toTitleCase} from 'utils/string';
 
@@ -24,33 +25,33 @@ export default class Input extends React.Component {
             ...props
         } = this.props;
 
+        let Field;
+
+        switch (this.inputType()){
+            case 'select':
+                Field = 'select';
+                break;
+            case 'textarea':
+                Field = TextareaAutosize;
+                break;
+            default:
+                Field = 'input';
+                break;
+        };
+
         return (
             <React.Fragment>
-                {(/select/i).test(this.inputType()) ? (
-                    <select
-                        id={id}
-                        value={id} // could be something else for output?
-                        name={name}
-                        onBlur={onBlur}
-                        type={this.inputType()}
-                        onChange={onChange}
-                        className={className}
-                        {...props}>
-                        {children}
-                    </select>
-                ) : (
-                    <input
-                        id={id}
-                        value={id} // could be something else for output?
-                        name={name}
-                        onBlur={onBlur}
-                        type={this.inputType()}
-                        onChange={onChange}
-                        className={className}
-                        {...props}
-                        placeholder={props.placeholder || label}
-                    />
-                )}
+                <Field
+                    id={name}
+                    value={id} // could be something else for output?
+                    name={name}
+                    onBlur={onBlur}
+                    type={this.inputType()}
+                    onChange={onChange}
+                    className={className}
+                    {...props}
+                    placeholder={props.placeholder || label}
+                />
                 {this.isRadioButton() &&
                     <span className="Radio--Button"></span>
                 }

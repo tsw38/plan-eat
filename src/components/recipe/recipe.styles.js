@@ -12,8 +12,9 @@ export const StyledRecipe = styled.div`
         display: grid;
         grid-gap: ${sizing.spacingmd};
         grid-template-columns: calc(50% - ${sizing.spacingxs}) auto;
-        width: 100%;
         padding-bottom: 2rem;
+        width: 100%;
+        max-width: calc(${sizing.layoutSoBig}*3 + ${sizing.spacingmd});
 
         ul, ol {
             margin-left: 1rem;
@@ -35,14 +36,6 @@ export const StyledRecipe = styled.div`
 
         .column {
             width: 100%;
-
-
-            &:first-of-type {
-                max-width: ${sizing.layoutSoBig};
-            }
-
-            &:last-of-type {
-            }
         }
 
         .Button {
