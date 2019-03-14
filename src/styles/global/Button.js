@@ -122,6 +122,10 @@ export default createGlobalStyle`
             .Icon {
                 padding: ${sizing.spacing2xs};
                 width: ${sizing.spacinglg};
+
+                .Recipe--Serving-Toggle & {
+                    padding: ${sizing.spacing3xs};
+                }
             }
         }
     }

@@ -61,11 +61,11 @@ export default createGlobalStyle`
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 999;
+        z-index: 9999;
         height: 100vh;
         width: 100vw;
         display: flex;
-        background-color: ${transparentize(0.6, colors.blackSqueeze)};
+        background-color: ${transparentize(0.25, colors.blackSqueeze)};
         justify-content: center;
         align-items: center;
         padding: 10rem;

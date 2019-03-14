@@ -171,7 +171,7 @@ export const FormWrapper = styled.div`
         }
     }
 
-    &.Form--Addingredient {
+    &.Form--addIngredient {
         .Form--FieldsWrapper {
             display: grid;
             grid-template-areas: "row1 row1" "left right";

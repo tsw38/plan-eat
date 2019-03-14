@@ -14,10 +14,11 @@ ReactDOM.render(
     </Provider>, document.getElementById('plan-eat')
 );
 
-ClientStore.subscribe(() => {
-    // console.warn('what is happening', ClientStore.getState())
+ClientStore.subscribe((params) => {
+    console.warn('what is happening', params)
 })
 
 ClientStore.dispatch((dispatch) => {
+    // console.warn('awdawd');
     // dispatch(onLocationChange())
 })

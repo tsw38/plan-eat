@@ -10,10 +10,13 @@ import Page from 'components/page/page.container';
 import Session from "components/session/session.controller";
 //TODO: GLOBAL MODALS
 
-import Header from "components/header/header.container";
-import Sidebar from "components/containers/Sidebar/Sidebar";
+import Header from "components/header";
+import Sidebar from "components/sidebar/sidebar";
 
 //Views for each route
+import AddRecipe from 'components/recipe/addRecipe';
+
+
 import Inbox from 'components/inbox/inbox.view';
 import Recipe from 'components/recipe/recipe.view';
 import Recipes from 'components/recipes/recipes.view';
@@ -23,7 +26,6 @@ import Signin from 'components/user/signIn/userSignIn.view';
 import Account from 'components/user/settings/userSettings.view';
 
 import MealPrep from 'components/mealPrep/mealPrep.view';
-import AddRecipe from 'components/addRecipe/addRecipe.view';
 import StyleGuide from 'components/styleGuide/styleGuide.view';
 import ShoppingCart from 'components/shoppingCart/shoppingCart.view';
 import AddIngredient from 'components/addIngredient/addIngredient.view';

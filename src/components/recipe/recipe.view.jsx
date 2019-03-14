@@ -120,7 +120,7 @@ class Recipe extends React.Component {
             }
         }, {});
 
-        console.warn(nutrition);
+        // console.warn(nutrition);
 
         return (
             <StyledRecipe className="Recipe">

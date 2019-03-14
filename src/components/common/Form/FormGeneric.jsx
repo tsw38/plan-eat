@@ -48,7 +48,7 @@ class FormGeneric extends React.Component {
         return (
             <FormWrapper className={classNames(
                 'Form',
-                `Form--${toTitleCase(id)}`,
+                `Form--${id}`,
                 {[`Form--Modal`]: render.modal}
             )}>
                 {title &&

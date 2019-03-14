@@ -244,6 +244,8 @@ export const StyledRecipe = styled.div`
             }
         }
     }
+
+
 `;
 
 export const RecipeHeader = styled.div``;
