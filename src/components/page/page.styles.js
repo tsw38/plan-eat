@@ -26,6 +26,12 @@ export const Page = styled.div`
 
         &--StyleGuide {
             padding: ${sizing.layout2xs};
+
+            .row {
+                h2 {
+                    width: 100%;
+                }
+            }
         }
     }
 `;

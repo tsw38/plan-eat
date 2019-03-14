@@ -5,6 +5,7 @@ import { spacingsm } from 'styles/sizing';
 export default createGlobalStyle`
     .row {
         display: flex;
+        flex-wrap: wrap;
 
         > * {
             margin: ${spacingsm};
