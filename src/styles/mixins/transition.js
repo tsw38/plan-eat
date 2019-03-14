@@ -1,8 +1,10 @@
 /**
- * Standard: For the majority of animations.
+ *
+ * standard: For the majority of animations.
  * 		 	 When extra context is needed or when an element is removed from the screen but easily accessible (i.e. slide out navigation panel)
- * Ease-Out: For adding elements to the stage or changing on-screen states at a users' input
- * Ease-In:  For removing elements from the screen or stage.
+ * ease-Out: For adding elements to the stage or changing on-screen states at a users' input
+ * ease-In:  For removing elements from the screen or stage.
+ *
  */
 
 export default (type, ease) => {
@@ -13,7 +15,8 @@ export default (type, ease) => {
 			ease === 'ease-out' ?
 				'cubic-bezier(0, 0, 0.25, 1)' :
 				'cubic-bezier(0.5, 0, 0.1, 1) '
-		)
+        ),
+        transform: 'translateZ(0)'
 	};
 
 

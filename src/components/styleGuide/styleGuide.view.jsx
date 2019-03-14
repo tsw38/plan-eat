@@ -1,5 +1,6 @@
 import React from "react";
 
+import LoadingGuide from 'components/styleGuide/loadingGuide';
 import TagGuide from 'components/styleGuide/tagGuide/tag.view';
 import AltTagGuide from 'components/styleGuide/tagGuide/tagAlt.view';
 import ColorGuide from 'components/styleGuide/colorGuide/colorGuide.view';
@@ -13,33 +14,29 @@ class StyleGuide extends React.Component {
         return (
             <div className="StyleGuide">
                 <TabsComponent
-                    defaultIndex={5}
-                    panels={[
-                        {
-                            name: 'Colors',
-                            Component: ColorGuide
-                        },
-                        {
-                            'name': 'Buttons',
-                            Component: ButtonGuide
-                        },
-                        {
-                            name: 'Small Buttons',
-                            Component: SmallButtonGuide
-                        },
-                        {
-                            'name': 'Tags',
-                            Component: TagGuide
-                        },
-                        {
-                            'name': 'Alt Tags',
-                            Component: AltTagGuide
-                        },
-                        {
-                            'name': 'Notifications',
-                            Component: NotificationGuide
-                        }
-                    ]}
+                    defaultIndex={6}
+                    panels={[{
+                        name: 'Colors',
+                        Component: ColorGuide
+                    }, {
+                        name: 'Buttons',
+                        Component: ButtonGuide
+                    }, {
+                        name: 'Small Buttons',
+                        Component: SmallButtonGuide
+                    }, {
+                        name: 'Tags',
+                        Component: TagGuide
+                    }, {
+                        name: 'Alt Tags',
+                        Component: AltTagGuide
+                    }, {
+                        name: 'Notifications',
+                        Component: NotificationGuide
+                    }, {
+                        name: 'Loading',
+                        Component: LoadingGuide
+                    }]}
                 />
             </div>
         );

@@ -18,10 +18,6 @@ class Signin extends React.Component {
         render: false
     }
 
-    componentWillMount() {
-
-    }
-
     componentDidMount() {
         this.setState({
             render: true

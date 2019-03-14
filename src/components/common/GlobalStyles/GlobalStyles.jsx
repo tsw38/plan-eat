@@ -11,6 +11,7 @@ import Tabs from 'styles/global/tabs';
 import Modal from 'styles/global/modal';
 import Alert from 'styles/global/alert';
 import Button from 'styles/global/button';
+import Loading from 'styles/global/loading';
 import Notification from 'styles/global/notification';
 
 export default () => {
@@ -26,6 +27,7 @@ export default () => {
             <Tabs />
             <Tag />
             <Alert />
+            <Loading />
             <Notification />
 		</React.Fragment>
     )

@@ -2,10 +2,13 @@ import React from "react";
 import {Helmet} from "react-helmet";
 import {Location} from "@reach/router";
 import {connect} from 'react-redux';
+import classNames from 'classnames';
 
 // App Level components
+import Loader from  "components/loader";
 import Page from 'components/page/page.container';
 import Session from "components/session/session.controller";
+//TODO: GLOBAL MODALS
 
 import Header from "components/header/header.container";
 import Sidebar from "components/containers/Sidebar/Sidebar";
@@ -34,9 +37,13 @@ class App extends React.Component {
         return (
             <React.Fragment>
                 <GlobalStyles />
-
                 <Session />
-                <StyledApp className="App">
+                <Loader />
+                <StyledApp
+                    className={classNames(
+                        'App',
+                        {'App--Loading': !!this.props.app.loading}
+                    )}>
                     <Helmet
                         htmlAttributes={{lang:"en"}}
                         titleTemplate="Plan-Eat | %s"
@@ -81,12 +88,14 @@ class App extends React.Component {
                         }}
                     </Location>
                 </StyledApp>
+
             </React.Fragment>
         );
     }
 }
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = ({app}, ownProps) => ({
+    app
 })
 
 const mapDispatchToProps = {

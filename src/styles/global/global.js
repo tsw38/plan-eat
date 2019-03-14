@@ -4,7 +4,7 @@ import { spacingsm } from 'styles/sizing';
 
 export default createGlobalStyle`
     .row {
-        display:block;
+        display: flex;
 
         > * {
             margin: ${spacingsm};
