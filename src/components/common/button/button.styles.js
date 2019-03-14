@@ -13,6 +13,8 @@ export const StyledButton = styled.button`
             }
         }
 
-
+        &--Header {
+            background-image: url(${({style}) => style && style.backgroundImage});
+        }
     }
 `;

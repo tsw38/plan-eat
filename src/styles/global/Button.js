@@ -130,7 +130,6 @@ export default createGlobalStyle`
         border-radius: 50%;
         height: ${sizing.spacinglg};
         width: ${sizing.spacinglg};
-        background-image: url(${({style}) => style && style.backgroundImage});
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;

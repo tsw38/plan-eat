@@ -22,7 +22,7 @@ class Loading extends React.Component {
 
     componentDidUpdate(prevProps) {
         const render = stateChange(prevProps.render, this.props.render);
-        console.warn('componentDidUpdate', this.props, render);
+
         if (render.defined && render.changed) {
             this.setState({
                 render: this.props.render

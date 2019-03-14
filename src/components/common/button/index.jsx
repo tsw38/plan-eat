@@ -7,17 +7,16 @@ import {StyledButton} from 'components/common/button/button.styles';
 class Button extends React.Component {
 	render() {
 		const {
-            children,
+            type,
+            style,
             onClick,
+            children,
             iconName,
             editable,
-            className,
-            colorName,
             inverted,
-            style,
-            type
+            className,
+            colorName
         } = this.props;
-
 
         return (
             <StyledButton
