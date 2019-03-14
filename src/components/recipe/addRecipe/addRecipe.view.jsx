@@ -67,57 +67,11 @@ export default  ({name, render, ...props}) => {
                                         component={Input}
                                         placeholder="Add Recipe"
                                     />
-
-                                    <Field
-                                        type="text"
-                                        name="name"
-                                        value={values.name || ''}
-                                        component={Input}
-                                        label="Ingredient Name"
-                                        placeholder="Ingredient"
-                                    />
-
-                                    <Field
-                                        type="text"
-                                        name="servingSize"
-                                        value={values.servingSize || ''}
-                                        component={Input}
-                                        label="Serving Size"
-                                    />
-
-                                    <Field
-                                        type="text"
-                                        name="carbs"
-                                        component={Input}
-                                        label="Carbs"
-                                        value={values.carbs || ''}
-                                    />
-
-                                    <Field
-                                        type="text"
-                                        name="dietaryFiber"
-                                        component={Input}
-                                        label="Dietary Fiber"
-                                        value={values.dietaryFiber || ''}
-                                    />
-
-                                    <Field
-                                        type="text"
-                                        name="sugar"
-                                        component={Input}
-                                        label="Sugar"
-                                        value={values.sugar || ''}
-                                    />
-
-                                    <Field
-                                        type="text"
-                                        name="protein"
-                                        component={Input}
-                                        label="Protein"
-                                        value={values.protein || ''}
-                                    />
+                                    <p>name, ingredients, servingSize, direction, notes</p>
                                 </Column>
-                                <Column></Column>
+                                <Column>
+                                    <p>photo upload, prepTime, CookTime, editable Tags</p>
+                                </Column>
                             </React.Fragment>
                         )
                     }

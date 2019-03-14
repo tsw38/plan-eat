@@ -49,7 +49,11 @@ export const FormWrapper = styled.div`
         font-weight:${fontBold};
         display: block;
         margin-bottom: ${spacingxs};
-        color: ${colors.fuelTown}
+        color: ${colors.fuelTown};
+
+        :empty {
+            display: none;
+        }
     }
 
     .Input--Text,
