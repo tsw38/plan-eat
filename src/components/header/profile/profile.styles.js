@@ -47,6 +47,7 @@ export const AccountDropDown = styled.div`
 
     .Menu {
         padding: ${spacingsm};
+        flex-direction: column;
 
         &.row {
             text-align: left;
@@ -78,6 +79,11 @@ export const AccountDropDown = styled.div`
             text-align: left;
             ${transition()}
 
+            &.row {
+                display: grid;
+                grid-template-columns: auto 1fr;
+            }
+
             &:hover {
                 background-color: ${lighten(0.2, blueFrance)};
 
@@ -97,7 +103,7 @@ export const AccountDropDown = styled.div`
             .Icon--Wrapper {
                 padding: 0 ${spacingxs} 0 ${spacingxs};
                 svg {
-
+                    padding: 0;
                     height: ${spacingmd};
                     width: auto;
                     margin: 0;

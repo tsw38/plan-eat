@@ -17,3 +17,4 @@ export default styled(FormGeneric)`
     }}
 `;
 
+export { StyledRecipe } from 'components/recipe/recipe.styles';
