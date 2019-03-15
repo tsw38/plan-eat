@@ -9,7 +9,7 @@ import AddIngredientForm from 'components/common/Form/AddIngredient';
 
 import { StyledSignin } from 'styles/views/Signin';
 
-import Modal from 'components/common/Modal/ModalGeneric';
+import Modal from 'components/common/modal';
 
 import Config from 'config/ModalsConfig';
 

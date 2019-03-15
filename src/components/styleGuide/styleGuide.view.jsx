@@ -1,5 +1,6 @@
 import React from "react";
 
+import ModalGuide from 'components/styleGuide/modalGuide';
 import LoadingGuide from 'components/styleGuide/loadingGuide';
 import TagGuide from 'components/styleGuide/tagGuide/tag.view';
 import AltTagGuide from 'components/styleGuide/tagGuide/tagAlt.view';
@@ -14,7 +15,7 @@ class StyleGuide extends React.Component {
         return (
             <div className="StyleGuide">
                 <TabsComponent
-                    defaultIndex={6}
+                    defaultIndex={7}
                     panels={[{
                         name: 'Colors',
                         Component: ColorGuide
@@ -36,6 +37,9 @@ class StyleGuide extends React.Component {
                     }, {
                         name: 'Loading',
                         Component: LoadingGuide
+                    },{
+                        name: 'Modals',
+                        Component: ModalGuide
                     }]}
                 />
             </div>

@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 
 // App Level components
+import Modals from 'components/modal';
 import Loader from  "components/loader";
 import Page from 'components/page/page.container';
 import Session from "components/session/session.controller";
@@ -38,9 +39,10 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <GlobalStyles />
                 <Session />
+                <GlobalStyles />
                 <Loader />
+                <Modals />
                 <StyledApp
                     className={classNames(
                         'App',
@@ -90,7 +92,6 @@ class App extends React.Component {
                         }}
                     </Location>
                 </StyledApp>
-
             </React.Fragment>
         );
     }

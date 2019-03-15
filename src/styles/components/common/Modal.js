@@ -12,7 +12,7 @@ export const StyledModal = styled(Modal)`
 	&.Modal {
         position: relative;
 		background-color: white;
-		padding: ${spacing.spacing3xl};
+		padding: ${spacing.spacing3xl} ${spacing.spacing3xl} 0;
 		max-width: 700px;
         width: 70vw;
         min-width: 400px;
@@ -21,17 +21,19 @@ export const StyledModal = styled(Modal)`
 
 		${elevate('Modal')}
 
-		&--Primary {
+		&--Transactional,
+        &--Passive {
 			border-top: ${spacing.spacing2xs} solid ${colors.blueFrance};
 		}
 
-		&--Danger {
+		&--Danger,
+        &--Danger--Passive {
 			border-top: ${spacing.spacing2xs} solid ${colors.amour};
 		}
 
-		&--Passive {
-
-		}
+        &--Passive {
+            padding: ${spacing.spacing3xl};
+        }
 
 		&--Form {
             padding: 0;
@@ -97,6 +99,7 @@ export const StyledModal = styled(Modal)`
 			color: ${colors.stormPetrel};
 			max-width: ${spacing.layoutSoBig};
 			line-height: 1.5;
+            margin-bottom: ${spacing.spacingmd};
 		}
 
 		&-Close {
@@ -127,8 +130,7 @@ export const StyledModal = styled(Modal)`
 
 	.Modal--Content {
 		overflow-y: auto;
-		/* margin-bottom: ${spacing.spacing3xl}; */
-		color: ${colors.blueFrance};
+		/* color: ${colors.blueFrance}; */
 		font-weight: ${fontNormal};
 
 		p {
@@ -137,4 +139,21 @@ export const StyledModal = styled(Modal)`
 			padding: 0 0 ${spacing.spacingmd};
 		}
 	}
+
+    .Modal--Footer {
+        display: grid;
+        grid-gap: 0.75rem;
+        grid-template-columns: auto auto;
+        margin-top: auto;
+        justify-content: flex-end;
+        background-color: #f4f7fb;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        padding: 2rem;
+
+
+        margin-left: -3rem;
+        margin-right: -3rem;
+        padding: 2rem 3rem;
+    }
 `;

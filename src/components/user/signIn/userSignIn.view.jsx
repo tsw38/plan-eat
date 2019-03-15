@@ -7,8 +7,8 @@ import {stateChange} from 'utils/object';
 
 import Config from 'config/ModalsConfig';
 
+import Modal from 'components/common/modal';
 import SigninForm from 'components/common/Form/Signin';
-import Modal from 'components/common/Modal/ModalGeneric';
 
 
 import { StyledSignin } from 'styles/views/Signin';

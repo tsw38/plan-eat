@@ -6,19 +6,30 @@ const modals = (state = {}, action) => {
 		case MC.MODAL_MOUNTED:
 			return {
 				...state,
-				[action.payload]: true
+				[action.payload]: {
+                    isOpen: true,
+                    ...state[action.payload]
+                }
 			}
-		case MC.MODAL_OPEN:
+        case MC.MODAL_OPEN:
+            return {
+                ...state,
+                [action.payload.modalId]: {
+                    isOpen: true,
+                    content: action.payload.content
+                }
+            }
 		case MC.MODAL_CLOSE:
-			return {
-				...state,
-				[action.payload]: !state[action.payload]
-			}
+            return {
+                ...state,
+                [action.payload]: {
+                    isOpen: false,
+                    content: {}
+                }
+            }
         default:
             return state
     }
 }
 
-export default combineReducers({
-    modals
-});
+export default modals;

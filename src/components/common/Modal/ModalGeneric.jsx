@@ -47,11 +47,13 @@ class ModalGeneric extends React.Component {
 		const {
 			type,
 			label,
+            isOpen,
 			render,
 			heading,
-			children,
-			modalIsOpen
-		} = this.props;
+            buttons,
+            children,
+        } = this.props
+        console.warn('this modal', this.props, (/passive/i).test(type));
 
 		return (
 			<StyledModal
@@ -61,7 +63,7 @@ class ModalGeneric extends React.Component {
 					{[`Modal--Form`]: render.form}
 				)}
 				overlayClassName="Modal--Overlay"
-                isOpen={modalIsOpen}
+                isOpen={isOpen}
                 onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.handleClose}
 				ariaHideApp={false}>
@@ -79,19 +81,47 @@ class ModalGeneric extends React.Component {
 					</button>
 				</div>
 				<div className="Modal--Content">{children}</div>
-				{!(/passive/i).test(type) &&
-					<div className="Modal--Footer"></div>
+				{!(/passive/i).test(type) && isOpen &&
+					<div className="Modal--Footer">
+                        {buttons.Secondary &&
+                            <button
+                                type="button"
+                                onClick={buttons.Secondary.onClick}
+                                className={classNames(
+                                    'Button',
+                                    'Button--Tertiary'
+                                )
+                            }>
+                                {buttons.Secondary.text || 'Cancel'}
+                            </button>
+                        }
+                        {buttons.Primary &&
+                            <button
+                                type="button"
+                                onClick={buttons.Primary.onClick}
+                                className={classNames(
+                                    'Button',
+                                    {'Button--Primary': (/transactional/i).test(type)},
+                                    {'Button--Primary--Danger': (/danger/i).test(type)},
+                                )
+                            }>
+                                {buttons.Primary.text || 'Submit'}
+                            </button>
+                        }
+                    </div>
 				}
 			</StyledModal>
 		);
 	}
 }
 
-const mapStateToProps = ({modals}, props) => {
-	return {
-		modalIsOpen: !!objectPath.get(modals.modals, props.modalId)
-	};
-};
+const mapStateToProps = ({modals}, props) => ({
+    // console.warn(props, 'this is the modal props');
+	// return {
+
+	// 	modalIsOpen: !!objectPath.get(modals.modals, props.modalId),
+	// };
+});
 
 const mapDispatchToProps = {
 	initialize,
@@ -101,7 +131,7 @@ const mapDispatchToProps = {
 ModalGeneric.defaultProps = {
 	render: {},
 	type: 'Primary',
-	modalIsOpen: false
+	// modalIsOpen: false
 };
 
 ModalGeneric.propTypes = {
