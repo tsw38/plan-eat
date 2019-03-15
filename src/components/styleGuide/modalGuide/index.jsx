@@ -72,7 +72,7 @@ class Modals extends React.Component {
                 </Section>
                 <Section>
                     <h2>Danger</h2>
-                    <p>The same as a transactional or passive modal but to show cautionary user action.</p>
+                    <p>The same as a transactional but to show cautionary user action.</p>
                     <Row>
                         <button
                             className="Button Button--Primary--Danger"
@@ -100,6 +100,27 @@ class Modals extends React.Component {
                         </button>
                     </Row>
                 </Section>
+                <Section>
+                    <h2>Danger Passive</h2>
+                    <p>The same as a passive modal but to show generic errors.</p>
+                    <Row>
+                        <button
+                            className="Button Button--Secondary--Danger"
+                            onClick={() => injectModal({
+                                modalId: Config.GLOBAL.dangerPassive.id,
+                                content: {
+                                    heading: "Danger Passive Modal Heading",
+                                    label: "Optional Danger Label",
+                                    Body: (
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum.</p>
+                                    )
+                                }
+                            })}>
+                            Open Danger Modal
+                        </button>
+                    </Row>
+                </Section>
+
             </React.Fragment>
 
         );

@@ -4,11 +4,14 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import objectPath from 'object-path';
 
+import { suitify } from 'utils/string';
+
+import {initialize, toggleModal} from 'actions/ModalActions';
+
 import Icon from "components/common/Icon/Icon";
 
 import {StyledModal} from 'styles/components/common/Modal';
 
-import {initialize, toggleModal} from 'actions/ModalActions';
 
 class ModalGeneric extends React.Component {
 	componentDidMount() {
@@ -58,8 +61,10 @@ class ModalGeneric extends React.Component {
 		return (
 			<StyledModal
 				className={classNames(
-                    'Modal',
-					`Modal--${type}`,
+                    suitify({
+                        parent: 'Modal',
+                        variant: type
+                    }),
 					{[`Modal--Form`]: render.form}
 				)}
 				overlayClassName="Modal--Overlay"

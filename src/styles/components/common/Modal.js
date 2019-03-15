@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import Modal from 'react-modal';
 
 import {elevate} from 'styles/mixins/index';
@@ -6,7 +6,6 @@ import * as colors from 'styles/colors';
 import * as spacing from 'styles/sizing';
 
 import {fontBold, fontLight, fontNormal} from 'styles/variables';
-
 
 export const StyledModal = styled(Modal)`
 	&.Modal {
@@ -27,11 +26,12 @@ export const StyledModal = styled(Modal)`
 		}
 
 		&--Danger,
-        &--Danger--Passive {
+        &--Danger-Passive {
 			border-top: ${spacing.spacing2xs} solid ${colors.amour};
 		}
 
-        &--Passive {
+        &--Passive,
+        &--Danger-Passive {
             padding: ${spacing.spacing3xl};
         }
 

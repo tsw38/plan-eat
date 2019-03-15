@@ -4,7 +4,7 @@ export default (color, isInverted = false) => {
         fill: color,
         ...(isInverted ? {
             color,
-            backgroundColor: 'white'
+            backgroundColor: 'transparent'
         } : {
             color: 'white',
             backgroundColor: color
