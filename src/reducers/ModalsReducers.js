@@ -7,8 +7,8 @@ const modals = (state = {}, action) => {
 			return {
 				...state,
 				[action.payload]: {
-                    isOpen: true,
-                    ...state[action.payload]
+                    ...state[action.payload],
+                    isOpen: true
                 }
 			}
         case MC.MODAL_OPEN:
@@ -23,8 +23,7 @@ const modals = (state = {}, action) => {
             return {
                 ...state,
                 [action.payload]: {
-                    isOpen: false,
-                    content: {}
+                    isOpen: false
                 }
             }
         default:

@@ -26,33 +26,6 @@ class Signin extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // const thisUser = this.props.user;
-        // const oldUser = prevProps.user;
-
-        // const userState = stateChange(oldUser, thisUser);
-
-        // console.warn(oldUser.uid, thisUser.uid, userState);
-
-        // if (userState.defined) {
-        //     if (
-        //         (!thisUser.uid && userState.changed)
-        //         // || (!thisUser.uid && !oldUser.uid && !userState.changed)
-        //     ) {
-        //         this.setState({
-        //             render: true
-        //         })
-        //     }
-        //     if (thisUser.uid) {
-        //         navigate('/')
-        //     }
-        //     // if (!thisUser.uid) {
-        //     //     this.setState({
-        //     //         render: true
-        //     //     })
-        //     // }
-        // } else {
-        //     // navigate('/')
-        // }
     }
 
 
@@ -86,12 +59,9 @@ class Signin extends React.Component {
     }
 }
 
-const mapStateToProps = ({user, modals}, props) => {
-	return {
-        user: user.account,
-        modal: objectPath.get(modals, Config.ADD_INGREDIENT_MODAL.id)
-	};
-};
+const mapStateToProps = ({modals}, props) => ({
+    modal: objectPath.get(modals, Config.ADD_INGREDIENT_MODAL.id)
+});
 
 const mapDispatchToProps = {
 	// initialize,
@@ -103,7 +73,6 @@ Signin.defaultProps = {
 };
 
 Signin.propTypes = {
-	user: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signin);

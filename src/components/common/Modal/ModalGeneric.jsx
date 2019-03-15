@@ -54,9 +54,7 @@ class ModalGeneric extends React.Component {
 			heading,
             buttons,
             children,
-        } = this.props
-
-        // console.warn('this should be mounted', this.props);
+        } = this.props;
 
 		return (
 			<StyledModal
