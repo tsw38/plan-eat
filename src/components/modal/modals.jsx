@@ -58,8 +58,6 @@ export default ({modals}) => {
                     {DangerPassiveBody}
                 </Modal>
             }
-
-            {/* <Modal type="full" render={isLoading} /> */}
         </React.Fragment>
     );
 }

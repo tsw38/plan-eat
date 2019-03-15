@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { navigate } from "@reach/router"
+import { navigate } from "@reach/router";
+import objectPath from 'object-path';
 
 import {stateChange} from 'utils/object';
 
@@ -60,14 +61,19 @@ class Signin extends React.Component {
             render
         } = this.state;
 
+        const {
+            modal
+        } = this.props;
+
         return render && (
             <StyledSignin>
                 <Modal
                     modalId={Config.ADD_INGREDIENT_MODAL.id}
+                    isOpen={modal.isOpen}
                     render={{
                         form: true
                     }}
-                    type={Config.ADD_INGREDIENT_MODAL.type}
+                    type={Config.types.transactional}
                     heading={Config.ADD_INGREDIENT_MODAL.heading}>
                     <AddIngredientForm
                         render={{
@@ -80,9 +86,10 @@ class Signin extends React.Component {
     }
 }
 
-const mapStateToProps = ({user}, props) => {
+const mapStateToProps = ({user, modals}, props) => {
 	return {
-		user: user.account
+        user: user.account,
+        modal: objectPath.get(modals, Config.ADD_INGREDIENT_MODAL.id)
 	};
 };
 
@@ -92,6 +99,7 @@ const mapDispatchToProps = {
 };
 
 Signin.defaultProps = {
+    modal: {}
 };
 
 Signin.propTypes = {

@@ -34,7 +34,7 @@ const ModalConfigs = {
     },
     get ADD_INGREDIENT_MODAL() {
         return {
-            id: 2,
+            id: btoa('ADD_INGREDIENT_MODAL'),
             type: this.types.transactional,
             heading: 'Add Ingredient'
         }

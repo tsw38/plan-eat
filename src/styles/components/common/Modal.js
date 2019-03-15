@@ -155,5 +155,9 @@ export const StyledModal = styled(Modal)`
         margin-left: -3rem;
         margin-right: -3rem;
         padding: 2rem 3rem;
+
+        &:empty {
+            display:none;
+        }
     }
 `;

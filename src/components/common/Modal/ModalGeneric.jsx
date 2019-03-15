@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
-import objectPath from 'object-path';
 
 import { suitify } from 'utils/string';
 
@@ -56,7 +55,8 @@ class ModalGeneric extends React.Component {
             buttons,
             children,
         } = this.props
-        console.warn('this modal', this.props, (/passive/i).test(type));
+
+        // console.warn('this should be mounted', this.props);
 
 		return (
 			<StyledModal
@@ -121,11 +121,6 @@ class ModalGeneric extends React.Component {
 }
 
 const mapStateToProps = ({modals}, props) => ({
-    // console.warn(props, 'this is the modal props');
-	// return {
-
-	// 	modalIsOpen: !!objectPath.get(modals.modals, props.modalId),
-	// };
 });
 
 const mapDispatchToProps = {
@@ -136,7 +131,7 @@ const mapDispatchToProps = {
 ModalGeneric.defaultProps = {
 	render: {},
 	type: 'Primary',
-	// modalIsOpen: false
+	buttons: {}
 };
 
 ModalGeneric.propTypes = {
