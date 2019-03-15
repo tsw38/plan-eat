@@ -139,7 +139,6 @@ export default createGlobalStyle`
         background-size: cover;
     }
 
-
     .Button.editable.Tag {
         padding: 0 0 0 ${sizing.spacingmd};
         margin: inherit;

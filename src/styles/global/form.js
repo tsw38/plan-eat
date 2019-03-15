@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import {createGlobalStyle} from 'styled-components';
 import {darken,lighten} from 'polished';
 
 import {elevate, transition} from 'styles/mixins/index';
@@ -8,8 +8,8 @@ import {border} from 'styles/variables';
 
 import { fontBold, fontLight, fontNormal } from 'styles/variables';
 
-export const FormWrapper = styled.div`
-    &.Form {
+export default createGlobalStyle`
+    .Form {
         form {
             border: 1px solid ${colors.stormPetrel};
         }
@@ -32,17 +32,17 @@ export const FormWrapper = styled.div`
 
     .Input {
         margin-bottom: 1rem;
-    }
 
-    .Input--Label {
-        font-size: ${sizing._14px};
-        font-weight:${fontBold};
-        display: block;
-        margin-bottom: ${sizing.spacingxs};
-        color: ${colors.fuelTown};
+        &--Label {
+            font-size: ${sizing._14px};
+            font-weight:${fontBold};
+            display: block;
+            margin-bottom: ${sizing.spacingxs};
+            color: ${colors.fuelTown};
 
-        :empty {
-            display: none;
+            :empty {
+                display: none;
+            }
         }
     }
 

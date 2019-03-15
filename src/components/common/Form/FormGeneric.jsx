@@ -8,7 +8,6 @@ import {AlertConstants as AC} from 'constants';
 import {toTitleCase} from 'utils/string';
 
 import Alert from 'components/common/Alert/Alert';
-import {FormWrapper} from 'styles/components/common/Form/Form';
 import ValueHelper from 'components/common/Form/ValueHelper';
 
 class FormGeneric extends React.Component {
@@ -47,7 +46,7 @@ class FormGeneric extends React.Component {
         } = this.props;
 
         return (
-            <FormWrapper className={classNames(
+            <div className={classNames(
                 'Form',
                 `Form--${id}`,
                 {[`Form--Modal`]: render.modal}
@@ -60,7 +59,6 @@ class FormGeneric extends React.Component {
                     validationSchema={validators}
                     onSubmit={this.handleSubmit}>
                     {(formManager) => {
-                        {console.warn(formManager)}
                         return (
                             <Form>
                                 <div className="Form--FieldsWrapper">
@@ -81,7 +79,7 @@ class FormGeneric extends React.Component {
                         )
                     }}
                 </Formik>
-            </FormWrapper>
+            </div>
         )
     }
 };

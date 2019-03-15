@@ -8,6 +8,7 @@ import Typography from 'styles/global/typography';
 import Tag from 'styles/global/tag';
 import Link from 'styles/global/link';
 import Tabs from 'styles/global/tabs';
+import Form from 'styles/global/form';
 import Modal from 'styles/global/modal';
 import Alert from 'styles/global/alert';
 import Button from 'styles/global/button';
@@ -28,6 +29,7 @@ export default () => {
             <Tag />
             <Alert />
             <Loading />
+            <Form />
             <Notification />
 		</React.Fragment>
     )

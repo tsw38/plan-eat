@@ -45,5 +45,37 @@ export const AddRecipe = styled(StyledRecipe)`
                 background-color: ${lighten(0.05, colors.blackSqueeze)};
             }
         }
+
+        .Recipe--Image {
+            position: relative;
+            background-color: ${colors.ballerina};
+            ${transition()};
+
+            &:hover {
+                cursor: pointer;
+                background-color: ${darken(0.1, colors.ballerina)};
+            }
+
+            .forcedLayout {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background-size:cover;
+                background-position:center center;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .Input--File {
+        opacity: 0;
+
+        label {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
     }
 `;
