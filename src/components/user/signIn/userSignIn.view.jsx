@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { navigate } from "@reach/router"
+import objectPath from 'object-path';
+import { navigate } from "@reach/router";
 
-import {stateChange} from 'utils/object';
+import { initialize } from 'actions/ModalActions';
+
+import { stateChange} from 'utils/object';
 
 import Config from 'config/ModalsConfig';
 
@@ -23,14 +26,20 @@ class Signin extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.user.uid) {
+        const {
+            user,
+            initialize
+        } = this.props;
+
+        if (user.uid) {
             navigate('/');
         }
         // console.warn(this.props.user.uid === null);
-        if (this.props.user.uid === null) {
+        if (user.uid === null) {
             this.setState({
                 render: true
-            })
+            });
+            initialize(Config.SIGN_IN_MODAL.id)
         }
     }
 
@@ -39,8 +48,6 @@ class Signin extends React.Component {
         const oldUser = prevProps.user;
 
         const userState = stateChange(oldUser, thisUser);
-
-        // console.warn(oldUser.uid, thisUser.uid, userState);
 
         if (userState.defined) {
             if (
@@ -70,10 +77,13 @@ class Signin extends React.Component {
             render
         } = this.state;
 
+
+
         return render && (
             <StyledSignin>
                 <Modal
                     modalId={Config.SIGN_IN_MODAL.id}
+                    isOpen={objectPath.get(this.props, 'modal.isOpen')}
                     render={{
                         form: true
                     }}
@@ -90,14 +100,15 @@ class Signin extends React.Component {
     }
 }
 
-const mapStateToProps = ({user}, props) => {
+const mapStateToProps = ({user, modals}, props) => {
 	return {
-		user: user.account
+        user: user.account,
+        modal: objectPath.get(modals, Config.SIGN_IN_MODAL.id)
 	};
 };
 
 const mapDispatchToProps = {
-	// initialize,
+	initialize,
 	// toggleModal
 };
 

@@ -23,6 +23,10 @@ export const Profile = styled(HeaderBox)`
     align-items: center;
     justify-content: center;
     display: flex;
+
+    .Icon:last-of-type {
+        padding: 0;
+    }
 `;
 
 export const AccountDropDown = styled.div`

@@ -34,9 +34,17 @@ export const HeaderBox = styled.div`
         display: block;
     }
 
+    /* svg.Icon:last-of-type {
+        padding: 0;
+    } */
+
     .Icon {
 		fill: ${ballerina};
-		padding: ${spacingsm};
+
+
+        :last-of-type {
+            padding: ${spacingsm};
+        }
 
         &:hover {
             fill: ${stormPetrel};

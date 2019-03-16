@@ -30,6 +30,7 @@ class Signin extends React.Component {
 
 
     render() {
+        console.warn(this.props);
         const {
             render
         } = this.state;
