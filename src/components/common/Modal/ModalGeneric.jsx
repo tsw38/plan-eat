@@ -9,7 +9,7 @@ import {initialize, toggleModal} from 'actions/ModalActions';
 
 import Icon from "components/common/Icon/Icon";
 
-import {StyledModal} from 'styles/components/common/Modal';
+import {StyledModal} from 'components/common/modal/modal.styles';
 
 
 class ModalGeneric extends React.Component {
