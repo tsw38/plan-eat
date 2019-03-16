@@ -3,14 +3,17 @@ import {Field, FieldArray} from 'formik';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import FormConfig from 'config/forms/AddRecipe';
+
+import {suitify} from 'utils/string';
+
 import Button from 'components/common/button';
 import Column from 'components/common/Layout/Column';
 import Input from 'components/common/Form/Fields/Input';
 import FormGeneric from 'components/common/Form/FormGeneric';
+import RecipeSection from 'components/recipe/section/section.container';
 
 import { AddRecipe } from 'components/recipe/addRecipe/addRecipe.styles';
-
-import FormConfig from 'config/forms/AddRecipe';
 
 export default class AddRecipeView extends React.Component {
     state = {
@@ -39,6 +42,15 @@ export default class AddRecipeView extends React.Component {
     }
 
     handleAddIngredient = (inputHelper, index) => {
+        try {
+            inputHelper.insert(index, '')
+        } catch (e) {
+            console.warn('this is the problem', e);
+            inputHelper.push('');
+        }
+    }
+
+    handleAddDirection = (inputHelper, index) => {
         try {
             inputHelper.insert(index, '')
         } catch (e) {
@@ -81,34 +93,73 @@ export default class AddRecipeView extends React.Component {
                                             component={Input}
                                             placeholder="Add Recipe"
                                         />
-                                        <FieldArray
-                                            name="ingredients"
-                                            render={helpers => values.ingredients &&
-                                                <React.Fragment>
-                                                    {values.ingredients &&
-                                                        values.ingredients.map((ingredient, index) =>
-                                                        <Field
-                                                            key={`Ingredient-${index}`}
-                                                            type="text"
-                                                            placeholder="Add Ingredient"
-                                                            component={Input}
-                                                            name={`ingredients.${index}`}
-                                                            value={values.ingredients[index] || ''}
-                                                        />
-                                                    )}
+                                        <RecipeSection
+                                            listType="ol"
+                                            sectionTitle="Ingredients">
+                                            <FieldArray
+                                                name="ingredients"
+                                                render={helpers => values.ingredients &&
+                                                    <React.Fragment>
+                                                        {values.ingredients &&
+                                                            values.ingredients.map((ingredient, index) =>
+                                                                <Field
+                                                                    type="textarea"
+                                                                    resize="vertical"
+                                                                    key={`Ingredients-${index}`}
+                                                                    name={`ingredients.${index}`}
+                                                                    value={ingredient || ''}
+                                                                    component={Input}
+                                                                    placeholder="Add Ingredient"
+                                                                />
+                                                        )}
 
-                                                    <button
-                                                        className="Button Button--Primary"
-                                                        type="button"
-                                                        onClick={() => this.handleAddIngredient(helpers, values.ingredients.length + 1)}>
-                                                        Add Ingredient
-                                                    </button>
-                                                </React.Fragment>
-                                            }
-                                        />
-
+                                                        <button
+                                                            className={suitify({
+                                                                parent: 'Button',
+                                                                variant: 'Tertiary'
+                                                            })}
+                                                            type="button"
+                                                            onClick={() => this.handleAddDirection(helpers, values.directions.length + 1)}>
+                                                            Add Ingredient
+                                                        </button>
+                                                    </React.Fragment>
+                                                }
+                                            />
+                                        </RecipeSection>
 
                                         <p><br />servingSize, direction, notes</p>
+
+                                        <RecipeSection
+                                            listType="ol"
+                                            sectionTitle="Directions">
+                                            <FieldArray
+                                                name="directions"
+                                                render={helpers => values.directions &&
+                                                    <React.Fragment>
+                                                        {values.directions &&
+                                                            values.directions.map((ingredient, index) =>
+                                                            <Field
+                                                                type="textarea"
+                                                                resize="vertical"
+                                                                key={`Directions-${index}`}
+                                                                name={`directions.${index}`}
+                                                                value={values.directions[index] || ''}
+                                                                component={Input}
+                                                                placeholder="Add Direction"
+                                                            />
+                                                        )}
+
+                                                        <button
+                                                            className="Button Button--Primary"
+                                                            type="button"
+                                                            onClick={() => this.handleAddDirection(helpers, values.directions.length + 1)}>
+                                                            Add Direction
+                                                        </button>
+                                                    </React.Fragment>
+                                                }
+                                            />
+                                        </RecipeSection>
+
                                     </Column>
                                     <Column>
                                         <div className="Recipe--Image">

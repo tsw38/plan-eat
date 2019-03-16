@@ -46,6 +46,10 @@ export const AddRecipe = styled(StyledRecipe)`
             }
         }
 
+        .Recipe--Section {
+            border-bottom: none;
+        }
+
         .Recipe--Image {
             position: relative;
             background-color: ${colors.ballerina};

@@ -28,6 +28,16 @@ export const StyledModal = styled(Modal)`
 		&--Danger,
         &--Danger-Passive {
 			border-top: ${spacing.spacing2xs} solid ${colors.amour};
+
+            .Modal--Header-Close {
+                :focus {
+                    outline: 1px solid ${colors.amour};
+                }
+
+                :hover {
+                    background-color: ${colors.amour};
+                }
+            }
 		}
 
         &--Passive,
@@ -119,6 +129,10 @@ export const StyledModal = styled(Modal)`
             :hover {
                 background-color: ${colors.blueFrance};
                 fill: white;
+
+                .Modal--Danger & {
+                    background-color: ${colors.blueFrance};
+                }
             }
 
 			svg {
