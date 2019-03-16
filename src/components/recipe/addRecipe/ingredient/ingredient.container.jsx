@@ -3,9 +3,11 @@ import React from "react";
 import Component from 'components/recipe/addRecipe/ingredient/ingredient';
 import Connector from 'components/recipe/addRecipe/ingredient/ingredient.connector';
 
-export default ({location}) => {
+export default (props) => {
+    console.warn('container props', props);
     return (
-        <Connector location={location}>
+        <Connector
+            {...props}>
             <Component />
         </Connector>
     );

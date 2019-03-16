@@ -16,7 +16,7 @@ export const createClientStore = (props) => {
         isServer: false
     };
 
-    //TODO: on the server, build the store for the client code differentlys
+    //TODO: on the server, build the store for the client code differently
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

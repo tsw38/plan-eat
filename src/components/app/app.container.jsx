@@ -9,7 +9,6 @@ import Modals from 'components/modal';
 import Loader from  "components/loader";
 import Page from 'components/page/page.container';
 import Session from "components/session/session.controller";
-//TODO: GLOBAL MODALS
 
 import Header from "components/header";
 import Sidebar from "components/sidebar/sidebar";

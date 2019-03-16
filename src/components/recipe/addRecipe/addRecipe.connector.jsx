@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import ModalConfig from 'config/ModalsConfig';
 
-import { injectModal } from 'actions/ModalActions';
+import { injectModal, toggleModal } from 'actions/ModalActions';
 import AddIngredient from 'components/recipe/addRecipe/ingredient';
 
 class Connector extends React.Component {
@@ -34,18 +34,38 @@ class Connector extends React.Component {
 
     handleAddIngredient = (inputHelper, index) => {
         this.props.injectModal({
-            modalId: ModalConfig.GLOBAL.passive.id,
+            modalId: ModalConfig.GLOBAL.transactional.id,
             content: {
                 heading: "Add Ingredient",
-                Body: <AddIngredient />
+                Body: <AddIngredient
+                    handleInputUpdate={(props) => {
+                        this.setState({
+                            ingredient: props
+                        })
+                    }}
+                />,
+                buttons: {
+                    Primary: {
+                        text: "Primary Button",
+                        onClick: () => {
+                            try {
+                                //TODO: insert object to all inputs appropriately
+                                inputHelper.insert(index, this.state.ingredient.input)
+                                //TODO: close this modal
+                                this.props.toggleModal(ModalConfig.GLOBAL.transactional.id);
+                            } catch (e) {
+                                console.warn('this is the problem', e);
+                                inputHelper.push('awd');
+                            }
+                        }
+                    },
+                    Secondary: {
+                        text: "Primary Button",
+                        onClick: () => {console.log('Cancel')}
+                    },
+                }
             }
         });
-        try {
-            inputHelper.insert(index, '')
-        } catch (e) {
-            console.warn('this is the problem', e);
-            inputHelper.push('');
-        }
     }
 
     handleAddToInputArray = (inputHelper, index) => {
@@ -81,7 +101,8 @@ const mapStateToProps = ({app}, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-    injectModal
+    injectModal,
+    toggleModal
 };
 
 Connector.defaultProps = {

@@ -7,6 +7,7 @@ class Connector extends React.Component {
             children: propChildren,
             ...props
         } = this.props;
+        console.warn('connector props', this.props);
 
         const children = React.Children.map(propChildren, child => {
             return React.cloneElement(child, {
