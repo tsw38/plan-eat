@@ -1,1 +1,1 @@
-export { default } from 'components/recipe/addRecipe/ingredient.container';
+export { default } from 'components/recipe/addRecipe/ingredient/ingredient.container';

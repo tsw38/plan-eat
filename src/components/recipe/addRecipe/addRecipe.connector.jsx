@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import ModalConfig from 'config/ModalsConfig';
 
 import { injectModal } from 'actions/ModalActions';
+import AddIngredient from 'components/recipe/addRecipe/ingredient';
 
 class Connector extends React.Component {
     state = {
@@ -26,16 +27,28 @@ class Connector extends React.Component {
         return fileReader.readAsDataURL(file);
     }
 
+    handleSubmit = (values) => {
+        console.warn('add recipe values',values);
+        return;
+    }
+
     handleAddIngredient = (inputHelper, index) => {
         this.props.injectModal({
             modalId: ModalConfig.GLOBAL.passive.id,
             content: {
                 heading: "Add Ingredient",
-                Body: (
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum.</p>
-                )
+                Body: <AddIngredient />
             }
         });
+        try {
+            inputHelper.insert(index, '')
+        } catch (e) {
+            console.warn('this is the problem', e);
+            inputHelper.push('');
+        }
+    }
+
+    handleAddToInputArray = (inputHelper, index) => {
         try {
             inputHelper.insert(index, '')
         } catch (e) {
@@ -54,6 +67,7 @@ class Connector extends React.Component {
             return React.cloneElement(child, {
                 ...props,
                 ...this.state,
+                handleSubmit: this.handleSubmit,
                 handleImageUpload: this.handleImageUpload,
                 handleAddIngredient: this.handleAddIngredient
             });

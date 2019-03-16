@@ -15,7 +15,6 @@ export default class Input extends React.Component {
 
     renderInput = () => {
         const {
-            field: { name, onChange, onBlur },
             id,
             type,
             label,
@@ -24,6 +23,12 @@ export default class Input extends React.Component {
             form,
             ...props
         } = this.props;
+
+        const {
+            name,
+            onChange,
+            onBlur
+        } = this.props.field || {};
 
         let Field;
 
@@ -63,11 +68,16 @@ export default class Input extends React.Component {
     }
     render() {
         const {
-            field: { name },
             type,
             label,
             children
         } = this.props;
+
+        const {
+            name,
+            onBlur,
+            onChange
+        } = this.props.field || {};
 
 
         return (
