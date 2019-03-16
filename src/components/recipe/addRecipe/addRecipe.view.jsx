@@ -3,8 +3,6 @@ import {Field, FieldArray} from 'formik';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import ModalConfig from 'config/ModalsConfig';
-
 import FormConfig from 'config/forms/AddRecipe';
 
 import {suitify} from 'utils/string';
@@ -28,24 +26,6 @@ export default class AddRecipeView extends React.Component {
         return;
     }
 
-    handleAddIngredient = (inputHelper, index) => {
-        this.props.injectModal({
-            modalId: ModalConfig.GLOBAL.passive.id,
-            content: {
-                heading: "Add Ingredient",
-                Body: (
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum.</p>
-                )
-            }
-        });
-        try {
-            inputHelper.insert(index, '')
-        } catch (e) {
-            console.warn('this is the problem', e);
-            inputHelper.push('');
-        }
-    }
-
     handleAddToInputArray = (inputHelper, index) => {
         try {
             inputHelper.insert(index, '')
@@ -62,7 +42,8 @@ export default class AddRecipeView extends React.Component {
             render,
             injectModal,
             imagePreviewUrl,
-            handleImageUpload
+            handleImageUpload,
+            handleAddIngredient
         } = this.props;
 
         return (
@@ -118,7 +99,7 @@ export default class AddRecipeView extends React.Component {
                                                                 variant: 'Tertiary'
                                                             })}
                                                             type="button"
-                                                            onClick={() => this.handleAddIngredient(helpers, values.ingredients.length + 1)}>
+                                                            onClick={() => handleAddIngredient(helpers, values.ingredients.length + 1)}>
                                                             Add Ingredient
                                                         </button>
                                                     </React.Fragment>
@@ -126,7 +107,7 @@ export default class AddRecipeView extends React.Component {
                                             />
                                         </RecipeSection>
 
-                                        <p><br />servingSize, notes</p>
+                                        <p><br />servingSize</p>
 
                                         <RecipeSection
                                             listType="ol"
@@ -184,7 +165,6 @@ export default class AddRecipeView extends React.Component {
                                                                     placeholder="Add Note"
                                                                 />
                                                             </div>
-
                                                         )}
 
                                                         <button

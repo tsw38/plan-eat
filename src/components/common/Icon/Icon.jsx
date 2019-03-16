@@ -29,7 +29,7 @@ class Icon extends React.Component {
                         `Icon--${name}`,
                         className
                     )}>
-                        <Mutate selector="g" fill={amour} />
+                        <Mutate selector="g" />
                     </ReactSvgInjector>
                 </div>
                 {(/hidden/).test(className) &&
