@@ -195,11 +195,13 @@ export default createGlobalStyle`
         background: ${lighten(0.25, colors.casandora)};
         position: fixed;
         bottom: ${sizing.spacingxs};
-        left: ${sizing.spacingxs};
+        right: ${sizing.spacingxs};
         z-index: 99999;
         opacity: 0.90;
         user-select: none;
-        pointer-events: none;
+        max-height: 100vh;
+        overflow: scroll;
+        max-width: 25vw;
     }
 `;
 

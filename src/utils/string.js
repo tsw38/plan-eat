@@ -10,5 +10,7 @@ export const suitify = ({
     variant,
     state
 }) => {
-    return `${parent}${child ? ` ${parent}-${child}` : ``}${variant ? ` ${parent}--${variant.replace(/\s/g, '-')}` : ``}${state ? ` ${parent}_${state}` : ``}`;
+    const parentClass = parent.split(' ').join('--');
+
+    return `${parentClass}${child ? ` ${parentClass}-${child}` : ``}${variant ? ` ${parentClass}--${variant.replace(/\s/g, '-')}` : ``}${state ? ` ${parent}_${state}` : ``}`;
 }

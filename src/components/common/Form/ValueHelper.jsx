@@ -4,7 +4,9 @@ export default ({form, values}) => {
 	return Object.keys(values).length > 0 && (
 		<pre
 			className="Form--Helper">
-			{JSON.stringify(values, 0, 4)}
+			<div className="wrapper">
+                {JSON.stringify(values, 0, 4)}
+            </div>
 		</pre>
 	)
 }

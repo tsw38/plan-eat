@@ -20,6 +20,7 @@ export const AddRecipe = styled(StyledRecipe)`
             grid-gap: ${sizing.spacingmd};
             grid-template-columns: calc(50% - ${sizing.spacingxs}) auto;
         }
+
         form {
             padding: 0;
             border: none;
@@ -48,6 +49,13 @@ export const AddRecipe = styled(StyledRecipe)`
 
         .Recipe--Section {
             border-bottom: none;
+
+            &--List--item {
+                display: grid;
+                width: 100%;
+                grid-template-columns: auto 1fr;
+                grid-gap: 0.5rem;
+            }
         }
 
         .Recipe--Image {
@@ -69,6 +77,23 @@ export const AddRecipe = styled(StyledRecipe)`
                 background-size:cover;
                 background-position:center center;
                 background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .Input--Textarea {
+        textarea {
+            box-shadow: none;
+            border: none;
+            font-size: 1rem;
+            padding: 0;
+            line-height: 1;
+            color: ${colors.fuelTown};
+
+            :hover,
+            :focus {
+                box-shadow: none;
+                background-color: ${lighten(0.05, colors.blackSqueeze)};
             }
         }
     }

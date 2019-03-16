@@ -51,10 +51,12 @@ export default class Input extends React.Component {
                     className={className}
                     {...props}
                     placeholder={props.placeholder || label}
-                />
-                {this.isRadioButton() &&
+                >
+                    {children}
+                </Field>
+                {this.isRadioButton() && (
                     <span className="Radio--Button"></span>
-                }
+                )}
             </React.Fragment>
 
         )

@@ -161,6 +161,7 @@ class AddIngredientForm extends React.Component {
                                     value={values.measurement || ''}
                                     name="measurement">
                                     <React.Fragment>
+                                        <option value="">Select a measurement</option>
                                         {this.state[this.state.measurement].map((scale, i) => {
                                             return (
                                                 <option

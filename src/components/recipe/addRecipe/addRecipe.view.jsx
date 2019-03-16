@@ -3,6 +3,8 @@ import {Field, FieldArray} from 'formik';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import ModalConfig from 'config/ModalsConfig';
+
 import FormConfig from 'config/forms/AddRecipe';
 
 import {suitify} from 'utils/string';
@@ -21,27 +23,21 @@ export default class AddRecipeView extends React.Component {
         imagePreviewUrl: ''
     }
 
-    handleImageUpload = (e, fieldSetter, fieldName) => {
-        const fileReader = new FileReader();
-        let file = e.target.files[0];
-
-        fileReader.onload = (e) => {
-            this.setState({
-                file: file,
-                imagePreviewUrl: fileReader.result
-            });
-            fieldSetter(fieldName, file, false);
-        }
-
-        return fileReader.readAsDataURL(file);
-    }
-
     handleSubmit = (values) => {
         console.warn('thesearrethevalues',values);
         return;
     }
 
     handleAddIngredient = (inputHelper, index) => {
+        this.props.injectModal({
+            modalId: ModalConfig.GLOBAL.passive.id,
+            content: {
+                heading: "Add Ingredient",
+                Body: (
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id accumsan augue. Phasellus consequat augue vitae tellus tincidunt posuere. Curabitur justo urna, consectetur vel elit iaculis, ultrices condimentum risus. Nulla facilisi. Etiam venenatis molestie tellus. Quisque consectetur non risus eu rutrum.</p>
+                )
+            }
+        });
         try {
             inputHelper.insert(index, '')
         } catch (e) {
@@ -50,7 +46,7 @@ export default class AddRecipeView extends React.Component {
         }
     }
 
-    handleAddDirection = (inputHelper, index) => {
+    handleAddToInputArray = (inputHelper, index) => {
         try {
             inputHelper.insert(index, '')
         } catch (e) {
@@ -63,7 +59,10 @@ export default class AddRecipeView extends React.Component {
 
     render() {
         const {
-            render
+            render,
+            injectModal,
+            imagePreviewUrl,
+            handleImageUpload
         } = this.props;
 
         return (
@@ -119,7 +118,7 @@ export default class AddRecipeView extends React.Component {
                                                                 variant: 'Tertiary'
                                                             })}
                                                             type="button"
-                                                            onClick={() => this.handleAddDirection(helpers, values.directions.length + 1)}>
+                                                            onClick={() => this.handleAddIngredient(helpers, values.ingredients.length + 1)}>
                                                             Add Ingredient
                                                         </button>
                                                     </React.Fragment>
@@ -127,7 +126,7 @@ export default class AddRecipeView extends React.Component {
                                             />
                                         </RecipeSection>
 
-                                        <p><br />servingSize, direction, notes</p>
+                                        <p><br />servingSize, notes</p>
 
                                         <RecipeSection
                                             listType="ol"
@@ -138,22 +137,61 @@ export default class AddRecipeView extends React.Component {
                                                     <React.Fragment>
                                                         {values.directions &&
                                                             values.directions.map((ingredient, index) =>
-                                                            <Field
-                                                                type="textarea"
-                                                                resize="vertical"
-                                                                key={`Directions-${index}`}
-                                                                name={`directions.${index}`}
-                                                                value={values.directions[index] || ''}
-                                                                component={Input}
-                                                                placeholder="Add Direction"
-                                                            />
+                                                            <div className={'Recipe--Section--List--item'}
+                                                                key={`Directions-${index}`}>
+                                                                <span>{index+1}</span>
+                                                                <Field
+                                                                    type="textarea"
+                                                                    resize="vertical"
+                                                                    name={`directions.${index}`}
+                                                                    value={values.directions[index] || ''}
+                                                                    component={Input}
+                                                                    placeholder="Add Direction"
+                                                                />
+                                                            </div>
+
                                                         )}
 
                                                         <button
                                                             className="Button Button--Primary"
                                                             type="button"
-                                                            onClick={() => this.handleAddDirection(helpers, values.directions.length + 1)}>
+                                                            onClick={() => this.handleAddToInputArray(helpers, values.directions.length + 1)}>
                                                             Add Direction
+                                                        </button>
+                                                    </React.Fragment>
+                                                }
+                                            />
+                                        </RecipeSection>
+
+                                        <RecipeSection
+                                            listType="ol"
+                                            sectionTitle="Notes">
+                                            <FieldArray
+                                                name="notes"
+                                                render={helpers => values.notes &&
+                                                    <React.Fragment>
+                                                        {values.notes &&
+                                                            values.notes.map((ingredient, index) =>
+                                                            <div className={'Recipe--Section--List--item'}
+                                                                key={`Notes-${index}`}>
+                                                                <span>{index+1}</span>
+                                                                <Field
+                                                                    type="textarea"
+                                                                    resize="vertical"
+                                                                    name={`notes.${index}`}
+                                                                    value={values.notes[index] || ''}
+                                                                    component={Input}
+                                                                    placeholder="Add Note"
+                                                                />
+                                                            </div>
+
+                                                        )}
+
+                                                        <button
+                                                            className="Button Button--Primary"
+                                                            type="button"
+                                                            onClick={() => this.handleAddToInputArray(helpers, values.directions.length + 1)}>
+                                                            Add Note
                                                         </button>
                                                     </React.Fragment>
                                                 }
@@ -165,13 +203,16 @@ export default class AddRecipeView extends React.Component {
                                         <div className="Recipe--Image">
                                             <div
                                                 className="forcedLayout"
-                                                style={{backgroundImage: `url("${this.state.imagePreviewUrl}")`}}
+                                                style={{
+                                                    backgroundImage: `url("${imagePreviewUrl}")`,
+                                                    backgroundColor: ''
+                                                }}
                                                 >
                                                 <Field
                                                     type="file"
                                                     name="file"
                                                     component={Input}
-                                                    onChange={(e) => this.handleImageUpload(e, form.setFieldValue, "file")}
+                                                    onChange={(e) => handleImageUpload(e, form.setFieldValue, "file")}
                                                 />
                                             </div>
                                         </div>
@@ -201,12 +242,3 @@ export default class AddRecipeView extends React.Component {
         );
     }
 }
-
-
-//     <Field
-//     type="text"
-//     name="recipeName"
-//     value={values.recipeName || ''}
-//     component={Input}
-//     placeholder="Add Recipe"
-// />
