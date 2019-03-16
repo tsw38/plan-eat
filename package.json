@@ -62,7 +62,7 @@
     "yup": "^0.26.10"
   },
   "scripts": {
-    "development": "webpack --open --config webpack.dev.config.js -d --watch",
+    "develop": "webpack --open --config webpack.dev.config.js -d --watch",
     "server": "gulp server",
     "production": "webpack --config ./config/webpack.config.js --mode production"
   },
