@@ -1,15 +1,13 @@
 import styled from 'styled-components';
-import {elevate} from 'styles/mixins/index';
+import {elevate, transition} from 'styles/mixins/index';
 
-import {spacing2xs, spacingxs, spacingmd, spacinglg, layoutxs} from 'styles/sizing';
+import {spacing2xs, spacingxs, spacingmd, layoutxs} from 'styles/sizing';
 
-import {fuelTown, blueFrance, ballerina} from 'styles/colors';
+import {fuelTown, blueFrance} from 'styles/colors';
 
-import {border, fontBold} from 'styles/variables';
+import {border} from 'styles/variables';
 
 import {lighten} from 'polished';
-
-import {transition} from 'styles/mixins/index';
 
 
 export const Sidebar = styled.aside`
@@ -19,26 +17,20 @@ export const Sidebar = styled.aside`
     width: 100%;
     padding-bottom: 1.5rem;
     overflow-y: auto;
+    margin-top: 3rem;
+    position:relative;
+    left: 0;
+    ${transition()}
     ${elevate('Raised')}
-
-    .Link--Sitename {
-        font-size: ${spacinglg};
-        font-family: 'Domine';
-        font-weight: ${fontBold};
-        display: block;
-        line-height: 3rem;
-        width: 100%;
-        text-align: center;
-        ${transition()}
-
-        :hover {
-            background-color:${ballerina};
-            color: white;
-        }
-    }
 
     .Link {
         font-weight: normal;
+    }
+
+    &.Sidebar {
+        &--Hidden {
+            left: -12rem;
+        }
     }
 `;
 

@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import { toggleModal } from 'actions/ModalActions';
 import { addIngredient } from 'actions/RecipeActions';
 
+import FormConfig from 'config/forms/AddIngredient';
 import {AddIngredientsValidator} from 'utils/validators';
 
 import Button from 'components/common/button';
@@ -58,22 +59,9 @@ class AddIngredientForm extends React.Component {
                 onSubmit={(values) => this.handleSubmit(values)}
                 validators={AddIngredientsValidator}
                 onComplete={() => {console.warn('on complete')}}
-                initialValues={{
-                    name: '',
-                    servingSize: '',
-                    scaleType: '',
-                    calories: '',
-                    fat: '',
-                    cholesterol: '',
-                    sodium: '',
-                    carbs: '',
-                    dietaryFiber: '',
-                    sugar: '',
-                    protein: ''
-                }}
+                initialValues={FormConfig.INITIAL_VALUES}
                 render={{
                     ...render,
-                    // error: user.error,
                     buttons: (
                         <div className="ButtonWrapper">
                             <Button

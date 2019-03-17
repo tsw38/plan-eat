@@ -1,6 +1,6 @@
 
 import styled from 'styled-components';
-import {transition, colorButtons} from 'styles/mixins/index';
+import {colorButtons} from 'styles/mixins/index';
 
 import * as colors from 'styles/colors';
 

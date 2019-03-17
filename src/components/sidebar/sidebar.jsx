@@ -1,20 +1,29 @@
 import React from "react";
-
+import classNames from 'classnames';
 import Link from "components/common/Link/Link";
 
-import {Sidebar as StyledSidebar, LinkWrapper, StyledLink} from "styles/components/Sidebar";
+import {Sidebar as StyledSidebar, LinkWrapper, StyledLink} from "components/sidebar/sidebar.styles";
 
 class Sidebar extends React.Component {
+    hideSidebar = () => {
+        const {
+            location
+        } = this.props;
+
+        switch (location.pathname){
+            case '/signin':
+                return true;
+            default:
+                return false;
+        }
+    }
+
     render() {
         return (
-            <StyledSidebar>
-                <Link
-                    universal={false}
-                    className="Link--Sitename"
-                    to="/">
-                    Plan.Eat
-                </Link>
-
+            <StyledSidebar className={classNames(
+                'Sidebar',
+                {'Sidebar--Hidden': this.hideSidebar()}
+            )}>
                 <LinkWrapper>
                     <h2 className="Sidebar--header">Dashboard</h2>
                     <StyledLink>

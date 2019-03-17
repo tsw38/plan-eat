@@ -15,6 +15,7 @@ import Sidebar from "components/sidebar/sidebar";
 
 //Views for each route
 import AddRecipe from 'components/recipe/addRecipe';
+import AddIngredient from 'components/addIngredient';
 
 
 import Inbox from 'components/inbox/inbox.view';
@@ -28,7 +29,6 @@ import Account from 'components/user/settings/userSettings.view';
 import MealPrep from 'components/mealPrep/mealPrep.view';
 import StyleGuide from 'components/styleGuide/styleGuide.view';
 import ShoppingCart from 'components/shoppingCart/shoppingCart.view';
-import AddIngredient from 'components/addIngredient/addIngredient.view';
 
 //Global Styling
 import GlobalStyles from 'components/common/GlobalStyles/GlobalStyles';
@@ -64,29 +64,32 @@ class App extends React.Component {
                             {name: "viewport", content: "width=device-width, initial-scale=1,minimum-scale=1"}
                         ]}
                     />
-                    <Header />
-                    <Sidebar />
+
                     <Location>
                         {(props) => {
                             return (
-                                <StyledRouter location={props.location}>
-                                    <Page path="/">
-                                        <Overview path="/" />
-                                        <MealPrep path="/meal-prep"/>
+                                <React.Fragment>
+                                    <Header />
+                                    <Sidebar location={props.location} />
+                                    <StyledRouter location={props.location}>
+                                        <Page path="/">
+                                            <Overview path="/" />
+                                            <MealPrep path="/meal-prep"/>
 
-                                        <Recipes path="/recipes"/>
-                                        <Recipe path="/recipe/:recipe"/>
-                                        <AddRecipe path="/add-recipe" />
+                                            <Recipes path="/recipes"/>
+                                            <Recipe path="/recipe/:recipe"/>
+                                            <AddRecipe path="/add-recipe" />
 
-                                        <ShoppingCart path="/cart"/>
-                                        <Inbox path="/inbox" />
-                                        <StyleGuide path="/style-guide" />
-                                        <Signin path="/signin" />
-                                        <AddIngredient path="/add-ingredient" />
-                                        <Account path="/account" />
-                                        <NotFound default />
-                                    </Page>
-                                </StyledRouter>
+                                            <ShoppingCart path="/cart"/>
+                                            <Inbox path="/inbox" />
+                                            <StyleGuide path="/style-guide" />
+                                            <Signin path="/signin" />
+                                            <AddIngredient path="/add-ingredient" />
+                                            <Account path="/account" />
+                                            <NotFound default />
+                                        </Page>
+                                    </StyledRouter>
+                                </React.Fragment>
                             )
                         }}
                     </Location>

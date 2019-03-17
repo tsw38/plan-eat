@@ -16,7 +16,7 @@ export default createGlobalStyle`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: ${transparentize(0.40, colors.stormPetrel)};
+        background-color: ${transparentize(0.25, colors.stormPetrel)};
         ${elevate('Overlay')}
     }
 `;

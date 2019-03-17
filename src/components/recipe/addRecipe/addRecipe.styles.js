@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import {transition, colorButtons} from 'styles/mixins/index';
-import {darken, lighten, parseToHsl, rgbToColorString} from 'polished';
+import {transition} from 'styles/mixins/index';
+import {darken, lighten} from 'polished';
 
 import * as sizing from 'styles/sizing';
 import * as colors from 'styles/colors';

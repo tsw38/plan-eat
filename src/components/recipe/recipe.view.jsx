@@ -4,13 +4,13 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {convertUnit} from 'utils/convert';
 
-import { getRecipe, getIngredients } from 'actions/RecipeActions';
+import { getRecipe, getIngredients, getTags } from 'actions/RecipeActions';
 
 import Button from 'components/common/button';
+import Link from "components/common/Link/Link";
 import Row from 'components/common/Layout/Row';
 import Column from 'components/common/Layout/Column';
 import Timing from 'components/recipe/time/time.container';
-
 
 import RecipeHeader from 'components/recipe/header/header.container';
 import RecipeSection from 'components/recipe/section/section.container';
@@ -28,14 +28,16 @@ class Recipe extends React.Component {
     componentDidMount() {
         const {
             recipes,
+            getTags,
             getRecipe,
             getIngredients,
+            tags: tagsReducer,
             recipe: recipeSlug,
             ingredients: ingredientsReducer
         } = this.props;
 
         if(!recipes.recipe[recipeSlug]) {
-            getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize, slug}) => {
+            getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize, slug, tags, ...rest}) => {
                 this.setState({
                     servingSize,
                     recipeFound: !!slug
@@ -43,6 +45,9 @@ class Recipe extends React.Component {
 
                 const pendingIngredients = !!ingredients && ingredients.filter(({id}) => !ingredientsReducer[id])
                 getIngredients(pendingIngredients);
+
+                const pendingTags = !!tags && tags.filter((id) => !tagsReducer[id])
+                getTags(pendingTags);
             })
         }
     }
@@ -88,7 +93,7 @@ class Recipe extends React.Component {
             return (<div>RECIPE NOT FOUND</div>)
         }
 
-        const { thisRecipe,ingredients } = this.props;
+        const { thisRecipe,ingredients,tags } = this.props;
         const {servingSize}              = this.state;
         const scaledIngredients          = this.convertIngredients();
 
@@ -213,88 +218,14 @@ class Recipe extends React.Component {
 
                     <div className="Recipe--Tags">
                         <h3 className="Recipe--Section--Title">Tags</h3>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'nasaPurple'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'jadeDust'}>
-                            Tag1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'amour'}>
-                            Taaw dawd awd awd g1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Tagawd awd awd awd awd 1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'blueFrance'}>
-                            Tagwd awd awd 1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            Tagawdawdawdawdawdawdawdawd awd awd a1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'casandora'}>
-                            Taawdawdawd1
-                        </Button>
-                        <Button
-                            className="Button--Primary Button--Small Tag"
-                            editable={false}
-                            colorName={'carribean'}>
-                            awdawdawdawdawd
-                        </Button>
-
-                                <br />
-                        <div className={classNames(
-                            'Tag',
-                            `Tag--jadeDust`
-                        )}>
-                            .Tag.Tag--jadeDust
-                        </div>
-
-                        <div className={classNames(
-                            'Tag',
-                            `Tag--casandora`
-                        )}>
-                            .Tag.Tag--casandora
-                        </div>
-                        <div className={classNames(
-                            'Tag',
-                            `Tag--lotusPink`
-                        )}>
-                            .Tag.Tag--lotusPink
-                        </div>
-
-                        <div className={classNames(
-                            'Tag',
-                            `Tag--nasaPurple`
-                        )}>
-                            .Tag.Tag--nasaPurple
-                        </div>
+                        {!!Object.keys(tags) && Object.keys(tags).map(tagId =>
+                            <Link
+                                key={tagId}
+                                className="Button Button--Primary Button--Small Button--nasaPurple Tag"
+                                to={`#/tag/${tagId}`}>
+                                {tags[tagId]}
+                            </Link>
+                        )}
                     </div>
                 </Column>
             </StyledRecipe>
@@ -302,7 +233,8 @@ class Recipe extends React.Component {
     }
 }
 
-const mapStateToProps = ({recipes, user, ingredients}, props) => ({
+const mapStateToProps = ({recipes, user, ingredients, tags}, props) => ({
+    tags,
     recipes,
     network: user.network,
     thisRecipe: recipes.recipe[props.recipe],
@@ -310,6 +242,7 @@ const mapStateToProps = ({recipes, user, ingredients}, props) => ({
 });
 
 const mapDispatchToProps = {
+    getTags,
     getRecipe,
     getIngredients
 };

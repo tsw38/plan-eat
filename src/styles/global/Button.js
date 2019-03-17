@@ -128,6 +128,31 @@ export default createGlobalStyle`
                 }
             }
         }
+
+        ${() => {
+            let templateLiteral = '';
+            Object.keys(colors).forEach(colorName => {
+                const standardColor = colorButtons(colors[colorName]);
+                const hoverColor = colorButtons(colors[colorName], true);
+
+                templateLiteral += `
+                    &--${colorName} {
+                        color: ${standardColor.color};
+                        border-color: ${standardColor.borderColor};
+                        background-color: ${standardColor.backgroundColor};
+                        fill: ${standardColor.fill};
+
+                        &:hover {
+                            color: ${hoverColor.color};
+                            border-color: ${hoverColor.borderColor};
+                            background-color: ${hoverColor.backgroundColor};
+                            fill: ${hoverColor.fill};
+                        }
+                    }
+                `;
+            });
+            return templateLiteral;
+        }}
     }
 
     .Button--Header {
@@ -147,8 +172,6 @@ export default createGlobalStyle`
 
     .Button.Tag {
         padding: 0 ${sizing.spacingmd};
-
-
 
         &--Caution {
             ${colorButtons(colors.casandora)}

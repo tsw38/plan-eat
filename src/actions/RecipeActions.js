@@ -209,3 +209,45 @@ export const addIngredient = ({name, scaleType, measurement, servingSize, ...mac
         return addIngredient;
     })
 }
+
+
+
+
+export const getTags = (idArr) => (dispatch, getState, api) => {
+    dispatch({
+        type: RC.TAGS_PENDING
+    })
+
+    return Promise.all(idArr.map(((id) =>
+        api({
+            query: `
+                query getTag($id: ID!) {
+                    tag(id: $id) {
+                        id,
+                        name
+                    }
+                }
+            `,
+            variables: {id}
+        })
+    ))).then((data) => {
+        const consolidated = data && data.reduce((temp, {data}) => ({
+            ...temp,
+            [data.data.tag.id]: data.data.tag.name
+        }), {});
+
+        if(!Object.keys(consolidated).length) {
+            dispatch({
+                type: RC.TAGS_ERROR,
+                payload: 'no tags?'
+            })
+        } else {
+            dispatch({
+                type: RC.TAGS_FETCHED,
+                payload: consolidated
+            })
+        }
+
+        return consolidated;
+    })
+}

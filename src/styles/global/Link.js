@@ -30,5 +30,9 @@ export default createGlobalStyle`
         &--Ghost {
             text-decoration: none;
         }
+
+        &.Button {
+            text-decoration: none;
+        }
     }
 `;
