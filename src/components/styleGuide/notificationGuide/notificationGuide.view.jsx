@@ -14,7 +14,6 @@ export default () => {
                 <h2>Inline</h2>
                 <p>Inline Notifications are persistent until the user dismisses them</p>
                 <TabsComponent
-                    defaultIndex={1}
                     panels={[
                         {
                             name: 'Light',
@@ -32,7 +31,6 @@ export default () => {
                 <h2>Toast</h2>
                 <p>Toast Notifications automatically disappear after five seconds</p>
                 <TabsComponent
-                    defaultIndex={1}
                     panels={[
                         {
                             name: 'Light',
