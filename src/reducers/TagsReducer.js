@@ -1,3 +1,5 @@
+
+import {combineReducers} from 'redux';
 import {RecipeConstants as RC} from 'constants/index';
 
 const tags = (state = {}, action) => {
@@ -13,4 +15,19 @@ const tags = (state = {}, action) => {
     }
 }
 
-export default tags;
+const grocerSection = (state=[], action) => {
+    switch (action.type) {
+        case RC.TAGS_FETCHED:
+            return [
+                ...state,
+                ...action.payload.filter(tag => tag.isGrocerSection)
+            ];
+        default:
+            return state
+    }
+}
+
+export default combineReducers({
+    tags,
+    grocerSection
+});

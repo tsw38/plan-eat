@@ -5,7 +5,7 @@ import convert from 'convert-units';
 import {connect} from 'react-redux';
 
 import { toggleModal } from 'actions/ModalActions';
-import { addIngredient } from 'actions/RecipeActions';
+import { addIngredient, getGrocerList } from 'actions/RecipeActions';
 
 import FormConfig from 'config/forms/AddIngredient';
 import {AddIngredientsValidator} from 'utils/validators';
@@ -23,7 +23,7 @@ class AddIngredientForm extends React.Component {
     }
 
     componentDidMount() {
-
+        this.props.getGrocerList();
     }
 
     handleMeasurementChange = (e) => {
@@ -48,8 +48,11 @@ class AddIngredientForm extends React.Component {
         const {
             render,
             addIngredient,
-            toggleModal
+            toggleModal,
+            grocerSection
         } = this.props;
+
+        console.warn(grocerSection);
 
         return (
             <FormGeneric
@@ -97,27 +100,24 @@ class AddIngredientForm extends React.Component {
                                     label="Serving Size"
                                 />
 
-                                {/* <FieldSet
-                                    id="systemType"
-                                    label="Metric or Imperial"
-                                    value={values.systemType}
-                                    error={errors.systemType}
-                                    touched={touched.systemType}>
-                                    <Field
-                                        type="radio"
-                                        name="systemType"
-                                        component={Input}
-                                        label="Metric"
-                                        id="systemType-true"
-                                    />
-                                    <Field
-                                        type="radio"
-                                        name="systemType"
-                                        component={Input}
-                                        label="Imperial"
-                                        id="systemType-false"
-                                    />
-                                </FieldSet> */}
+                                <Field
+                                    component={Input}
+                                    type="select"
+                                    label="Grocery Section"
+                                    value={values.grocerSection || ''}
+                                    name="grocerSection">
+                                    <React.Fragment>
+                                        <option value="">Select a Grocery Section</option>
+                                        {grocerSection && grocerSection.map((tag, i) => {
+                                            return (
+                                                <option
+                                                    value={tag.id}
+                                                    key={`tag-${i}`}
+                                                >{tag.name}</option>
+                                            );
+                                        })}
+                                    </React.Fragment>
+                                </Field>
 
                                 <FieldSet
                                     id="scaleType"
@@ -242,18 +242,21 @@ AddIngredientForm.propTypes = {
     user: PropTypes.object,
     signIn: PropTypes.func,
     render: PropTypes.object,
-    toggleModal: PropTypes.func
+    toggleModal: PropTypes.func,
+    getGrocerList: PropTypes.func
 }
 
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        user: state.user.account
+        user: state.user.account,
+        grocerSection: state.tags.grocerSection
     }
 }
 
 const mapDispatchToProps = {
     addIngredient,
+    getGrocerList,
     toggleModal
 }
 

@@ -251,3 +251,38 @@ export const getTags = (idArr) => (dispatch, getState, api) => {
         return consolidated;
     })
 }
+
+
+
+export const getGrocerList = () => (dispatch, getState, api) => {
+    dispatch({
+        type: RC.TAGS_PENDING
+    })
+
+    return api({
+        query: `
+            query getTags {
+                tags(isGrocerSection: true) {
+                    id,
+                    name,
+                    isGrocerSection
+                }
+
+            }
+        `,
+    }).then(({data}) => {
+        if(!data.data.tags.length) {
+            dispatch({
+                type: RC.TAGS_ERROR,
+                payload: 'no tags?'
+            })
+        } else {
+            dispatch({
+                type: RC.TAGS_FETCHED,
+                payload: data.data.tags
+            })
+        }
+
+        return data.data.tags;
+    })
+}

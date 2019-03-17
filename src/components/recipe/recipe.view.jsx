@@ -247,7 +247,7 @@ class Recipe extends React.Component {
 }
 
 const mapStateToProps = ({recipes, user, ingredients, tags}, props) => ({
-    tags,
+    tags: tags.tags,
     recipes,
     seedString: user.uid || '',
     network: user.network,
