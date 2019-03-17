@@ -13,6 +13,8 @@ import { StyledOverview } from 'styles/views/Overview';
 
 class Overview extends React.Component {
     render() {
+        const {uid} = this.props.user;
+
         return (
             <StyledOverview
                 className="Overview">

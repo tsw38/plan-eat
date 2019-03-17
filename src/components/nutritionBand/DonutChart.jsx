@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import DonutChart from "react-svg-donut-chart"
 
-import * as colors from 'styles/colors';
+import {monochromes} from 'styles/colors';
 
 import { StyledDonutChart } from 'styles/components/containers/NutritionBand/DonutChart';
 
@@ -19,8 +19,8 @@ class NutritionDonutChart extends React.Component {
         return (
             <StyledDonutChart className="DonutChart">
                 <DonutChart data={[
-                    { value: data.totalCalories - data.totalEaten, stroke: colors.ballerina, strokeWidth: 2 },
-                    { value: data.totalEaten, stroke: colors.stormPetrel, strokeWidth: 3 },
+                    { value: data.totalCalories - data.totalEaten, stroke: monochromes.ballerina, strokeWidth: 2 },
+                    { value: data.totalEaten, stroke: monochromes.stormPetrel, strokeWidth: 3 },
                 ]} />
                 <h2 className="DonutChart--Name">{name}</h2>
             </StyledDonutChart>

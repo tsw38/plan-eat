@@ -8,7 +8,8 @@ import { getUserById } from 'actions/AccountActions';
 import Row from 'components/common/Layout/Row';
 import Link from "components/common/Link/Link";
 
-import * as colors from 'styles/colors';
+import {monochromes} from 'styles/colors';
+
 import * as spacing from 'styles/sizing';
 
 import { RecipeHeader as Header } from 'components/recipe/recipe.styles';
@@ -60,9 +61,9 @@ class RecipeHeader extends React.Component {
                         <div className="Recipe--Rating">
                             <StarRatings
                                 rating={calculation}
-                                starRatedColor={colors.imperialPrimer}
-                                starEmptyColor={colors.ballerina}
-                                starHoverColor={colors.imperialPrimer}
+                                starRatedColor={monochromes.imperialPrimer}
+                                starEmptyColor={monochromes.ballerina}
+                                starHoverColor={monochromes.imperialPrimer}
                                 starDimension={spacing.spacing2lg}
                                 starSpacing={spacing.spacing2xs}
                                 changeRating={this.handleChangeRating}

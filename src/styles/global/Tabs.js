@@ -1,11 +1,12 @@
-
 import { createGlobalStyle } from 'styled-components';
-import {transition, colorButtons} from 'styles/mixins/index';
-import { darken, lighten } from 'polished';
 
-import * as colors from 'styles/colors';
+import { darken } from 'polished';
+
 import * as sizing from 'styles/sizing';
 import * as variables from 'styles/variables';
+
+import {polychromes} from 'styles/colors';
+
 
 export default createGlobalStyle`
     .Tabs {
@@ -21,17 +22,17 @@ export default createGlobalStyle`
                 margin:0 3rem 1rem 0;
 
                 &.react-tabs__tab--selected {
-                    border-bottom: 2px solid ${darken(0.2, colors.blueFrance)};
+                    border-bottom: 2px solid ${darken(0.2, polychromes.blueFrance)};
                 }
 
                 &:focus {
-                    outline: 1px solid ${colors.blueFrance};
+                    outline: 1px solid ${polychromes.blueFrance};
                 }
             }
 
             span {
                 :hover {
-                    color: ${colors.blueFrance};
+                    color: ${polychromes.blueFrance};
                 }
             }
         }

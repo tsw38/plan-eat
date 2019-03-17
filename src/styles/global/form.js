@@ -2,11 +2,15 @@ import {createGlobalStyle} from 'styled-components';
 import {darken,lighten} from 'polished';
 
 import {elevate, transition} from 'styles/mixins/index';
-import * as colors from 'styles/colors';
 import * as sizing from 'styles/sizing';
-import {border} from 'styles/variables';
+import { fontBold, fontLight, fontNormal, border } from 'styles/variables';
 
-import { fontBold, fontLight, fontNormal } from 'styles/variables';
+import {polychromes, monochromes} from 'styles/colors';
+
+const colors = {
+    ...polychromes,
+    ...monochromes
+}
 
 export default createGlobalStyle`
     .Form {

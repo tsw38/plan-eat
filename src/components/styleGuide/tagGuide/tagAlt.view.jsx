@@ -4,8 +4,12 @@ import classNames from 'classnames';
 import Row from 'components/common/Layout/Row';
 
 import {Section} from 'styles/components/Section';
+import {polychromes, monochromes} from 'styles/colors';
 
-import * as colors from 'styles/colors';
+const colors = {
+    ...polychromes,
+    ...monochromes
+}
 
 const TagsGuide = () => {
 	return (

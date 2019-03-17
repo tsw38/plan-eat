@@ -4,8 +4,13 @@ import {transition, colorButtons} from 'styles/mixins/index';
 import {darken, lighten, parseToHsl, rgbToColorString} from 'polished';
 
 import * as sizing from 'styles/sizing';
-import * as colors from 'styles/colors';
 import * as variables from 'styles/variables';
+import {polychromes, monochromes} from 'styles/colors';
+
+const colors = {
+    ...polychromes,
+    ...monochromes
+}
 
 export const StyledRecipe = styled.div`
     &.Recipe {

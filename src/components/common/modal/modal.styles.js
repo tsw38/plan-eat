@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Modal from 'react-modal';
 
 import {elevate} from 'styles/mixins/index';
-import * as colors from 'styles/colors';
+import {polychromes, monochromes} from 'styles/colors';
+
 import * as spacing from 'styles/sizing';
 
 import {fontBold, fontLight, fontNormal} from 'styles/variables';
@@ -22,20 +23,20 @@ export const StyledModal = styled(Modal)`
 
 		&--Transactional,
         &--Passive {
-			border-top: ${spacing.spacing2xs} solid ${colors.blueFrance};
+			border-top: ${spacing.spacing2xs} solid ${polychromes.blueFrance};
 		}
 
 		&--Danger,
         &--Danger-Passive {
-			border-top: ${spacing.spacing2xs} solid ${colors.amour};
+			border-top: ${spacing.spacing2xs} solid ${polychromes.amour};
 
             .Modal--Header-Close {
                 :focus {
-                    outline: 1px solid ${colors.amour};
+                    outline: 1px solid ${polychromes.amour};
                 }
 
                 :hover {
-                    background-color: ${colors.amour};
+                    background-color: ${polychromes.amour};
                 }
             }
 		}
@@ -63,7 +64,7 @@ export const StyledModal = styled(Modal)`
 				grid-template-columns: auto auto;
 				grid-gap: ${spacing.spacingmd};
 				justify-content: space-between;
-				background-color: ${colors.blackSqueeze};
+				background-color: ${monochromes.blackSqueeze};
 				${elevate('Modal')}
 
                 .ButtonWrapper {
@@ -97,7 +98,7 @@ export const StyledModal = styled(Modal)`
 			max-width: ${spacing.layoutSoBig};
 			font-size: ${spacing.spacingsm};
 			letter-spacing: 0;
-			color: ${colors.imperialPrimer};
+			color: ${monochromes.imperialPrimer};
 			font-weight: ${fontBold};
 			text-transform: uppercase;
 			margin-bottom: ${spacing.spacingxs};
@@ -106,7 +107,7 @@ export const StyledModal = styled(Modal)`
 		&-Heading {
 			font-size: ${spacing.spacing2lg};
 			font-weight: ${fontLight};
-			color: ${colors.stormPetrel};
+			color: ${monochromes.stormPetrel};
 			max-width: ${spacing.layoutSoBig};
 			line-height: 1.5;
             margin-bottom: ${spacing.spacingmd};
@@ -123,15 +124,15 @@ export const StyledModal = styled(Modal)`
 			padding: ${spacing.spacing2xs};
 
 			:focus {
-				outline: 1px solid ${colors.blueFrance};
+				outline: 1px solid ${polychromes.blueFrance};
 			}
 
             :hover {
-                background-color: ${colors.blueFrance};
+                background-color: ${polychromes.blueFrance};
                 fill: white;
 
                 .Modal--Danger & {
-                    background-color: ${colors.blueFrance};
+                    background-color: ${polychromes.blueFrance};
                 }
             }
 
@@ -160,7 +161,7 @@ export const StyledModal = styled(Modal)`
         grid-template-columns: auto auto;
         margin-top: auto;
         justify-content: flex-end;
-        background-color: #f4f7fb;
+        background-color: ${monochromes.blackSqueeze};
         margin-left: -1.5rem;
         margin-right: -1.5rem;
         padding: 2rem;

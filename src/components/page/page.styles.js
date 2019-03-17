@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import * as sizing from 'styles/sizing';
-import * as colors from 'styles/colors';
+import {monochromes} from 'styles/colors';
 
 export const Page = styled.div`
     &.Page {
@@ -20,7 +20,7 @@ export const Page = styled.div`
 
         &--Recipe,
         &--AddRecipe {
-            background-color: ${colors.blackSqueeze};
+            background-color: ${monochromes.blackSqueeze};
             padding: ${sizing.layout2xs};
         }
 

@@ -2,7 +2,12 @@
 import styled from 'styled-components';
 import {colorButtons} from 'styles/mixins/index';
 
-import * as colors from 'styles/colors';
+import {polychromes, monochromes} from 'styles/colors';
+
+const colors = {
+    ...polychromes,
+    ...monochromes
+}
 
 export const StyledButton = styled.button`
     &.Button {

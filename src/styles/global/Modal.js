@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import {transparentize} from 'polished';
 
 import {elevate} from 'styles/mixins/index';
-import * as colors from 'styles/colors';
+import {monochromes} from 'styles/colors';
+
 
 export default createGlobalStyle`
     .ReactModalPortal { }
@@ -16,7 +17,7 @@ export default createGlobalStyle`
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: ${transparentize(0.25, colors.stormPetrel)};
+        background-color: ${transparentize(0.25, monochromes.stormPetrel)};
         ${elevate('Overlay')}
     }
 `;

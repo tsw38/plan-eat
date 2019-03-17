@@ -15,14 +15,16 @@ import Timing from 'components/recipe/time/time.container';
 import RecipeHeader from 'components/recipe/header/header.container';
 import RecipeSection from 'components/recipe/section/section.container';
 
-import * as colors from 'styles/colors';
-import * as spacing from 'styles/sizing';
 import { StyledRecipe } from 'components/recipe/recipe.styles';
+
+import {polychromes} from 'styles/colors';
+import {generateSeed} from 'utils/array';
 
 class Recipe extends React.Component {
     state = {
         servingSize: 0,
-        recipeFound: undefined
+        recipeFound: undefined,
+        tagColorArr: []
     }
 
     componentDidMount() {
@@ -30,6 +32,7 @@ class Recipe extends React.Component {
             recipes,
             getTags,
             getRecipe,
+            seedString,
             getIngredients,
             tags: tagsReducer,
             recipe: recipeSlug,
@@ -48,6 +51,10 @@ class Recipe extends React.Component {
 
                 const pendingTags = !!tags && tags.filter((id) => !tagsReducer[id])
                 getTags(pendingTags);
+
+                this.setState({
+                    tagColorArr: generateSeed(seedString, Object.keys(polychromes))
+                })
             })
         }
     }
@@ -94,8 +101,8 @@ class Recipe extends React.Component {
         }
 
         const { thisRecipe,ingredients,tags } = this.props;
-        const {servingSize}              = this.state;
-        const scaledIngredients          = this.convertIngredients();
+        const {servingSize, tagColorArr}      = this.state;
+        const scaledIngredients               = this.convertIngredients();
 
         const nutrition =
             !!Object.keys(scaledIngredients).length &&
@@ -218,10 +225,16 @@ class Recipe extends React.Component {
 
                     <div className="Recipe--Tags">
                         <h3 className="Recipe--Section--Title">Tags</h3>
-                        {!!Object.keys(tags) && Object.keys(tags).map(tagId =>
+                        {!!Object.keys(tags) && Object.keys(tags).map((tagId,index) =>
                             <Link
                                 key={tagId}
-                                className="Button Button--Primary Button--Small Button--nasaPurple Tag"
+                                className={classNames(
+                                    'Button',
+                                    'Button--Primary',
+                                    'Button--Small',
+                                    {[`Button--${!!tagColorArr.length && tagColorArr[index%tagColorArr.length]}`]: !!tagColorArr.length},
+                                    'Tag'
+                                )}
                                 to={`#/tag/${tagId}`}>
                                 {tags[tagId]}
                             </Link>
@@ -236,6 +249,7 @@ class Recipe extends React.Component {
 const mapStateToProps = ({recipes, user, ingredients, tags}, props) => ({
     tags,
     recipes,
+    seedString: user.uid || '',
     network: user.network,
     thisRecipe: recipes.recipe[props.recipe],
     ingredients

@@ -5,7 +5,12 @@ import Row from 'components/common/Layout/Row';
 
 import {Section} from 'styles/components/Section';
 
-import * as colors from 'styles/colors';
+import {polychromes, monochromes} from 'styles/colors';
+
+const colors = {
+    ...polychromes,
+    ...monochromes
+}
 
 const Buttons = () => {
 	return (

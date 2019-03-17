@@ -1,11 +1,10 @@
 
 import { createGlobalStyle, keyframes } from 'styled-components';
-import {transition, colorButtons} from 'styles/mixins/index';
 import { darken, lighten, transparentize } from 'polished';
 
-import * as colors from 'styles/colors';
 import * as sizing from 'styles/sizing';
-import * as variables from 'styles/variables';
+
+import {monochromes} from 'styles/colors';
 
 const rotate = keyframes`
   from {
@@ -42,7 +41,7 @@ export default createGlobalStyle`
                 padding: 0;
                 width: auto;
                 position: relative;
-                fill: ${colors.fuelTown};
+                fill: ${monochromes.fuelTown};
 
                 * {
                     fill: inherit;
@@ -65,7 +64,7 @@ export default createGlobalStyle`
         height: 100vh;
         width: 100vw;
         display: flex;
-        background-color: ${transparentize(0.25, colors.blackSqueeze)};
+        background-color: ${transparentize(0.25, monochromes.blackSqueeze)};
         justify-content: center;
         align-items: center;
         padding: 10rem;

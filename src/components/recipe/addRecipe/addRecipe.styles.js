@@ -4,8 +4,7 @@ import {transition} from 'styles/mixins/index';
 import {darken, lighten} from 'polished';
 
 import * as sizing from 'styles/sizing';
-import * as colors from 'styles/colors';
-import * as variables from 'styles/variables';
+import {monochromes} from 'styles/colors';
 
 import { StyledRecipe } from 'components/recipe/recipe.styles';
 
@@ -42,8 +41,7 @@ export const AddRecipe = styled(StyledRecipe)`
             color: black;
 
             :hover {
-                /* border: 1px solid ${colors.stormPetrel}; */
-                background-color: ${lighten(0.05, colors.blackSqueeze)};
+                background-color: ${lighten(0.05, monochromes.blackSqueeze)};
             }
         }
 
@@ -60,12 +58,12 @@ export const AddRecipe = styled(StyledRecipe)`
 
         .Recipe--Image {
             position: relative;
-            background-color: ${colors.ballerina};
+            background-color: ${monochromes.ballerina};
             ${transition()};
 
             &:hover {
                 cursor: pointer;
-                background-color: ${darken(0.1, colors.ballerina)};
+                background-color: ${darken(0.1, monochromes.ballerina)};
             }
 
             .forcedLayout {
@@ -88,12 +86,12 @@ export const AddRecipe = styled(StyledRecipe)`
             font-size: 1rem;
             padding: 0;
             line-height: 1;
-            color: ${colors.fuelTown};
+            color: ${monochromes.fuelTown};
 
             :hover,
             :focus {
                 box-shadow: none;
-                background-color: ${lighten(0.05, colors.blackSqueeze)};
+                background-color: ${lighten(0.05, monochromes.blackSqueeze)};
             }
         }
     }

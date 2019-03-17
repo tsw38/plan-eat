@@ -3,9 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 import {elevate} from 'styles/mixins/index';
 import { lighten, transparentize } from 'polished';
 
-import * as colors from 'styles/colors';
+import {polychromes, monochromes} from 'styles/colors';
 import * as sizing from 'styles/sizing';
 import * as variables from 'styles/variables';
+
+
+const colors = {
+    ...polychromes,
+    ...monochromes
+}
 
 export default createGlobalStyle`
     .Notification {

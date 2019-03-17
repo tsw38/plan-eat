@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
 import {elevate} from 'styles/mixins/index';
-import * as colors from 'styles/colors';
 import * as space from 'styles/sizing';
-import {border} from 'styles/variables';
-import {lighten} from 'polished';
 
-import { fontBold, fontLight } from 'styles/variables';
+import {monochromes} from 'styles/colors';
 
 export const CalendarBand = styled.div`
     height:  ${space.spacingxl};
     width: 100%;
-    background-color: ${colors.ballerina};
+    background-color: ${monochromes.ballerina};
     display: grid;
     grid-template-columns: ${space.spacingxl} auto ${space.spacingxl};
     ${elevate('Raised')}
