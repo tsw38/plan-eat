@@ -1,7 +1,7 @@
 
 import { createGlobalStyle } from 'styled-components';
 import {elevate} from 'styles/mixins/index';
-import { lighten } from 'polished';
+import { lighten, transparentize } from 'polished';
 
 import * as colors from 'styles/colors';
 import * as sizing from 'styles/sizing';
@@ -50,6 +50,12 @@ export default createGlobalStyle`
         }
     }
 
+    .Notification--dark {
+        background-color: ${colors.imperialPrimer};
+        color: ${colors.blackSqueeze};
+    }
+
+
     .Notification--Wrapper {
         display: grid;
         grid-template-areas: 'icon header close' 'icon body close';
@@ -67,6 +73,10 @@ export default createGlobalStyle`
             grid-area: close;
             cursor: pointer;
             fill: ${colors.fuelTown};
+
+            .Notification--dark & {
+                fill: ${colors.blackSqueeze};
+            }
         }
 
         .Icon--Wrapper {
@@ -88,6 +98,10 @@ export default createGlobalStyle`
             color: ${colors.imperialPrimer};
             font-weight: ${variables.fontBold};
             margin-right: ${sizing.spacing2xs};
+
+            .Notification--dark & {
+                color: ${transparentize(0.5, colors.blackSqueeze)};
+            }
         }
     }
 

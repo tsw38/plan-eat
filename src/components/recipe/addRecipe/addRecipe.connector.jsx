@@ -89,7 +89,8 @@ class Connector extends React.Component {
                 ...this.state,
                 handleSubmit: this.handleSubmit,
                 handleImageUpload: this.handleImageUpload,
-                handleAddIngredient: this.handleAddIngredient
+                handleAddIngredient: this.handleAddIngredient,
+                handleAddToInputArray: this.handleAddToInputArray
             });
         });
 

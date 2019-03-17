@@ -16,27 +16,26 @@ import { AddRecipe } from 'components/recipe/addRecipe/addRecipe.styles';
 
 export default ({
     render,
-    injectModal,
+    onFormError,
+    onFormSubmit,
     handleSubmit,
+    onFormComplete,
     imagePreviewUrl,
     handleImageUpload,
-    handleAddIngredient
+    handleAddIngredient,
+    handleAddToInputArray
 }) => {
     return (
-        <AddRecipe className={classNames(
-            'Recipe',
-            'Recipe--Add'
-            )}>
+        <AddRecipe className={classNames(suitify({parent: 'Recipe', variant: 'Add'}))}>
             <FormGeneric
                 id={FormConfig.id}
                 title={render && render.title && FormConfig.title}
-                onError={() => {console.warn('on error')}}
-                onSubmit={(values) => handleSubmit(values)}
-                onComplete={() => {console.warn('on complete')}}
+                onError={onFormError}
+                onSubmit={onFormSubmit}
+                onComplete={onFormComplete}
                 initialValues={FormConfig.INITIAL_VALUES}
                 render={{
                     ...render,
-                    // error: user.error,
                     form: ({values, errors, touched, ...form}) => {
                         return (
                             <React.Fragment>
@@ -83,7 +82,7 @@ export default ({
                                         />
                                     </RecipeSection>
 
-                                    <p><br />servingSize</p>
+                                    {/* //TODO: Add Serving Size */}
 
                                     <RecipeSection
                                         listType="ol"
@@ -112,7 +111,7 @@ export default ({
                                                     <button
                                                         className="Button Button--Primary"
                                                         type="button"
-                                                        onClick={() => this.handleAddToInputArray(helpers, values.directions.length + 1)}>
+                                                        onClick={() => handleAddToInputArray(helpers, values.directions.length + 1)}>
                                                         Add Direction
                                                     </button>
                                                 </React.Fragment>
@@ -146,7 +145,7 @@ export default ({
                                                     <button
                                                         className="Button Button--Primary"
                                                         type="button"
-                                                        onClick={() => this.handleAddToInputArray(helpers, values.directions.length + 1)}>
+                                                        onClick={() => handleAddToInputArray(helpers, values.directions.length + 1)}>
                                                         Add Note
                                                     </button>
                                                 </React.Fragment>
@@ -160,8 +159,7 @@ export default ({
                                         <div
                                             className="forcedLayout"
                                             style={{
-                                                backgroundImage: `url("${imagePreviewUrl}")`,
-                                                backgroundColor: ''
+                                                backgroundImage: `url("${imagePreviewUrl}")`
                                             }}
                                             >
                                             <Field
@@ -172,14 +170,17 @@ export default ({
                                             />
                                         </div>
                                     </div>
-
-                                    <p>prepTime, CookTime, editable Tags</p>
+                                    {/* //TODO: Add Prep time */}
+                                    {/* //TODO: Add Cook time */}
+                                    {/* //TODO: Add Tags to recipe */}
                                 </Column>
                             </React.Fragment>
                         )
                     },
                     buttons: (
                         <div className="ButtonWrapper">
+                            {/* TODO: Modal to ensure clear form */}
+                            {/* TODO: on cancel, clear form */}
                             <Button
                                 type="button"
                                 onClick={() => toggleModal(render.modal)}

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { suitify } from 'utils/string';
 
 import {AlertConstants as AC} from 'constants';
 
@@ -46,15 +47,19 @@ class Notification extends React.Component {
             type,
             scale,
             title,
+            theme,
             subtitle,
             children
         } = this.props;
 
         return !this.state.render ? null : (
             <div className={classNames(
-                'Notification',
-                `Notification--${type.toLowerCase()}`,
-                `Notification--${scale.toLowerCase()}`
+                suitify({
+                    parent: 'Notification',
+                    variant: type.toLowerCase()
+                }),
+                {[`Notification--${scale.toLowerCase()}`]: !!scale},
+                {[`Notification--${theme.toLowerCase()}`]: !!theme}
             )}>
 
                 <div className="Notification--Wrapper">
@@ -91,12 +96,14 @@ class Notification extends React.Component {
 }
 
 Notification.defaultProps = {
+    theme: '',
     type:AC.INLINE,
     scale: AC.INFORMATION
 }
 
 Notification.propTypes = {
     title: PropTypes.string,
+    theme: PropTypes.oneOf(["dark", "Dark", "DARK", ""]),
     subtitle: PropTypes.string,
     children: PropTypes.element,
     type: PropTypes.oneOf(['INLINE', 'TOAST']),
