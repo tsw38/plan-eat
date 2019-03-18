@@ -35,6 +35,11 @@ export default createGlobalStyle`
         }
         &--toast {
             ${elevate('Overlay')}
+
+
+            &.Notification--dark {
+                ${elevate('Overlay--dark')}
+            }
         }
 
         ${'' /* scale */}

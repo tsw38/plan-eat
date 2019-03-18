@@ -16,6 +16,10 @@ export default (layerName) => {
 				zIndex: 8,
 				boxShadow: '0 4px 8px 0 rgba(0,0,0,0.10)'
 			};
+		case 'Overlay--dark':
+			return {
+				zIndex: 8,
+				boxShadow: '0 4px 8px 0 rgba(0,0,0,0.25)'			};
 		case 'StickyNav':
 			return {
 				zIndex: 12,
