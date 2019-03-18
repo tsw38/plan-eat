@@ -14,12 +14,12 @@ import Header from "components/header";
 import Sidebar from "components/sidebar/sidebar";
 
 //Views for each route
+import Recipe from 'components/recipe';
 import AddRecipe from 'components/recipe/addRecipe';
 import AddIngredient from 'components/addIngredient';
 
 
 import Inbox from 'components/inbox/inbox.view';
-import Recipe from 'components/recipe/recipe.view';
 import Recipes from 'components/recipes/recipes.view';
 import NotFound from 'components/notFound/notFound.view';
 import Overview from 'components/overview/overview.view';
