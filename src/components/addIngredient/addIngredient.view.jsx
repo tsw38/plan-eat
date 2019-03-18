@@ -3,6 +3,7 @@ import React from "react";
 import AddIngredientForm from 'components/common/Form/AddIngredient';
 
 import { StyledSignin } from 'styles/views/Signin';
+import GlobalAddIngredient from 'components/addIngredient/addIngredient.styles';
 
 import Modal from 'components/common/modal';
 
@@ -17,6 +18,7 @@ export default ({
 
     return (
         <StyledSignin>
+            <GlobalAddIngredient />
             <Modal
                 modalId={Config.ADD_INGREDIENT_MODAL.id}
                 isOpen={true}

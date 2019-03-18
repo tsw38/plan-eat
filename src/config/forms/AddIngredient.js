@@ -5,7 +5,7 @@ export default {
         name: '',
         servingSize: '',
         category: '',
-        scaleType: '',
+        scaleType: 'mass',
         calories: '',
         fat: '',
         cholesterol: '',
@@ -13,6 +13,7 @@ export default {
         carbs: '',
         dietaryFiber: '',
         sugar: '',
-        protein: ''
+        protein: '',
+        grocerSection: ''
     }
 }

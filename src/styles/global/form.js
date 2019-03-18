@@ -67,6 +67,7 @@ export default createGlobalStyle`
             padding: 0 ${sizing.spacingmd};
             background-color: ${colors.blackSqueeze};
             box-shadow: 0 1px 0 0 ${colors.stormPetrel};
+            border: 1px solid transparent;
             border-bottom: 1px solid transparent;
             ${transition()}
 
@@ -74,6 +75,27 @@ export default createGlobalStyle`
                 outline: none;
                 box-shadow: 0 ${sizing.spacing3xs} 0 0 ${colors.blueFrance};
             }
+        }
+
+        &:hover {
+            input, select, textarea {
+                background-color: ${darken(0.035, monochromes.blackSqueeze)};
+                border: 1px solid ${darken(0.075, monochromes.blackSqueeze)};
+            }
+        }
+
+        .Alert {
+            position: absolute;
+        }
+    }
+
+    .Input--Select {
+        select {
+            line-height: 1.5;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAo0lEQVQ4y9XRsQrCMBSF4fPrksfrUERExMFBOhSRDkWcfI08Tp9KSolLApdgaxx7IUPI/U5CrrT+cs5tJHngUmpir49WXlKQNAHnAnySNEXjBVzjJoUcF/DB4BCtBDRZyP4L3mW4yRtaEzICtTmrJY0Gt3NPvGUhFVBl+P7rkzoT8o4r4a50TL0JSbgvHXMKeRj8nOvbLmQMQACGEMLrr9vXVR/DczsO6OprqwAAAABJRU5ErkJggg==);
+            background-repeat: no-repeat;
+            background-position: 96% center;
+            background-size: 0.5rem;
         }
     }
 
@@ -144,8 +166,6 @@ export default createGlobalStyle`
             border-radius: 50%;
             background: white;
         }
-
-
     }
 
     .Radio--Wrapper {
@@ -172,23 +192,6 @@ export default createGlobalStyle`
         .Alert {
             margin-top: ${sizing.spacingxs};
             font-size: ${sizing.spacingsm};
-        }
-    }
-
-    &.Form--addIngredient {
-        .Form--FieldsWrapper {
-            display: grid;
-            grid-template-areas: "row1 row1" "left right";
-            grid-gap: 1rem;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .Input {
-            :nth-of-type(1) {
-                grid-column-start: row1;
-                grid-column-end: row1;
-                width: 100%;
-            }
         }
     }
 

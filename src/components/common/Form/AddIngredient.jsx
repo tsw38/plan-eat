@@ -5,7 +5,7 @@ import convert from 'convert-units';
 import {connect} from 'react-redux';
 
 import { toggleModal } from 'actions/ModalActions';
-import { addIngredient, getGrocerList } from 'actions/RecipeActions';
+import { addIngredient, getGrocerSection } from 'actions/RecipeActions';
 
 import FormConfig from 'config/forms/AddIngredient';
 import {AddIngredientsValidator} from 'utils/validators';
@@ -23,7 +23,7 @@ class AddIngredientForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getGrocerList();
+        this.props.getGrocerSection();
     }
 
     handleMeasurementChange = (e) => {
@@ -83,45 +83,30 @@ class AddIngredientForm extends React.Component {
                     form: ({values, errors, touched, ...rest}) => {
                         return (
                             <React.Fragment>
-                                <Field
-                                    type="text"
-                                    name="name"
-                                    value={values.name || ''}
-                                    component={Input}
-                                    label="Ingredient Name"
-                                    placeholder="Ingredient"
-                                />
+                                <div className="Row Row--Name">
+                                    <Field
+                                        type="text"
+                                        name="name"
+                                        value={values.name || ''}
+                                        component={Input}
+                                        label="Ingredient Name"
+                                        placeholder="Ingredient"
+                                    />
+                                </div>
 
                                 <Field
                                     type="text"
                                     name="servingSize"
+                                    className="Serving"
                                     value={values.servingSize || ''}
                                     component={Input}
                                     label="Serving Size"
                                 />
 
-                                <Field
-                                    component={Input}
-                                    type="select"
-                                    label="Grocery Section"
-                                    value={values.grocerSection || ''}
-                                    name="grocerSection">
-                                    <React.Fragment>
-                                        <option value="">Select a Grocery Section</option>
-                                        {grocerSection && grocerSection.map((tag, i) => {
-                                            return (
-                                                <option
-                                                    value={tag.id}
-                                                    key={`tag-${i}`}
-                                                >{tag.name}</option>
-                                            );
-                                        })}
-                                    </React.Fragment>
-                                </Field>
-
                                 <FieldSet
                                     id="scaleType"
                                     label="Measurement Type"
+                                    className="scaleType"
                                     value={values.scaleType}
                                     error={errors.scaleType}
                                     handleOnChange={this.handleMeasurementChange}
@@ -130,6 +115,7 @@ class AddIngredientForm extends React.Component {
                                         type="radio"
                                         name="scaleType"
                                         component={Input}
+                                        checked={values.scaleType === 'mass'}
                                         label="Mass"
                                         id="mass"
                                     />
@@ -137,6 +123,7 @@ class AddIngredientForm extends React.Component {
                                         type="radio"
                                         name="scaleType"
                                         component={Input}
+                                        checked={values.scaleType === 'volume'}
                                         label="Volume"
                                         id="volume"
                                     />
@@ -146,6 +133,7 @@ class AddIngredientForm extends React.Component {
                                     component={Input}
                                     type="select"
                                     label="Measurement"
+                                    className="measurement"
                                     value={values.measurement || ''}
                                     name="measurement">
                                     <React.Fragment>
@@ -162,68 +150,90 @@ class AddIngredientForm extends React.Component {
                                 </Field>
 
                                 <Field
-                                    type="text"
-                                    name="calories"
                                     component={Input}
-                                    label="Calories"
-                                    value={values.calories || ''}
-                                />
+                                    type="select"
+                                    label="Grocery Section"
+                                    className="grocerSection"
+                                    value={values.grocerSection || ''}
+                                    name="grocerSection">
+                                    <React.Fragment>
+                                        <option value="">Select a Grocery Section</option>
+                                        {grocerSection && grocerSection.map((tag, i) => {
+                                            return (
+                                                <option
+                                                    value={tag.id}
+                                                    key={`tag-${i}`}
+                                                >{tag.name}</option>
+                                            );
+                                        })}
+                                    </React.Fragment>
+                                </Field>
 
-                                <Field
-                                    type="text"
-                                    name="fat"
-                                    component={Input}
-                                    label="Fat"
-                                    value={values.fat || ''}
-                                />
+                                <div className="Nutrition">
+                                    <Field
+                                        type="text"
+                                        name="calories"
+                                        component={Input}
+                                        label="Calories"
+                                        value={values.calories || ''}
+                                    />
 
-                                <Field
-                                    type="text"
-                                    name="cholesterol"
-                                    component={Input}
-                                    label="Cholesterol"
-                                    value={values.cholesterol || ''}
-                                />
+                                    <Field
+                                        type="text"
+                                        name="fat"
+                                        component={Input}
+                                        label="Fat"
+                                        value={values.fat || ''}
+                                    />
 
-                                <Field
-                                    type="text"
-                                    name="sodium"
-                                    component={Input}
-                                    label="Sodium"
-                                    value={values.sodium || ''}
-                                />
+                                    <Field
+                                        type="text"
+                                        name="cholesterol"
+                                        component={Input}
+                                        label="Cholesterol"
+                                        value={values.cholesterol || ''}
+                                    />
 
-                                <Field
-                                    type="text"
-                                    name="carbs"
-                                    component={Input}
-                                    label="Carbs"
-                                    value={values.carbs || ''}
-                                />
+                                    <Field
+                                        type="text"
+                                        name="sodium"
+                                        component={Input}
+                                        label="Sodium"
+                                        value={values.sodium || ''}
+                                    />
 
-                                <Field
-                                    type="text"
-                                    name="dietaryFiber"
-                                    component={Input}
-                                    label="Dietary Fiber"
-                                    value={values.dietaryFiber || ''}
-                                />
+                                    <Field
+                                        type="text"
+                                        name="carbs"
+                                        component={Input}
+                                        label="Carbs"
+                                        value={values.carbs || ''}
+                                    />
 
-                                <Field
-                                    type="text"
-                                    name="sugar"
-                                    component={Input}
-                                    label="Sugar"
-                                    value={values.sugar || ''}
-                                />
+                                    <Field
+                                        type="text"
+                                        name="dietaryFiber"
+                                        component={Input}
+                                        label="Dietary Fiber"
+                                        value={values.dietaryFiber || ''}
+                                    />
 
-                                <Field
-                                    type="text"
-                                    name="protein"
-                                    component={Input}
-                                    label="Protein"
-                                    value={values.protein || ''}
-                                />
+                                    <Field
+                                        type="text"
+                                        name="sugar"
+                                        component={Input}
+                                        label="Sugar"
+                                        value={values.sugar || ''}
+                                    />
+
+                                    <Field
+                                        type="text"
+                                        name="protein"
+                                        component={Input}
+                                        label="Protein"
+                                        value={values.protein || ''}
+                                    />
+                                </div>
                             </React.Fragment>
                         )
                     }
@@ -243,7 +253,7 @@ AddIngredientForm.propTypes = {
     signIn: PropTypes.func,
     render: PropTypes.object,
     toggleModal: PropTypes.func,
-    getGrocerList: PropTypes.func
+    getGrocerSection: PropTypes.func
 }
 
 
@@ -256,7 +266,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = {
     addIngredient,
-    getGrocerList,
+    getGrocerSection,
     toggleModal
 }
 

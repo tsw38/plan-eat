@@ -118,7 +118,7 @@ export const getIngredients = (idArr) => (dispatch, getState, api) => {
     })
 }
 
-export const addIngredient = ({name, scaleType, measurement, servingSize, ...macros}) => (dispatch, getState, api) => {
+export const addIngredient = ({name, scaleType, measurement, servingSize, grocerSection, ...macros}) => (dispatch, getState, api) => {
     const isMass = (/mass/i).test(scaleType);
     //take the measurement and convert it to metric vol or mass
     // take that number and 100/that number to get the scale amount
@@ -166,9 +166,9 @@ export const addIngredient = ({name, scaleType, measurement, servingSize, ...mac
                 sugar: finalCalculations.sugar
             },
             protein: finalCalculations.protein,
-            // allergies: [], //TODO:
-            // category: null //TODO:
-        }
+            // allergies: [], //TODO: ALLERGIES
+        },
+        category: grocerSection
     }
 
     return api({
@@ -177,11 +177,13 @@ export const addIngredient = ({name, scaleType, measurement, servingSize, ...mac
                 $name: String!,
                 $unit: Boolean!,
                 $nutrition: InputExpandedNutrition!
+                $category: String!
             ) {
             addIngredient(
                 nutrition: $nutrition,
                 name: $name,
                 unit: $unit
+                category: $category
             ) {
                 id
             }
@@ -254,7 +256,7 @@ export const getTags = (idArr) => (dispatch, getState, api) => {
 
 
 
-export const getGrocerList = () => (dispatch, getState, api) => {
+export const getGrocerSection = () => (dispatch, getState, api) => {
     dispatch({
         type: RC.TAGS_PENDING
     })

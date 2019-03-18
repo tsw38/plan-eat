@@ -18,7 +18,6 @@ export default class Input extends React.Component {
             id,
             type,
             label,
-            className,
             children,
             form,
             ...props
@@ -53,7 +52,6 @@ export default class Input extends React.Component {
                     onBlur={onBlur}
                     type={this.inputType()}
                     onChange={onChange}
-                    className={className}
                     {...props}
                     placeholder={props.placeholder || label}
                 >
@@ -70,7 +68,8 @@ export default class Input extends React.Component {
         const {
             type,
             label,
-            children
+            children,
+            className
         } = this.props;
 
         const {
@@ -83,7 +82,8 @@ export default class Input extends React.Component {
         return (
             <div className={classNames(
                 'Input',
-                `Input--${toTitleCase(this.inputType())}`
+                `Input--${toTitleCase(this.inputType())}`,
+                className
             )}>
                 <label>
                     {this.isRadioButton() ? (
