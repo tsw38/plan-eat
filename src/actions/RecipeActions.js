@@ -233,24 +233,24 @@ export const getTags = (idArr) => (dispatch, getState, api) => {
             variables: {id}
         })
     ))).then((data) => {
-        const consolidated = data && data.reduce((temp, {data}) => ({
-            ...temp,
-            [data.data.tag.id]: data.data.tag.name
+        const tags = data && data.map(({data}) => data.data.tag).reduce((totalTags, tag) => ({
+            ...totalTags,
+            [tag.id]: tag.name
         }), {});
 
-        if(!Object.keys(consolidated).length) {
+        if(!!tags && Object.keys(tags).length) {
+            dispatch({
+                type: RC.TAGS_FETCHED,
+                payload: tags
+            })
+        } else {
             dispatch({
                 type: RC.TAGS_ERROR,
                 payload: 'no tags?'
             })
-        } else {
-            dispatch({
-                type: RC.TAGS_FETCHED,
-                payload: consolidated
-            })
         }
 
-        return consolidated;
+        return tags;
     })
 }
 

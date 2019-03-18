@@ -39,22 +39,25 @@ class Recipe extends React.Component {
             ingredients: ingredientsReducer
         } = this.props;
 
+        //TODO: PAGE LOADER
+
         if(!recipes.recipe[recipeSlug]) {
             getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize, slug, tags, ...rest}) => {
                 this.setState({
                     servingSize,
-                    recipeFound: !!slug
+                    recipeFound: !!slug,
+                    tagColorArr: generateSeed(seedString, Object.keys(polychromes))
                 });
 
                 const pendingIngredients = !!ingredients && ingredients.filter(({id}) => !ingredientsReducer[id])
-                getIngredients(pendingIngredients);
+                if (!!pendingIngredients) {
+                    getIngredients(pendingIngredients);
+                }
 
                 const pendingTags = !!tags && tags.filter((id) => !tagsReducer[id])
-                getTags(pendingTags);
-
-                this.setState({
-                    tagColorArr: generateSeed(seedString, Object.keys(polychromes))
-                })
+                if (!!pendingTags) {
+                    getTags(pendingTags);
+                }
             })
         }
     }
