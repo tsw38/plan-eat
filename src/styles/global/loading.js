@@ -24,7 +24,7 @@ export default createGlobalStyle`
         margin: 0;
 
         &--loading {
-            svg {
+            svg, img {
                 display: inline-block;
                 animation: ${rotate} 1s linear infinite;
             }
@@ -51,9 +51,21 @@ export default createGlobalStyle`
     }
 
     .Loading--inline {
-        display: inline-grid;
-        max-height: ${sizing.spacingxl};
+        display: inline-block;
+        max-height: 2rem;
+        max-width: 2rem;
         height: 100%;
+        width: 100%;
+
+        .Loading--Icon {
+            height: inherit;
+            max-height: inherit;
+
+            img {
+                display: block;
+                height:fill-available;
+            }
+        }
     }
 
     .Loading--full {

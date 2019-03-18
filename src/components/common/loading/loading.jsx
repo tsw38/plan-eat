@@ -9,7 +9,7 @@ import Icon from "components/common/Icon/Icon";
 import {stateChange} from 'utils/object';
 
 
-class Loading extends React.Component {
+class TestLoader extends React.Component {
     state = {
         render: null
     };
@@ -48,10 +48,9 @@ class Loading extends React.Component {
                 `Loading--${state.toLowerCase()}`,
                 {[`Loading--${type}--render`]: !!this.props.render}
             )}>
-                <Icon
-                    className="Loading--Icon"
-                    name={'circle-notch'}
-                />
+				<div className="Loading--Icon">
+					<img src="/assets/icons/circle-notch.png" alt="loading icon" />
+				</div>
                 {title &&
                     <span>{title}</span>
                 }
@@ -60,15 +59,15 @@ class Loading extends React.Component {
 	}
 }
 
-Loading.defaultProps = {
+TestLoader.defaultProps = {
     type: 'inline',
     state: SC.LOADING
 }
 
-Loading.propTypes = {
+TestLoader.propTypes = {
     text: PropTypes.string,
     type: PropTypes.string,
     state: PropTypes.oneOf([SC.SUCCESS, SC.LOADING])
 }
 
-export default Loading;
+export default TestLoader;

@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import { setLoader } from 'actions/AppActions';
 
 import Button from 'components/common/button';
-import Loading from "components/common/loading/loading";
+import Loading from "components/common/loading";
 import Row from 'components/styleGuide/loadingGuide/loadingGuide.styles';
 import Section from 'components/styleGuide/notificationGuide/notificationGuide.styles';
 
@@ -18,6 +18,10 @@ class Loader extends React.Component {
                     <h2>Inline</h2>
                     <p>Inline Loading spinners are used when performing actions. They help notify users that their action is being processed.</p>
                     <Row style={{height: '100px'}}>
+                        <Loading />
+                    </Row>
+
+                    <Row style={{height: '20px'}}>
                         <Loading />
                     </Row>
 
