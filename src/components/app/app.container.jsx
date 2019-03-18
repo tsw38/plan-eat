@@ -77,7 +77,7 @@ class App extends React.Component {
                                             <MealPrep path="/meal-prep"/>
 
                                             <Recipes path="/recipes"/>
-                                            <Recipe path="/recipe/:recipe"/>
+                                            <Recipe path="/recipe/:recipeSlug"/>
                                             <AddRecipe path="/add-recipe" />
 
                                             <ShoppingCart path="/cart"/>

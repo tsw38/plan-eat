@@ -56,8 +56,13 @@ class Sidebar extends React.Component {
                     </StyledLink>
 
                     <StyledLink>
-                        <Link to="/recipe/lemon-thyme-chicken-pasta-with-asparagus">Recipe Page Lemon Thyme</Link>
+                        <Link to="/recipe/lemon-thyme-chicken-pasta-with-asparagus">Recipe Page - Lemon Thyme</Link>
                     </StyledLink>
+
+                    <StyledLink>
+                        <Link to="/recipe/garlic-brown-sugar-glazed-salmon">Recipe Page - Garlic Salmon</Link>
+                    </StyledLink>
+
 
                     <StyledLink>
                         <Link to="/style-guide">Style Guide</Link>

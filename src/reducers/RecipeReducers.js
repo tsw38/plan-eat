@@ -1,7 +1,6 @@
-import {combineReducers} from 'redux';
 import {RecipeConstants as RC} from 'constants/index';
 
-const recipe = (state = {}, action) => {
+export default (state = {}, action) => {
     switch (action.type) {
         case RC.RECIPE_FETCHED:
             return {
@@ -13,8 +12,4 @@ const recipe = (state = {}, action) => {
         default:
             return state;
     }
-}
-
-export default combineReducers({
-    recipe
-});
+};

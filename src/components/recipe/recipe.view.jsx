@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 import {convertUnit} from 'utils/convert';
+import {stateChange} from 'utils/object';
 
 import { getRecipe, getIngredients, getTags } from 'actions/RecipeActions';
 
@@ -41,7 +42,36 @@ class Recipe extends React.Component {
 
         //TODO: PAGE LOADER
 
-        if(!recipes.recipe[recipeSlug]) {
+        console.warn('did I dismount?');
+        this.handleGetRecipe();
+    }
+
+    componentDidUpdate(prevProps) {
+        console.warn('this is the props', this.props);
+        const url = stateChange(prevProps.recipeSlug, this.props.recipeSlug);
+        // console.warn('component is updating I think', this.props.recipeSlug, recipeSlug);
+        if (url.defined && url.changed) {
+            this.setState({
+                recipeFound: false
+            });
+        }
+    }
+
+    handleGetRecipe = () => {
+        const {
+            recipes,
+            getTags,
+            getRecipe,
+            seedString,
+            recipeSlug,
+            getIngredients,
+            tags: tagsReducer,
+            ingredients: ingredientsReducer
+        } = this.props;
+
+        console.warn('this is all the props', this.props);
+
+        if(!recipes[recipeSlug]) {
             getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize, slug, tags, ...rest}) => {
                 this.setState({
                     servingSize,
@@ -60,10 +90,6 @@ class Recipe extends React.Component {
                 }
             })
         }
-    }
-
-    componentDidUpdate(prevProps) {
-        //if thisRecipe is changed, you need to get all new unrequested info (source, uploadedBy, tags, ingredients)
     }
 
     convertIngredients = () => {
@@ -254,7 +280,7 @@ const mapStateToProps = ({recipes, user, ingredients, tags}, props) => ({
     recipes,
     seedString: user.uid || '',
     network: user.network,
-    thisRecipe: recipes.recipe[props.recipe],
+    thisRecipe: recipes[props.recipeSlug],
     ingredients
 });
 
