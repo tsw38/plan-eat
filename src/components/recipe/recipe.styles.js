@@ -155,6 +155,20 @@ export const StyledRecipe = styled.div`
                     height: 1rem;
                 }
             }
+
+            .Serving {
+                display: grid;
+                grid-template-columns: auto 1rem;
+                grid-gap: 0.5rem;
+                text-align: right;
+
+                span {
+                    font-size: 0.75rem;
+                    text-transform: uppercase;
+                    color: ${colors.stormPetrel};
+                }
+            }
+
         }
 
         &--Image {

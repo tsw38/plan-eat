@@ -18,7 +18,10 @@ export default ({
                         onClick={onIncrease}
                     />
                 </div>
-                <span>Serving Size: {servingSize}</span>
+                <div className="Serving">
+                    <span className="name">Serving Size:</span>
+                    <span className="number">{servingSize}</span>
+                </div>
             </div>
         </React.Fragment>
     )
