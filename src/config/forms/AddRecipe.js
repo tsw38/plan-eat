@@ -1,7 +1,7 @@
 export default {
     title: 'Add Recipe',
     id: 'addRecipe',
-    INITIAL_VALUES: {
+    INITIAL_VALUES: (values) => ({
         name: '',
         servingSize: '',
         scaleType: '',
@@ -11,6 +11,7 @@ export default {
         tags: [],
         ingredients: [],
         directions: [],
-        notes: []
-    }
+        notes: [],
+        ...values
+    })
 }

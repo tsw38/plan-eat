@@ -9,7 +9,13 @@ import AddIngredient from 'components/recipe/addRecipe/ingredient';
 class Connector extends React.Component {
     state = {
         file: {},
-        imagePreviewUrl: ""
+        servingSize: 1,
+        imagePreviewUrl: "",
+    }
+
+    handleSubmit = (values) => {
+        console.warn('add recipe values',values);
+        return;
     }
 
     handleImageUpload = (e, fieldSetter, fieldName) => {
@@ -25,11 +31,6 @@ class Connector extends React.Component {
         }
 
         return fileReader.readAsDataURL(file);
-    }
-
-    handleSubmit = (values) => {
-        console.warn('add recipe values',values);
-        return;
     }
 
     handleAddIngredient = (inputHelper, index) => {
@@ -77,6 +78,14 @@ class Connector extends React.Component {
         }
     }
 
+    handleServingSize = (isIncreasing) => {
+        const currentSize = this.state.servingSize;
+
+        this.setState({
+            servingSize: isIncreasing ? currentSize+1 : (currentSize > 1 ? currentSize-1 : 1)
+        })
+    }
+
     render() {
         const {
             children: propChildren,
@@ -87,10 +96,14 @@ class Connector extends React.Component {
             return React.cloneElement(child, {
                 ...props,
                 ...this.state,
+                handleError: this.handleError,
                 handleSubmit: this.handleSubmit,
+                handleComplete: this.handleComplete,
                 handleImageUpload: this.handleImageUpload,
                 handleAddIngredient: this.handleAddIngredient,
-                handleAddToInputArray: this.handleAddToInputArray
+                handleAddToInputArray: this.handleAddToInputArray,
+                increaseServingSize: () => this.handleServingSize(true),
+                decreaseServingSize: () => this.handleServingSize(false)
             });
         });
 

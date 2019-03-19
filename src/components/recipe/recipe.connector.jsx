@@ -147,12 +147,12 @@ class Connector extends React.Component {
             }).reduce((finalCalcs, ingredientNuts) => {
                 return {
                     ...finalCalcs,
-                    calories:roundToTwo(ingredientNuts.calories/this.state.servings + (finalCalcs.calories || 0)),
-                    protein: roundToTwo(ingredientNuts.protein/this.state.servings + (finalCalcs.protein || 0)),
-                    fat: 	 roundToTwo(ingredientNuts.fat/this.state.servings + (finalCalcs.fat || 0)),
-                    carbs:	 roundToTwo(ingredientNuts.carbs/this.state.servings + (finalCalcs.carbs || 0)),
-                    fiber: 	 roundToTwo(ingredientNuts.fiber/this.state.servings + (finalCalcs.fiber || 0)),
-                    sugar: 	 roundToTwo(ingredientNuts.sugar/this.state.servings + (finalCalcs.sugar || 0))
+                    calories:Math.ceil(ingredientNuts.calories/this.state.servings + (finalCalcs.calories || 0)),
+                    protein: Math.ceil(ingredientNuts.protein/this.state.servings + (finalCalcs.protein || 0)),
+                    fat: 	 Math.ceil(ingredientNuts.fat/this.state.servings + (finalCalcs.fat || 0)),
+                    carbs:	 Math.ceil(ingredientNuts.carbs/this.state.servings + (finalCalcs.carbs || 0)),
+                    fiber: 	 Math.ceil(ingredientNuts.fiber/this.state.servings + (finalCalcs.fiber || 0)),
+                    sugar: 	 Math.ceil(ingredientNuts.sugar/this.state.servings + (finalCalcs.sugar || 0))
                 }
             }, {});
 

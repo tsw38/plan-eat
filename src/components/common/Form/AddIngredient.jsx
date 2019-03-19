@@ -62,21 +62,6 @@ class AddIngredientForm extends React.Component {
                 initialValues={FormConfig.INITIAL_VALUES}
                 render={{
                     ...render,
-                    buttons: (
-                        <div className="ButtonWrapper">
-                            <Button
-                                type="button"
-                                onClick={() => toggleModal(render.modal)}
-                                className="Button--Secondary">
-                                Cancel
-                            </Button>
-                            <Button
-                                type="submit"
-                                className="Button--Primary">
-                                Submit
-                            </Button>
-                        </div>
-                    ),
                     form: ({values, errors, touched, ...rest}) => {
                         return (
                             <React.Fragment>
@@ -233,7 +218,22 @@ class AddIngredientForm extends React.Component {
                                 </div>
                             </React.Fragment>
                         )
-                    }
+                    },
+                    buttons: (
+                        <div className="ButtonWrapper">
+                            <Button
+                                type="button"
+                                onClick={() => toggleModal(render.modal)}
+                                className="Button--Secondary">
+                                Cancel
+                            </Button>
+                            <Button
+                                type="submit"
+                                className="Button--Primary">
+                                Submit
+                            </Button>
+                        </div>
+                    ),
                 }} />
         )
     }

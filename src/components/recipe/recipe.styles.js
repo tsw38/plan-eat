@@ -168,7 +168,6 @@ export const StyledRecipe = styled.div`
                     color: ${colors.stormPetrel};
                 }
             }
-
         }
 
         &--Image {

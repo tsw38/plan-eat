@@ -2,8 +2,6 @@ import React from "react";
 import classNames from 'classnames';
 import objectPath from 'object-path';
 
-
-
 import Link from "components/common/Link/Link";
 import Column from 'components/common/Layout/Column';
 import ServingSize from 'components/recipe/servingSize';

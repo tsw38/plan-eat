@@ -9,6 +9,7 @@ import {suitify} from 'utils/string';
 import Button from 'components/common/button';
 import Column from 'components/common/Layout/Column';
 import Input from 'components/common/Form/Fields/Input';
+import ServingSize from 'components/recipe/servingSize';
 import FormGeneric from 'components/common/Form/FormGeneric';
 import RecipeSection from 'components/recipe/section/section.container';
 
@@ -16,24 +17,27 @@ import { AddRecipe } from 'components/recipe/addRecipe/addRecipe.styles';
 
 export default ({
     render,
-    onFormError,
-    onFormSubmit,
+    servingSize,
+    handleError,
     handleSubmit,
-    onFormComplete,
+    handleComplete,
     imagePreviewUrl,
     handleImageUpload,
+    increaseServingSize,
+    decreaseServingSize,
     handleAddIngredient,
     handleAddToInputArray
 }) => {
     return (
         <AddRecipe className={classNames(suitify({parent: 'Recipe', variant: 'Add'}))}>
             <FormGeneric
+                enableReinitialize={true}
                 id={FormConfig.id}
                 title={render && render.title && FormConfig.title}
-                onError={onFormError}
-                onSubmit={onFormSubmit}
-                onComplete={onFormComplete}
-                initialValues={FormConfig.INITIAL_VALUES}
+                onError={handleError}
+                onSubmit={handleSubmit}
+                onComplete={handleComplete}
+                initialValues={FormConfig.INITIAL_VALUES({servingSize})}
                 render={{
                     ...render,
                     form: ({values, errors, touched, ...form}) => {
@@ -52,7 +56,12 @@ export default ({
                                         listType="ol"
                                         sectionTitle="Ingredients"
                                         firstSectionChild={(
-                                            <div className="hello world">awdad</div>
+                                            <ServingSize
+                                                onIncrease={increaseServingSize}
+                                                onDecrease={decreaseServingSize}
+                                                servingSize={servingSize}
+                                                formValue={values.servingSize}
+                                            />
                                         )}>
                                         <FieldArray
                                             name="ingredients"

@@ -21,7 +21,7 @@ export default ({
             <GlobalAddIngredient />
             <Modal
                 modalId={Config.ADD_INGREDIENT_MODAL.id}
-                isOpen={true}
+                isOpen={modal && modal.isOpen}
                 render={{
                     form: true
                 }}
