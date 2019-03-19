@@ -47,12 +47,9 @@ class AddIngredientForm extends React.Component {
     render() {
         const {
             render,
-            addIngredient,
             toggleModal,
             grocerSection
         } = this.props;
-
-        console.warn(grocerSection);
 
         return (
             <FormGeneric

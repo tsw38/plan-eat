@@ -14,6 +14,7 @@ export const getRecipe = (slug) => (dispatch, getState, api) => {
                     slug
                     tags
                     notes
+                    error
                     prepTime
                     cookTime
                     uploadedBy
@@ -45,7 +46,7 @@ export const getRecipe = (slug) => (dispatch, getState, api) => {
             recipe
         } = data.data;
 
-        if(!!recipe.error) {
+        if(recipe.error === 400) { //bad request
             dispatch({
                 type: RC.RECIPE_ERROR,
                 payload: recipe.error

@@ -163,7 +163,7 @@ export const StyledRecipe = styled.div`
 
         &--Time {
             display: grid;
-            grid-template-columns: auto auto;
+            grid-template-columns: 1fr 1fr;
             justify-items: center;
             border-bottom: 1px solid ${colors.ballerina};
             padding: 0.5rem 0;

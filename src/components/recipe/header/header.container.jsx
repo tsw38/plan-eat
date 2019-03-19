@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import objectPath from 'object-path';
+import {stateChange} from 'utils/object';
 import StarRatings from 'react-star-ratings';
 
 import { getUserById } from 'actions/AccountActions';
@@ -11,11 +13,10 @@ import Link from "components/common/Link/Link";
 import {monochromes} from 'styles/colors';
 
 import * as spacing from 'styles/sizing';
-
 import { RecipeHeader as Header } from 'components/recipe/recipe.styles';
 
 class RecipeHeader extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         const {
             network,
             uploader,
@@ -24,6 +25,24 @@ class RecipeHeader extends React.Component {
 
         if (network && !!uploader && !network[uploader.tag]) {
             getUserById(uploader.tag);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        const uploaderState = stateChange(prevProps.uploader, this.props.uploader);
+
+        const {
+            network,
+            uploader: {
+                tag, url
+            },
+            getUserById
+        } = this.props;
+
+        if (uploaderState.defined && uploaderState.changed) {
+            if (!!tag && !objectPath.get(network, 'tag')) {
+                getUserById(tag);
+            }
         }
     }
 
