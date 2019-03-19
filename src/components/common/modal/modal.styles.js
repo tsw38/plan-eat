@@ -159,17 +159,12 @@ export const StyledModal = styled(Modal)`
         display: grid;
         grid-gap: 0.75rem;
         grid-template-columns: auto auto;
-        margin-top: auto;
+        margin-top: 2rem;
         justify-content: flex-end;
         background-color: ${monochromes.blackSqueeze};
-        margin-left: -1.5rem;
-        margin-right: -1.5rem;
-        padding: 2rem;
-
-
         margin-left: -3rem;
         margin-right: -3rem;
-        padding: 2rem 3rem;
+        padding: 1rem 3rem;
 
         &:empty {
             display:none;

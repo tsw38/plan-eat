@@ -47,7 +47,7 @@ class Connector extends React.Component {
                 />,
                 buttons: {
                     Primary: {
-                        text: "Primary Button",
+                        text: "Add Ingredient",
                         onClick: () => {
                             try {
                                 //TODO: insert object to all inputs appropriately
@@ -56,12 +56,12 @@ class Connector extends React.Component {
                                 this.props.toggleModal(ModalConfig.GLOBAL.transactional.id);
                             } catch (e) {
                                 console.warn('this is the problem', e);
-                                inputHelper.push('awd');
+                                inputHelper.push(['awd', 'awd']);
                             }
                         }
                     },
                     Secondary: {
-                        text: "Primary Button",
+                        text: "Cancel",
                         onClick: () => {console.log('Cancel')}
                     },
                 }
