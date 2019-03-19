@@ -50,7 +50,10 @@ export default ({
                                     />
                                     <RecipeSection
                                         listType="ol"
-                                        sectionTitle="Ingredients">
+                                        sectionTitle="Ingredients"
+                                        firstSectionChild={(
+                                            <div className="hello world">awdad</div>
+                                        )}>
                                         <FieldArray
                                             name="ingredients"
                                             render={helpers => values.ingredients &&

@@ -118,8 +118,14 @@ export const StyledRecipe = styled.div`
 
         &--Serving-Toggle {
             display: grid;
-            grid-template-columns: repeat(2,auto);
+            grid-template-rows: repeat(2,auto);
+            grid-gap: 0.5rem;
             margin: 0 0 0 auto;
+
+            .Toggle {
+                display:grid;
+                grid-template-columns: auto auto;
+            }
 
             .Button {
                 border-radius: 0;

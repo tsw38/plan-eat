@@ -11,11 +11,12 @@ import {stateChange} from 'utils/object';
 import {generateSeed} from 'utils/array';
 import {convertUnit} from 'utils/convert';
 import {polychromes} from 'styles/colors';
+import {roundToTwo} from 'utils/math';
 
 class Connector extends React.Component {
     state = {
         nutrition: {},
-        servingSize: 1,
+        servings: 1,
         tagColorArr: generateSeed(this.props.seedString, Object.keys(polychromes)),
         recalculatedIngredients: [],
     }
@@ -49,7 +50,7 @@ class Connector extends React.Component {
         if(!recipes[recipeSlug]) {
             getRecipe(recipeSlug).then(({uploadedBy, ingredients, servingSize, slug, tags, ...rest}) => {
                 this.setState({
-                    servingSize,
+                    servings: servingSize,
                     recipeFound: !!slug
                 });
 
@@ -79,6 +80,19 @@ class Connector extends React.Component {
         }
     }
 
+    handleServingSize = (isIncreasing) => {
+        const currentSize = this.state.servings;
+
+        this.setState({
+            servings: isIncreasing ? currentSize+1 : (currentSize > 1 ? currentSize-1 : 1)
+        }, () => {
+            this.setState({
+                recalculatedIngredients: this.convertIngredients()
+            })
+
+        })
+    }
+
     convertIngredients = () => {
         const {
             recipe,
@@ -93,7 +107,8 @@ class Connector extends React.Component {
 
             if (mergedIngredient.name) {
                 //TODO: eventually convert true to be user preference
-                const converted = convertUnit(mergedIngredient.quantity, mergedIngredient.unit, true);
+                const calculateServingPortion = this.state.servings/recipe.servingSize;
+                const converted = convertUnit(mergedIngredient.quantity * calculateServingPortion, mergedIngredient.unit, true);
 
                 return [
                     ...temp,
@@ -122,22 +137,22 @@ class Connector extends React.Component {
                 const {calories, protein, fat, carbs} = ingredients[ingred.id].nutrition;
 
                 return {
-                    calories: Math.ceil(calories*quantity),
-                    protein:  Math.ceil(protein*quantity),
-                    fat: 	  Math.ceil(fat*quantity),
-                    carbs:	  Math.ceil(carbs.absolute*quantity),
-                    fiber: 	  Math.ceil(carbs.dietaryFiber*quantity),
-                    sugar: 	  Math.ceil(carbs.sugar*quantity)
+                    calories: calories*quantity,
+                    protein:  protein*quantity,
+                    fat: 	  fat*quantity,
+                    carbs:	  carbs.absolute*quantity,
+                    fiber: 	  carbs.dietaryFiber*quantity,
+                    sugar: 	  carbs.sugar*quantity
                 };
             }).reduce((finalCalcs, ingredientNuts) => {
                 return {
                     ...finalCalcs,
-                    calories:Math.ceil(ingredientNuts.calories/this.state.servingSize + (finalCalcs.calories || 0)),
-                    protein: Math.ceil(ingredientNuts.protein/this.state.servingSize + (finalCalcs.protein || 0)),
-                    fat: 	 Math.ceil(ingredientNuts.fat/this.state.servingSize + (finalCalcs.fat || 0)),
-                    carbs:	 Math.ceil(ingredientNuts.carbs/this.state.servingSize + (finalCalcs.carbs || 0)),
-                    fiber: 	 Math.ceil(ingredientNuts.fiber/this.state.servingSize + (finalCalcs.fiber || 0)),
-                    sugar: 	 Math.ceil(ingredientNuts.sugar/this.state.servingSize + (finalCalcs.sugar || 0))
+                    calories:roundToTwo(ingredientNuts.calories/this.state.servings + (finalCalcs.calories || 0)),
+                    protein: roundToTwo(ingredientNuts.protein/this.state.servings + (finalCalcs.protein || 0)),
+                    fat: 	 roundToTwo(ingredientNuts.fat/this.state.servings + (finalCalcs.fat || 0)),
+                    carbs:	 roundToTwo(ingredientNuts.carbs/this.state.servings + (finalCalcs.carbs || 0)),
+                    fiber: 	 roundToTwo(ingredientNuts.fiber/this.state.servings + (finalCalcs.fiber || 0)),
+                    sugar: 	 roundToTwo(ingredientNuts.sugar/this.state.servings + (finalCalcs.sugar || 0))
                 }
             }, {});
 
@@ -157,7 +172,6 @@ class Connector extends React.Component {
             ...props
         } = this.props;
 
-        console.warn(this.state);
 
         const children = React.Children.map(propChildren, child => {
             return React.cloneElement(child, {
@@ -167,7 +181,9 @@ class Connector extends React.Component {
                 error,
 				...this.state,
                 // functions
-                handleGetRecipe: this.handleGetRecipe
+                handleGetRecipe: this.handleGetRecipe,
+                increaseServingSize: () => this.handleServingSize(true),
+                decreaseServingSize: () => this.handleServingSize(false)
             });
         });
 

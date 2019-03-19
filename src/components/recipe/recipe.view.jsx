@@ -3,9 +3,10 @@ import classNames from 'classnames';
 import objectPath from 'object-path';
 
 
-import Button from 'components/common/button';
+
 import Link from "components/common/Link/Link";
 import Column from 'components/common/Layout/Column';
+import ServingSize from 'components/recipe/servingSize';
 import NotFound from 'components/notFound/notFound.view';
 import Timing from 'components/recipe/time/time.container';
 import RecipeHeader from 'components/recipe/header/header.container';
@@ -16,9 +17,12 @@ import { StyledRecipe } from 'components/recipe/recipe.styles';
 const RecipeView = ({
     error,
     recipe,
+    servings,
     nutrition,
     tagsStore,
     tagColorArr,
+    increaseServingSize,
+    decreaseServingSize,
     recalculatedIngredients
 }) => {
     const {
@@ -61,10 +65,11 @@ const RecipeView = ({
                         listType="ul"
                         sectionTitle="Ingredients"
                         firstSectionChild={(
-                            <div className="Recipe--Serving-Toggle">
-                                <Button iconName={'minus'} />
-                                <Button iconName={'plus'} />
-                            </div>
+                            <ServingSize
+                                onIncrease={increaseServingSize}
+                                onDecrease={decreaseServingSize}
+                                servingSize={servings}
+                            />
                         )}>
                         <React.Fragment>
                             {recalculatedIngredients.map((ingredient, index) =>
