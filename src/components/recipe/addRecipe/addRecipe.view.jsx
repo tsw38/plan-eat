@@ -63,6 +63,7 @@ export default ({
                                                 formValue={values.servingSize}
                                             />
                                         )}>
+                                        {/* //FIXME: Recipe switch serving size not reseting */}
                                         <FieldArray
                                             name="ingredients"
                                             render={helpers => values.ingredients &&

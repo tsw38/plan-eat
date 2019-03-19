@@ -12,6 +12,7 @@ export default class AddIngredient extends React.Component {
                     name="text"
                     label="insert"
                     onChange={(e) => {
+                        console.warn('etargetvalue', e.target.value);
                         this.props.handleInputUpdate({
                             input: e.target.value
                         })

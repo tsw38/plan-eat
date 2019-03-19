@@ -24,7 +24,7 @@ class Connector extends React.Component {
 
         fileReader.onload = (e) => {
             this.setState({
-                file: file,
+                file,
                 imagePreviewUrl: fileReader.result
             });
             fieldSetter(fieldName, file, false);

@@ -36,17 +36,17 @@ export default createGlobalStyle`
 
     .Input {
         margin-bottom: 1rem;
+    }
 
-        &--Label {
-            font-size: ${sizing._14px};
-            font-weight:${fontBold};
-            display: block;
-            margin-bottom: ${sizing.spacingxs};
-            color: ${colors.fuelTown};
+    .Input--Label {
+        font-size: ${sizing._14px};
+        font-weight:${fontBold};
+        display: block;
+        margin-bottom: ${sizing.spacingxs};
+        color: ${colors.fuelTown};
 
-            :empty {
-                display: none;
-            }
+        :empty {
+            display: none;
         }
     }
 
@@ -182,12 +182,6 @@ export default createGlobalStyle`
         background-color: white;
         padding: ${sizing.spacinglg};
         ${elevate('Raised')}
-
-        input, select {
-            font-size: ${sizing._14px};
-            color: ${colors.blueFrance};
-            border: none;
-        }
 
         .Alert {
             margin-top: ${sizing.spacingxs};

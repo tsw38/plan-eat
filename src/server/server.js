@@ -30,7 +30,8 @@ app
 	})
 	.use('*/favicon', express.static(path.join(process.env.PWD, './src/assets/favicon')))
     .use('*/icons', express.static(path.join(process.env.PWD, './src/assets/icons')))
-    .use('*/images', express.static(path.join(process.env.PWD, './src/assets/images')))
+	.use('*/images', express.static(path.join(process.env.PWD, './src/assets/images')))
+	.use('*/css', express.static(path.join(process.env.PWD, './src/assets/styles')))
 	.use('*/js', express.static(`./dist/${process.env.VERSION_NUMBER}/client`))
 	.use(createHtml);
 

@@ -11,6 +11,7 @@ export const suitify = ({
     state
 }) => {
     const parentClass = parent.split(' ').join('--');
+    const variantClass = Array.isArray(variant) ? variant.map(str => `${parentClass}--${str}`.replace(/\s/g, '-')) .join(' ') : variant.replace(/\s/g, '-');
 
-    return `${parentClass}${child ? ` ${parentClass}-${child}` : ``}${variant ? ` ${parentClass}--${variant.replace(/\s/g, '-')}` : ``}${state ? ` ${parent}_${state}` : ``}`;
+    return `${parentClass}${child ? ` ${parentClass}-${child}` : ``}${variantClass || ''}${state ? ` ${parent}_${state}` : ``}`;
 }
