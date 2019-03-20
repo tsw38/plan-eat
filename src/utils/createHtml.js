@@ -19,8 +19,6 @@ export default (req,res,next) => {
 			<meta name="msapplication-TileColor" content="#ffffff">
 			<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
 			<meta name="theme-color" content="#ffffff">
-			<link rel="stylesheet" type="text/css" href="./css/carbon.min.css" />
-			<!-- TODO: MINIFY CSS -->
 		</head>
 		<body>
 			<div id="plan-eat"></div>

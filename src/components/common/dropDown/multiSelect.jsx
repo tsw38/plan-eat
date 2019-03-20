@@ -1,59 +1,60 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {MultiSelect} from 'carbon-components-react';
 
 import { suitify } from 'utils/string';
 
 class CustomMultiSelect extends React.Component {
 	render() {
-		const {
-            type,
-			open,
-			items,
-			label,
-			light,
-			title,
-			onOpen,
-			onClose,
-			disabled,
-            onChange,
-			className,
-			filterable,
-			placeholder,
-			itemToString,
-        } = this.props;
-		// TODO: Value of select needs to attach to form or state
+		// const {
+        //     type,
+		// 	open,
+		// 	items,
+		// 	label,
+		// 	light,
+		// 	title,
+		// 	onOpen,
+		// 	onClose,
+		// 	disabled,
+        //     onChange,
+		// 	className,
+		// 	filterable,
+		// 	placeholder,
+		// 	itemToString,
+        // } = this.props;
+		// // TODO: Value of select needs to attach to form or state
 
-		const Component = filterable ? MultiSelect.Filterable : MultiSelect;
+        // const Component = filterable ? MultiSelect.Filterable : MultiSelect;
 
-        return (
-            <Component
-				type={type}
-				placeholder={placeholder}
-                label={label}
-                ariaLabel={label}
-                disabled={disabled}
-                light={light}
-                open={open}
-                title={title}
-                items={items}
-                itemToString={itemToString}
-                onChange={onChange}
-                onOpen={onOpen}
-                onClose={onClose}
-                className={classNames(
-					suitify({
-						parent: 'DropDown',
-						variant: className
-					}),
-                    suitify({
-                        parent: 'Input',
-                        variant: ['Select', 'Dropdown']
-					})
-                )}
-            />
-        );
+        return null;
+
+        // return (
+        //     <Component
+		// 		type={type}
+		// 		placeholder={placeholder}
+        //         label={label}
+        //         ariaLabel={label}
+        //         disabled={disabled}
+        //         light={light}
+        //         open={open}
+        //         title={title}
+        //         items={items}
+        //         itemToString={itemToString}
+        //         onChange={onChange}
+        //         onOpen={onOpen}
+        //         onClose={onClose}
+        //         className={classNames(
+		// 			suitify({
+		// 				parent: 'DropDown',
+		// 				variant: className
+		// 			}),
+        //             suitify({
+        //                 parent: 'Input',
+        //                 variant: ['Select', 'Dropdown']
+		// 			})
+        //         )}
+        //     />
+        // );
 	}
 }
 

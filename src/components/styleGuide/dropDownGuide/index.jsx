@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Row from 'components/common/Layout/Row';
-import { DropDown, MultiSelect } from 'components/common/dropDown';
+import { DropDown, MultiSelect } from 'components/common/dropdown';
 import Section from 'components/styleGuide/notificationGuide/notificationGuide.styles';
 
-class Dropdown extends React.Component {
+class DropdownGuide extends React.Component {
 
 	render() {
         return (
@@ -18,7 +18,6 @@ class Dropdown extends React.Component {
 						<DropDown
 							name={"Test"}
 							label={"Test"}
-							value={"test"}
 							items={[
 								{
 									id: 'option-1',
@@ -44,7 +43,37 @@ class Dropdown extends React.Component {
 
                 <Section>
 					<h2>Dropdown (Up)</h2>
+                    <Row>
+						<DropDown
+							name={"Test"}
+							label={"Test"}
+							value={"test"}
+							items={[
+								{
+									id: 'option-1',
+									text: 'Option 1',
+								},
+								{
+									id: 'option-2',
+									text: 'Option 2',
+								},
+								{
+									id: 'option-3',
+									text: 'Option 3',
+								},
+								{
+									id: 'option-4',
+									text: 'Option 4',
+								},
+							]}
+							className={"Test"}
+						/>
+					</Row>
 				</Section>
+
+                <Section />
+                <Section />
+                <Section />
 
 				<Section>
 					<h2>Multi-select Dropdown</h2>
@@ -115,7 +144,7 @@ class Dropdown extends React.Component {
 				<Section>
 					<h2>Filter Dropdown Light</h2>
 
-					<Row>
+					<Row style={{width: '50%'}}>
 						<MultiSelect
 							name={"Test"}
 							label={"Multiselect Filter"}
@@ -156,11 +185,11 @@ const mapStateToProps = ({app}, ownProps) => ({
 const mapDispatchToProps = {
 };
 
-Dropdown.defaultProps = {
+DropdownGuide.defaultProps = {
 };
 
-Dropdown.propTypes = {
+DropdownGuide.propTypes = {
     isLoading: PropTypes.bool
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(DropdownGuide);

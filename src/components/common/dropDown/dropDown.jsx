@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {DropdownV2, MultiSelect} from 'carbon-components-react';
 
 import { suitify } from 'utils/string';
 import Input from 'components/common/Form/Fields/Input';
-import StyledDropDown from 'components/common/dropDown/dropDown.styles';
+import StyledDropdown from 'components/common/dropdown/dropdown.styles';
 
-class CustomDropDown extends React.Component {
+class CustomDropdown extends React.Component {
 	render() {
 		const {
             type,
@@ -19,54 +18,62 @@ class CustomDropDown extends React.Component {
             className,
         } = this.props;
         // TODO: Value of select needs to attach to form or state
-
+        console.warn(this.props);
         return (
-            <DropdownV2
-                type={"default"} //or inline
-                label={label}
-                ariaLabel={label}
-                disabled={false}
-                light={false}
-                open={true}
-                titleText={'This is not a dropdown title'}
-                helperText={'This is not a helper title'}
-                items={items}
-                itemToString={item => (item ? item.text : '')}
-                onChange={() => {}}
-                onOpen={() => {}}
-                onClose={() => {}}
-                className={classNames(
-                    'DropDown',
+            <div className={classNames(
+                'Dropdown'
+            )}>
+                <span
+                    className={suitify({
+                        parent: 'Dropdown',
+                        child: 'SelectedText'
+                    })}>
+                    Mouse Over now
+                </span>
+                <ul className={classNames(
                     suitify({
-                        parent: 'Input',
-                        variant: ['Select', 'Dropdown']
+                        parent: 'Dropdown',
+                        child: 'List'
                     })
-                )}
-            />
+                )}>
+                    {items && items.map((item, index) => {
+                        <li
+                            dataValue={item.id}
+                            key={`Dropdown--List-{$index}`}>
+                            {item.text}
+                        </li>
+                    })}
+                </ul>
+            </div>
         );
 	}
 }
 
-CustomDropDown.defaultProps = {
+CustomDropdown.defaultProps = {
     editable: true,
     onChange: () => {}
 }
 
-CustomDropDown.propTypes = {
-    type: PropTypes.oneOf(['default', 'inline']),
-    label: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    disabled: PropTypes.bool,
-    light: PropTypes.bool,
+CustomDropdown.propTypes = {
     open: PropTypes.bool,
-    titleText: PropTypes.string,
-    helperText: PropTypes.string,
+    light: PropTypes.bool,
     items: PropTypes.array,
-    itemToString: PropTypes.func,
-    onChange: PropTypes.func,
     onOpen: PropTypes.func,
+    label: PropTypes.string,
+    value: PropTypes.string,
+    onClick: PropTypes.func,
     onClose: PropTypes.func,
+    onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+    ariaLabel: PropTypes.string,
+    children: PropTypes.element,
     className: PropTypes.string,
+    helperText: PropTypes.string,
+    itemToString: PropTypes.func,
+    defaultText: PropTypes.string,
+    // selectedText: PropTypes.
+    type: PropTypes.oneOf(['default', 'inline'])
 }
 
-export default CustomDropDown;
+export default CustomDropdown;
+

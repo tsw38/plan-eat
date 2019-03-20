@@ -9,7 +9,6 @@ class Row extends React.Component {
             className,
             handleClick
         } = this.props;
-
         return (
             <div
                 style={style}

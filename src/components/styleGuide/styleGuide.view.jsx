@@ -3,7 +3,7 @@ import React from "react";
 import ModalGuide from 'components/styleGuide/modalGuide';
 import LoadingGuide from 'components/styleGuide/loadingGuide';
 import TagGuide from 'components/styleGuide/tagGuide/tag.view';
-import DropDownGuide from 'components/styleGuide/dropDownGuide';
+import DropDownGuide from 'components/styleGuide/dropdownGuide';
 import AltTagGuide from 'components/styleGuide/tagGuide/tagAlt.view';
 import ColorGuide from 'components/styleGuide/colorGuide/colorGuide.view';
 import ButtonGuide from 'components/styleGuide/buttonGuide/buttonsPrimary.view';

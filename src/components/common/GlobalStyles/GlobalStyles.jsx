@@ -12,9 +12,9 @@ import Form from 'styles/global/form';
 import Input from 'styles/global/input';
 import Modal from 'styles/global/modal';
 import Alert from 'styles/global/alert';
-import Carbon from 'styles/global/carbon';
 import Button from 'styles/global/button';
 import Loading from 'styles/global/loading';
+import Dropdown from 'styles/global/dropdown';
 import Notification from 'styles/global/notification';
 
 export default () => {
@@ -33,7 +33,7 @@ export default () => {
             <Loading />
             <Input />
             <Form />
-            <Carbon />
+            <Dropdown />
             <Notification />
 		</React.Fragment>
     )
