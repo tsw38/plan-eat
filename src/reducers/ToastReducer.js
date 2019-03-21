@@ -2,12 +2,7 @@
 
 import {ToastConstants as TC} from 'constants/index';
 
-export default (state = [{
-    title: '',
-    subtitle: '',
-    body: '',
-    scale: ''
-}], {type, payload}) => {
+export default (state = [], {type, payload}) => {
     switch (type) {
         case TC.TOAST_PUSHED:
             return [payload, ...state];

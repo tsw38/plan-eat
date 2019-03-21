@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
+import {AlertConstants as AC} from 'constants';
+
 import { pushToast } from 'actions/ToastActions';
 
 import Button from 'components/common/button';
@@ -12,6 +14,8 @@ import InlineDark from 'components/styleGuide/notificationGuide/inline/dark';
 import ToastLight from 'components/styleGuide/notificationGuide/toast/light';
 import InlineLight from 'components/styleGuide/notificationGuide/inline/light';
 import Section from 'components/styleGuide/notificationGuide/notificationGuide.styles';
+
+const notificationTypes = [AC.WARNING, AC.ERROR, AC.SUCCESS, AC.INFORMATION];
 
 const NotificationGuide =  (props) => {
 	return (
@@ -58,7 +62,7 @@ const NotificationGuide =  (props) => {
                         title: 'Sample toast',
                         subtitle: '',
                         body: 'This is some sample text',
-                        scale: 'information'
+                        scale: notificationTypes[Math.floor(Math.random()*notificationTypes.length)]
                     })}
                     className="Button--Primary">
                     Click to push notification

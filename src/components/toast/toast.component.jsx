@@ -11,7 +11,7 @@ export default ({toast}) => {
                     <Notification
                         key={`toast-notification-${index}`}
                         type={AC.TOAST}
-                        scale={AC.INFORMATION}
+                        scale={scale.toUpperCase()}
                         title={title}
                         subtitle={subtitle}
                         // disableTimeout={true}
