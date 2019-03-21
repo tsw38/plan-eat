@@ -42,8 +42,8 @@ export default createGlobalStyle`
             return templateLiteral;
         }}
 
-        &--blackSqueeze {
-            color: ${darken(0.45, colors.blackSqueeze)};
+        &--white {
+            color: ${darken(0.45, colors.white)};
         }
     }
 `;

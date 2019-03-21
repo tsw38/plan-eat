@@ -20,7 +20,7 @@ export const Page = styled.div`
 
         &--Recipe,
         &--AddRecipe {
-            background-color: ${monochromes.blackSqueeze};
+            background-color: ${monochromes.white};
             padding: ${sizing.layout2xs};
         }
 

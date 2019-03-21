@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 // App Level components
 import Modals from 'components/modal';
+import Toast from  "components/toast";
 import Loader from  "components/loader";
 import Page from 'components/page/page.container';
 import Session from "components/session/session.controller";
@@ -42,6 +43,7 @@ class App extends React.Component {
                 <GlobalStyles />
                 <Loader />
                 <Modals />
+                <Toast />
                 <StyledApp
                     className={classNames(
                         'App',

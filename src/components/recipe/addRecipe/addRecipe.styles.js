@@ -41,7 +41,7 @@ export const AddRecipe = styled(StyledRecipe)`
             color: black;
 
             :hover {
-                background-color: ${lighten(0.05, monochromes.blackSqueeze)};
+                background-color: ${lighten(0.05, monochromes.white)};
             }
         }
 
@@ -58,12 +58,12 @@ export const AddRecipe = styled(StyledRecipe)`
 
         .Recipe--Image {
             position: relative;
-            background-color: ${monochromes.ballerina};
+            background-color: ${monochromes.grey20};
             ${transition()};
 
             &:hover {
                 cursor: pointer;
-                background-color: ${darken(0.1, monochromes.ballerina)};
+                background-color: ${darken(0.1, monochromes.grey20)};
             }
 
             .forcedLayout {
@@ -86,12 +86,12 @@ export const AddRecipe = styled(StyledRecipe)`
             font-size: 1rem;
             padding: 0;
             line-height: 1;
-            color: ${monochromes.fuelTown};
+            color: ${monochromes.grey60};
 
             :hover,
             :focus {
                 box-shadow: none;
-                background-color: ${lighten(0.05, monochromes.blackSqueeze)};
+                background-color: ${lighten(0.05, monochromes.white)};
             }
         }
     }

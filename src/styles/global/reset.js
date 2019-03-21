@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { ballerina } from 'styles/colors';
+import { grey20 } from 'styles/colors';
 
 export default createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -48,7 +48,7 @@ export default createGlobalStyle`
     body {
         line-height: 1;
         overflow: hidden;
-        background-color: ${ballerina};
+        background-color: ${grey20};
     }
 
     ol, ul {

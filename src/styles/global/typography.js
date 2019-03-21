@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 import {
-    ballerina,
-    imperialPrimer
+    grey20,
+    black
 } from 'styles/colors';
 
 import {
@@ -23,7 +23,7 @@ export default createGlobalStyle`
 
     body {
         font-family: 'Roboto', sans-serif;
-        color: ${imperialPrimer};
+        color: ${black};
         font-size: ${spacingmd};
     }
 
@@ -56,6 +56,6 @@ export default createGlobalStyle`
     }
 
     .subtle {
-        color: ${ballerina};
+        color: ${grey20};
     }
 `;

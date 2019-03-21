@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {elevate, transition} from 'styles/mixins/index';
 
-import {blueFrance, ballerina, stormPetrel} from 'styles/colors';
+import {brand, grey20, grey40} from 'styles/colors';
 import * as sizing from 'styles/sizing';
 import {border, fontBold} from 'styles/variables';
 import {lighten} from 'polished';
@@ -21,10 +21,10 @@ export const Header = styled.header`
     ${elevate('Raised')}
 
     .Link--active svg {
-        fill: ${blueFrance};
+        fill: ${brand};
 
         &:hover {
-            fill: ${lighten(0.2, blueFrance)};
+            fill: ${lighten(0.2, brand)};
         }
     }
 
@@ -43,7 +43,7 @@ export const Header = styled.header`
         border-right: ${border};
 
         :hover {
-            background-color:${ballerina};
+            background-color:${grey20};
             color: white;
         }
     }
@@ -61,7 +61,7 @@ export const HeaderBox = styled.div`
     } */
 
     .Icon {
-		fill: ${ballerina};
+		fill: ${grey20};
 
 
         :last-of-type {
@@ -69,7 +69,7 @@ export const HeaderBox = styled.div`
         }
 
         &:hover {
-            fill: ${stormPetrel};
+            fill: ${grey40};
         }
 	}
 `;

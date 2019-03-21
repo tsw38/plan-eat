@@ -22,17 +22,17 @@ export default createGlobalStyle`
                 margin:0 3rem 1rem 0;
 
                 &.react-tabs__tab--selected {
-                    border-bottom: 2px solid ${darken(0.2, polychromes.blueFrance)};
+                    border-bottom: 2px solid ${darken(0.2, polychromes.brand)};
                 }
 
                 &:focus {
-                    outline: 1px solid ${polychromes.blueFrance};
+                    outline: 1px solid ${polychromes.brand};
                 }
             }
 
             span {
                 :hover {
-                    color: ${polychromes.blueFrance};
+                    color: ${polychromes.brand};
                 }
             }
         }

@@ -5,13 +5,17 @@ export const toTitleCase = (str) =>
 );
 
 export const suitify = ({
+    variant,
     parent,
     child,
-    variant,
     state
 }) => {
     const parentClass = parent.split(' ').join('--');
-    const variantClass = variant ? (Array.isArray(variant) ? variant.map(str => `${parentClass}--${str}`.replace(/\s/g, '-')) .join(' ') : variant.replace(/\s/g, '-')) : '';
+    const variantClass = variant ? (
+        Array.isArray(variant) ? variant
+            .filter(Boolean)
+            .map(str => `${parentClass}--${str}`)
+            .join(' ') : `${parentClass}--${variant.replace(/\s/g, '-')}`) : '';
 
-    return `${parentClass && !child ? parentClass : ''}${child ? `${parentClass}-${child}` : ``}${variantClass || ''}${state ? ` ${parentClass}_${state}` : ``}`;
+    return `${parentClass && !child ? parentClass : ''}${child ? `${parentClass}-${child}` : ``}${variantClass ? ` ${variantClass}` : ''}${state ? ` ${parentClass}_${state}` : ``}`;
 }

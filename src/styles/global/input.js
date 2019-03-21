@@ -15,7 +15,7 @@ const colors = {
 export default createGlobalStyle`
 	input, select {
 		font-size: ${sizing._14px};
-		color: ${colors.blueFrance};
+		color: ${colors.brand};
 		border: none;
 	}
 
@@ -26,15 +26,15 @@ export default createGlobalStyle`
 		width: 100%;
 		height: ${sizing.spacing2xl};
 		padding: 0 ${sizing.spacingmd};
-		background-color: ${colors.blackSqueeze};
-		box-shadow: 0 1px 0 0 ${colors.stormPetrel};
+		background-color: ${colors.white};
+		box-shadow: 0 1px 0 0 ${colors.grey40};
 		border: 1px solid transparent;
 		border-bottom: 1px solid transparent;
 		${transition()}
 
 		:focus {
 			outline: none;
-			box-shadow: 0 ${sizing.spacing3xs} 0 0 ${colors.blueFrance};
+			box-shadow: 0 ${sizing.spacing3xs} 0 0 ${colors.brand};
 		}
 	}
 `;

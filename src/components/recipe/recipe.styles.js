@@ -91,7 +91,7 @@ export const StyledRecipe = styled.div`
 
             .Link {
                 font-weight: ${variables.fontBold};
-                color: ${colors.fuelTown};
+                color: ${colors.grey60};
             }
         }
 
@@ -103,7 +103,7 @@ export const StyledRecipe = styled.div`
 
         &--Section {
             &:not(:last-of-type) {
-                border-bottom: 1px solid ${colors.ballerina};
+                border-bottom: 1px solid ${colors.grey20};
             }
 
             .row {
@@ -112,7 +112,7 @@ export const StyledRecipe = styled.div`
             }
 
             .Recipe--Section-List {
-                color: ${colors.stormPetrel};
+                color: ${colors.grey40};
             }
         }
 
@@ -129,24 +129,24 @@ export const StyledRecipe = styled.div`
 
             .Button {
                 border-radius: 0;
-                border: ${sizing.spacing3xs} solid ${colors.imperialPrimer};
+                border: ${sizing.spacing3xs} solid ${colors.black};
                 padding: 0.25rem;
 
                 :first-of-type {
-                    fill: ${colors.imperialPrimer};
+                    fill: ${colors.black};
 
                     &:hover {
-                        ${colorButtons(colors.imperialPrimer)}
+                        ${colorButtons(colors.black)}
                         fill: white;
                     }
                 }
 
                 :last-of-type {
-                    ${colorButtons(colors.imperialPrimer)}
+                    ${colorButtons(colors.black)}
                     fill: white;
 
                     &:hover {
-                        ${colorButtons(darken(0.2, colors.imperialPrimer))}
+                        ${colorButtons(darken(0.2, colors.black))}
                         fill: white;
                     }
                 }
@@ -165,7 +165,7 @@ export const StyledRecipe = styled.div`
                 span {
                     font-size: 0.75rem;
                     text-transform: uppercase;
-                    color: ${colors.stormPetrel};
+                    color: ${colors.grey40};
                 }
             }
         }
@@ -177,18 +177,18 @@ export const StyledRecipe = styled.div`
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-color: ${colors.stormPetrel};
+            background-color: ${colors.grey40};
         }
 
         &--Time {
             display: grid;
             grid-template-columns: 1fr 1fr;
             justify-items: center;
-            border-bottom: 1px solid ${colors.ballerina};
+            border-bottom: 1px solid ${colors.grey20};
             padding: 0.5rem 0;
 
             h6 {
-                color: ${colors.stormPetrel};
+                color: ${colors.grey40};
                 font-weight: ${variables.fontLight};
                 font-size: ${sizing.spacingsml};
                 text-align: center;
@@ -199,11 +199,11 @@ export const StyledRecipe = styled.div`
                 width: 100%;
 
                 :first-child {
-                    border-right: 1px solid ${colors.ballerina};
+                    border-right: 1px solid ${colors.grey20};
                 }
 
                 :last-child {
-                    border-left: 1px solid ${colors.ballerina};
+                    border-left: 1px solid ${colors.grey20};
                 }
             }
         }
@@ -232,20 +232,20 @@ export const StyledRecipe = styled.div`
                     &.Calories,
                     &.Protein,
                     &.Fat {
-                        border-right: 1px solid ${colors.ballerina};
+                        border-right: 1px solid ${colors.grey20};
                         padding-right: 0.5rem;
                     }
                     &.Sugar,
                     &.Fiber,
                     &.Carbs {
-                        border-left: 1px solid ${colors.ballerina};
+                        border-left: 1px solid ${colors.grey20};
                         padding-left: 0.5rem;
                     }
 
                     &.Protein,
                     &.Fiber {
-                        border-top: 2px solid ${colors.ballerina};
-                        border-bottom: 2px solid ${colors.ballerina};
+                        border-top: 2px solid ${colors.grey20};
+                        border-bottom: 2px solid ${colors.grey20};
                     }
                 }
             }

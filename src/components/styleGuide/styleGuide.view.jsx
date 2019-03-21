@@ -16,7 +16,7 @@ class StyleGuide extends React.Component {
         return (
             <div className="StyleGuide">
                 <TabsComponent
-                    defaultIndex={8}
+                    defaultIndex={7}
                     panels={[{
                         name: 'Colors',
                         Component: ColorGuide

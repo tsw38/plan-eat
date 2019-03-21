@@ -8,7 +8,7 @@ import {monochromes} from 'styles/colors';
 export const CalendarBand = styled.div`
     height:  ${space.spacingxl};
     width: 100%;
-    background-color: ${monochromes.ballerina};
+    background-color: ${monochromes.grey20};
     display: grid;
     grid-template-columns: ${space.spacingxl} auto ${space.spacingxl};
     ${elevate('Raised')}

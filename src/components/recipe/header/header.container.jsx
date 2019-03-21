@@ -80,9 +80,9 @@ class RecipeHeader extends React.Component {
                         <div className="Recipe--Rating">
                             <StarRatings
                                 rating={calculation}
-                                starRatedColor={monochromes.imperialPrimer}
-                                starEmptyColor={monochromes.ballerina}
-                                starHoverColor={monochromes.imperialPrimer}
+                                starRatedColor={monochromes.black}
+                                starEmptyColor={monochromes.grey20}
+                                starHoverColor={monochromes.black}
                                 starDimension={spacing.spacing2lg}
                                 starSpacing={spacing.spacing2xs}
                                 changeRating={this.handleChangeRating}

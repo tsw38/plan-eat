@@ -31,7 +31,7 @@ const ColorWrapper = styled.div`
 
     &:hover {
         color: white;
-        text-shadow: 1px 1px 1px ${monochromes.fuelTown};
+        text-shadow: 1px 1px 1px ${monochromes.grey60};
     }
 
     ${({color}) => ({

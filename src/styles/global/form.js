@@ -15,7 +15,7 @@ const colors = {
 export default createGlobalStyle`
     .Form {
         form {
-            border: 1px solid ${colors.stormPetrel};
+            border: 1px solid ${colors.grey40};
         }
 
         &--Modal {
@@ -43,7 +43,7 @@ export default createGlobalStyle`
         font-weight:${fontBold};
         display: block;
         margin-bottom: ${sizing.spacingxs};
-        color: ${colors.fuelTown};
+        color: ${colors.grey60};
 
         :empty {
             display: none;
@@ -65,22 +65,22 @@ export default createGlobalStyle`
             width: 100%;
             height: ${sizing.spacing2xl};
             padding: 0 ${sizing.spacingmd};
-            background-color: ${colors.blackSqueeze};
-            box-shadow: 0 1px 0 0 ${colors.stormPetrel};
+            background-color: ${colors.white};
+            box-shadow: 0 1px 0 0 ${colors.grey40};
             border: 1px solid transparent;
             border-bottom: 1px solid transparent;
             ${transition()}
 
             :focus {
                 outline: none;
-                box-shadow: 0 ${sizing.spacing3xs} 0 0 ${colors.blueFrance};
+                box-shadow: 0 ${sizing.spacing3xs} 0 0 ${colors.brand};
             }
         }
 
         &:hover {
             input, select, textarea {
-                background-color: ${darken(0.035, monochromes.blackSqueeze)};
-                border: 1px solid ${darken(0.075, monochromes.blackSqueeze)};
+                background-color: ${darken(0.035, monochromes.white)};
+                border: 1px solid ${darken(0.075, monochromes.white)};
             }
         }
 
@@ -138,8 +138,8 @@ export default createGlobalStyle`
             height: 1rem;
             width: 1rem;
             margin-right: 0.5rem;
-            background-color: ${colors.blackSqueeze};
-            border: 2px solid ${colors.stormPetrel};
+            background-color: ${colors.white};
+            border: 2px solid ${colors.grey40};
         }
 
         label:hover input ~ .Radio--Button {
@@ -147,12 +147,12 @@ export default createGlobalStyle`
         }
 
         label input:checked ~ .Radio--Button {
-            background-color: ${colors.blackSqueeze};
+            background-color: ${colors.white};
         }
 
         label input:checked ~ .Radio--Button:after {
             display: block;
-            background-color: ${colors.blueFrance};
+            background-color: ${colors.brand};
         }
 
         .Radio--Button:after {
@@ -192,8 +192,8 @@ export default createGlobalStyle`
     .Form--Helper {
         display: block;
         padding: ${sizing.spacingxs};
-        border: 1px solid ${darken(0.1, colors.casandora)};
-        background: ${lighten(0.25, colors.casandora)};
+        border: 1px solid ${darken(0.1, colors.yellow)};
+        background: ${lighten(0.25, colors.yellow)};
         position: fixed;
         bottom: ${sizing.spacingxs};
         right: ${sizing.spacingxs};

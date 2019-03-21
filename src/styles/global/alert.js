@@ -7,7 +7,7 @@ import {polychromes, monochromes} from 'styles/colors';
 export default createGlobalStyle`
     .Alert {
         &--Error {
-            color: ${polychromes.amour};
+            color: ${polychromes.red};
         }
     }
 `;

@@ -23,20 +23,20 @@ export const StyledModal = styled(Modal)`
 
 		&--Transactional,
         &--Passive {
-			border-top: ${spacing.spacing2xs} solid ${polychromes.blueFrance};
+			border-top: ${spacing.spacing2xs} solid ${polychromes.brand};
 		}
 
 		&--Danger,
         &--Danger-Passive {
-			border-top: ${spacing.spacing2xs} solid ${polychromes.amour};
+			border-top: ${spacing.spacing2xs} solid ${polychromes.red};
 
             .Modal--Header-Close {
                 :focus {
-                    outline: 1px solid ${polychromes.amour};
+                    outline: 1px solid ${polychromes.red};
                 }
 
                 :hover {
-                    background-color: ${polychromes.amour};
+                    background-color: ${polychromes.red};
                 }
             }
 		}
@@ -64,7 +64,7 @@ export const StyledModal = styled(Modal)`
 				grid-template-columns: auto auto;
 				grid-gap: ${spacing.spacingmd};
 				justify-content: space-between;
-				background-color: ${monochromes.blackSqueeze};
+				background-color: ${monochromes.white};
 				${elevate('Modal')}
 
                 .ButtonWrapper {
@@ -98,7 +98,7 @@ export const StyledModal = styled(Modal)`
 			max-width: ${spacing.layoutSoBig};
 			font-size: ${spacing.spacingsm};
 			letter-spacing: 0;
-			color: ${monochromes.imperialPrimer};
+			color: ${monochromes.black};
 			font-weight: ${fontBold};
 			text-transform: uppercase;
 			margin-bottom: ${spacing.spacingxs};
@@ -107,7 +107,7 @@ export const StyledModal = styled(Modal)`
 		&-Heading {
 			font-size: ${spacing.spacing2lg};
 			font-weight: ${fontLight};
-			color: ${monochromes.stormPetrel};
+			color: ${monochromes.grey40};
 			max-width: ${spacing.layoutSoBig};
 			line-height: 1.5;
             margin-bottom: ${spacing.spacingmd};
@@ -124,15 +124,15 @@ export const StyledModal = styled(Modal)`
 			padding: ${spacing.spacing2xs};
 
 			:focus {
-				outline: 1px solid ${polychromes.blueFrance};
+				outline: 1px solid ${polychromes.brand};
 			}
 
             :hover {
-                background-color: ${polychromes.blueFrance};
+                background-color: ${polychromes.brand};
                 fill: white;
 
                 .Modal--Danger & {
-                    background-color: ${polychromes.blueFrance};
+                    background-color: ${polychromes.brand};
                 }
             }
 
@@ -145,7 +145,7 @@ export const StyledModal = styled(Modal)`
 
 	.Modal--Content {
 		overflow-y: auto;
-		/* color: ${colors.blueFrance}; */
+		/* color: ${colors.brand}; */
 		font-weight: ${fontNormal};
 
 		p {
@@ -161,7 +161,7 @@ export const StyledModal = styled(Modal)`
         grid-template-columns: auto auto;
         margin-top: 2rem;
         justify-content: flex-end;
-        background-color: ${monochromes.blackSqueeze};
+        background-color: ${monochromes.white};
         margin-left: -3rem;
         margin-right: -3rem;
         padding: 1rem 3rem;

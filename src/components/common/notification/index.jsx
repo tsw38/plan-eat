@@ -56,10 +56,8 @@ class Notification extends React.Component {
             <div className={classNames(
                 suitify({
                     parent: 'Notification',
-                    variant: type.toLowerCase()
-                }),
-                {[`Notification--${scale.toLowerCase()}`]: !!scale},
-                {[`Notification--${theme.toLowerCase()}`]: !!theme}
+                    variant: [type.toLowerCase(), !!scale && scale.toLowerCase(), !!theme && theme.toLowerCase()]
+                })
             )}>
 
                 <div className="Notification--Wrapper">

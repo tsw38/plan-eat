@@ -19,8 +19,8 @@ class NutritionDonutChart extends React.Component {
         return (
             <StyledDonutChart className="DonutChart">
                 <DonutChart data={[
-                    { value: data.totalCalories - data.totalEaten, stroke: monochromes.ballerina, strokeWidth: 2 },
-                    { value: data.totalEaten, stroke: monochromes.stormPetrel, strokeWidth: 3 },
+                    { value: data.totalCalories - data.totalEaten, stroke: monochromes.grey20, strokeWidth: 2 },
+                    { value: data.totalEaten, stroke: monochromes.grey40, strokeWidth: 3 },
                 ]} />
                 <h2 className="DonutChart--Name">{name}</h2>
             </StyledDonutChart>

@@ -12,6 +12,7 @@ import Form from 'styles/global/form';
 import Input from 'styles/global/input';
 import Modal from 'styles/global/modal';
 import Alert from 'styles/global/alert';
+import Toast from 'styles/global/toast';
 import Button from 'styles/global/button';
 import Loading from 'styles/global/loading';
 import Dropdown from 'styles/global/dropdown';
@@ -34,6 +35,7 @@ export default () => {
             <Input />
             <Form />
             <Dropdown />
+            <Toast />
             <Notification />
 		</React.Fragment>
     )

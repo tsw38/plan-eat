@@ -22,7 +22,7 @@ export default createGlobalStyle`
         background-color: white;
         padding: ${sizing.spacingsm} ${sizing.spacingmd};
         min-height: ${sizing.spacing2xl};
-        color: ${lighten(0.2, colors.fuelTown)};
+        color: ${lighten(0.2, colors.grey60)};
         margin-top: ${sizing.spacingmd};
         margin-bottom: ${sizing.spacingmd};
         border-style: solid;
@@ -44,26 +44,26 @@ export default createGlobalStyle`
 
         ${'' /* scale */}
         &--information {
-            border-color: ${colors.blueFrance};
-            fill: ${colors.blueFrance};
+            border-color: ${colors.brand};
+            fill: ${colors.brand};
         }
         &--success {
-            border-color: ${colors.carribean};
-            fill: ${colors.carribean};
+            border-color: ${colors.green};
+            fill: ${colors.green};
         }
         &--error {
-            border-color: ${colors.amour};
-            fill: ${colors.amour};
+            border-color: ${colors.red};
+            fill: ${colors.red};
         }
         &--warning {
-            border-color: ${colors.casandora};
-            fill: ${colors.casandora};
+            border-color: ${colors.yellow};
+            fill: ${colors.yellow};
         }
     }
 
     .Notification--dark {
-        background-color: ${colors.imperialPrimer};
-        color: ${colors.blackSqueeze};
+        background-color: ${colors.black};
+        color: ${colors.white};
     }
 
 
@@ -83,10 +83,10 @@ export default createGlobalStyle`
         &--Close {
             grid-area: close;
             cursor: pointer;
-            fill: ${colors.fuelTown};
+            fill: ${colors.grey60};
 
             .Notification--dark & {
-                fill: ${colors.blackSqueeze};
+                fill: ${colors.white};
             }
         }
 
@@ -106,12 +106,12 @@ export default createGlobalStyle`
         grid-area: header;
 
         &--Title {
-            color: ${colors.imperialPrimer};
+            color: ${colors.black};
             font-weight: ${variables.fontBold};
             margin-right: ${sizing.spacing2xs};
 
             .Notification--dark & {
-                color: ${transparentize(0.5, colors.blackSqueeze)};
+                color: ${transparentize(0.5, colors.white)};
             }
         }
     }

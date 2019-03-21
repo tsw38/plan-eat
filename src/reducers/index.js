@@ -2,6 +2,7 @@ import {combineReducers} from 'redux';
 
 import app from 'reducers/AppReducers';
 import tags from 'reducers/TagsReducer';
+import toast from 'reducers/ToastReducer';
 import user from 'reducers/AccountReducers';
 import modals from 'reducers/ModalsReducers';
 import recipes from 'reducers/RecipeReducers';
@@ -12,6 +13,7 @@ export default (props) => combineReducers({
     app,
     tags,
     user,
+    toast,
     modals,
     recipes,
     ingredients

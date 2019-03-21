@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import {blueFrance, imperialPrimer} from '../colors';
+import {brand, black} from '../colors';
 
 import {transition} from 'styles/mixins/index';
 
@@ -10,20 +10,20 @@ export default createGlobalStyle`
     .Link {
         font-weight: ${fontBold};
         text-decoration: none;
-        color: ${blueFrance};
+        color: ${brand};
         ${transition()}
 
 
         &:hover {
-            color: ${blueFrance};
+            color: ${brand};
             text-decoration: underline;
         }
 
         &--Secondary {
-            color: ${imperialPrimer};
+            color: ${black};
 
             &:hover {
-                color: ${blueFrance};
+                color: ${brand};
             }
         }
 

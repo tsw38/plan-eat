@@ -12,7 +12,7 @@ import {
     layoutmd,
     layout7_5xl
 } from 'styles/sizing';
-import { imperialPrimer, blueFrance } from 'styles/colors';
+import { black, brand } from 'styles/colors';
 
 
 import {HeaderBox} from 'components/header/header.styles';
@@ -89,7 +89,7 @@ export const AccountDropDown = styled.div`
             }
 
             &:hover {
-                background-color: ${lighten(0.2, blueFrance)};
+                background-color: ${lighten(0.2, brand)};
 
                 svg {
                     fill: white;
@@ -131,7 +131,7 @@ export const Image = styled.div`
     max-height: ${layoutmd};
     overflow: hidden;
     flex-shrink: 0;
-    background-color: ${imperialPrimer};
+    background-color: ${black};
 
     border-radius: 50%;
     margin-right: ${spacingmd};

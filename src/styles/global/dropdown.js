@@ -16,7 +16,7 @@ export default createGlobalStyle`
     .Dropdown {
         position: relative;
         display: inline-block;
-        background-color: ${polychromes.doubleDragon};
+        background-color: ${polychromes.orange};
         width: 100%;
         padding: .8125rem 1rem;
         font-weight: ${variables.fontNormal};

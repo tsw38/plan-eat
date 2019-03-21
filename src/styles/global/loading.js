@@ -41,7 +41,7 @@ export default createGlobalStyle`
                 padding: 0;
                 width: auto;
                 position: relative;
-                fill: ${monochromes.fuelTown};
+                fill: ${monochromes.grey60};
 
                 * {
                     fill: inherit;
@@ -76,7 +76,7 @@ export default createGlobalStyle`
         height: 100vh;
         width: 100vw;
         display: flex;
-        background-color: ${transparentize(0.25, monochromes.blackSqueeze)};
+        background-color: ${transparentize(0.25, monochromes.white)};
         justify-content: center;
         align-items: center;
         padding: 10rem;
