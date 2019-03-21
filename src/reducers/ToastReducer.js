@@ -5,7 +5,8 @@ import {ToastConstants as TC} from 'constants/index';
 export default (state = [{
     title: '',
     subtitle: '',
-    body: ''
+    body: '',
+    scale: ''
 }], {type, payload}) => {
     switch (type) {
         case TC.TOAST_PUSHED:

@@ -15,10 +15,21 @@ const colors = {
 
 export default createGlobalStyle`
     .ToastContainer {
-        height: 100vh;
-        width: 200px;
+        display: flex;
+        flex-direction: column;
         position: fixed;
         top: 0;
+        z-index: 100;
         right: 0;
+        pointer-events: none;
+        margin-top: 3rem;
+
+        > * {
+            pointer-events: all;
+        }
+
+        .Notification--toast {
+            margin-bottom: 0;
+        }
     }
 `;

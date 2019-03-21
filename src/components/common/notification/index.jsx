@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {connect} from 'react-redux';
 import { suitify } from 'utils/string';
 
 import {AlertConstants as AC} from 'constants';
+
+import { popToast } from 'actions/ToastActions';
 
 import Icon from "components/common/Icon/Icon";
 
@@ -15,14 +18,14 @@ class Notification extends React.Component {
     componentDidMount() {
         if ((/TOAST/).test(this.props.type) && !this.props.disableTimeout) {
             setTimeout(() => {
-                this.setState({
-                    render: false
-                })
+                this.props.popToast();
             }, 5000);
         }
     }
 
     handleOnClick = () => {
+
+        //TODO: TOAST - on click, send index to remove from queue
         this.setState({
             render: false
         })
@@ -108,4 +111,11 @@ Notification.propTypes = {
     scale: PropTypes.oneOf(['INFORMATION', 'ERROR', 'SUCCESS', 'WARNING'])
 }
 
-export default Notification;
+const mapStateToProps = (state, ownProps) => ({
+});
+
+const mapDispatchToProps = {
+    popToast
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notification);

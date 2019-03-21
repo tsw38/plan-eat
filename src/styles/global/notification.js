@@ -122,8 +122,7 @@ export default createGlobalStyle`
         max-width: ${sizing.layoutSoBig};
         line-height: 1.5;
         grid-area: body;
-        margin-left: ${sizing.spacingmd};
-        margin-top: ${sizing.spacing2xs};
+        margin: 0.25rem 1rem;
 
         > * {
             font-size: inherit;

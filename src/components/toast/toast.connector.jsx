@@ -16,8 +16,8 @@ class ToastConnector extends React.Component {
     }
 }
 
-const mapStateToProps = ({app}, ownProps) => ({
-    isLoading: app.loading
+const mapStateToProps = ({toast}, ownProps) => ({
+    toast
 });
 
 const mapDispatchToProps = {
