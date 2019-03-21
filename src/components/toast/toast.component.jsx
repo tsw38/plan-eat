@@ -14,7 +14,7 @@ export default ({toast}) => {
                         scale={scale.toUpperCase()}
                         title={title}
                         subtitle={subtitle}
-                        // disableTimeout={true}
+                        disableTimeout={true}
                         theme="dark"
                     >
                         {body ? <p>{body}</p> : null}

@@ -18,11 +18,10 @@ export default createGlobalStyle`
         display: flex;
         flex-direction: column;
         position: fixed;
-        top: 0;
+        top: 3rem;
         z-index: 100;
-        right: 0;
+        right: 0.5rem;
         pointer-events: none;
-        margin-top: 3rem;
 
         > * {
             pointer-events: all;
@@ -30,6 +29,7 @@ export default createGlobalStyle`
 
         .Notification--toast {
             margin-bottom: 0;
+            margin-top: 0.5rem;
         }
     }
 `;
