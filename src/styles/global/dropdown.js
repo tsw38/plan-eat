@@ -61,7 +61,26 @@ export default createGlobalStyle`
             min-width: 160px;
             max-height: 0;
             overflow-y: hidden;
-            ${transition('Panel', 'ease-in')}
+            ${transition('Small', 'ease-in')}
+
+            .SubList {
+                display: block;
+                text-decoration: none;
+                font-weight: 400;
+
+                text-overflow: ellipsis;
+                overflow: hidden;
+                cursor: pointer;
+
+                p {
+                    font-weight: ${variables.fontBold};
+                    padding: 1rem 1.5rem 0rem 1rem;
+                }
+
+                ul li {
+                    padding-left: 1.5rem;
+                }
+            }
         }
 
         &-List-Item {

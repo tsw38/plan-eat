@@ -42,6 +42,49 @@ class DropdownGuide extends React.Component {
                 </Section>
 
                 <Section>
+					<h2>Dropdown With Sublists</h2>
+					<Row>
+						<DropDown
+							name={"Test"}
+							label={"Test"}
+							items={{
+                                Ingredients: [
+                                    {
+                                        id: 'option-1',
+                                        text: 'Option 1',
+                                    },
+                                    {
+                                        id: 'option-2',
+                                        text: 'Option 2',
+                                    },
+                                    {
+                                        id: 'option-3',
+                                        text: 'Option 3',
+                                    },
+                                    {
+                                        id: 'option-4',
+                                        text: 'Option 4',
+                                    },
+                                ],
+                                Recipes: [
+                                    {
+                                        id: 'option-5',
+                                        text: 'Option 5',
+                                    }
+                                ],
+                                Users: [
+                                    {
+                                        id: 'option-6',
+                                        text: 'Option 6',
+                                    }
+                                ]
+                            }}
+							className={"Test"}
+						/>
+					</Row>
+                </Section>
+
+                <Section>
 					<h2>Dropdown (Up)</h2>
                     <Row>
 						<DropDown

@@ -14,6 +14,35 @@ class CustomDropdown extends React.Component {
         }
     }
 
+    renderList = () => {
+        const { items } = this.props;
+
+        const listItems = (listItems) => listItems.map((item, index) =>
+            <li
+                onClick={this.handleSelect}
+                data-id={item.id}
+                className={suitify({
+                    parent: 'Dropdown List',
+                    child: 'Item'
+                })}
+                key={`Dropdown--List-${index}`}>
+                {item.text}
+            </li>
+        );
+
+        return !items ? null : (Array.isArray(items) ? listItems(items) : Object.keys(items).map((listName, index) =>
+                <li
+                    className="SubList"
+                    key={`sublist-${index}`}>
+                    <p>{listName}</p>
+                    <ul>
+                        {listItems(items[listName])}
+                    </ul>
+                </li>
+
+        ));
+    }
+
     handleSelect = (e) => {
         this.setState({
             className: 'noHover',
@@ -61,18 +90,7 @@ class CustomDropdown extends React.Component {
                         })
                     )}>
 
-                        {!!items && items.map((item, index) =>
-                            <li
-                                onClick={this.handleSelect}
-                                data-id={item.id}
-                                className={suitify({
-                                    parent: 'Dropdown List',
-                                    child: 'Item'
-                                })}
-                                key={`Dropdown--List-${index}`}>
-                                {item.text}
-                            </li>
-                        )}
+                        {this.renderList()}
                     </ul>
                 </div>
             </div>
@@ -89,7 +107,10 @@ CustomDropdown.defaultProps = {
 CustomDropdown.propTypes = {
     open: PropTypes.bool,
     light: PropTypes.bool,
-    items: PropTypes.array,
+    items: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object
+    ]),
     onOpen: PropTypes.func,
     label: PropTypes.string,
     value: PropTypes.string,
