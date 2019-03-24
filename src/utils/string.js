@@ -10,7 +10,7 @@ export const suitify = ({
     child,
     state
 }) => {
-    const parentClass = parent.split(' ').join('--');
+    const parentClass = parent.split(' ').join('-');
     const variantClass = variant ? (
         Array.isArray(variant) ? variant
             .filter(Boolean)

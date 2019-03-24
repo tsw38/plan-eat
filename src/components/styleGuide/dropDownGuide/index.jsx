@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import Row from 'components/common/Layout/Row';
+import {Section} from 'styles/components/Section';
 import { DropDown, MultiSelect } from 'components/common/dropdown';
-import Section from 'components/styleGuide/notificationGuide/notificationGuide.styles';
 
 class DropdownGuide extends React.Component {
 
