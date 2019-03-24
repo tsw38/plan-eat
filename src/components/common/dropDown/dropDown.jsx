@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 import { suitify } from 'utils/string';
+
 import Input from 'components/common/Form/Fields/Input';
 import StyledDropdown from 'components/common/dropdown/dropdown.styles';
 
@@ -55,7 +55,10 @@ class CustomDropdown extends React.Component {
                 className: ''
             })
         }, 100))
+    }
 
+    DropdownTextComponent = () => {
+        return (/filter/.test(this.props.type)) ? 'input' : 'span';
     }
 
 	render() {
@@ -68,20 +71,23 @@ class CustomDropdown extends React.Component {
             onChange,
             className,
         } = this.props;
-        // TODO: Value of select needs to attach to form or state
+
+        const Component = this.DropdownTextComponent();
 
         return (
-            <div className={classNames(
+            <div
+                tabIndex={0}
+                className={classNames(
                 'Dropdown',
                 this.state.className
             )}>
-                <span
+                <Component
                     className={suitify({
                         parent: 'Dropdown',
                         child: 'SelectedText'
                     })}>
-                    {this.state.selected.text}
-                </span>
+                    {(/filter/.test(this.props.type)) ? null : this.state.selected.text}
+                </Component>
                 <div className="Dropdown-Wrapper">
                     <ul className={classNames(
                         suitify({
@@ -89,7 +95,6 @@ class CustomDropdown extends React.Component {
                             child: 'List'
                         })
                     )}>
-
                         {this.renderList()}
                     </ul>
                 </div>
@@ -124,8 +129,7 @@ CustomDropdown.propTypes = {
     helperText: PropTypes.string,
     itemToString: PropTypes.func,
     defaultText: PropTypes.string,
-    // selectedText: PropTypes.
-    type: PropTypes.oneOf(['default', 'inline'])
+    type: PropTypes.oneOf(['default', 'inline', 'filter'])
 }
 
 export default CustomDropdown;

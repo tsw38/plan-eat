@@ -84,138 +84,50 @@ class DropdownGuide extends React.Component {
 					</Row>
                 </Section>
 
-                <Section>
-					<h2>Dropdown (Up)</h2>
-                    <Row>
-						<DropDown
-							name={"Test"}
-							label={"Test"}
-							value={"test"}
-							items={[
-								{
-									id: 'option-1',
-									text: 'Option 1',
-								},
-								{
-									id: 'option-2',
-									text: 'Option 2',
-								},
-								{
-									id: 'option-3',
-									text: 'Option 3',
-								},
-								{
-									id: 'option-4',
-									text: 'Option 4',
-								},
-							]}
-							className={"Test"}
-						/>
-					</Row>
-				</Section>
-
-                <Section />
-                <Section />
-                <Section />
-
 				<Section>
-					<h2>Multi-select Dropdown</h2>
-					<Row>
-						<MultiSelect
-							title={"Test"}
-							label={"Test"}
-							placeholder={'Filter'}
-							items={[
-								{
-									id: 'option-1',
-									text: 'Option 1',
-								},
-								{
-									id: 'option-2',
-									text: 'Option 2',
-								},
-								{
-									id: 'option-3',
-									text: 'Option 3',
-								},
-								{
-									id: 'option-4',
-									text: 'Option 4',
-								},
-							]}
-							className={"Test"}
-						/>
-					</Row>
-				</Section>
-
-				<Section>
-					<h2>Inline Multi-select Dropdown</h2>
-				</Section>
-
-				<Section style={{backgroundColor: 'white'}}>
 					<h2>Filter Dropdown</h2>
 
 					<Row>
-						<MultiSelect
-							name={"Test"}
-							label={"Multiselect Filter"}
-							filterable={true}
-							placeholder={'Filter'}
-							items={[
-								{
-									id: 'option-1',
-									text: 'Option 1',
-								},
-								{
-									id: 'option-2',
-									text: 'Option 2',
-								},
-								{
-									id: 'option-3',
-									text: 'Option 3',
-								},
-								{
-									id: 'option-4',
-									text: 'Option 4',
-								},
-							]}
-							className={"Test"}
-						/>
+                        <DropDown
+                            type={'filter'}
+                            name={"Test"}
+                            label={"Test"}
+                            items={{
+                                Ingredients: [
+                                    {
+                                        id: 'option-1',
+                                        text: 'Option 1',
+                                    },
+                                    {
+                                        id: 'option-2',
+                                        text: 'Option 2',
+                                    },
+                                    {
+                                        id: 'option-3',
+                                        text: 'Option 3',
+                                    },
+                                    {
+                                        id: 'option-4',
+                                        text: 'Option 4',
+                                    },
+                                ],
+                                Recipes: [
+                                    {
+                                        id: 'option-5',
+                                        text: 'Option 5',
+                                    }
+                                ],
+                                Users: [
+                                    {
+                                        id: 'option-6',
+                                        text: 'Option 6',
+                                    }
+                                ]
+                            }}
+                            className={"Test"}
+                        />
 					</Row>
 				</Section>
-
-				<Section>
-					<h2>Filter Dropdown Light</h2>
-
-					<Row style={{width: '50%'}}>
-						<MultiSelect
-							name={"Test"}
-							label={"Multiselect Filter"}
-							filterable={true}
-							light={true}
-							placeholder={'Filter'}
-							items={[
-								{
-									id: 'option-1',
-									text: 'Option 1',
-								},
-								{
-									id: 'option-2',
-									text: 'Option 2',
-								},
-								{
-									id: 'option-3',
-									text: 'Option 3',
-								},
-								{
-									id: 'option-4',
-									text: 'Option 4',
-								},
-							]}
-							className={"Test"}
-						/>
-					</Row>
-                </Section>
             </React.Fragment>
         );
     }

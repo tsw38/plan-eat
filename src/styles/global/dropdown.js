@@ -27,19 +27,34 @@ export default createGlobalStyle`
         border: 1px solid transparent;
         border-bottom: 1px solid transparent;
 
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAo0lEQVQ4y9XRsQrCMBSF4fPrksfrUERExMFBOhSRDkWcfI08Tp9KSolLApdgaxx7IUPI/U5CrrT+cs5tJHngUmpir49WXlKQNAHnAnySNEXjBVzjJoUcF/DB4BCtBDRZyP4L3mW4yRtaEzICtTmrJY0Gt3NPvGUhFVBl+P7rkzoT8o4r4a50TL0JSbgvHXMKeRj8nOvbLmQMQACGEMLrr9vXVR/DczsO6OprqwAAAABJRU5ErkJggg==);
-        background-repeat: no-repeat;
-        background-position: 98% center;
-        background-size: 0.5rem;
+        :after {
+            content: '';
+            display: block;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAo0lEQVQ4y9XRsQrCMBSF4fPrksfrUERExMFBOhSRDkWcfI08Tp9KSolLApdgaxx7IUPI/U5CrrT+cs5tJHngUmpir49WXlKQNAHnAnySNEXjBVzjJoUcF/DB4BCtBDRZyP4L3mW4yRtaEzICtTmrJY0Gt3NPvGUhFVBl+P7rkzoT8o4r4a50TL0JSbgvHXMKeRj8nOvbLmQMQACGEMLrr9vXVR/DczsO6OprqwAAAABJRU5ErkJggg==);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 0.5rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 2.625rem;
+            width: 2.625rem;
+            transform-origin: 50% 50%;
+            transform: rotate(0deg);
+        }
 
         &.noHover {
             pointer-events: none;
             user-select: none;
         }
 
-        &:hover {
+        &:focus {
             background-color: ${darken(0.035, monochromes.white)};
             border: 1px solid ${darken(0.075, monochromes.white)};
+
+            :after {
+                transform: rotate(180deg);
+            }
         }
 
         &-SelectedText {
@@ -61,6 +76,7 @@ export default createGlobalStyle`
             min-width: 160px;
             max-height: 0;
             overflow-y: hidden;
+            opacity: 0;
             ${transition('Small', 'ease-in')}
 
             .SubList {
@@ -102,10 +118,11 @@ export default createGlobalStyle`
     }
 
     .Dropdown-Wrapper {
-        .Dropdown:hover & {
+        .Dropdown:focus & {
 
             .Dropdown-List {
                 max-height: ${sizing.layout4xl};
+                opacity: 1;
                 overflow-y: scroll;
             }
 
