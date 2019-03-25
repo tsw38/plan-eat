@@ -33,7 +33,7 @@ class CustomDropdown extends React.Component {
         const filterList = (items) => {
             const {filter} = this.state;
 
-            if (filter.length && this.isFilter()) {
+            if (this.isFilter()) {
                 if (Array.isArray(items)) {
                     return items.filter(item => item.text.toLowerCase().indexOf(filter.toLowerCase()) >= 0);
                 }

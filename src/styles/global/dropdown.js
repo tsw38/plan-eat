@@ -49,7 +49,7 @@ export default createGlobalStyle`
             user-select: none;
         }
 
-        &:focus {
+        &:focus, &:focus-within {
             background-color: ${darken(0.035, monochromes.white)};
             border: 1px solid ${darken(0.075, monochromes.white)};
 
@@ -119,7 +119,6 @@ export default createGlobalStyle`
 
     .Dropdown--Filter {
         padding: 0;
-        border: 0;
     }
 
     .Dropdown-Wrapper {
