@@ -115,6 +115,14 @@ class DropdownGuide extends React.Component {
                                     {
                                         id: 'option-5',
                                         text: 'Option 5',
+                                    },
+                                    {
+                                        id: 'joey-5',
+                                        text: 'Joey',
+                                    },
+                                    {
+                                        id: 'tyler-5',
+                                        text: 'Tyler',
                                     }
                                 ],
                                 Users: [

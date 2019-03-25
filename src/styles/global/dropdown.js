@@ -1,11 +1,11 @@
 
 import { createGlobalStyle } from 'styled-components';
 import {transition, colorButtons} from 'styles/mixins/index';
-import { darken, lighten } from 'polished';
+import { darken, transparentize } from 'polished';
 import * as sizing from 'styles/sizing';
 import * as variables from 'styles/variables';
 
-import {polychromes, monochromes} from 'styles/colors';
+import {polychromes, monochromes, brand} from 'styles/colors';
 
 const colors = {
     ...polychromes,
@@ -17,7 +17,8 @@ export default createGlobalStyle`
         position: relative;
         display: inline-block;
         width: 100%;
-        padding: .8125rem 1rem;
+        cursor: pointer;
+        padding: 0.8125rem 1rem;
         font-size: ${sizing.spacingsml};
         font-weight: ${variables.fontNormal};
         white-space: nowrap;
@@ -76,7 +77,6 @@ export default createGlobalStyle`
             min-width: 160px;
             max-height: 0;
             overflow-y: hidden;
-            opacity: 0;
             ${transition('Small', 'ease-in')}
 
             .SubList {
@@ -109,7 +109,7 @@ export default createGlobalStyle`
             cursor: pointer;
 
             &:hover {
-                background-color: rgba(85,150,230,.1);
+                background-color: ${transparentize(0.85, brand)};
                 outline: 1px solid transparent;
                 text-decoration: underline;
                 color: #152935;
@@ -117,12 +117,17 @@ export default createGlobalStyle`
         }
     }
 
+    .Dropdown--Filter {
+        padding: 0;
+        border: 0;
+    }
+
     .Dropdown-Wrapper {
-        .Dropdown:focus & {
+        .Dropdown:focus &, .Dropdown:focus-within & {
+            background-color: red;
 
             .Dropdown-List {
                 max-height: ${sizing.layout4xl};
-                opacity: 1;
                 overflow-y: scroll;
             }
 

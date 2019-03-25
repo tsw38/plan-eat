@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { suitify } from 'utils/string';
 
-import Input from 'components/common/Form/Fields/Input';
-import StyledDropdown from 'components/common/dropdown/dropdown.styles';
-
 class CustomDropdown extends React.Component {
     state = {
+        filter: '',
         selected: {
             id: '',
             text: 'Mouse Over Now'
         }
     }
+
+    dropdown = React.createRef();
 
     renderList = () => {
         const { items } = this.props;
@@ -30,63 +30,98 @@ class CustomDropdown extends React.Component {
             </li>
         );
 
-        return !items ? null : (Array.isArray(items) ? listItems(items) : Object.keys(items).map((listName, index) =>
-                <li
-                    className="SubList"
-                    key={`sublist-${index}`}>
-                    <p>{listName}</p>
-                    <ul>
-                        {listItems(items[listName])}
-                    </ul>
-                </li>
+        const filterList = (items) => {
+            const {filter} = this.state;
 
+            if (filter.length && this.isFilter()) {
+                if (Array.isArray(items)) {
+                    return items.filter(item => item.text.toLowerCase().indexOf(filter.toLowerCase()) >= 0);
+                }
+
+                // console.warn(filter.toLowerCase());
+
+                const filteredPerList = Object.keys(items).map(listName => {
+                    const searched = items[listName].filter(item => item.text.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
+                    return searched.length && {
+                        [listName]: searched
+                    };
+                }).filter(Boolean).reduce((obj, subMenu) => ({
+                    ...obj,
+                    ...subMenu
+                }), {});
+
+                // console.warn('----', filteredPerList);
+
+                return filteredPerList;
+            }
+
+            return items;
+        }
+
+        const _items = filterList(items);
+
+        return !_items ? null : (Array.isArray(_items) ? listItems(_items) : Object.keys(_items).map((listName, index) =>
+            <li
+                className="SubList"
+                key={`sublist-${index}`}>
+                <p>{listName}</p>
+                <ul>
+                    {listItems(_items[listName])}
+                </ul>
+            </li>
         ));
     }
 
     handleSelect = (e) => {
         this.setState({
-            className: 'noHover',
             selected: {
                 id: e.target.attributes.getNamedItem('data-id').value,
                 text: e.target.innerText
             }
-        }, () => setTimeout(() => {
-            this.setState({
-                className: ''
-            })
-        }, 100))
+        }, () => {
+            this.dropdown.current.blur();
+            this.setState({filter: this.state.selected.text})
+        });
+    }
+
+    handleFilter = (e) => {
+        this.setState({
+            filter: e.target.value
+        });
     }
 
     DropdownTextComponent = () => {
-        return (/filter/.test(this.props.type)) ? 'input' : 'span';
+        return this.isFilter() ? 'input' : 'span';
     }
 
+    isFilter = () => (/filter/.test(this.props.type));
+
 	render() {
-		const {
-            type,
-            name,
-			label,
-			items,
-            options,
-            onChange,
-            className,
-        } = this.props;
+        const {
+            filter
+        } = this.state;
 
         const Component = this.DropdownTextComponent();
 
         return (
             <div
                 tabIndex={0}
-                className={classNames(
-                'Dropdown',
-                this.state.className
-            )}>
+                ref={this.dropdown}
+                className={suitify({
+                    parent: 'Dropdown',
+                    ...(this.isFilter() && {variant: 'Filter'})
+                })}>
                 <Component
+                    onChange={this.handleFilter}
+                    {...(this.isFilter() && {
+                        placeholder: 'Filter',
+                        value: filter
+                    })}
                     className={suitify({
                         parent: 'Dropdown',
                         child: 'SelectedText'
                     })}>
-                    {(/filter/.test(this.props.type)) ? null : this.state.selected.text}
+                    {this.isFilter() ? null : this.state.selected.text}
                 </Component>
                 <div className="Dropdown-Wrapper">
                     <ul className={classNames(
