@@ -8,7 +8,7 @@ class CustomDropdown extends React.Component {
         filter: '',
         selected: {
             id: '',
-            text: 'Mouse Over Now'
+            text: 'Click on Me!!!'
         }
     }
 
