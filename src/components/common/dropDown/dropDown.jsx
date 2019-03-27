@@ -38,9 +38,8 @@ class CustomDropdown extends React.Component {
                     return items.filter(item => item.text.toLowerCase().indexOf(filter.toLowerCase()) >= 0);
                 }
 
-                // console.warn(filter.toLowerCase());
-
-                const filteredPerList = Object.keys(items).map(listName => {
+				//if the items in the dropdown dont have categories
+                return Object.keys(items).map(listName => {
                     const searched = items[listName].filter(item => item.text.toLowerCase().indexOf(filter.toLowerCase()) !== -1);
                     return searched.length && {
                         [listName]: searched
@@ -49,10 +48,6 @@ class CustomDropdown extends React.Component {
                     ...obj,
                     ...subMenu
                 }), {});
-
-                // console.warn('----', filteredPerList);
-
-                return filteredPerList;
             }
 
             return items;
@@ -101,39 +96,49 @@ class CustomDropdown extends React.Component {
             filter
         } = this.state;
 
+        const {
+            label,
+            placeholder
+        } = this.props;
+
         const Component = this.DropdownTextComponent();
 
         return (
-            <div
+            <label
                 tabIndex={0}
-                ref={this.dropdown}
-                className={suitify({
+                className="Dropdown--Label"
+				ref={this.dropdown}>
+
+				<span className={'Input--Label'}>{label}</span>
+
+				<div className={suitify({
                     parent: 'Dropdown',
                     ...(this.isFilter() && {variant: 'Filter'})
-                })}>
-                <Component
-                    onChange={this.handleFilter}
-                    {...(this.isFilter() && {
-                        placeholder: 'Filter',
-                        value: filter
-                    })}
-                    className={suitify({
-                        parent: 'Dropdown',
-                        child: 'SelectedText'
-                    })}>
-                    {this.isFilter() ? null : this.state.selected.text}
-                </Component>
-                <div className="Dropdown-Wrapper">
-                    <ul className={classNames(
-                        suitify({
-                            parent: 'Dropdown',
-                            child: 'List'
-                        })
-                    )}>
-                        {this.renderList()}
-                    </ul>
-                </div>
-            </div>
+				})}>
+					<Component
+						onChange={this.handleFilter}
+						{...(this.isFilter() && {
+							placeholder: placeholder || 'Filter',
+							value: filter
+						})}
+						className={suitify({
+							parent: 'Dropdown',
+							child: 'SelectedText'
+						})}>
+						{this.isFilter() ? null : this.state.selected.text}
+					</Component>
+					<div className="Dropdown-Wrapper">
+						<ul className={classNames(
+							suitify({
+								parent: 'Dropdown',
+								child: 'List'
+							})
+						)}>
+							{this.renderList()}
+						</ul>
+					</div>
+				</div>
+            </label>
         );
 	}
 }

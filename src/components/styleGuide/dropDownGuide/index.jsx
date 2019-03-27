@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import Row from 'components/common/Layout/Row';
 import {Section} from 'styles/components/Section';
-import { DropDown, MultiSelect } from 'components/common/dropdown';
+import { Dropdown, MultiSelect } from 'components/common/dropdown';
 
 class DropdownGuide extends React.Component {
 
@@ -15,7 +15,7 @@ class DropdownGuide extends React.Component {
 					<h2>Dropdown</h2>
 					<p>Dropdowns present a list of options that can be used to filter existing content</p>
 					<Row>
-						<DropDown
+						<Dropdown
 							name={"Test"}
 							label={"Test"}
 							items={[
@@ -44,7 +44,7 @@ class DropdownGuide extends React.Component {
                 <Section>
 					<h2>Dropdown With Sublists</h2>
 					<Row>
-						<DropDown
+						<Dropdown
 							name={"Test"}
 							label={"Test"}
 							items={{
@@ -88,7 +88,7 @@ class DropdownGuide extends React.Component {
 					<h2>Filter Dropdown</h2>
 
 					<Row>
-                        <DropDown
+                        <Dropdown
                             type={'filter'}
                             name={"Test"}
                             label={"Test"}

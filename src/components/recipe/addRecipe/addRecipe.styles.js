@@ -105,4 +105,8 @@ export const AddRecipe = styled(StyledRecipe)`
             position: absolute;
         }
     }
+
+    .Button--Tertiary {
+        min-width: 8rem;
+    }
 `;

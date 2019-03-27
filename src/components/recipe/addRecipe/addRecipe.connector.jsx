@@ -38,13 +38,15 @@ class Connector extends React.Component {
             modalId: ModalConfig.GLOBAL.transactional.id,
             content: {
                 heading: "Add Ingredient",
-                Body: <AddIngredient
-                    handleInputUpdate={(props) => {
-                        this.setState({
-                            ingredient: props
-                        })
-                    }}
-                />,
+                Body: (
+                    <AddIngredient
+                        handleInputUpdate={(props) => {
+                            this.setState({
+                                ingredient: props
+                            })
+                        }}
+                    />
+                ),
                 buttons: {
                     Primary: {
                         text: "Add Ingredient",

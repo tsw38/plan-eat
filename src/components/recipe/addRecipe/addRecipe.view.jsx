@@ -122,7 +122,10 @@ export default ({
                                                     )}
 
                                                     <button
-                                                        className="Button Button--Primary"
+                                                        className={suitify({
+                                                            parent: 'Button',
+                                                            variant: 'Tertiary'
+                                                        })}
                                                         type="button"
                                                         onClick={() => handleAddToInputArray(helpers, values.directions.length + 1)}>
                                                         Add Direction
@@ -156,7 +159,10 @@ export default ({
                                                     )}
 
                                                     <button
-                                                        className="Button Button--Primary"
+                                                        className={suitify({
+                                                            parent: 'Button',
+                                                            variant: 'Tertiary'
+                                                        })}
                                                         type="button"
                                                         onClick={() => handleAddToInputArray(helpers, values.directions.length + 1)}>
                                                         Add Note
