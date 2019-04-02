@@ -119,6 +119,60 @@ export const getIngredients = (idArr) => (dispatch, getState, api) => {
     })
 }
 
+export const getAllIngredients = () => (dispatch, getState, api) => {
+    dispatch({
+        type: RC.INGREDIENTS_PENDING
+    })
+
+    return api({
+        query: `
+            query getIngredients {
+                ingredients {
+                    name,
+                    unit,
+                    id,
+                    nutrition {
+                        calories,
+                        protein,
+                        fat,
+                        carbs {
+                            absolute,
+                            dietaryFiber,
+                            sugar
+                        }
+                        sodium
+                        cholesterol
+                        allergies
+                    }
+                    category {
+                        name,
+                        id
+                    }
+                }
+            }
+        `
+    }).then(({data}) => {
+        const ingredients = data.data && data.data.ingredients.reduce((temp, ingredient) => ({
+            ...temp,
+            [ingredient.id]: ingredient
+        }), {});
+
+        if(!ingredients) {
+            dispatch({
+                type: RC.INGREDIENTS_ERROR,
+                payload: 'no ingredients?'
+            })
+        } else {
+            dispatch({
+                type: RC.INGREDIENTS_FETCHED,
+                payload: ingredients
+            })
+        }
+
+        return ingredients;
+    })
+}
+
 export const addIngredient = ({name, scaleType, measurement, servingSize, grocerSection, ...macros}) => (dispatch, getState, api) => {
     const isMass = (/mass/i).test(scaleType);
     //take the measurement and convert it to metric vol or mass

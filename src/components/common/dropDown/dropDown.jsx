@@ -12,6 +12,10 @@ class CustomDropdown extends React.Component {
         }
     }
 
+    componentDidMount() {
+        console.warn();
+    }
+
     dropdown = React.createRef();
 
     renderList = () => {
@@ -74,7 +78,15 @@ class CustomDropdown extends React.Component {
                 text: e.target.innerText
             }
         }, () => {
+
             this.dropdown.current.blur();
+
+            if (this.isFilter()) {
+                setTimeout(() => {
+                    this.dropdown.current.querySelector('.Dropdown-SelectedText').blur()
+                }, 250)
+            }
+
             this.setState({filter: this.state.selected.text})
         });
     }
@@ -107,7 +119,7 @@ class CustomDropdown extends React.Component {
             <label
                 tabIndex={0}
                 className="Dropdown--Label"
-				ref={this.dropdown}>
+                ref={this.dropdown}>
 
 				<span className={'Input--Label'}>{label}</span>
 

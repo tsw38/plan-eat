@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import ModalConfig from 'config/ModalsConfig';
 
+import { getAllIngredients } from 'actions/RecipeActions';
 import { injectModal, toggleModal } from 'actions/ModalActions';
 import AddIngredient from 'components/recipe/addRecipe/ingredient';
 
@@ -11,6 +12,10 @@ class Connector extends React.Component {
         file: {},
         servingSize: 1,
         imagePreviewUrl: "",
+    }
+
+    componentWillMount() {
+        this.props.getAllIngredients();
     }
 
     handleSubmit = (values) => {
@@ -34,7 +39,12 @@ class Connector extends React.Component {
     }
 
     handleAddIngredient = (inputHelper, index) => {
-        this.props.injectModal({
+        const {
+            injectModal,
+            ingredients
+        } = this.props;
+
+        injectModal({
             modalId: ModalConfig.GLOBAL.transactional.id,
             content: {
                 heading: "Add Ingredient",
@@ -45,6 +55,7 @@ class Connector extends React.Component {
                                 ingredient: props
                             })
                         }}
+                        ingredients={ingredients}
                     />
                 ),
                 buttons: {
@@ -113,12 +124,14 @@ class Connector extends React.Component {
     }
 }
 
-const mapStateToProps = ({app}, ownProps) => ({
+const mapStateToProps = ({app, ingredients}, ownProps) => ({
+    ingredients
 });
 
 const mapDispatchToProps = {
     injectModal,
-    toggleModal
+    toggleModal,
+    getAllIngredients
 };
 
 Connector.defaultProps = {

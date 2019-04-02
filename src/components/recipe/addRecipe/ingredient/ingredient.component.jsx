@@ -11,6 +11,10 @@ export default class AddIngredient extends React.Component {
     }
 
     render() {
+        const {
+            ingredients,
+            handleInputUpdate
+        } = this.props;
         console.warn(this.props, 'ingredient');
 
         return (
@@ -21,12 +25,10 @@ export default class AddIngredient extends React.Component {
                         name="name"
                         label="Ingredient Name"
                         placeholder="Ingredient Name"
-                        items={[
-                            ...this.state[this.state.measurement].map((scale, i) => ({
-                                id: scale.abbr,
-                                text: `${scale.plural} (${scale.abbr})`
-                            }))
-                        ]}
+                        items={Object.keys(ingredients).map((id) => ({
+                            id,
+                            text: ingredients[id].name
+                        }))}
                     />
                 </div>
 
@@ -37,7 +39,7 @@ export default class AddIngredient extends React.Component {
                     className="Serving"
                     onChange={(e) => {
                         console.warn('etargetvalue', e.target.value);
-                        this.props.handleInputUpdate({
+                        handleInputUpdate({
                             input: e.target.value
                         })
                     }}
